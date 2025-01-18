@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import { useScrollDirection } from "@/hooks/useScrollDirection";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const isVisible = useScrollDirection();
 
   return (
-    <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+    <nav className={`fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm transition-transform duration-300 ${
+      isVisible ? "translate-y-0" : "-translate-y-full"
+    }`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="text-xl font-bold text-business-primary">
