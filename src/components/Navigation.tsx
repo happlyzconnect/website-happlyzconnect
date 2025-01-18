@@ -6,7 +6,7 @@ export const Navigation = () => {
 
   return (
     <nav className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative">
         <div className="flex justify-between items-center h-16">
           <div className="text-xl font-bold text-business-primary">
             VotreEntreprise
@@ -36,7 +36,7 @@ export const Navigation = () => {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden absolute w-full bg-white/90 backdrop-blur-sm shadow-lg">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {["Accueil", "À propos", "Services", "Contact"].map((item) => (
                 <a
