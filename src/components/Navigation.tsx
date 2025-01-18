@@ -7,8 +7,8 @@ export const Navigation = () => {
   const isVisible = useScrollDirection();
 
   return (
-    <nav className={`fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm transition-transform duration-300 ${
-      isVisible ? "translate-y-0" : "-translate-y-full"
+    <nav className={`fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm transition-all duration-500 ease-in-out ${
+      isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
