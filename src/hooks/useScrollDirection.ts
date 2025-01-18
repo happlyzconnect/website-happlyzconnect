@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 export const useScrollDirection = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const controlNavbar = () => {
@@ -15,6 +16,7 @@ export const useScrollDirection = () => {
       }
       
       setLastScrollY(currentScrollY);
+      setScrollY(currentScrollY);
     };
 
     window.addEventListener("scroll", controlNavbar);
@@ -24,5 +26,5 @@ export const useScrollDirection = () => {
     };
   }, [lastScrollY]);
 
-  return isVisible;
+  return { isVisible, scrollY };
 };
