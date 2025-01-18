@@ -4,7 +4,7 @@ import { useScrollDirection } from "@/hooks/useScrollDirection";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { isVisible, scrollY } = useScrollDirection();
+  const { scrollY } = useScrollDirection();
 
   // Calculer la hauteur et l'opacité en fonction du scroll
   const navHeight = Math.max(64, 96 - scrollY / 2); // De 96px à 64px
@@ -12,9 +12,7 @@ export const Navigation = () => {
 
   return (
     <nav 
-      className={`fixed w-full backdrop-blur-sm z-50 shadow-sm transition-all duration-500 ease-in-out ${
-        isVisible ? "translate-y-0 opacity-100" : "-translate-y-full opacity-0"
-      }`}
+      className="fixed w-full backdrop-blur-sm z-50 shadow-sm transition-all duration-500 ease-in-out"
       style={{
         height: `${navHeight}px`,
         backgroundColor: `rgba(255, 255, 255, ${bgOpacity})`,
