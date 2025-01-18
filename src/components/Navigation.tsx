@@ -37,12 +37,12 @@ export const Navigation = () => {
         {/* Mobile menu */}
         {isOpen && (
           <div className="md:hidden fixed left-0 right-0 top-16 bg-white/90 backdrop-blur-sm shadow-lg">
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="flex flex-col">
               {["Accueil", "À propos", "Services", "Contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="block px-3 py-2 text-gray-600 hover:text-business-accent transition-colors"
+                  className="px-4 py-2 text-gray-600 hover:text-business-accent hover:bg-gray-50 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item}
