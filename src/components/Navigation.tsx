@@ -64,7 +64,7 @@ export const Navigation = () => {
                       <Globe size={14} />
                       <span className="text-sm">{currentLanguage}</span>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="bg-white" sideOffset={5}>
+                    <DropdownMenuContent className="bg-white z-50" sideOffset={5}>
                       <DropdownMenuItem onClick={() => setCurrentLanguage("FR")}>
                         <span className="mr-2">🇫🇷</span> Français
                       </DropdownMenuItem>
