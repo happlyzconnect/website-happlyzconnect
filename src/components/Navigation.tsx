@@ -14,7 +14,7 @@ export const Navigation = () => {
     <nav 
       className="fixed w-full backdrop-blur-sm z-50 shadow-sm"
       style={{
-        height: "72px", // Réduit de 96px à 72px
+        height: "72px",
         backgroundColor: "#14213D",
       }}
     >
@@ -22,9 +22,9 @@ export const Navigation = () => {
         <div className="flex h-full">
           {/* Logo column */}
           <div className="h-full flex items-center pr-8">
-            <div className="h-5"> {/* Réduit de h-6 à h-5 */}
+            <div className="h-5">
               <img 
-                src="/lovable-uploads/568f7f6e-6e8a-4cea-9f70-11e6adee9c77.png"
+                src="/lovable-uploads/3aeebb1d-9d36-4a6a-a47f-cd05d216f482.png"
                 alt="Happlyz Connect" 
                 className="h-full object-contain"
               />
@@ -34,14 +34,14 @@ export const Navigation = () => {
           {/* Content column */}
           <div className="flex-1 flex flex-col justify-between">
             {/* Top row with contact info */}
-            <div className="flex justify-end items-center py-1"> {/* Réduit de py-2 à py-1 */}
+            <div className="flex justify-end items-center py-1">
               <div className="hidden md:flex items-center space-x-6">
                 <div className="flex items-center space-x-2">
-                  <Phone size={14} style={textColorStyle} /> {/* Réduit de 16 à 14 */}
+                  <Phone size={14} style={textColorStyle} />
                   <span style={textColorStyle} className="text-sm">01 85 39 01 67</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Mail size={14} style={textColorStyle} /> {/* Réduit de 16 à 14 */}
+                  <Mail size={14} style={textColorStyle} />
                   <a 
                     href="mailto:contact@happlyz.com" 
                     style={textColorStyle} 
@@ -63,7 +63,7 @@ export const Navigation = () => {
             </div>
 
             {/* Bottom row with navigation links */}
-            <div className="hidden md:flex justify-end items-center pb-2"> {/* Réduit de pb-4 à pb-2 */}
+            <div className="hidden md:flex justify-end items-center pb-2">
               {["Accueil", "Services", "Réalisations", "Contact"].map((item) => (
                 <a
                   key={item}
