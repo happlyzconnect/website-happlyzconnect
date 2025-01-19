@@ -7,8 +7,14 @@ export const Navigation = () => {
   const { scrollY } = useScrollDirection();
 
   // Calculer la hauteur et l'opacité en fonction du scroll de manière plus progressive
-  const navHeight = Math.max(64, 96 - (scrollY / 4)); // Ralentissement de la réduction de hauteur
-  const bgOpacity = Math.min(0.9, scrollY / 200); // Ralentissement de l'augmentation de l'opacité
+  const navHeight = Math.max(64, 96 - (scrollY / 4));
+  const bgOpacity = Math.min(0.9, scrollY / 200);
+  
+  // Calculer la couleur du texte en fonction de l'opacité du fond
+  const textColorStyle = {
+    color: `rgb(${20 + (255-20) * (1-bgOpacity)}, ${33 + (255-33) * (1-bgOpacity)}, ${61 + (255-61) * (1-bgOpacity)})`,
+    transition: 'color 700ms ease-in-out'
+  };
 
   return (
     <nav 
@@ -20,14 +26,15 @@ export const Navigation = () => {
     >
       <div className="container mx-auto px-4 h-full">
         <div className="flex justify-between items-center h-full">
-          <div className="text-xl font-bold text-white">
+          <div className="text-xl font-bold" style={textColorStyle}>
             VotreEntreprise
           </div>
           
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden text-white"
+            className="md:hidden"
+            style={textColorStyle}
           >
             {isOpen ? <X /> : <Menu />}
           </button>
@@ -38,7 +45,8 @@ export const Navigation = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-white hover:text-business-accent transition-colors"
+                className="hover:text-business-accent transition-colors"
+                style={textColorStyle}
               >
                 {item}
               </a>
