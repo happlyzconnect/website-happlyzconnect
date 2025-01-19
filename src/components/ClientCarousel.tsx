@@ -17,7 +17,7 @@ const clients = [
     id: 2,
     name: "Géant Casino",
     logo: "/lovable-uploads/38d126ad-eba7-4d7d-85c1-cb41469680bf.png",
-    className: "scale-150" // Ajout d'une classe spécifique pour ce logo
+    className: "scale-150"
   },
   {
     id: 3,
@@ -32,22 +32,22 @@ const clients = [
   {
     id: 5,
     name: "MSA",
-    logo: "https://www.msa.fr/themes/custom/msa_theme/images/logo-msa.svg",
+    logo: "/lovable-uploads/ec4384d3-38ac-41ab-b9ea-93796b792b22.png",
   },
   {
     id: 6,
     name: "ADVEO",
-    logo: "https://www.adveo.com/wp-content/uploads/2019/03/adveo-logo.png",
+    logo: "/lovable-uploads/bb6b76a3-bda7-49e7-bf65-c515d63c871d.png",
   },
   {
     id: 7,
     name: "Ministère de l'éducation nationale",
-    logo: "https://www.education.gouv.fr/sites/default/files/styles/image_bandeau/public/2020-02/logo-menj-1257776.jpg",
+    logo: "/lovable-uploads/55a109ad-89c2-44b1-92c8-81f7dfb4aa63.png",
   },
   {
     id: 8,
     name: "Ministère des armées",
-    logo: "https://www.defense.gouv.fr/sites/default/files/ministere-armees/Logo_Minarm.png",
+    logo: "/lovable-uploads/eec9b5b7-0231-42b9-9c55-a7e936bba042.png",
   },
   {
     id: 9,
