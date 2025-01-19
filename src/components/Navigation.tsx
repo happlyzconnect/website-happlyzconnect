@@ -71,7 +71,7 @@ export const Navigation = () => {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="hover:text-[#56C7E1] transition-colors px-4"
+                  className="px-4 transition-colors duration-300 hover:text-[#56C7E1]"
                   style={textColorStyle}
                 >
                   {item}
@@ -101,7 +101,7 @@ export const Navigation = () => {
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="px-4 py-2 text-white hover:text-[#56C7E1] hover:bg-white/10 transition-colors"
+                  className="px-4 py-2 text-white transition-colors duration-300 hover:text-[#56C7E1]"
                   onClick={() => setIsOpen(false)}
                 >
                   {item}
