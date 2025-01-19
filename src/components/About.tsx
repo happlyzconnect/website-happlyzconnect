@@ -17,7 +17,7 @@ export const About = () => {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             {[
-              { title: "Installations Réalisées", value: "250+" },
+              { title: "Installations réalisées", value: "250+" },
               { title: "Clients Satisfaits", value: "40+" },
             ].map((stat) => (
               <div key={stat.title} className="p-6 bg-white rounded-lg shadow-sm">
