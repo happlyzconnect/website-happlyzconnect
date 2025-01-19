@@ -7,7 +7,8 @@ export const About = () => {
             À propos de nous
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Depuis 2016, nous concevons des solutions audiovisuelles sur mesure grâce à notre expertise technique et notre approche centrée client. <strong>Réactivité</strong>, <strong>innovation</strong> et <strong>excellence</strong> font de nous un partenaire de confiance pour vos projets.
+            Depuis 2016, nous concevons des solutions audiovisuelles sur mesure grâce à notre expertise technique et notre approche centrée client.<br />
+            <strong>Réactivité</strong>, <strong>innovation</strong> et <strong>excellence</strong> font de nous un partenaire de confiance pour vos projets.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             {[
