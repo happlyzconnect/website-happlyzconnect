@@ -1,10 +1,17 @@
 import { useState } from "react";
-import { Menu, X, Phone, Mail } from "lucide-react";
+import { Menu, X, Phone, Mail, Globe } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScrollDirection();
+  const [currentLanguage, setCurrentLanguage] = useState("FR");
   
   const textColorStyle = {
     color: '#FFFFFF'
@@ -22,7 +29,7 @@ export const Navigation = () => {
         <div className="flex h-full">
           {/* Logo column */}
           <div className="h-full flex items-center pr-8">
-            <div className="h-8"> {/* Modifié de h-5 à h-8 */}
+            <div className="h-8">
               <img 
                 src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
                 alt="Happlyz Connect" 
@@ -49,6 +56,22 @@ export const Navigation = () => {
                   >
                     contact@happlyz.com
                   </a>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <DropdownMenu>
+                    <DropdownMenuTrigger className="flex items-center space-x-1 text-white hover:text-[#56C7E1]">
+                      <Globe size={14} />
+                      <span className="text-sm">{currentLanguage}</span>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="bg-white">
+                      <DropdownMenuItem onClick={() => setCurrentLanguage("FR")}>
+                        <span className="mr-2">🇫🇷</span> Français
+                      </DropdownMenuItem>
+                      <DropdownMenuItem onClick={() => setCurrentLanguage("EN")}>
+                        <span className="mr-2">🇬🇧</span> English
+                      </DropdownMenuItem>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
                 </div>
               </div>
 
@@ -96,6 +119,15 @@ export const Navigation = () => {
                   >
                     contact@happlyz.com
                   </a>
+                </div>
+                <div className="flex items-center space-x-2 text-white">
+                  <Globe size={14} />
+                  <button 
+                    onClick={() => setCurrentLanguage(currentLanguage === "FR" ? "EN" : "FR")}
+                    className="text-sm hover:text-[#56C7E1]"
+                  >
+                    {currentLanguage === "FR" ? "🇫🇷 Français" : "🇬🇧 English"}
+                  </button>
                 </div>
               </div>
               {/* Mobile navigation links */}
