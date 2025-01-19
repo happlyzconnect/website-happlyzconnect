@@ -19,7 +19,7 @@ export const Navigation = () => {
 
   return (
     <nav 
-      className="fixed w-full backdrop-blur-sm shadow-sm"
+      className="fixed w-full shadow-sm"
       style={{
         height: "72px",
         backgroundColor: "#14213D",
