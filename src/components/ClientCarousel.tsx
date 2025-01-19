@@ -7,11 +7,18 @@ import {
 import { motion } from "framer-motion";
 import Autoplay from "embla-carousel-autoplay";
 
-const clients = Array.from({ length: 20 }, (_, i) => ({
-  id: i + 1,
-  name: `Client ${i + 1}`,
-  logo: `https://placehold.co/200x100/e2e8f0/64748b?text=Logo+${i + 1}`,
-}));
+const clients = [
+  {
+    id: 1,
+    name: "Decathlon",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Decathlon_Logo.svg/2560px-Decathlon_Logo.svg.png",
+  },
+  ...Array.from({ length: 19 }, (_, i) => ({
+    id: i + 2,
+    name: `Client ${i + 2}`,
+    logo: `https://placehold.co/200x100/e2e8f0/64748b?text=Logo+${i + 2}`,
+  })),
+];
 
 export const ClientCarousel = () => {
   const plugin = React.useMemo(() => Autoplay({ delay: 5000, stopOnInteraction: false }), []);
