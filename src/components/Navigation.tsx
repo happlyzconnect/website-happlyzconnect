@@ -24,7 +24,7 @@ export const Navigation = () => {
           <div className="h-full flex items-center pr-8">
             <div className="h-5">
               <img 
-                src="/lovable-uploads/3aeebb1d-9d36-4a6a-a47f-cd05d216f482.png"
+                src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
                 alt="Happlyz Connect" 
                 className="h-full object-contain"
               />
