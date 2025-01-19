@@ -4,7 +4,7 @@ export const About = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-4xl font-bold mb-6 text-business-primary">
-            À Propos de Nous
+            À propos de nous
           </h2>
           <p className="text-lg text-gray-600 mb-8">
             Créé en 2016, nous avons développé un savoir-faire unique dans l'intégration 
