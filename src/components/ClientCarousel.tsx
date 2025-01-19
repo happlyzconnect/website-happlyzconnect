@@ -6,15 +6,17 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
+import Autoplay from "embla-carousel-autoplay";
 
 const clients = Array.from({ length: 20 }, (_, i) => ({
   id: i + 1,
   name: `Client ${i + 1}`,
-  // Utilisation de logos temporaires via placehold.co
   logo: `https://placehold.co/200x100/e2e8f0/64748b?text=Logo+${i + 1}`,
 }));
 
 export const ClientCarousel = () => {
+  const plugin = React.useMemo(() => Autoplay({ delay: 3000, stopOnInteraction: false }), []);
+
   return (
     <section className="py-16 bg-white">
       <div className="container mx-auto px-4">
@@ -37,6 +39,7 @@ export const ClientCarousel = () => {
             align: "start",
             loop: true,
           }}
+          plugins={[plugin]}
           className="w-full max-w-6xl mx-auto"
         >
           <CarouselContent className="-ml-2 md:-ml-4">
