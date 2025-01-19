@@ -6,13 +6,13 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScrollDirection();
 
-  // Calculer la hauteur et l'opacité en fonction du scroll
-  const navHeight = Math.max(64, 96 - scrollY / 2); // De 96px à 64px
-  const bgOpacity = Math.min(0.9, scrollY / 100); // De 0 à 0.9
+  // Calculer la hauteur et l'opacité en fonction du scroll de manière plus progressive
+  const navHeight = Math.max(64, 96 - (scrollY / 4)); // Ralentissement de la réduction de hauteur
+  const bgOpacity = Math.min(0.9, scrollY / 200); // Ralentissement de l'augmentation de l'opacité
 
   return (
     <nav 
-      className="fixed w-full backdrop-blur-sm z-50 shadow-sm transition-all duration-500 ease-in-out"
+      className="fixed w-full backdrop-blur-sm z-50 shadow-sm transition-all duration-700 ease-in-out"
       style={{
         height: `${navHeight}px`,
         backgroundColor: `rgba(255, 255, 255, ${bgOpacity})`,
