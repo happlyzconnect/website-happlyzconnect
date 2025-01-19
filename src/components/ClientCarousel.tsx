@@ -16,57 +16,57 @@ const clients = [
   {
     id: 2,
     name: "Géant Casino",
-    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=Géant+Casino`,
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Logo_G%C3%A9ant_Casino.svg/2560px-Logo_G%C3%A9ant_Casino.svg.png",
   },
   {
     id: 3,
     name: "Comexposium",
-    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=Comexposium`,
+    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/7/7d/Logo_Comexposium.svg/1280px-Logo_Comexposium.svg.png",
   },
   {
     id: 4,
     name: "RX",
-    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=RX`,
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/RX_logo.svg/2560px-RX_logo.svg.png",
   },
   {
     id: 5,
     name: "MSA",
-    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=MSA`,
+    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/9/90/Logo_MSA.svg/1280px-Logo_MSA.svg.png",
   },
   {
     id: 6,
     name: "ADVEO",
-    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=ADVEO`,
+    logo: "https://www.adveo.com/wp-content/uploads/2019/03/adveo-logo.png",
   },
   {
     id: 7,
     name: "Ministère de l'éducation nationale",
-    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=Ministère+de+l'éducation+nationale`,
+    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/3/37/Minist%C3%A8re_de_l%27%C3%89ducation_Nationale.svg/1280px-Minist%C3%A8re_de_l%27%C3%89ducation_Nationale.svg.png",
   },
   {
     id: 8,
     name: "Ministère des armées",
-    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=Ministère+des+armées`,
+    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/3/3b/Minist%C3%A8re_des_Arm%C3%A9es_%28depuis_2017%29.svg/1280px-Minist%C3%A8re_des_Arm%C3%A9es_%28depuis_2017%29.svg.png",
   },
   {
     id: 9,
     name: "CHIESI",
-    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=CHIESI`,
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Chiesi_Farmaceutici_logo.svg/2560px-Chiesi_Farmaceutici_logo.svg.png",
   },
   {
     id: 10,
     name: "LDLC Pro",
-    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=LDLC+Pro`,
+    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/5/51/Logo_LDLC.svg/1280px-Logo_LDLC.svg.png",
   },
   {
     id: 11,
     name: "SHELL",
-    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=SHELL`,
+    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/9/92/Shell_logo.svg/1280px-Shell_logo.svg.png",
   },
   {
     id: 12,
     name: "Parashop",
-    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=Parashop`,
+    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/2/2d/Logo_Parashop.svg/1280px-Logo_Parashop.svg.png",
   },
 ];
 
