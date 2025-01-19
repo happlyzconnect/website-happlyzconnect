@@ -52,22 +52,22 @@ const clients = [
   {
     id: 9,
     name: "CHIESI",
-    logo: "https://www.chiesi.com/img/logo-chiesi.svg",
+    logo: "/lovable-uploads/8e724d65-794a-4f72-8a5f-e11f630434b0.png",
   },
   {
     id: 10,
     name: "LDLC Pro",
-    logo: "https://www.ldlc-pro.com/Content/img/logo_ldlc.svg",
+    logo: "/lovable-uploads/03182aed-5f37-4d1a-be82-ec16661863f4.png",
   },
   {
     id: 11,
     name: "SHELL",
-    logo: "https://logos-marques.com/wp-content/uploads/2020/01/Shell-Logo.png",
+    logo: "/lovable-uploads/19b743ae-bd85-4856-a139-e57628ea5eaf.png",
   },
   {
     id: 12,
     name: "Parashop",
-    logo: "https://www.parashop.com/skin/frontend/parashop/default/images/logo.png",
+    logo: "/lovable-uploads/68fbf33c-72b6-4ab9-8903-64e0d903fa1d.png",
   },
 ];
 
