@@ -7,7 +7,7 @@ export const About = () => {
             À propos de nous
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Depuis 2016, nous concevons des solutions audiovisuelles sur mesure grâce à notre expertise technique et notre approche centrée client. <strong>Réactivité</strong>, <strong>innovation</strong> et <strong>excellence</strong> font de nous un partenaire de confiance pour vos projets.
+            Depuis 2016, nous accompagnons nos clients partout en France en proposant des solutions audiovisuelles professionnelles complètes, de la conception à la maintenance. Grâce à notre <strong>expertise technique</strong> et à notre <strong>approche centrée sur le client</strong>, nous réalisons des installations sur mesure, adaptées à divers espaces : salles de réunion, auditoriums, salles de classe, surfaces de vente ou d'exposition.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             {[
