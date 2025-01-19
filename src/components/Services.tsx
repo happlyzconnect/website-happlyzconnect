@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 export const Services = () => {
   const services = [
     {
-      title: "Salles de Réunion",
+      title: "Salles de réunion",
       description: "Équipements numériques professionnels pour vos espaces collaboratifs",
       icon: Monitor,
       details: [
@@ -15,7 +15,7 @@ export const Services = () => {
       ]
     },
     {
-      title: "Salles de Classe",
+      title: "Salles de classe",
       description: "Solutions interactives pour l'enseignement moderne",
       icon: School,
       details: [
@@ -26,7 +26,7 @@ export const Services = () => {
       ]
     },
     {
-      title: "Affichage Dynamique",
+      title: "Affichage dynamique",
       description: "Communication visuelle impactante pour votre entreprise",
       icon: Video,
       details: [
