@@ -22,7 +22,7 @@ const clients = [
   {
     id: 3,
     name: "Comexposium",
-    logo: "https://www.comexposium.fr/content/uploads/2021/03/comexposium-logo.png",
+    logo: "/lovable-uploads/c84db821-b445-4537-a9e1-981604fd2c2b.png",
   },
   {
     id: 4,
