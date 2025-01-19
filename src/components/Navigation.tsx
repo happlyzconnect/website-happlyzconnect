@@ -25,10 +25,10 @@ export const Navigation = () => {
       }}
     >
       <div className="container mx-auto px-4 h-full">
-        <div className="flex flex-col h-full">
-          {/* Top row with logo and contact info */}
-          <div className="flex justify-between items-center flex-1">
-            <div className="h-6">
+        <div className="flex h-full">
+          {/* Logo column */}
+          <div className="h-full flex items-center pr-8 border-r border-white/10">
+            <div className="h-12">
               <img 
                 src={bgOpacity >= 0.5 
                   ? "/lovable-uploads/568f7f6e-6e8a-4cea-9f70-11e6adee9c77.png"
@@ -38,41 +38,46 @@ export const Navigation = () => {
                 className="h-full object-contain transition-opacity duration-700"
               />
             </div>
-
-            {/* Contact info */}
-            <div className="hidden md:flex items-center space-x-6">
-              <div className="flex items-center space-x-2">
-                <Phone size={16} style={textColorStyle} />
-                <span style={textColorStyle} className="text-sm">01 85 39 01 67</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail size={16} style={textColorStyle} />
-                <span style={textColorStyle} className="text-sm">contact@happlyz.com</span>
-              </div>
-            </div>
-
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden"
-              style={textColorStyle}
-            >
-              {isOpen ? <X /> : <Menu />}
-            </button>
           </div>
 
-          {/* Bottom row with navigation links */}
-          <div className="hidden md:flex justify-center items-center py-2">
-            {["Accueil", "À propos", "Services", "Contact"].map((item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="hover:text-business-accent transition-colors px-4"
+          {/* Content column */}
+          <div className="flex-1 flex flex-col">
+            {/* Top row with contact info */}
+            <div className="flex justify-end items-center py-2">
+              <div className="hidden md:flex items-center space-x-6">
+                <div className="flex items-center space-x-2">
+                  <Phone size={16} style={textColorStyle} />
+                  <span style={textColorStyle} className="text-sm">01 85 39 01 67</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Mail size={16} style={textColorStyle} />
+                  <span style={textColorStyle} className="text-sm">contact@happlyz.com</span>
+                </div>
+              </div>
+
+              {/* Mobile menu button */}
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="md:hidden"
                 style={textColorStyle}
               >
-                {item}
-              </a>
-            ))}
+                {isOpen ? <X /> : <Menu />}
+              </button>
+            </div>
+
+            {/* Bottom row with navigation links */}
+            <div className="hidden md:flex justify-end items-center py-2">
+              {["Accueil", "À propos", "Services", "Contact"].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="hover:text-business-accent transition-colors px-4"
+                  style={textColorStyle}
+                >
+                  {item}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
