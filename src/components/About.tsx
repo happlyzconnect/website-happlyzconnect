@@ -21,7 +21,7 @@ export const About = () => {
               { title: "Clients Satisfaits", value: "40+" },
             ].map((stat) => (
               <div key={stat.title} className="p-6 bg-white rounded-lg shadow-sm">
-                <div className="text-3xl font-bold text-business-accent mb-2">
+                <div className="text-3xl font-bold text-business-primary mb-2">
                   {stat.value}
                 </div>
                 <div className="text-gray-600">{stat.title}</div>
