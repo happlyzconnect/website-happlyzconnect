@@ -16,7 +16,7 @@ const clients = [
   ...Array.from({ length: 19 }, (_, i) => ({
     id: i + 2,
     name: `Client ${i + 2}`,
-    logo: `https://placehold.co/200x100/e2e8f0/64748b?text=Logo+${i + 2}`,
+    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=Logo+${i + 2}`,
   })),
 ];
 
