@@ -30,7 +30,7 @@ export const Navigation = () => {
     >
       <div className="container mx-auto px-4 h-full">
         <div className="flex justify-between items-center h-full">
-          <div className="h-8">
+          <div className="h-6">
             <img 
               src={bgOpacity >= 0.5 
                 ? "/lovable-uploads/568f7f6e-6e8a-4cea-9f70-11e6adee9c77.png"
