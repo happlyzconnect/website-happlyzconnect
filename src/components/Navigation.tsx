@@ -11,8 +11,12 @@ export const Navigation = () => {
   const bgOpacity = Math.min(0.9, scrollY / 200);
   
   // Calculer la couleur du texte en fonction de l'opacité du fond
+  // Quand bgOpacity est à 0, le texte est #14213D (20, 33, 61)
+  // Quand bgOpacity est à 0.9, le texte est blanc (255, 255, 255)
   const textColorStyle = {
-    color: `rgb(${20 + (255-20) * (1-bgOpacity)}, ${33 + (255-33) * (1-bgOpacity)}, ${61 + (255-61) * (1-bgOpacity)})`,
+    color: bgOpacity >= 0.5 
+      ? '#FFFFFF'
+      : `rgb(${20 + (255-20) * bgOpacity}, ${33 + (255-33) * bgOpacity}, ${61 + (255-61) * bgOpacity})`,
     transition: 'color 700ms ease-in-out'
   };
 
