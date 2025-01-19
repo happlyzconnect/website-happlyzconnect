@@ -1,41 +1,138 @@
+import { Check, MapPin, Settings, Monitor, School, Store, Video } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
 export const Services = () => {
   const services = [
     {
-      title: "Conseil Stratégique",
-      description: "Optimisez votre stratégie d'entreprise avec nos experts chevronnés.",
-      icon: "📊",
+      title: "Salles de Réunion",
+      description: "Équipements numériques professionnels pour vos espaces collaboratifs",
+      icon: Monitor,
+      details: [
+        "Écrans professionnels haute définition",
+        "Systèmes de visioconférence",
+        "Solutions de partage de documents",
+        "Vidéoprojecteurs dernière génération"
+      ]
     },
     {
-      title: "Développement Digital",
-      description: "Solutions numériques sur mesure pour votre croissance.",
-      icon: "💻",
+      title: "Salles de Classe",
+      description: "Solutions interactives pour l'enseignement moderne",
+      icon: School,
+      details: [
+        "Écrans Numériques Interactifs (ENI)",
+        "Vidéoprojecteurs interactifs",
+        "Systèmes audio intégrés",
+        "Solutions collaboratives"
+      ]
     },
     {
-      title: "Innovation Continue",
-      description: "Restez à la pointe avec nos solutions innovantes.",
-      icon: "🚀",
-    },
+      title: "Affichage Dynamique",
+      description: "Communication visuelle impactante pour votre entreprise",
+      icon: Video,
+      details: [
+        "Écrans d'affichage professionnel",
+        "Logiciels de diffusion de contenu",
+        "Création de contenus vidéo",
+        "Gestion centralisée multi-sites"
+      ]
+    }
+  ];
+
+  const clientTypes = [
+    { icon: Store, label: "Magasins & Boutiques" },
+    { icon: Monitor, label: "Entreprises" },
+    { icon: School, label: "Établissements Scolaires" }
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section id="services" className="py-20 bg-white">
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-business-primary">
-          Nos Services
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow"
-            >
-              <div className="text-4xl mb-4">{service.icon}</div>
-              <h3 className="text-xl font-semibold mb-3 text-business-primary">
-                {service.title}
-              </h3>
-              <p className="text-gray-600">{service.description}</p>
+        {/* En-tête */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-business-primary mb-6">
+            Nos Services Audiovisuels
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Spécialistes en solutions audiovisuelles professionnelles, nous accompagnons nos clients dans toute la France, de la conception à la maintenance.
+          </p>
+        </div>
+
+        {/* Types de clients */}
+        <div className="flex flex-wrap justify-center gap-8 mb-16">
+          {clientTypes.map((client) => (
+            <div key={client.label} className="flex items-center gap-3 bg-gray-50 px-6 py-3 rounded-full">
+              <client.icon className="w-6 h-6 text-business-primary" />
+              <span className="text-gray-700 font-medium">{client.label}</span>
             </div>
           ))}
+        </div>
+
+        {/* Services principaux */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {services.map((service) => (
+            <Card key={service.title} className="border-2 hover:border-business-primary transition-colors duration-300">
+              <CardHeader>
+                <service.icon className="w-12 h-12 text-business-primary mb-4" />
+                <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
+                <CardDescription>{service.description}</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="space-y-3">
+                  {service.details.map((detail) => (
+                    <li key={detail} className="flex items-start gap-2">
+                      <Check className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+                      <span className="text-gray-600">{detail}</span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Notre approche */}
+        <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h3 className="text-2xl font-bold text-business-primary mb-4">
+              Une Approche Globale
+            </h3>
+            <p className="text-gray-600">
+              Nous prenons en charge votre projet audiovisuel de A à Z, en vous accompagnant à chaque étape pour garantir une solution parfaitement adaptée à vos besoins.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                icon: Monitor,
+                title: "Conseil",
+                description: "Étude de vos besoins et proposition de solutions adaptées"
+              },
+              {
+                icon: Settings,
+                title: "Installation",
+                description: "Mise en place professionnelle de vos équipements"
+              },
+              {
+                icon: Video,
+                title: "Configuration",
+                description: "Paramétrage optimal de vos systèmes"
+              },
+              {
+                icon: MapPin,
+                title: "Maintenance",
+                description: "Support technique et maintenance sur toute la France"
+              }
+            ].map((step) => (
+              <div key={step.title} className="text-center">
+                <div className="bg-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <step.icon className="w-8 h-8 text-business-primary" />
+                </div>
+                <h4 className="font-semibold text-lg mb-2">{step.title}</h4>
+                <p className="text-gray-600 text-sm">{step.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
