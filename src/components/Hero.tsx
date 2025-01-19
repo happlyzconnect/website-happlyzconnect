@@ -18,7 +18,7 @@ export const Hero = () => {
             Nous accompagnons nos clients vers l'excellence numérique avec des solutions sur mesure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <button className="bg-business-accent hover:bg-business-accent/90 text-white font-semibold py-3 px-8 rounded-lg transition-colors">
+            <button className="bg-[#56C7E1] hover:bg-[#56C7E1]/90 text-white font-semibold py-3 px-8 rounded-lg transition-colors">
               Découvrir nos services
             </button>
             <button className="bg-white hover:bg-gray-100 text-business-primary font-semibold py-3 px-8 rounded-lg transition-colors">
