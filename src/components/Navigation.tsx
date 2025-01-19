@@ -8,11 +8,11 @@ export const Navigation = () => {
 
   // Calculer la hauteur et l'opacité en fonction du scroll de manière plus progressive
   const navHeight = Math.max(64, 96 - (scrollY / 4));
-  const bgOpacity = Math.min(0.9, scrollY / 200);
+  const bgOpacity = Math.min(1, scrollY / 200); // Changé de 0.9 à 1
   
   // Calculer la couleur du texte en fonction de l'opacité du fond
   // Quand bgOpacity est à 0, le texte est #14213D (20, 33, 61)
-  // Quand bgOpacity est à 0.9, le texte est blanc (255, 255, 255)
+  // Quand bgOpacity est à 1, le texte est blanc (255, 255, 255)
   const textColorStyle = {
     color: bgOpacity >= 0.5 
       ? '#FFFFFF'
