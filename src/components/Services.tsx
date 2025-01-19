@@ -46,7 +46,7 @@ export const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section id="services" className="py-12 bg-white">
       <div className="container mx-auto px-4">
         {/* En-tête */}
         <div className="text-center mb-16">
