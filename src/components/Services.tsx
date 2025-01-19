@@ -49,13 +49,10 @@ export const Services = () => {
     <section id="services" className="py-12 bg-white">
       <div className="container mx-auto px-4">
         {/* En-tête */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-8">
           <h2 className="text-4xl font-bold text-business-primary mb-6">
             Nos Services
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Spécialistes en solutions audiovisuelles professionnelles, nous accompagnons nos clients dans toute la France, de la conception à la maintenance.
-          </p>
         </div>
 
         {/* Types de clients */}
