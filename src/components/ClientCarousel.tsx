@@ -14,7 +14,7 @@ const clients = Array.from({ length: 20 }, (_, i) => ({
 }));
 
 export const ClientCarousel = () => {
-  const plugin = React.useMemo(() => Autoplay({ delay: 3000, stopOnInteraction: false }), []);
+  const plugin = React.useMemo(() => Autoplay({ delay: 5000, stopOnInteraction: false }), []);
 
   return (
     <section className="py-16 bg-white">
