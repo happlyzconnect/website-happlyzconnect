@@ -23,7 +23,7 @@ export const Navigation = () => {
       style={{
         height: "72px",
         backgroundColor: "#14213D",
-        zIndex: 40
+        zIndex: 30
       }}
     >
       <div className="container mx-auto px-4 h-full">
