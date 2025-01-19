@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
-import { Checkbox } from "@/components/ui/checkbox";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,13 +9,7 @@ export const Contact = () => {
     firstName: "",
     email: "",
     message: "",
-    companyType: {
-      retail: false,
-      privateCompany: false,
-      publicEntity: false,
-      educationalInstitution: false,
-      other: false,
-    },
+    companyType: "",
   });
   const { toast } = useToast();
 
@@ -31,13 +25,7 @@ export const Contact = () => {
       firstName: "",
       email: "",
       message: "",
-      companyType: {
-        retail: false,
-        privateCompany: false,
-        publicEntity: false,
-        educationalInstitution: false,
-        other: false,
-      },
+      companyType: "",
     });
   };
 
@@ -107,86 +95,42 @@ export const Contact = () => {
               <label className="block text-sm font-medium text-gray-700 mb-3">
                 Type de société
               </label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <RadioGroup
+                value={formData.companyType}
+                onValueChange={(value) => setFormData({ ...formData, companyType: value })}
+                className="grid grid-cols-1 md:grid-cols-2 gap-4"
+              >
                 <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="retail"
-                    checked={formData.companyType.retail}
-                    onCheckedChange={(checked) =>
-                      setFormData({
-                        ...formData,
-                        companyType: { ...formData.companyType, retail: checked as boolean },
-                      })
-                    }
-                  />
+                  <RadioGroupItem value="retail" id="retail" />
                   <label htmlFor="retail" className="text-sm text-gray-600">
                     Retail
                   </label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="privateCompany"
-                    checked={formData.companyType.privateCompany}
-                    onCheckedChange={(checked) =>
-                      setFormData({
-                        ...formData,
-                        companyType: { ...formData.companyType, privateCompany: checked as boolean },
-                      })
-                    }
-                  />
+                  <RadioGroupItem value="privateCompany" id="privateCompany" />
                   <label htmlFor="privateCompany" className="text-sm text-gray-600">
                     Entreprise privée
                   </label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="publicEntity"
-                    checked={formData.companyType.publicEntity}
-                    onCheckedChange={(checked) =>
-                      setFormData({
-                        ...formData,
-                        companyType: { ...formData.companyType, publicEntity: checked as boolean },
-                      })
-                    }
-                  />
+                  <RadioGroupItem value="publicEntity" id="publicEntity" />
                   <label htmlFor="publicEntity" className="text-sm text-gray-600">
                     Collectivité
                   </label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="educationalInstitution"
-                    checked={formData.companyType.educationalInstitution}
-                    onCheckedChange={(checked) =>
-                      setFormData({
-                        ...formData,
-                        companyType: {
-                          ...formData.companyType,
-                          educationalInstitution: checked as boolean,
-                        },
-                      })
-                    }
-                  />
+                  <RadioGroupItem value="educationalInstitution" id="educationalInstitution" />
                   <label htmlFor="educationalInstitution" className="text-sm text-gray-600">
                     Etablissement scolaire
                   </label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id="other"
-                    checked={formData.companyType.other}
-                    onCheckedChange={(checked) =>
-                      setFormData({
-                        ...formData,
-                        companyType: { ...formData.companyType, other: checked as boolean },
-                      })
-                    }
-                  />
+                  <RadioGroupItem value="other" id="other" />
                   <label htmlFor="other" className="text-sm text-gray-600">
                     Autre
                   </label>
                 </div>
-              </div>
+              </RadioGroup>
             </div>
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
