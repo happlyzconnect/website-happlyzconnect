@@ -67,10 +67,10 @@ export const Navigation = () => {
 
             {/* Bottom row with navigation links */}
             <div className="hidden md:flex justify-end items-center pb-4">
-              {["Accueil", "À propos", "Services", "Contact"].map((item) => (
+              {["Accueil", "Nos services", "Nos réalisations", "Contact"].map((item) => (
                 <a
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
                   className="px-4 transition-colors duration-300 hover:text-[#56C7E1]"
                   style={textColorStyle}
                 >
@@ -97,10 +97,10 @@ export const Navigation = () => {
                 </div>
               </div>
               {/* Mobile navigation links */}
-              {["Accueil", "À propos", "Services", "Contact"].map((item) => (
+              {["Accueil", "Nos services", "Nos réalisations", "Contact"].map((item) => (
                 <a
                   key={item}
-                  href={`#${item.toLowerCase()}`}
+                  href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
                   className="px-4 py-2 text-white transition-colors duration-300 hover:text-[#56C7E1]"
                   onClick={() => setIsOpen(false)}
                 >
