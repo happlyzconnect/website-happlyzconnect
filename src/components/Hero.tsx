@@ -17,7 +17,7 @@ export const Hero = () => {
           <p className="text-xl md:text-2xl mb-8 text-business-light/90 max-w-2xl mx-auto">
             Nous accompagnons votre entreprise vers l'excellence numérique avec des solutions sur mesure.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <button className="bg-business-accent hover:bg-business-accent/90 text-white font-semibold py-3 px-8 rounded-lg transition-colors">
               Découvrir nos services
             </button>
