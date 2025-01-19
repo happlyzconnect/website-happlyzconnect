@@ -51,7 +51,7 @@ export const Services = () => {
         {/* En-tête */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-business-primary mb-6">
-            Nos Services Audiovisuels
+            Nos Services
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Spécialistes en solutions audiovisuelles professionnelles, nous accompagnons nos clients dans toute la France, de la conception à la maintenance.
