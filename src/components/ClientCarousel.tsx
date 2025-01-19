@@ -11,27 +11,27 @@ const clients = [
   {
     id: 1,
     name: "Decathlon",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Decathlon_Logo.svg/2560px-Decathlon_Logo.svg.png",
+    logo: "https://logos-marques.com/wp-content/uploads/2020/01/Decathlon-logo.png",
   },
   {
     id: 2,
     name: "Géant Casino",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Logo_G%C3%A9ant_Casino.svg/2560px-Logo_G%C3%A9ant_Casino.svg.png",
+    logo: "https://logos-marques.com/wp-content/uploads/2021/03/Geant-Casino-Logo.png",
   },
   {
     id: 3,
     name: "Comexposium",
-    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/7/7d/Logo_Comexposium.svg/1280px-Logo_Comexposium.svg.png",
+    logo: "https://www.comexposium.fr/content/uploads/2021/03/comexposium-logo.png",
   },
   {
     id: 4,
     name: "RX",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/RX_logo.svg/2560px-RX_logo.svg.png",
+    logo: "https://rxglobal.com/images/RX_Logo_Grad_RGB.png",
   },
   {
     id: 5,
     name: "MSA",
-    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/9/90/Logo_MSA.svg/1280px-Logo_MSA.svg.png",
+    logo: "https://www.msa.fr/themes/custom/msa_theme/images/logo-msa.svg",
   },
   {
     id: 6,
@@ -41,32 +41,32 @@ const clients = [
   {
     id: 7,
     name: "Ministère de l'éducation nationale",
-    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/3/37/Minist%C3%A8re_de_l%27%C3%89ducation_Nationale.svg/1280px-Minist%C3%A8re_de_l%27%C3%89ducation_Nationale.svg.png",
+    logo: "https://www.education.gouv.fr/sites/default/files/styles/image_bandeau/public/2020-02/logo-menj-1257776.jpg",
   },
   {
     id: 8,
     name: "Ministère des armées",
-    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/3/3b/Minist%C3%A8re_des_Arm%C3%A9es_%28depuis_2017%29.svg/1280px-Minist%C3%A8re_des_Arm%C3%A9es_%28depuis_2017%29.svg.png",
+    logo: "https://www.defense.gouv.fr/sites/default/files/ministere-armees/Logo_Minarm.png",
   },
   {
     id: 9,
     name: "CHIESI",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Chiesi_Farmaceutici_logo.svg/2560px-Chiesi_Farmaceutici_logo.svg.png",
+    logo: "https://www.chiesi.com/img/logo-chiesi.svg",
   },
   {
     id: 10,
     name: "LDLC Pro",
-    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/5/51/Logo_LDLC.svg/1280px-Logo_LDLC.svg.png",
+    logo: "https://www.ldlc-pro.com/Content/img/logo_ldlc.svg",
   },
   {
     id: 11,
     name: "SHELL",
-    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/9/92/Shell_logo.svg/1280px-Shell_logo.svg.png",
+    logo: "https://logos-marques.com/wp-content/uploads/2020/01/Shell-Logo.png",
   },
   {
     id: 12,
     name: "Parashop",
-    logo: "https://upload.wikimedia.org/wikipedia/fr/thumb/2/2d/Logo_Parashop.svg/1280px-Logo_Parashop.svg.png",
+    logo: "https://www.parashop.com/skin/frontend/parashop/default/images/logo.png",
   },
 ];
 
