@@ -7,13 +7,7 @@ export const About = () => {
             À propos de nous
           </h2>
           <p className="text-lg text-gray-600 mb-8">
-            Créé en 2016, nous avons développé un savoir-faire unique dans l'intégration 
-            de systèmes audiovisuels professionnels. Notre expertise technique, combinée 
-            à notre approche centrée client, nous permet de délivrer des solutions 
-            sur-mesure qui répondent parfaitement aux besoins de nos clients. 
-            Notre engagement pour l'excellence, notre réactivité et notre capacité 
-            à innover font de nous un partenaire de confiance pour tous vos projets 
-            audiovisuels.
+            Depuis 2016, nous concevons des solutions audiovisuelles sur mesure grâce à notre expertise technique et notre approche centrée client. <strong>Réactivité</strong>, <strong>innovation</strong> et <strong>excellence</strong> font de nous un partenaire de confiance pour vos projets.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
             {[
