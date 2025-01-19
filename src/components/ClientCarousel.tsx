@@ -13,11 +13,61 @@ const clients = [
     name: "Decathlon",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Decathlon_Logo.svg/2560px-Decathlon_Logo.svg.png",
   },
-  ...Array.from({ length: 7 }, (_, i) => ({
-    id: i + 2,
-    name: `Client ${i + 2}`,
-    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=Logo+${i + 2}`,
-  })),
+  {
+    id: 2,
+    name: "Géant Casino",
+    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=Géant+Casino`,
+  },
+  {
+    id: 3,
+    name: "Comexposium",
+    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=Comexposium`,
+  },
+  {
+    id: 4,
+    name: "RX",
+    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=RX`,
+  },
+  {
+    id: 5,
+    name: "MSA",
+    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=MSA`,
+  },
+  {
+    id: 6,
+    name: "ADVEO",
+    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=ADVEO`,
+  },
+  {
+    id: 7,
+    name: "Ministère de l'éducation nationale",
+    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=Ministère+de+l'éducation+nationale`,
+  },
+  {
+    id: 8,
+    name: "Ministère des armées",
+    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=Ministère+des+armées`,
+  },
+  {
+    id: 9,
+    name: "CHIESI",
+    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=CHIESI`,
+  },
+  {
+    id: 10,
+    name: "LDLC Pro",
+    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=LDLC+Pro`,
+  },
+  {
+    id: 11,
+    name: "SHELL",
+    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=SHELL`,
+  },
+  {
+    id: 12,
+    name: "Parashop",
+    logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=Parashop`,
+  },
 ];
 
 export const ClientCarousel = () => {
