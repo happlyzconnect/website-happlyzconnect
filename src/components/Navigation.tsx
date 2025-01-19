@@ -41,7 +41,7 @@ export const Navigation = () => {
           </div>
 
           {/* Content column */}
-          <div className="flex-1 flex flex-col">
+          <div className="flex-1 flex flex-col justify-between">
             {/* Top row with contact info */}
             <div className="flex justify-end items-center py-2">
               <div className="hidden md:flex items-center space-x-6">
