@@ -1,18 +1,14 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone, Mail } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScrollDirection();
 
-  // Calculer la hauteur et l'opacité en fonction du scroll de manière plus progressive
   const navHeight = Math.max(64, 96 - (scrollY / 4));
-  const bgOpacity = Math.min(1, scrollY / 200); // Changé de 0.9 à 1
+  const bgOpacity = Math.min(1, scrollY / 200);
   
-  // Calculer la couleur du texte en fonction de l'opacité du fond
-  // Quand bgOpacity est à 0, le texte est #14213D (20, 33, 61)
-  // Quand bgOpacity est à 1, le texte est blanc (255, 255, 255)
   const textColorStyle = {
     color: bgOpacity >= 0.5 
       ? '#FFFFFF'
@@ -40,18 +36,21 @@ export const Navigation = () => {
               className="h-full object-contain transition-opacity duration-700"
             />
           </div>
-          
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden"
-            style={textColorStyle}
-          >
-            {isOpen ? <X /> : <Menu />}
-          </button>
 
-          {/* Desktop menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
+            {/* Contact info */}
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-2">
+                <Phone size={16} style={textColorStyle} />
+                <span style={textColorStyle} className="text-sm">01 85 39 01 67</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Mail size={16} style={textColorStyle} />
+                <span style={textColorStyle} className="text-sm">contact@happlyz.com</span>
+              </div>
+            </div>
+            
+            {/* Navigation links */}
             {["Accueil", "À propos", "Services", "Contact"].map((item) => (
               <a
                 key={item}
@@ -63,12 +62,33 @@ export const Navigation = () => {
               </a>
             ))}
           </div>
+          
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden"
+            style={textColorStyle}
+          >
+            {isOpen ? <X /> : <Menu />}
+          </button>
         </div>
 
         {/* Mobile menu */}
         {isOpen && (
           <div className="md:hidden fixed left-0 right-0 top-16 bg-business-primary/90 backdrop-blur-sm shadow-lg">
             <div className="flex flex-col">
+              {/* Mobile contact info */}
+              <div className="px-4 py-2 space-y-2 border-b border-white/10">
+                <div className="flex items-center space-x-2 text-white">
+                  <Phone size={16} />
+                  <span className="text-sm">01 85 39 01 67</span>
+                </div>
+                <div className="flex items-center space-x-2 text-white">
+                  <Mail size={16} />
+                  <span className="text-sm">contact@happlyz.com</span>
+                </div>
+              </div>
+              {/* Mobile navigation links */}
               {["Accueil", "À propos", "Services", "Contact"].map((item) => (
                 <a
                   key={item}
