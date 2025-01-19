@@ -5,23 +5,19 @@ import { useScrollDirection } from "@/hooks/useScrollDirection";
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScrollDirection();
-
-  const navHeight = Math.max(64, 96 - (scrollY / 4));
-  const bgOpacity = Math.min(1, scrollY / 200);
   
   const textColorStyle = {
-    color: bgOpacity >= 0.5 
+    color: scrollY >= 100 
       ? '#FFFFFF'
-      : `rgb(${20 + (255-20) * bgOpacity}, ${33 + (255-33) * bgOpacity}, ${61 + (255-61) * bgOpacity})`,
-    transition: 'color 700ms ease-in-out'
+      : '#14213D'
   };
 
   return (
     <nav 
-      className="fixed w-full backdrop-blur-sm z-50 shadow-sm transition-all duration-700 ease-in-out"
+      className="fixed w-full backdrop-blur-sm z-50 shadow-sm"
       style={{
-        height: `${navHeight}px`,
-        backgroundColor: `rgba(20, 33, 61, ${bgOpacity})`,
+        height: "96px",
+        backgroundColor: scrollY >= 100 ? "rgba(20, 33, 61, 1)" : "transparent",
       }}
     >
       <div className="container mx-auto px-4 h-full">
@@ -30,12 +26,12 @@ export const Navigation = () => {
           <div className="h-full flex items-center pr-8">
             <div className="h-6">
               <img 
-                src={bgOpacity >= 0.5 
+                src={scrollY >= 100
                   ? "/lovable-uploads/568f7f6e-6e8a-4cea-9f70-11e6adee9c77.png"
                   : "/lovable-uploads/a06afdfa-22c0-4e7b-b7ef-7116784098c4.png"
                 }
                 alt="Happlyz Connect" 
-                className="h-full object-contain transition-opacity duration-700"
+                className="h-full object-contain"
               />
             </div>
           </div>
@@ -54,7 +50,7 @@ export const Navigation = () => {
                   <a 
                     href="mailto:contact@happlyz.com" 
                     style={textColorStyle} 
-                    className="text-sm hover:text-[#56C7E1] transition-colors duration-300"
+                    className="text-sm hover:text-[#56C7E1]"
                   >
                     contact@happlyz.com
                   </a>
@@ -77,7 +73,7 @@ export const Navigation = () => {
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="px-4 transition-colors duration-300 hover:text-[#56C7E1]"
+                  className="px-4 hover:text-[#56C7E1]"
                   style={textColorStyle}
                 >
                   {item}
@@ -101,7 +97,7 @@ export const Navigation = () => {
                   <Mail size={16} />
                   <a 
                     href="mailto:contact@happlyz.com" 
-                    className="text-sm hover:text-[#56C7E1] transition-colors duration-300"
+                    className="text-sm hover:text-[#56C7E1]"
                   >
                     contact@happlyz.com
                   </a>
@@ -112,7 +108,7 @@ export const Navigation = () => {
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="px-4 py-2 text-white transition-colors duration-300 hover:text-[#56C7E1]"
+                  className="px-4 py-2 text-white hover:text-[#56C7E1]"
                   onClick={() => setIsOpen(false)}
                 >
                   {item}
