@@ -8,7 +8,7 @@ export const Hero = () => {
         style={{ backgroundPosition: '95% center' }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-business-primary/90 via-business-primary/70 to-transparent" />
-      <div className="container mx-auto px-4 relative z-20">
+      <div className="container mx-auto px-8 relative z-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
