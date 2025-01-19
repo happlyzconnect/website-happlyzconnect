@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 
 export const Hero = () => {
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services');
+    servicesSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-business-primary to-business-secondary text-white overflow-hidden pt-[72px]">
       <div 
@@ -22,7 +27,10 @@ export const Hero = () => {
             Nous accompagnons nos clients vers l'excellence numérique avec des solutions sur mesure.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-start mb-16">
-            <button className="bg-[#56C7E1] hover:bg-[#56C7E1]/90 text-white font-semibold py-3 px-8 rounded-lg transition-colors">
+            <button 
+              onClick={scrollToServices}
+              className="bg-[#56C7E1] hover:bg-[#56C7E1]/90 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
+            >
               Découvrir nos services
             </button>
             <button className="bg-white hover:bg-gray-100 text-business-primary font-semibold py-3 px-8 rounded-lg transition-colors">
