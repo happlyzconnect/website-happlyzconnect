@@ -11,7 +11,7 @@ const clients = [
   {
     id: 1,
     name: "Decathlon",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Logo_Decathlon_2013.png/1200px-Logo_Decathlon_2013.png",
+    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
   },
   {
     id: 2,
