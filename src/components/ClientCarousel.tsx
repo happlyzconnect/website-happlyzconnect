@@ -17,6 +17,7 @@ const clients = [
     id: 2,
     name: "Géant Casino",
     logo: "/lovable-uploads/38d126ad-eba7-4d7d-85c1-cb41469680bf.png",
+    className: "scale-150" // Ajout d'une classe spécifique pour ce logo
   },
   {
     id: 3,
@@ -107,7 +108,7 @@ export const ClientCarousel = () => {
                   <img
                     src={client.logo}
                     alt={`Logo ${client.name}`}
-                    className="w-full h-full object-contain"
+                    className={`w-full h-full object-contain ${client.className || ''}`}
                   />
                 </div>
               </CarouselItem>
