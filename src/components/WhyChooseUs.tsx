@@ -37,7 +37,7 @@ export const WhyChooseUs = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {reasons.map((reason, index) => (
             <motion.div
               key={reason.title}
@@ -60,6 +60,12 @@ export const WhyChooseUs = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="text-center">
+          <button className="bg-business-accent hover:bg-business-accent/90 text-white font-semibold py-4 px-8 rounded-lg transition-colors text-lg shadow-lg">
+            Obtenir un devis personnalisé
+          </button>
         </div>
       </div>
     </section>

@@ -135,6 +135,13 @@ export const Services = () => {
             ))}
           </div>
         </div>
+
+        {/* CTA Section */}
+        <div className="mt-16 text-center">
+          <button className="bg-business-primary hover:bg-business-primary/90 text-white font-semibold py-4 px-8 rounded-lg transition-colors text-lg">
+            Demander un devis gratuit
+          </button>
+        </div>
       </div>
     </section>
   );
