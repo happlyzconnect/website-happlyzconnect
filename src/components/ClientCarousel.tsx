@@ -3,8 +3,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import { motion } from "framer-motion";
 import Autoplay from "embla-carousel-autoplay";
@@ -39,6 +37,8 @@ export const ClientCarousel = () => {
           opts={{
             align: "start",
             loop: true,
+            dragFree: false,
+            draggable: false,
           }}
           plugins={[plugin]}
           className="w-full max-w-6xl mx-auto"
@@ -50,14 +50,12 @@ export const ClientCarousel = () => {
                   <img
                     src={client.logo}
                     alt={`Logo ${client.name}`}
-                    className="w-full h-auto object-contain hover:opacity-80 transition-opacity duration-300"
+                    className="w-full h-auto object-contain"
                   />
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden md:flex" />
-          <CarouselNext className="hidden md:flex" />
         </Carousel>
       </div>
     </section>
