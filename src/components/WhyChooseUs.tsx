@@ -5,22 +5,22 @@ export const WhyChooseUs = () => {
   const reasons = [
     {
       icon: Shield,
-      title: "Expertise Technique",
+      title: "Expertise technique",
       description: "Plus de 8 ans d'expérience dans l'intégration de solutions audiovisuelles professionnelles."
     },
     {
       icon: Users,
-      title: "Accompagnement Personnalisé",
+      title: "Accompagnement personnalisé",
       description: "Une équipe dédiée qui vous accompagne de la conception à la maintenance de vos installations."
     },
     {
       icon: Check,
-      title: "Solutions Sur-Mesure",
+      title: "Solutions sur-mesure",
       description: "Des solutions adaptées à vos besoins spécifiques et à votre budget."
     },
     {
       icon: Clock,
-      title: "Réactivité Garantie",
+      title: "Réactivité garantie",
       description: "Une équipe technique disponible pour assurer le bon fonctionnement de vos équipements."
     }
   ];
