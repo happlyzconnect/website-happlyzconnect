@@ -27,7 +27,7 @@ const clients = [
   {
     id: 4,
     name: "RX",
-    logo: "https://rxglobal.com/images/RX_Logo_Grad_RGB.png",
+    logo: "/lovable-uploads/f5c4ccd9-3e0c-4214-8c98-2d65b936f03d.png",
   },
   {
     id: 5,
