@@ -7,9 +7,7 @@ export const Navigation = () => {
   const { scrollY } = useScrollDirection();
   
   const textColorStyle = {
-    color: scrollY >= 100 
-      ? '#FFFFFF'
-      : '#14213D'
+    color: '#FFFFFF'
   };
 
   return (
@@ -17,7 +15,7 @@ export const Navigation = () => {
       className="fixed w-full backdrop-blur-sm z-50 shadow-sm"
       style={{
         height: "96px",
-        backgroundColor: scrollY >= 100 ? "rgba(20, 33, 61, 1)" : "transparent",
+        backgroundColor: "#14213D",
       }}
     >
       <div className="container mx-auto px-4 h-full">
@@ -26,10 +24,7 @@ export const Navigation = () => {
           <div className="h-full flex items-center pr-8">
             <div className="h-6">
               <img 
-                src={scrollY >= 100
-                  ? "/lovable-uploads/568f7f6e-6e8a-4cea-9f70-11e6adee9c77.png"
-                  : "/lovable-uploads/a06afdfa-22c0-4e7b-b7ef-7116784098c4.png"
-                }
+                src="/lovable-uploads/568f7f6e-6e8a-4cea-9f70-11e6adee9c77.png"
                 alt="Happlyz Connect" 
                 className="h-full object-contain"
               />
