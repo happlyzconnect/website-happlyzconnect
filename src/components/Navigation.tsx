@@ -51,7 +51,13 @@ export const Navigation = () => {
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail size={16} style={textColorStyle} />
-                  <span style={textColorStyle} className="text-sm">contact@happlyz.com</span>
+                  <a 
+                    href="mailto:contact@happlyz.com" 
+                    style={textColorStyle} 
+                    className="text-sm hover:text-[#56C7E1] transition-colors duration-300"
+                  >
+                    contact@happlyz.com
+                  </a>
                 </div>
               </div>
 
@@ -93,7 +99,12 @@ export const Navigation = () => {
                 </div>
                 <div className="flex items-center space-x-2 text-white">
                   <Mail size={16} />
-                  <span className="text-sm">contact@happlyz.com</span>
+                  <a 
+                    href="mailto:contact@happlyz.com" 
+                    className="text-sm hover:text-[#56C7E1] transition-colors duration-300"
+                  >
+                    contact@happlyz.com
+                  </a>
                 </div>
               </div>
               {/* Mobile navigation links */}
