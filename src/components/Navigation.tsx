@@ -15,19 +15,19 @@ export const Navigation = () => {
       className="fixed w-full backdrop-blur-sm z-50 shadow-sm transition-all duration-700 ease-in-out"
       style={{
         height: `${navHeight}px`,
-        backgroundColor: `rgba(255, 255, 255, ${bgOpacity})`,
+        backgroundColor: `rgba(20, 33, 61, ${bgOpacity})`,
       }}
     >
       <div className="container mx-auto px-4 h-full">
         <div className="flex justify-between items-center h-full">
-          <div className="text-xl font-bold text-business-primary">
+          <div className="text-xl font-bold text-white">
             VotreEntreprise
           </div>
           
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden"
+            className="md:hidden text-white"
           >
             {isOpen ? <X /> : <Menu />}
           </button>
@@ -38,7 +38,7 @@ export const Navigation = () => {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-gray-600 hover:text-business-accent transition-colors"
+                className="text-white hover:text-business-accent transition-colors"
               >
                 {item}
               </a>
@@ -48,13 +48,13 @@ export const Navigation = () => {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="md:hidden fixed left-0 right-0 top-16 bg-white/90 backdrop-blur-sm shadow-lg">
+          <div className="md:hidden fixed left-0 right-0 top-16 bg-business-primary/90 backdrop-blur-sm shadow-lg">
             <div className="flex flex-col">
               {["Accueil", "À propos", "Services", "Contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase()}`}
-                  className="px-4 py-2 text-gray-600 hover:text-business-accent hover:bg-gray-50 transition-colors"
+                  className="px-4 py-2 text-white hover:text-business-accent hover:bg-white/10 transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item}

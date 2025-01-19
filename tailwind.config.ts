@@ -53,7 +53,7 @@ export default {
           foreground: "hsl(var(--card-foreground))",
         },
         business: {
-          primary: "#2D3748",
+          primary: "#14213D",
           secondary: "#4A5568",
           accent: "#63B3ED",
           light: "#F7FAFC",
