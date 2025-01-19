@@ -22,7 +22,7 @@ export const Navigation = () => {
         <div className="flex h-full">
           {/* Logo column */}
           <div className="h-full flex items-center pr-8">
-            <div className="h-5">
+            <div className="h-8"> {/* Modifié de h-5 à h-8 */}
               <img 
                 src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
                 alt="Happlyz Connect" 
