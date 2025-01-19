@@ -25,21 +25,22 @@ export const Navigation = () => {
       }}
     >
       <div className="container mx-auto px-4 h-full">
-        <div className="flex justify-between items-center h-full">
-          <div className="h-6">
-            <img 
-              src={bgOpacity >= 0.5 
-                ? "/lovable-uploads/568f7f6e-6e8a-4cea-9f70-11e6adee9c77.png"
-                : "/lovable-uploads/a06afdfa-22c0-4e7b-b7ef-7116784098c4.png"
-              }
-              alt="Happlyz Connect" 
-              className="h-full object-contain transition-opacity duration-700"
-            />
-          </div>
+        <div className="flex flex-col h-full">
+          {/* Top row with logo and contact info */}
+          <div className="flex justify-between items-center flex-1">
+            <div className="h-6">
+              <img 
+                src={bgOpacity >= 0.5 
+                  ? "/lovable-uploads/568f7f6e-6e8a-4cea-9f70-11e6adee9c77.png"
+                  : "/lovable-uploads/a06afdfa-22c0-4e7b-b7ef-7116784098c4.png"
+                }
+                alt="Happlyz Connect" 
+                className="h-full object-contain transition-opacity duration-700"
+              />
+            </div>
 
-          <div className="hidden md:flex items-center space-x-8">
             {/* Contact info */}
-            <div className="flex items-center space-x-6">
+            <div className="hidden md:flex items-center space-x-6">
               <div className="flex items-center space-x-2">
                 <Phone size={16} style={textColorStyle} />
                 <span style={textColorStyle} className="text-sm">01 85 39 01 67</span>
@@ -49,28 +50,30 @@ export const Navigation = () => {
                 <span style={textColorStyle} className="text-sm">contact@happlyz.com</span>
               </div>
             </div>
-            
-            {/* Navigation links */}
+
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden"
+              style={textColorStyle}
+            >
+              {isOpen ? <X /> : <Menu />}
+            </button>
+          </div>
+
+          {/* Bottom row with navigation links */}
+          <div className="hidden md:flex justify-center items-center py-2">
             {["Accueil", "À propos", "Services", "Contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="hover:text-business-accent transition-colors"
+                className="hover:text-business-accent transition-colors px-4"
                 style={textColorStyle}
               >
                 {item}
               </a>
             ))}
           </div>
-          
-          {/* Mobile menu button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden"
-            style={textColorStyle}
-          >
-            {isOpen ? <X /> : <Menu />}
-          </button>
         </div>
 
         {/* Mobile menu */}
