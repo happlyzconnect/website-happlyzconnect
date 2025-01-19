@@ -67,7 +67,7 @@ export const Navigation = () => {
 
             {/* Bottom row with navigation links */}
             <div className="hidden md:flex justify-end items-center pb-4">
-              {["Accueil", "Nos services", "Nos réalisations", "Contact"].map((item) => (
+              {["Accueil", "Services", "Réalisations", "Contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
@@ -97,7 +97,7 @@ export const Navigation = () => {
                 </div>
               </div>
               {/* Mobile navigation links */}
-              {["Accueil", "Nos services", "Nos réalisations", "Contact"].map((item) => (
+              {["Accueil", "Services", "Réalisations", "Contact"].map((item) => (
                 <a
                   key={item}
                   href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
