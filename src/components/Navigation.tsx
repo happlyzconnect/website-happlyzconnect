@@ -28,7 +28,7 @@ export const Navigation = () => {
         <div className="flex h-full">
           {/* Logo column */}
           <div className="h-full flex items-center pr-8 border-r border-white/10">
-            <div className="h-12">
+            <div className="h-8">
               <img 
                 src={bgOpacity >= 0.5 
                   ? "/lovable-uploads/568f7f6e-6e8a-4cea-9f70-11e6adee9c77.png"
