@@ -12,10 +12,10 @@ const Index = () => {
       <Navigation />
       <main className="pt-16">
         <Hero />
+        <About />
         <Services />
         <WhyChooseUs />
         <ClientCarousel />
-        <About />
         <Contact />
       </main>
     </div>
