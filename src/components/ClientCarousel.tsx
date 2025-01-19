@@ -11,7 +11,7 @@ const clients = [
   {
     id: 1,
     name: "Decathlon",
-    logo: "https://logos-marques.com/wp-content/uploads/2020/01/Decathlon-logo.png",
+    logo: "/lovable-uploads/9577f219-3e69-4160-96c0-1a7704310d0f.png",
   },
   {
     id: 2,
@@ -103,11 +103,11 @@ export const ClientCarousel = () => {
           <CarouselContent className="-ml-2 md:-ml-4">
             {clients.map((client) => (
               <CarouselItem key={client.id} className="pl-2 md:pl-4 basis-1/4">
-                <div className="p-4">
+                <div className="p-4 h-24 flex items-center justify-center">
                   <img
                     src={client.logo}
                     alt={`Logo ${client.name}`}
-                    className="w-full h-auto object-contain"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </CarouselItem>
