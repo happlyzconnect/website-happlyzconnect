@@ -56,7 +56,7 @@ export const Services = () => {
         </div>
 
         {/* Types de clients */}
-        <div className="flex flex-wrap justify-center gap-6 mb-16">
+        <div className="flex flex-wrap justify-center gap-6 mb-8">
           {clientTypes.map((client) => (
             <div key={client.label} className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full text-sm">
               <client.icon className="w-4 h-4 text-business-primary" />
