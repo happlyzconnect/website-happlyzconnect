@@ -51,7 +51,7 @@ export const Services = () => {
         {/* En-tête */}
         <div className="text-center mb-8">
           <h2 className="text-4xl font-bold text-business-primary mb-6">
-            Nos Services
+            Nos services
           </h2>
         </div>
 
@@ -92,7 +92,7 @@ export const Services = () => {
         <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h3 className="text-2xl font-bold text-business-primary mb-4">
-              Une Approche Globale
+              Une approche globale
             </h3>
             <p className="text-gray-600">
               Nous prenons en charge votre projet audiovisuel de A à Z, en vous accompagnant à chaque étape pour garantir une solution parfaitement adaptée à vos besoins.
