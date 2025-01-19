@@ -3,7 +3,9 @@ import { motion } from "framer-motion";
 export const Hero = () => {
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services');
-    servicesSection?.scrollIntoView({ behavior: 'smooth' });
+    const navbarHeight = 72; // Hauteur de la navbar en pixels
+    const targetPosition = servicesSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
   };
 
   return (
