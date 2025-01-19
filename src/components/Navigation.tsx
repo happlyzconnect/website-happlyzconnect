@@ -19,10 +19,11 @@ export const Navigation = () => {
 
   return (
     <nav 
-      className="fixed w-full backdrop-blur-sm z-50 shadow-sm"
+      className="fixed w-full backdrop-blur-sm shadow-sm"
       style={{
         height: "72px",
         backgroundColor: "#14213D",
+        zIndex: 40
       }}
     >
       <div className="container mx-auto px-4 h-full">
@@ -63,7 +64,7 @@ export const Navigation = () => {
                       <Globe size={14} />
                       <span className="text-sm">{currentLanguage}</span>
                     </DropdownMenuTrigger>
-                    <DropdownMenuContent className="bg-white">
+                    <DropdownMenuContent className="bg-white" sideOffset={5}>
                       <DropdownMenuItem onClick={() => setCurrentLanguage("FR")}>
                         <span className="mr-2">🇫🇷</span> Français
                       </DropdownMenuItem>
