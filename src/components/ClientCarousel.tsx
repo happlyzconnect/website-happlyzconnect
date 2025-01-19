@@ -13,7 +13,7 @@ const clients = [
     name: "Decathlon",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Decathlon_Logo.svg/2560px-Decathlon_Logo.svg.png",
   },
-  ...Array.from({ length: 19 }, (_, i) => ({
+  ...Array.from({ length: 7 }, (_, i) => ({
     id: i + 2,
     name: `Client ${i + 2}`,
     logo: `https://placehold.co/200x100/F6F6F7/8E9196?text=Logo+${i + 2}`,
