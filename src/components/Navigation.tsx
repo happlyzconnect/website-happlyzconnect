@@ -66,7 +66,7 @@ export const Navigation = () => {
             </div>
 
             {/* Bottom row with navigation links */}
-            <div className="hidden md:flex justify-end items-center py-2">
+            <div className="hidden md:flex justify-end items-center pb-4">
               {["Accueil", "À propos", "Services", "Contact"].map((item) => (
                 <a
                   key={item}
