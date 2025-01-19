@@ -6,7 +6,7 @@ export const WhyChooseUs = () => {
     {
       icon: Shield,
       title: "Expertise Technique",
-      description: "Plus de 15 ans d'expérience dans l'intégration de solutions audiovisuelles professionnelles."
+      description: "Plus de 8 ans d'expérience dans l'intégration de solutions audiovisuelles professionnelles."
     },
     {
       icon: Users,
