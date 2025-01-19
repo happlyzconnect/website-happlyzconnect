@@ -16,7 +16,7 @@ const clients = [
   {
     id: 2,
     name: "Géant Casino",
-    logo: "https://logos-marques.com/wp-content/uploads/2021/03/Geant-Casino-Logo.png",
+    logo: "/lovable-uploads/38d126ad-eba7-4d7d-85c1-cb41469680bf.png",
   },
   {
     id: 3,
