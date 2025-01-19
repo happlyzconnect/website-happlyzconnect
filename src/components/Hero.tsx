@@ -12,7 +12,7 @@ export const Hero = () => {
           className="text-center"
         >
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)] bg-business-primary/40 p-4 rounded-lg backdrop-blur-sm inline-block">
-            Des installations sur mesure pour des expériences uniques
+            Solutions numériques pour des expériences uniques
           </h1>
           <p className="text-xl md:text-2xl mb-8 text-business-light/90 max-w-2xl mx-auto">
             Nous accompagnons votre entreprise vers l'excellence numérique avec des solutions sur mesure.
