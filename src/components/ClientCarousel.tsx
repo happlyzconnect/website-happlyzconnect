@@ -38,14 +38,14 @@ export const ClientCarousel = () => {
             align: "start",
             loop: true,
             dragFree: false,
-            draggable: false,
+            slidesToScroll: 4
           }}
           plugins={[plugin]}
           className="w-full max-w-6xl mx-auto"
         >
           <CarouselContent className="-ml-2 md:-ml-4">
             {clients.map((client) => (
-              <CarouselItem key={client.id} className="pl-2 md:pl-4 md:basis-1/4 lg:basis-1/5">
+              <CarouselItem key={client.id} className="pl-2 md:pl-4 basis-1/4">
                 <div className="p-4">
                   <img
                     src={client.logo}
