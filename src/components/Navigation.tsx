@@ -30,8 +30,12 @@ export const Navigation = () => {
     >
       <div className="container mx-auto px-4 h-full">
         <div className="flex justify-between items-center h-full">
-          <div className="text-xl font-bold" style={textColorStyle}>
-            VotreEntreprise
+          <div className="h-8">
+            <img 
+              src="/lovable-uploads/a06afdfa-22c0-4e7b-b7ef-7116784098c4.png" 
+              alt="Happlyz Connect" 
+              className="h-full object-contain"
+            />
           </div>
           
           {/* Mobile menu button */}
