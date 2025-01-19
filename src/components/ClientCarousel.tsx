@@ -108,7 +108,7 @@ export const ClientCarousel = () => {
                   <img
                     src={client.logo}
                     alt={`Logo ${client.name}`}
-                    className={`w-full h-full object-contain [filter:grayscale(100%)_brightness(0.2)_contrast(200%)_opacity(0.7)] hover:[filter:grayscale(0%)_brightness(1)_contrast(100%)_opacity(1)] transition-all duration-300 ${client.className || ''}`}
+                    className={`w-full h-full object-contain ${client.className || ''}`}
                   />
                 </div>
               </CarouselItem>
