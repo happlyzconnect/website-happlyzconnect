@@ -21,7 +21,7 @@ export const Hero = () => {
             <button className="bg-[#56C7E1] hover:bg-[#56C7E1]/90 text-white font-semibold py-3 px-8 rounded-lg transition-colors">
               Découvrir nos services
             </button>
-            <button className="bg-white hover:bg-gray-100 text-business-primary font-semibold py-3 px-8 rounded-lg transition-colors">
+            <button className="bg-[#E5E5E5] hover:bg-[#E5E5E5]/90 text-business-primary font-semibold py-3 px-8 rounded-lg transition-colors">
               Demander un devis
             </button>
           </div>
