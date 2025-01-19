@@ -27,7 +27,7 @@ export const Navigation = () => {
       <div className="container mx-auto px-4 h-full">
         <div className="flex h-full">
           {/* Logo column */}
-          <div className="h-full flex items-center pr-8 border-r border-white/10">
+          <div className="h-full flex items-center pr-8">
             <div className="h-6">
               <img 
                 src={bgOpacity >= 0.5 
