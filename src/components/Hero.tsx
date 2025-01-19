@@ -4,7 +4,7 @@ export const Hero = () => {
   return (
     <div className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-business-primary to-business-secondary text-white overflow-hidden pt-[72px]">
       <div 
-        className="absolute inset-0 bg-[url('/lovable-uploads/859d1346-c2f4-4363-bf7f-33b3073d4012.png')] bg-cover bg-right-top opacity-90"
+        className="absolute inset-0 bg-[url('/lovable-uploads/57f23413-fbca-41c3-a838-5478758e1a6f.png')] bg-cover bg-right-top opacity-90"
         style={{ backgroundPosition: '85% 20%' }}
       />
       <div className="absolute inset-0 bg-gradient-to-r from-business-primary/90 via-business-primary/70 to-transparent" />
