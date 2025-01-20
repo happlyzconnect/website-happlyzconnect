@@ -3,6 +3,9 @@ import { useToast } from "@/components/ui/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import emailjs from '@emailjs/browser';
 
+// Initialiser EmailJS avec la clé publique
+emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY);
+
 export const Contact = () => {
   const [formData, setFormData] = useState({
     companyName: "",
