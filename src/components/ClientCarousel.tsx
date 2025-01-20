@@ -116,20 +116,25 @@ export const ClientCarousel = () => {
           <CarouselContent className="-ml-2 md:-ml-4">
             {clients.map((client) => (
               <CarouselItem key={client.id} className="pl-2 md:pl-4 basis-1/4">
-                <div className="p-4 h-24 flex items-center justify-center">
+                <div className="p-4 h-32 flex items-center justify-center">
                   {client.url ? (
-                    <a href={client.url} target="_blank" rel="noopener noreferrer">
+                    <a 
+                      href={client.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full h-full flex items-center justify-center"
+                    >
                       <img
                         src={client.logo}
                         alt={`Logo ${client.name}`}
-                        className={`w-full h-full object-contain ${client.className || ''}`}
+                        className={`max-w-full max-h-full object-contain ${client.className || ''}`}
                       />
                     </a>
                   ) : (
                     <img
                       src={client.logo}
                       alt={`Logo ${client.name}`}
-                      className={`w-full h-full object-contain ${client.className || ''}`}
+                      className={`max-w-full max-h-full object-contain ${client.className || ''}`}
                     />
                   )}
                 </div>
