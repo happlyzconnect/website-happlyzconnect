@@ -69,7 +69,13 @@ export const Navigation = () => {
               <div className="hidden md:flex items-center space-x-6">
                 <div className="flex items-center space-x-2">
                   <Phone size={14} style={textColorStyle} />
-                  <span style={textColorStyle} className="text-sm">01 85 39 01 67</span>
+                  <a 
+                    href="tel:0185390167" 
+                    style={textColorStyle} 
+                    className="text-sm hover:text-[#56C7E1]"
+                  >
+                    01 85 39 01 67
+                  </a>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Mail size={14} style={textColorStyle} />
@@ -136,7 +142,12 @@ export const Navigation = () => {
               <div className="px-4 py-2 space-y-2 border-b border-white/10">
                 <div className="flex items-center space-x-2 text-white">
                   <Phone size={14} />
-                  <span className="text-sm">01 85 39 01 67</span>
+                  <a 
+                    href="tel:0185390167"
+                    className="text-sm hover:text-[#56C7E1]"
+                  >
+                    01 85 39 01 67
+                  </a>
                 </div>
                 <div className="flex items-center space-x-2 text-white">
                   <Mail size={14} />
