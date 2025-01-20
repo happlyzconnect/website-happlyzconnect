@@ -20,8 +20,8 @@ export const Contact = () => {
     
     try {
       await emailjs.send(
-        'YOUR_SERVICE_ID', // À remplacer par votre Service ID EmailJS
-        'YOUR_TEMPLATE_ID', // À remplacer par votre Template ID EmailJS
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           to_email: 'contact@happlyz.com',
           company_name: formData.companyName,
@@ -32,7 +32,7 @@ export const Contact = () => {
           message: formData.message,
           request_type: formData.requestType,
         },
-        'YOUR_PUBLIC_KEY' // À remplacer par votre Public Key EmailJS
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       toast({
@@ -50,6 +50,7 @@ export const Contact = () => {
         requestType: "",
       });
     } catch (error) {
+      console.error('EmailJS error:', error);
       toast({
         title: "Erreur",
         description: "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
