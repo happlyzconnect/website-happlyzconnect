@@ -74,8 +74,7 @@ export const Navigation = () => {
                   <Phone size={14} style={textColorStyle} />
                   <a 
                     href="tel:0185390167" 
-                    style={textColorStyle} 
-                    className="text-sm hover:text-[#56C7E1]"
+                    className="text-sm text-white hover:text-[#56C7E1] transition-colors"
                   >
                     01 85 39 01 67
                   </a>
@@ -84,8 +83,7 @@ export const Navigation = () => {
                   <Mail size={14} style={textColorStyle} />
                   <a 
                     href="mailto:contact@happlyz.com" 
-                    style={textColorStyle} 
-                    className="text-sm hover:text-[#56C7E1]"
+                    className="text-sm text-white hover:text-[#56C7E1] transition-colors"
                   >
                     contact@happlyz.com
                   </a>
@@ -131,7 +129,7 @@ export const Navigation = () => {
                   <button
                     key={item.label}
                     onClick={() => scrollToSection(item.id)}
-                    className="px-4 hover:text-[#56C7E1] text-white"
+                    className="px-4 hover:text-[#56C7E1] text-white transition-colors"
                   >
                     {item.label}
                   </button>
