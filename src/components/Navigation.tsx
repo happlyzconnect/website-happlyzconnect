@@ -17,6 +17,21 @@ export const Navigation = () => {
     color: '#FFFFFF'
   };
 
+  const scrollToSection = (sectionId: string) => {
+    if (sectionId === 'accueil') {
+      window.location.reload();
+      return;
+    }
+    
+    const section = document.getElementById(sectionId);
+    const navbarHeight = 72;
+    if (section) {
+      const targetPosition = section.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
+
   return (
     <nav 
       className="fixed w-full shadow-sm"
@@ -88,15 +103,18 @@ export const Navigation = () => {
 
             {/* Bottom row with navigation links */}
             <div className="hidden md:flex justify-end items-center pb-2">
-              {["Accueil", "Services", "Réalisations", "Contact"].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="px-4 hover:text-[#56C7E1]"
-                  style={textColorStyle}
+              {[
+                { label: "Accueil", id: "accueil" },
+                { label: "Services", id: "services" },
+                { label: "Contact", id: "contact" }
+              ].map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToSection(item.id)}
+                  className="px-4 hover:text-[#56C7E1] text-white"
                 >
-                  {item}
-                </a>
+                  {item.label}
+                </button>
               ))}
             </div>
           </div>
@@ -132,15 +150,18 @@ export const Navigation = () => {
                 </div>
               </div>
               {/* Mobile navigation links */}
-              {["Accueil", "Services", "Réalisations", "Contact"].map((item) => (
-                <a
-                  key={item}
-                  href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="px-4 py-2 text-white hover:text-[#56C7E1]"
-                  onClick={() => setIsOpen(false)}
+              {[
+                { label: "Accueil", id: "accueil" },
+                { label: "Services", id: "services" },
+                { label: "Contact", id: "contact" }
+              ].map((item) => (
+                <button
+                  key={item.label}
+                  onClick={() => scrollToSection(item.id)}
+                  className="px-4 py-2 text-white hover:text-[#56C7E1] text-left"
                 >
-                  {item}
-                </a>
+                  {item.label}
+                </button>
               ))}
             </div>
           </div>
