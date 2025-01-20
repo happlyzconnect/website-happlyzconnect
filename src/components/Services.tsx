@@ -64,13 +64,13 @@ export const Services = () => {
         {/* Image des techniciens */}
         <div className="relative mb-16">
           <div 
-            className="relative w-full h-[400px]"
+            className="relative w-full h-[300px]"
             style={{
-              backgroundImage: "url('/lovable-uploads/38d126ad-eba7-4d7d-85c1-cb41469680bf.png')",
+              backgroundImage: "url('/lovable-uploads/1b2e86b7-056b-4966-bb64-036b6d051d1f.png')",
               backgroundSize: 'cover',
-              backgroundPosition: 'center 30%',
+              backgroundPosition: 'center -50px', // Décalage vers le haut
               filter: 'brightness(0.9)',
-              clipPath: 'polygon(0 0, 100% 20%, 100% 100%, 0 80%)'
+              clipPath: 'polygon(0 20%, 100% 0%, 100% 100%, 0% 100%)'
             }}
           >
             <div 
@@ -97,6 +97,27 @@ export const Services = () => {
               <span className="text-gray-700">{client.label}</span>
             </div>
           ))}
+        </div>
+
+        {/* Image d'installation */}
+        <div className="relative mb-16">
+          <div 
+            className="relative w-full h-[300px]"
+            style={{
+              backgroundImage: "url('/lovable-uploads/d1266ec2-fb47-40cf-936d-49f96f2cabe0.png')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              filter: 'brightness(0.9)',
+              clipPath: 'polygon(0 20%, 100% 0%, 100% 100%, 0% 100%)'
+            }}
+          >
+            <div 
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(90deg, rgba(20, 33, 61, 0.3) 0%, rgba(20, 33, 61, 0.5) 100%)'
+              }}
+            ></div>
+          </div>
         </div>
 
         {/* Services principaux */}
@@ -169,6 +190,7 @@ export const Services = () => {
 
         {/* CTA Section with background image */}
         <div className="relative">
+          {/* Background image with overlay */}
           <div 
             className="relative w-full h-[300px]"
             style={{
