@@ -78,7 +78,15 @@ const ConditionsGenerales = () => {
 
           <section>
             <h2 className="text-2xl font-semibold mb-4">4. CONDITIONS DE REGLEMENT</h2>
-            {/* ... Contenu de la section */}
+            <p className="mb-4">
+              Le règlement des commandes s'effectue soit par chèque soit par virement bancaire selon les modalités figurant sur le devis signé.
+            </p>
+            <p className="mb-4">
+              La date d'échéance du règlement est indiquée sur la facture.
+            </p>
+            <p>
+              A défaut de mention spécifique, le délai de paiement s'appliquant sera de 30 jours à compter de la date d'émission de la facture.
+            </p>
           </section>
 
           <section>
