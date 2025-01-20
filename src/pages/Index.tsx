@@ -5,6 +5,7 @@ import { Services } from "@/components/Services";
 import { Contact } from "@/components/Contact";
 import { ClientCarousel } from "@/components/ClientCarousel";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
+import { Footer } from "@/components/Footer";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
         <ClientCarousel />
         <Contact />
       </main>
+      <Footer />
     </div>
   );
 };
