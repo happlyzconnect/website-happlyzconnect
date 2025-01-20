@@ -1,7 +1,15 @@
-import { Linkedin, Twitter } from "lucide-react";
+import { Linkedin, Twitter, ArrowUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "./ui/button";
 
 export const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+
   return (
     <footer className="bg-business-primary text-white mt-8">
       <div className="container mx-auto px-4 py-8">
@@ -56,9 +64,18 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-gray-700 mt-6 pt-4 text-center">
+        {/* Copyright and Back to Top */}
+        <div className="border-t border-gray-700 mt-6 pt-4 flex justify-between items-center">
           <p className="text-sm text-gray-400">© {new Date().getFullYear()} HAPPLYZ CONNECT</p>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={scrollToTop}
+            className="text-gray-400 hover:text-business-accent transition-colors flex items-center gap-2"
+          >
+            Haut du site
+            <ArrowUp size={16} />
+          </Button>
         </div>
       </div>
     </footer>
