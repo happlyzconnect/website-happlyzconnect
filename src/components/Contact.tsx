@@ -32,10 +32,10 @@ export const Contact = () => {
   };
 
   return (
-    <section className="py-20 bg-business-light" id="contact">
+    <section className="py-12 bg-business-light" id="contact">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-8 text-business-primary">
+          <h2 className="text-4xl font-bold text-center mb-6 text-business-primary">
             Contactez-nous
           </h2>
           <form onSubmit={handleSubmit} className="space-y-4">

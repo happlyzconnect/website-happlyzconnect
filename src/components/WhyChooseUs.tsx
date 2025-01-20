@@ -26,9 +26,9 @@ export const WhyChooseUs = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-12 bg-gray-50">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-business-primary mb-6">
             Pourquoi choisir HAPPLYZ CONNECT ?
           </h2>
@@ -62,7 +62,7 @@ export const WhyChooseUs = () => {
           ))}
         </div>
 
-        <div className="text-center">
+        <div className="text-center mt-12">
           <button className="bg-business-accent hover:bg-business-accent/90 text-white font-semibold py-4 px-8 rounded-lg transition-colors text-lg shadow-lg">
             Obtenir un devis personnalisé
           </button>
