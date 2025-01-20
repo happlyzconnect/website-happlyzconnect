@@ -36,7 +36,7 @@ export const Contact = () => {
       <div 
         className="relative w-full h-[300px]"
         style={{
-          backgroundImage: "url('/lovable-uploads/d915b1ae-d6f3-471b-8ae1-bbd2422bb08e.png')",
+          backgroundImage: "url('/lovable-uploads/33bd802c-0762-4850-93d8-fa1632bf49d6.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center top',
           filter: 'brightness(0.9)',
