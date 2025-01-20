@@ -59,7 +59,7 @@ export const Services = () => {
 
   return (
     <section id="services" className="bg-white">
-      <div className="relative w-full h-[300px] mb-12"
+      <div className="relative w-full h-[300px]"
         style={{
           backgroundImage: "url('/lovable-uploads/cfc81ca6-da37-4cc5-b6cb-69b25b8ba04f.png')",
           backgroundSize: 'cover',
@@ -78,7 +78,7 @@ export const Services = () => {
 
       <div className="container mx-auto px-4">
         {/* En-tête */}
-        <div className="text-center mb-8">
+        <div className="text-center">
           <h2 className="text-4xl font-bold text-business-primary mb-6">
             Nos services
           </h2>
