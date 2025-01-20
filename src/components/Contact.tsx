@@ -33,6 +33,33 @@ export const Contact = () => {
 
   return (
     <section className="py-12 bg-business-light" id="contact">
+      <div 
+        className="relative w-full h-[300px]"
+        style={{
+          backgroundImage: "url('/lovable-uploads/d915b1ae-d6f3-471b-8ae1-bbd2422bb08e.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          filter: 'brightness(0.9)',
+          clipPath: 'polygon(0 0%, 100% 0%, 100% 100%, 0% 80%)'
+        }}
+      >
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(90deg, rgba(20, 33, 61, 0.3) 0%, rgba(20, 33, 61, 0.5) 100%)'
+          }}
+        />
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+          <h3 className="text-3xl font-bold mb-4">Un projet ?</h3>
+          <p className="text-center mb-2">
+            Nos services sont joignables du lundi au vendredi
+          </p>
+          <p className="text-xl font-semibold">
+            01 85 39 01 67 / contact@happlyz.com
+          </p>
+        </div>
+      </div>
+
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-6 text-business-primary">
