@@ -12,6 +12,7 @@ const clients = [
     id: 1,
     name: "Decathlon",
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
+    url: "https://www.decathlon.fr/"
   },
   {
     id: 2,
@@ -105,11 +106,21 @@ export const ClientCarousel = () => {
             {clients.map((client) => (
               <CarouselItem key={client.id} className="pl-2 md:pl-4 basis-1/4">
                 <div className="p-4 h-24 flex items-center justify-center">
-                  <img
-                    src={client.logo}
-                    alt={`Logo ${client.name}`}
-                    className={`w-full h-full object-contain ${client.className || ''}`}
-                  />
+                  {client.url ? (
+                    <a href={client.url} target="_blank" rel="noopener noreferrer">
+                      <img
+                        src={client.logo}
+                        alt={`Logo ${client.name}`}
+                        className={`w-full h-full object-contain ${client.className || ''}`}
+                      />
+                    </a>
+                  ) : (
+                    <img
+                      src={client.logo}
+                      alt={`Logo ${client.name}`}
+                      className={`w-full h-full object-contain ${client.className || ''}`}
+                    />
+                  )}
                 </div>
               </CarouselItem>
             ))}
