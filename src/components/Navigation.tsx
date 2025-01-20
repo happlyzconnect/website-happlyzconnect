@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
+import { useLocation } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,6 +13,8 @@ export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { scrollY } = useScrollDirection();
   const [currentLanguage, setCurrentLanguage] = useState("FR");
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
   
   const textColorStyle = {
     color: '#FFFFFF'
@@ -106,36 +109,40 @@ export const Navigation = () => {
               </div>
 
               {/* Mobile menu button */}
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden"
-                style={textColorStyle}
-              >
-                {isOpen ? <X /> : <Menu />}
-              </button>
+              {isHomePage && (
+                <button
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="md:hidden"
+                  style={textColorStyle}
+                >
+                  {isOpen ? <X /> : <Menu />}
+                </button>
+              )}
             </div>
 
             {/* Bottom row with navigation links */}
-            <div className="hidden md:flex justify-end items-center pb-2">
-              {[
-                { label: "Accueil", id: "accueil" },
-                { label: "Services", id: "services" },
-                { label: "Contact", id: "contact" }
-              ].map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => scrollToSection(item.id)}
-                  className="px-4 hover:text-[#56C7E1] text-white"
-                >
-                  {item.label}
-                </button>
-              ))}
-            </div>
+            {isHomePage && (
+              <div className="hidden md:flex justify-end items-center pb-2">
+                {[
+                  { label: "Accueil", id: "accueil" },
+                  { label: "Services", id: "services" },
+                  { label: "Contact", id: "contact" }
+                ].map((item) => (
+                  <button
+                    key={item.label}
+                    onClick={() => scrollToSection(item.id)}
+                    className="px-4 hover:text-[#56C7E1] text-white"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
         {/* Mobile menu */}
-        {isOpen && (
+        {isOpen && isHomePage && (
           <div className="md:hidden fixed left-0 right-0 top-16 bg-business-primary/90 backdrop-blur-sm shadow-lg">
             <div className="flex flex-col">
               {/* Mobile contact info */}
