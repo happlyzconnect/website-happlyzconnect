@@ -1,6 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { Sections1to8 } from "@/components/conditions/Sections1to8";
 import { Sections9to12 } from "@/components/conditions/Sections9to12";
 import { Sections13to16 } from "@/components/conditions/Sections13to16";
@@ -8,6 +9,10 @@ import { Sections17to18 } from "@/components/conditions/Sections17to18";
 
 const ConditionsGenerales = () => {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleHomeClick = () => {
     navigate('/');
