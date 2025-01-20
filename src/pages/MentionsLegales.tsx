@@ -30,9 +30,17 @@ const MentionsLegales = () => {
 
           <section>
             <h2 className="text-2xl font-semibold mb-4">3. Hébergement</h2>
-            <p>
-              Ce site est hébergé par Lovable.
+            <p className="mb-4">
+              Ce site est hébergé par OVH SAS :
             </p>
+            <ul className="list-disc pl-6 space-y-2">
+              <li>Siège social : 2 rue Kellermann - 59100 Roubaix - France</li>
+              <li>SAS au capital de 10 174 560 €</li>
+              <li>RCS Lille Métropole 424 761 419 00045</li>
+              <li>Code APE 6202A</li>
+              <li>N° TVA : FR 22 424 761 419</li>
+              <li>Téléphone : +33 (0)8 99 70 17 61</li>
+            </ul>
           </section>
 
           <section>
