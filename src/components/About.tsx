@@ -27,8 +27,11 @@ export const About = () => {
             <h2 className="text-4xl font-bold mb-6 text-business-primary">
               Votre partenaire audiovisuel professionnel
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-gray-600 mb-6">
               HAPPLYZ CONNECT est une entreprise spécialisée dans l'intégration de solutions audiovisuelles professionnelles. Notre expertise nous permet d'accompagner nos clients dans la réalisation de leurs projets, de la conception à la maintenance.
+            </p>
+            <p className="text-xl text-gray-600 mb-8">
+              Que ce soit pour une salle de réunion, une salle de classe, une surface de vente ou un salon professionnel, nous concevons, installons, configurons et maintenons des systèmes adaptés à vos besoins. De l'idée à la réalisation, nous vous accompagnons à chaque étape pour garantir des installations performantes et parfaitement intégrées à votre environnement.
             </p>
             <button 
               onClick={scrollToContact}
