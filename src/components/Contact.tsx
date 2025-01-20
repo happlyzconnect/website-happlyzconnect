@@ -38,7 +38,7 @@ export const Contact = () => {
           <h2 className="text-4xl font-bold text-center mb-8 text-business-primary">
             Contactez-nous
           </h2>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-1">
                 Nom de la société <span className="text-red-500">*</span>
@@ -154,7 +154,7 @@ export const Contact = () => {
             >
               Envoyer
             </button>
-            <p className="text-sm text-gray-500">* champs obligatoires</p>
+            <p className="text-sm text-gray-500 mb-2">* champs obligatoires</p>
           </form>
         </div>
       </div>
