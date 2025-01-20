@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import emailjs from '@emailjs/browser';
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
@@ -14,21 +15,47 @@ export const Contact = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message envoyé !",
-      description: "Nous vous recontacterons dans les plus brefs délais.",
-    });
-    setFormData({
-      companyName: "",
-      lastName: "",
-      firstName: "",
-      email: "",
-      phone: "",
-      message: "",
-      requestType: "",
-    });
+    
+    try {
+      await emailjs.send(
+        'YOUR_SERVICE_ID', // À remplacer par votre Service ID EmailJS
+        'YOUR_TEMPLATE_ID', // À remplacer par votre Template ID EmailJS
+        {
+          to_email: 'contact@happlyz.com',
+          company_name: formData.companyName,
+          last_name: formData.lastName,
+          first_name: formData.firstName,
+          from_email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+          request_type: formData.requestType,
+        },
+        'YOUR_PUBLIC_KEY' // À remplacer par votre Public Key EmailJS
+      );
+
+      toast({
+        title: "Message envoyé !",
+        description: "Nous vous recontacterons dans les plus brefs délais.",
+      });
+
+      setFormData({
+        companyName: "",
+        lastName: "",
+        firstName: "",
+        email: "",
+        phone: "",
+        message: "",
+        requestType: "",
+      });
+    } catch (error) {
+      toast({
+        title: "Erreur",
+        description: "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
