@@ -19,7 +19,8 @@ export const Navigation = () => {
 
   const scrollToSection = (sectionId: string) => {
     if (sectionId === 'accueil') {
-      window.location.reload();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setIsOpen(false);
       return;
     }
     
@@ -30,6 +31,10 @@ export const Navigation = () => {
       window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     }
     setIsOpen(false);
+  };
+
+  const handleLogoClick = () => {
+    window.location.reload();
   };
 
   return (
@@ -45,13 +50,16 @@ export const Navigation = () => {
         <div className="flex h-full">
           {/* Logo column */}
           <div className="h-full flex items-center pr-8">
-            <div className="h-8">
+            <button 
+              onClick={handleLogoClick}
+              className="h-8 hover:opacity-80 transition-opacity"
+            >
               <img 
                 src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
                 alt="Happlyz Connect" 
                 className="h-full object-contain"
               />
-            </div>
+            </button>
           </div>
 
           {/* Content column */}
