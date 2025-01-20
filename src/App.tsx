@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CookieConsent } from "@/components/CookieConsent";
 import Index from "./pages/Index";
 import MentionsLegales from "./pages/MentionsLegales";
+import ConditionsGenerales from "./pages/ConditionsGenerales";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
+          <Route path="/conditions-generales" element={<ConditionsGenerales />} />
         </Routes>
       </TooltipProvider>
     </QueryClientProvider>
