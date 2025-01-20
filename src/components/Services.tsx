@@ -8,7 +8,6 @@ export const Services = () => {
     const targetPosition = contactSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     
-    // Sélectionner le radio bouton "Devis"
     const quoteRadio = document.getElementById('quote') as HTMLInputElement;
     if (quoteRadio) {
       quoteRadio.click();
@@ -59,7 +58,24 @@ export const Services = () => {
   ];
 
   return (
-    <section id="services" className="pt-12 bg-white">
+    <section id="services" className="bg-white">
+      <div className="relative w-full h-[300px] mb-12"
+        style={{
+          backgroundImage: "url('/lovable-uploads/cfc81ca6-da37-4cc5-b6cb-69b25b8ba04f.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center -100px',
+          filter: 'brightness(0.9)',
+          clipPath: 'polygon(0 0%, 100% 0%, 100% 100%, 0% 80%)'
+        }}
+      >
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(90deg, rgba(20, 33, 61, 0.3) 0%, rgba(20, 33, 61, 0.5) 100%)'
+          }}
+        />
+      </div>
+
       <div className="container mx-auto px-4">
         {/* En-tête */}
         <div className="text-center mb-8">
