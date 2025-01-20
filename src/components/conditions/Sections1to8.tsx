@@ -5,7 +5,7 @@ export const Sections1to8 = () => {
     <>
       <Section title="1. OBJET">
         <p className="mb-4">
-          Les présentes conditions générales de vente de la société HAPPLYZ Connect SAS, immatriculée au RCS de Nanterre sous le numéro SIREN 823127154 et le numéro de TVA Intracommunautaire FR94 823127154, dont le siège social se situe au 5 rue Charles Despeaux 78400 CHATOU, France, s'appliquent de plein droit à l'égard de tout acheteur.
+          Les présentes conditions générales de vente de la société HAPPLYZ Connect SAS, immatriculée au RCS de Versailles sous le numéro SIREN 823127154 et le numéro de TVA Intracommunautaire FR94 823127154, dont le siège social se situe au 5 rue Charles Despeaux 78400 CHATOU, France, s'appliquent de plein droit à l'égard de tout acheteur.
         </p>
         <p className="mb-4">
           L'acheteur reconnaît expressément que les présentes conditions générales lui ont été communiquées préalablement à la signature du devis, conformément aux dispositions de l'article L. 441- 6 du code de commerce.
