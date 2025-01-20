@@ -8,8 +8,9 @@ export const Contact = () => {
     lastName: "",
     firstName: "",
     email: "",
+    phone: "",
     message: "",
-    companyType: "",
+    requestType: "",
   });
   const { toast } = useToast();
 
@@ -24,8 +25,9 @@ export const Contact = () => {
       lastName: "",
       firstName: "",
       email: "",
+      phone: "",
       message: "",
-      companyType: "",
+      requestType: "",
     });
   };
 
@@ -39,7 +41,7 @@ export const Contact = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="companyName" className="block text-sm font-medium text-gray-700 mb-1">
-                Nom de la société
+                Nom de la société <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -53,7 +55,7 @@ export const Contact = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="lastName" className="block text-sm font-medium text-gray-700 mb-1">
-                  Nom
+                  Nom <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -66,7 +68,7 @@ export const Contact = () => {
               </div>
               <div>
                 <label htmlFor="firstName" className="block text-sm font-medium text-gray-700 mb-1">
-                  Prénom
+                  Prénom <span className="text-red-500">*</span>
                 </label>
                 <input
                   type="text"
@@ -80,7 +82,7 @@ export const Contact = () => {
             </div>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                Email
+                Email <span className="text-red-500">*</span>
               </label>
               <input
                 type="email"
@@ -92,36 +94,37 @@ export const Contact = () => {
               />
             </div>
             <div>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                Téléphone professionnel <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-business-accent focus:border-transparent"
+                required
+              />
+            </div>
+            <div>
               <label className="block text-sm font-medium text-gray-700 mb-3">
-                Type de société
+                Type de demande <span className="text-red-500">*</span>
               </label>
               <RadioGroup
-                value={formData.companyType}
-                onValueChange={(value) => setFormData({ ...formData, companyType: value })}
-                className="grid grid-cols-1 md:grid-cols-2 gap-4"
+                value={formData.requestType}
+                onValueChange={(value) => setFormData({ ...formData, requestType: value })}
+                className="grid grid-cols-1 md:grid-cols-3 gap-4"
               >
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="retail" id="retail" />
-                  <label htmlFor="retail" className="text-sm text-gray-600">
-                    Retail
+                  <RadioGroupItem value="information" id="information" />
+                  <label htmlFor="information" className="text-sm text-gray-600">
+                    Information
                   </label>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="privateCompany" id="privateCompany" />
-                  <label htmlFor="privateCompany" className="text-sm text-gray-600">
-                    Entreprise privée
-                  </label>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="publicEntity" id="publicEntity" />
-                  <label htmlFor="publicEntity" className="text-sm text-gray-600">
-                    Collectivité
-                  </label>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <RadioGroupItem value="educationalInstitution" id="educationalInstitution" />
-                  <label htmlFor="educationalInstitution" className="text-sm text-gray-600">
-                    Etablissement scolaire
+                  <RadioGroupItem value="quote" id="quote" />
+                  <label htmlFor="quote" className="text-sm text-gray-600">
+                    Devis
                   </label>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -134,7 +137,7 @@ export const Contact = () => {
             </div>
             <div>
               <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                Message
+                Message <span className="text-red-500">*</span>
               </label>
               <textarea
                 id="message"
