@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X, Phone, Mail, Globe } from "lucide-react";
+import { Menu, X, Phone, Mail, Globe, ArrowDown } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { useLocation } from "react-router-dom";
 import {
@@ -34,6 +34,13 @@ export const Navigation = () => {
       window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     }
     setIsOpen(false);
+  };
+
+  const scrollToBottom = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth"
+    });
   };
 
   const handleLogoClick = () => {
@@ -101,6 +108,13 @@ export const Navigation = () => {
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
+                <button
+                  onClick={scrollToBottom}
+                  className="text-white hover:text-[#56C7E1] transition-colors flex items-center gap-2 text-sm"
+                >
+                  Bas du site
+                  <ArrowDown size={14} />
+                </button>
               </div>
 
               {/* Mobile menu button */}
