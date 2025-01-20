@@ -98,9 +98,6 @@ export const Navigation = () => {
                       <DropdownMenuItem onClick={() => setCurrentLanguage("FR")}>
                         <span className="mr-2">🇫🇷</span> Français
                       </DropdownMenuItem>
-                      <DropdownMenuItem onClick={() => setCurrentLanguage("EN")}>
-                        <span className="mr-2">🇬🇧</span> English
-                      </DropdownMenuItem>
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
@@ -165,12 +162,7 @@ export const Navigation = () => {
                 </div>
                 <div className="flex items-center space-x-2 text-white">
                   <Globe size={14} />
-                  <button 
-                    onClick={() => setCurrentLanguage(currentLanguage === "FR" ? "EN" : "FR")}
-                    className="text-sm hover:text-[#56C7E1]"
-                  >
-                    {currentLanguage === "FR" ? "🇫🇷 Français" : "🇬🇧 English"}
-                  </button>
+                  <span className="text-sm">🇫🇷 Français</span>
                 </div>
               </div>
               {/* Mobile navigation links */}
