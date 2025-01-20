@@ -150,9 +150,9 @@ export const Services = () => {
         <div className="relative">
           {/* Background image with overlay */}
           <div 
-            className="relative w-full h-[400px]"
+            className="relative w-full h-[300px]"
             style={{
-              backgroundImage: "url('/lovable-uploads/1f096081-547e-4966-a3fd-258978a08106.png')",
+              backgroundImage: "url('/lovable-uploads/d1266ec2-fb47-40cf-936d-49f96f2cabe0.png')",
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               filter: 'brightness(0.9)',
