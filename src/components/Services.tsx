@@ -78,6 +78,27 @@ export const Services = () => {
           ))}
         </div>
 
+        {/* Image d'installation */}
+        <div className="relative mb-16">
+          <div 
+            className="relative w-full h-[300px]"
+            style={{
+              backgroundImage: "url('/lovable-uploads/1b2e86b7-056b-4966-bb64-036b6d051d1f.png')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              filter: 'brightness(0.9)',
+              clipPath: 'polygon(0 20%, 100% 0%, 100% 100%, 0% 100%)'
+            }}
+          >
+            <div 
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(90deg, rgba(20, 33, 61, 0.3) 0%, rgba(20, 33, 61, 0.5) 100%)'
+              }}
+            ></div>
+          </div>
+        </div>
+
         {/* Services principaux */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {services.map((service) => (
