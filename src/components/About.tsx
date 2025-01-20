@@ -17,7 +17,7 @@ export const About = () => {
   return (
     <section className="py-12 bg-white">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -27,10 +27,13 @@ export const About = () => {
             <h2 className="text-4xl font-bold mb-6 text-business-primary">
               Votre partenaire audiovisuel professionnel
             </h2>
-            <p className="text-xl text-gray-600 mb-6">
-              <strong>HAPPLYZ CONNECT</strong> est une entreprise spécialisée dans <strong>l'intégration de solutions audiovisuelles professionnelles</strong>. Notre expertise nous permet d'accompagner nos clients dans la réalisation de leurs projets, de la <strong>conception à la maintenance</strong>.
+            <p className="text-xl text-gray-600 mb-6 text-justify">
+              <strong>HAPPLYZ CONNECT</strong> est une entreprise spécialisée dans <strong>l'intégration de solutions audiovisuelles professionnelles</strong>.
             </p>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-gray-600 mb-6 text-justify">
+              Notre expertise nous permet d'accompagner nos clients dans la réalisation de leurs projets, de la <strong>conception à la maintenance</strong>.
+            </p>
+            <p className="text-xl text-gray-600 mb-8 text-justify">
               Que ce soit pour une <strong>salle de réunion</strong>, une <strong>salle de classe</strong>, une <strong>surface de vente</strong> ou un <strong>salon professionnel</strong>, nous <strong>concevons</strong>, <strong>installons</strong>, <strong>configurons</strong> et <strong>maintenons</strong> des systèmes adaptés à vos besoins. De l'idée à la réalisation, nous vous accompagnons à chaque étape pour garantir des installations performantes et parfaitement intégrées à votre environnement.
             </p>
             <button 
