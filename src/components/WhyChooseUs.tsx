@@ -2,6 +2,19 @@ import { Check, Shield, Clock, Users } from "lucide-react";
 import { motion } from "framer-motion";
 
 export const WhyChooseUs = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    const navbarHeight = 72;
+    const targetPosition = contactSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    
+    // Sélectionner le radio bouton "Devis"
+    const quoteRadio = document.getElementById('quote') as HTMLInputElement;
+    if (quoteRadio) {
+      quoteRadio.click();
+    }
+  };
+
   const reasons = [
     {
       icon: Shield,
@@ -63,7 +76,10 @@ export const WhyChooseUs = () => {
         </div>
 
         <div className="text-center mt-12">
-          <button className="bg-business-accent hover:bg-business-accent/90 text-white font-semibold py-4 px-8 rounded-lg transition-colors text-lg shadow-lg">
+          <button 
+            onClick={scrollToContact}
+            className="bg-business-accent hover:bg-business-accent/90 text-white font-semibold py-4 px-8 rounded-lg transition-colors text-lg shadow-lg"
+          >
             Obtenir un devis personnalisé
           </button>
         </div>

@@ -1,9 +1,22 @@
 import { motion } from "framer-motion";
 
 export const Hero = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    const navbarHeight = 72;
+    const targetPosition = contactSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    
+    // Sélectionner le radio bouton "Devis"
+    const quoteRadio = document.getElementById('quote') as HTMLInputElement;
+    if (quoteRadio) {
+      quoteRadio.click();
+    }
+  };
+
   const scrollToServices = () => {
     const servicesSection = document.getElementById('services');
-    const navbarHeight = 72; // Hauteur de la navbar en pixels
+    const navbarHeight = 72;
     const targetPosition = servicesSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
   };
@@ -35,7 +48,10 @@ export const Hero = () => {
             >
               Découvrir nos services
             </button>
-            <button className="bg-white hover:bg-gray-100 text-business-primary font-semibold py-3 px-8 rounded-lg transition-colors">
+            <button 
+              onClick={scrollToContact}
+              className="bg-white hover:bg-gray-100 text-business-primary font-semibold py-3 px-8 rounded-lg transition-colors"
+            >
               Demander un devis
             </button>
           </div>
