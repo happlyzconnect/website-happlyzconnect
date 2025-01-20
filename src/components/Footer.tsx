@@ -16,7 +16,7 @@ export const Footer = () => {
               Siège social : 5 rue Charles Despeaux 78400 CHATOU
             </p>
             <p className="text-sm text-gray-300">
-              Enregistrée auprès du Greffe de Versailles SIREN 823 127 154
+              SIREN : 823 127 154 RCS VERSAILLES
             </p>
           </div>
 
