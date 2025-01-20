@@ -148,7 +148,7 @@ export const Services = () => {
 
         {/* CTA Section avec image en triangle */}
         <div className="mt-16 text-center relative">
-          <div className="relative w-full aspect-[2/1] mb-8 overflow-hidden">
+          <div className="relative w-full max-w-2xl mx-auto aspect-[2/1] mb-8 overflow-hidden">
             <div 
               className="absolute inset-0 bg-cover bg-center"
               style={{
