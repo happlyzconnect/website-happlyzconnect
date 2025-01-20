@@ -59,7 +59,7 @@ export const Services = () => {
   ];
 
   return (
-    <section id="services" className="pt-12 bg-white">
+    <section id="services" className="bg-white">
       <div className="container mx-auto px-4">
         {/* Image des techniciens */}
         <div className="relative mb-16">
