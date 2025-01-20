@@ -55,7 +55,7 @@ export default {
         business: {
           primary: "#14213D",
           secondary: "#4A5568",
-          accent: "#63B3ED",
+          accent: "#56C7E1",
           light: "#F7FAFC",
         },
       },
