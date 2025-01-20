@@ -2,6 +2,19 @@ import { Check, MapPin, Settings, Monitor, School, Store, Video } from "lucide-r
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 export const Services = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact');
+    const navbarHeight = 72;
+    const targetPosition = contactSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    
+    // Sélectionner le radio bouton "Devis"
+    const quoteRadio = document.getElementById('quote') as HTMLInputElement;
+    if (quoteRadio) {
+      quoteRadio.click();
+    }
+  };
+
   const services = [
     {
       title: "Salles de réunion",
@@ -135,7 +148,10 @@ export const Services = () => {
 
         {/* CTA Section */}
         <div className="mt-16 text-center">
-          <button className="bg-business-primary hover:bg-business-primary/90 text-white font-semibold py-4 px-8 rounded-lg transition-colors text-lg">
+          <button 
+            onClick={scrollToContact}
+            className="bg-business-primary hover:bg-business-primary/90 text-white font-semibold py-4 px-8 rounded-lg transition-colors text-lg"
+          >
             Demander un devis gratuit
           </button>
         </div>
