@@ -159,7 +159,12 @@ export const Services = () => {
               clipPath: 'polygon(0 20%, 100% 0%, 100% 100%, 0% 100%)'
             }}
           >
-            <div className="absolute inset-0 bg-business-primary/60"></div>
+            <div 
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(90deg, rgba(20, 33, 61, 0.3) 0%, rgba(20, 33, 61, 0.5) 100%)'
+              }}
+            ></div>
             
             {/* Content */}
             <div className="absolute bottom-8 right-8">
