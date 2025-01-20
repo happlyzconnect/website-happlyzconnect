@@ -38,7 +38,7 @@ export const Contact = () => {
         style={{
           backgroundImage: "url('/lovable-uploads/33bd802c-0762-4850-93d8-fa1632bf49d6.png')",
           backgroundSize: 'cover',
-          backgroundPosition: 'center top',
+          backgroundPosition: 'center 30%',
           filter: 'brightness(0.9)',
           clipPath: 'polygon(0 0%, 100% 0%, 100% 100%, 0% 80%)'
         }}
