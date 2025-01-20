@@ -11,23 +11,15 @@ import {
 } from "@/components/ui/alert-dialog";
 
 export const CookieConsent = () => {
-  const [showConsent, setShowConsent] = useState(false);
-
-  useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
-    if (!consent) {
-      setShowConsent(true);
-    }
-  }, []);
+  // Force showConsent to false to disable the popup
+  const [showConsent] = useState(false);
 
   const handleAccept = () => {
     localStorage.setItem("cookie-consent", "accepted");
-    setShowConsent(false);
   };
 
   const handleDecline = () => {
     localStorage.setItem("cookie-consent", "declined");
-    setShowConsent(false);
   };
 
   return (
