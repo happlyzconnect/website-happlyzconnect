@@ -146,8 +146,17 @@ export const Services = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="mt-16 text-center">
+        {/* CTA Section avec image en triangle */}
+        <div className="mt-16 text-center relative">
+          <div className="relative w-full aspect-[2/1] mb-8 overflow-hidden">
+            <div 
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: "url('/lovable-uploads/93c0f6ce-8a3d-4776-8794-6e322ea1de58.png')",
+                clipPath: "polygon(0 0, 0% 100%, 100% 0)"
+              }}
+            />
+          </div>
           <button 
             onClick={scrollToContact}
             className="bg-business-primary hover:bg-business-primary/90 text-white font-semibold py-4 px-8 rounded-lg transition-colors text-lg"
