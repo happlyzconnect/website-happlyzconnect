@@ -38,7 +38,7 @@ export const Contact = () => {
         style={{
           backgroundImage: "url('/lovable-uploads/d915b1ae-d6f3-471b-8ae1-bbd2422bb08e.png')",
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center top',
           filter: 'brightness(0.9)',
           clipPath: 'polygon(0 0%, 100% 0%, 100% 100%, 0% 80%)'
         }}
@@ -49,9 +49,9 @@ export const Contact = () => {
             background: 'linear-gradient(90deg, rgba(20, 33, 61, 0.3) 0%, rgba(20, 33, 61, 0.5) 100%)'
           }}
         />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
+        <div className="absolute inset-0 flex flex-col items-start justify-center px-20 text-white">
           <h3 className="text-3xl font-bold mb-4">Un projet ?</h3>
-          <p className="text-center mb-2">
+          <p className="text-left mb-2">
             Nos services sont joignables du lundi au vendredi
           </p>
           <p className="text-xl font-semibold">
