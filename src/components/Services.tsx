@@ -147,10 +147,10 @@ export const Services = () => {
         </div>
 
         {/* CTA Section with background image */}
-        <div className="relative mt-16">
+        <div className="relative">
           {/* Background image with overlay */}
           <div 
-            className="absolute inset-0 w-full h-full"
+            className="relative w-full h-[400px]"
             style={{
               backgroundImage: "url('/lovable-uploads/1f096081-547e-4966-a3fd-258978a08106.png')",
               backgroundSize: 'cover',
@@ -160,16 +160,16 @@ export const Services = () => {
             }}
           >
             <div className="absolute inset-0 bg-business-primary/60"></div>
-          </div>
-
-          {/* Content */}
-          <div className="relative py-20 text-center">
-            <button 
-              onClick={scrollToContact}
-              className="bg-white text-business-primary hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
-            >
-              Demander un devis gratuit
-            </button>
+            
+            {/* Content */}
+            <div className="absolute bottom-8 right-8">
+              <button 
+                onClick={scrollToContact}
+                className="bg-white text-business-primary hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-xl"
+              >
+                Demander un devis gratuit
+              </button>
+            </div>
           </div>
         </div>
       </div>
