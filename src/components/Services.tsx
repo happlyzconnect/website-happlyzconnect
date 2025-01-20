@@ -61,30 +61,11 @@ export const Services = () => {
   return (
     <section id="services" className="pt-12 bg-white">
       <div className="container mx-auto px-4">
-        {/* Image d'installation avec titre */}
-        <div className="relative mb-16">
-          <div 
-            className="relative w-full h-[300px]"
-            style={{
-              backgroundImage: "url('/lovable-uploads/1b2e86b7-056b-4966-bb64-036b6d051d1f.png')",
-              backgroundSize: 'cover',
-              backgroundPosition: 'top center', // Ajusté pour montrer les têtes
-              filter: 'brightness(0.9)',
-              clipPath: 'polygon(0 20%, 100% 0%, 100% 100%, 0% 100%)'
-            }}
-          >
-            <div 
-              className="absolute inset-0"
-              style={{
-                background: 'linear-gradient(90deg, rgba(20, 33, 61, 0.3) 0%, rgba(20, 33, 61, 0.5) 100%)'
-              }}
-            ></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <h2 className="text-4xl font-bold text-white mb-6">
-                Nos services
-              </h2>
-            </div>
-          </div>
+        {/* En-tête */}
+        <div className="text-center mb-8">
+          <h2 className="text-4xl font-bold text-business-primary mb-6">
+            Nos services
+          </h2>
         </div>
 
         {/* Types de clients */}
@@ -95,6 +76,27 @@ export const Services = () => {
               <span className="text-gray-700">{client.label}</span>
             </div>
           ))}
+        </div>
+
+        {/* Image d'installation */}
+        <div className="relative mb-16">
+          <div 
+            className="relative w-full h-[300px]"
+            style={{
+              backgroundImage: "url('/lovable-uploads/1b2e86b7-056b-4966-bb64-036b6d051d1f.png')",
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              filter: 'brightness(0.9)',
+              clipPath: 'polygon(0 20%, 100% 0%, 100% 100%, 0% 100%)'
+            }}
+          >
+            <div 
+              className="absolute inset-0"
+              style={{
+                background: 'linear-gradient(90deg, rgba(20, 33, 61, 0.3) 0%, rgba(20, 33, 61, 0.5) 100%)'
+              }}
+            ></div>
+          </div>
         </div>
 
         {/* Services principaux */}
