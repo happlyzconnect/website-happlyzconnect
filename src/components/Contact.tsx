@@ -55,7 +55,19 @@ export const Contact = () => {
             Nos services sont joignables du lundi au vendredi
           </p>
           <p className="text-xl font-semibold">
-            01 85 39 01 67 / contact@happlyz.com
+            <a 
+              href="tel:0185390167" 
+              className="hover:text-[#56C7E1] transition-colors"
+            >
+              01 85 39 01 67
+            </a>
+            {" / "}
+            <a 
+              href="mailto:contact@happlyz.com"
+              className="hover:text-[#56C7E1] transition-colors"
+            >
+              contact@happlyz.com
+            </a>
           </p>
         </div>
       </div>
