@@ -148,13 +148,13 @@ export const Contact = () => {
                 required
               />
             </div>
-            <p className="text-sm text-gray-500 mt-2">* champs obligatoires</p>
             <button
               type="submit"
               className="w-full bg-business-accent hover:bg-business-accent/90 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
             >
               Envoyer
             </button>
+            <p className="text-sm text-gray-500">* champs obligatoires</p>
           </form>
         </div>
       </div>
