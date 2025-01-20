@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CookieConsent } from "@/components/CookieConsent";
 import Index from "./pages/Index";
+import MentionsLegales from "./pages/MentionsLegales";
 
 const queryClient = new QueryClient();
 
@@ -17,6 +18,7 @@ const App = () => (
         <CookieConsent />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/mentions-legales" element={<MentionsLegales />} />
         </Routes>
       </TooltipProvider>
     </QueryClientProvider>
