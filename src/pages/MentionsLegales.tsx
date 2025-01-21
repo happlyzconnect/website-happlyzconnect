@@ -2,6 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { MetaDescription } from "@/components/MetaDescription";
 
 const MentionsLegales = () => {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ const MentionsLegales = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <MetaDescription description="Mentions légales de HAPPLYZ Connect : informations sur l'entreprise, l'hébergement du site et vos droits concernant la protection des données personnelles." />
       <Navigation />
       <main className="flex-grow container mx-auto px-4 py-24">
         <div className="mb-8">
