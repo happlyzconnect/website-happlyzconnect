@@ -26,6 +26,8 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 bg-[url('/lovable-uploads/aaa36cf1-55ac-4916-83e9-43f0d7674525.png')] bg-cover bg-right-top opacity-90"
         style={{ backgroundPosition: '85% 40%' }}
+        role="img"
+        aria-label="Solutions numériques et audiovisuelles professionnelles"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-business-primary/90 via-business-primary/70 to-transparent" />
       <div className="container mx-auto px-8 relative z-20">
