@@ -12,9 +12,9 @@ import ConditionsGenerales from "./pages/ConditionsGenerales";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <HelmetProvider>
-    <BrowserRouter>
-      <QueryClientProvider client={queryClient}>
+  <QueryClientProvider client={queryClient}>
+    <HelmetProvider>
+      <BrowserRouter>
         <TooltipProvider>
           <Toaster />
           <Sonner />
@@ -25,9 +25,9 @@ const App = () => (
             <Route path="/conditions-generales" element={<ConditionsGenerales />} />
           </Routes>
         </TooltipProvider>
-      </QueryClientProvider>
-    </BrowserRouter>
-  </HelmetProvider>
+      </BrowserRouter>
+    </HelmetProvider>
+  </QueryClientProvider>
 );
 
 export default App;
