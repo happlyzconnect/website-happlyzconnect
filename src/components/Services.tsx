@@ -67,6 +67,8 @@ export const Services = () => {
           filter: 'brightness(0.9)',
           clipPath: 'polygon(0 0%, 100% 0%, 100% 100%, 0% 80%)'
         }}
+        role="img"
+        aria-label="Installation d'équipements audiovisuels professionnels par l'équipe HAPPLYZ Connect"
       >
         <div 
           className="absolute inset-0"
