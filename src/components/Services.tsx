@@ -79,14 +79,12 @@ export const Services = () => {
       </div>
 
       <div className="container mx-auto px-4">
-        {/* En-tête */}
-        <div className="text-center">
+        <header className="text-center">
           <h2 className="text-4xl font-bold text-business-primary mb-6">
             Nos services
           </h2>
-        </div>
+        </header>
 
-        {/* Types de clients */}
         <div className="flex flex-wrap justify-center gap-6 mb-8">
           {clientTypes.map((client) => (
             <div key={client.label} className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full text-sm">
@@ -96,7 +94,6 @@ export const Services = () => {
           ))}
         </div>
 
-        {/* Services principaux */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {services.map((service) => (
             <Card key={service.title} className="border-2 hover:border-business-primary transition-colors duration-300">
@@ -119,16 +116,15 @@ export const Services = () => {
           ))}
         </div>
 
-        {/* Notre approche */}
         <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-2xl font-bold text-business-primary mb-4">
+          <header className="max-w-3xl mx-auto text-center mb-12">
+            <h3 className="text-2xl font-bold text-business-primary mb-4">
               Une approche globale
-            </h2>
+            </h3>
             <p className="text-gray-600">
               Nous prenons en charge votre projet audiovisuel de A à Z, en vous accompagnant à chaque étape pour garantir une solution parfaitement adaptée à vos besoins.
             </p>
-          </div>
+          </header>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -164,9 +160,7 @@ export const Services = () => {
           </div>
         </div>
 
-        {/* CTA Section with background image */}
         <div className="relative">
-          {/* Background image with overlay */}
           <div 
             className="relative w-full h-[300px]"
             style={{
@@ -184,7 +178,6 @@ export const Services = () => {
               }}
             ></div>
             
-            {/* Content */}
             <div className="absolute bottom-8 right-8">
               <button 
                 onClick={scrollToContact}
