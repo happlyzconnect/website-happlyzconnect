@@ -7,6 +7,7 @@ export const Hero = () => {
     const targetPosition = contactSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     
+    // Sélectionner le radio bouton "Devis"
     const quoteRadio = document.getElementById('quote') as HTMLInputElement;
     if (quoteRadio) {
       quoteRadio.click();
@@ -25,8 +26,6 @@ export const Hero = () => {
       <div 
         className="absolute inset-0 bg-[url('/lovable-uploads/aaa36cf1-55ac-4916-83e9-43f0d7674525.png')] bg-cover bg-right-top opacity-90"
         style={{ backgroundPosition: '85% 40%' }}
-        role="img"
-        aria-label="Équipement audiovisuel professionnel installé dans une salle de réunion moderne"
       />
       <div className="absolute inset-0 bg-gradient-to-r from-business-primary/90 via-business-primary/70 to-transparent" />
       <div className="container mx-auto px-8 relative z-20">

@@ -53,7 +53,7 @@ export const Services = () => {
   const clientTypes = [
     { icon: Store, label: "Magasins & Boutiques" },
     { icon: Monitor, label: "Entreprises" },
-    { icon: School, label: "Établissements scolaires" },
+    { icon: School, label: "Établissements Scolaires" },
     { icon: Store, label: "Salons" }
   ];
 
@@ -67,8 +67,6 @@ export const Services = () => {
           filter: 'brightness(0.9)',
           clipPath: 'polygon(0 0%, 100% 0%, 100% 100%, 0% 80%)'
         }}
-        role="img"
-        aria-label="Installation d'équipements audiovisuels professionnels par l'équipe HAPPLYZ Connect"
       >
         <div 
           className="absolute inset-0"
@@ -79,12 +77,14 @@ export const Services = () => {
       </div>
 
       <div className="container mx-auto px-4">
-        <header className="text-center">
+        {/* En-tête */}
+        <div className="text-center">
           <h2 className="text-4xl font-bold text-business-primary mb-6">
             Nos services
           </h2>
-        </header>
+        </div>
 
+        {/* Types de clients */}
         <div className="flex flex-wrap justify-center gap-6 mb-8">
           {clientTypes.map((client) => (
             <div key={client.label} className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full text-sm">
@@ -94,6 +94,7 @@ export const Services = () => {
           ))}
         </div>
 
+        {/* Services principaux */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {services.map((service) => (
             <Card key={service.title} className="border-2 hover:border-business-primary transition-colors duration-300">
@@ -116,15 +117,16 @@ export const Services = () => {
           ))}
         </div>
 
+        {/* Notre approche */}
         <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
-          <header className="max-w-3xl mx-auto text-center mb-12">
-            <h3 className="text-2xl font-bold text-business-primary mb-4">
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className="text-2xl font-bold text-business-primary mb-4">
               Une approche globale
-            </h3>
+            </h2>
             <p className="text-gray-600">
               Nous prenons en charge votre projet audiovisuel de A à Z, en vous accompagnant à chaque étape pour garantir une solution parfaitement adaptée à vos besoins.
             </p>
-          </header>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -160,7 +162,9 @@ export const Services = () => {
           </div>
         </div>
 
+        {/* CTA Section with background image */}
         <div className="relative">
+          {/* Background image with overlay */}
           <div 
             className="relative w-full h-[300px]"
             style={{
@@ -178,6 +182,7 @@ export const Services = () => {
               }}
             ></div>
             
+            {/* Content */}
             <div className="absolute bottom-8 right-8">
               <button 
                 onClick={scrollToContact}

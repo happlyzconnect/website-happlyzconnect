@@ -126,17 +126,15 @@ export const ClientCarousel = () => {
                     >
                       <img
                         src={client.logo}
-                        alt={`Logo de ${client.name}`}
+                        alt={`Logo ${client.name}`}
                         className={`max-w-full max-h-full object-contain ${client.className || ''}`}
-                        loading="lazy"
                       />
                     </a>
                   ) : (
                     <img
                       src={client.logo}
-                      alt={`Logo de ${client.name}`}
+                      alt={`Logo ${client.name}`}
                       className={`max-w-full max-h-full object-contain ${client.className || ''}`}
-                      loading="lazy"
                     />
                   )}
                 </div>
