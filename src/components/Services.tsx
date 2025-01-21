@@ -53,7 +53,7 @@ export const Services = () => {
   const clientTypes = [
     { icon: Store, label: "Magasins & Boutiques" },
     { icon: Monitor, label: "Entreprises" },
-    { icon: School, label: "Établissements Scolaires" },
+    { icon: School, label: "Établissements scolaires" },
     { icon: Store, label: "Salons" }
   ];
 
