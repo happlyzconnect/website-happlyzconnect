@@ -1,4 +1,3 @@
-
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -54,7 +53,6 @@ const referenceClients = [
   }
 ];
 
-// Trusted clients from ClientCarousel
 const trustedClients = [
   {
     id: 1,
@@ -170,7 +168,6 @@ const References = () => {
             </p>
           </section>
           
-          {/* Section "Ils nous font confiance" */}
           <section className="mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -218,7 +215,6 @@ const References = () => {
             </div>
           </section>
           
-          {/* Section titre "Nos projets" */}
           <section className="mb-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -262,15 +258,6 @@ const References = () => {
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2 text-business-primary">{client.name}</h3>
                   <p className="text-gray-600">{client.description}</p>
-                </div>
-                <div className="px-6 pb-6">
-                  <Button 
-                    variant="link" 
-                    className="text-[#56C7E1] font-medium hover:text-business-primary transition-colors p-0"
-                    asChild
-                  >
-                    <Link to="#">Voir le projet →</Link>
-                  </Button>
                 </div>
               </div>
             ))}
