@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -240,10 +239,9 @@ export const Navigation = () => {
 
               <button
                 onClick={handleContactClick}
-                className="px-4 pb-3 hover:text-[#56C7E1] text-white transition-colors relative group"
+                className="bg-white text-[#14213D] font-medium px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors ml-2"
               >
                 Contact
-                <span className="absolute bottom-0 left-0 w-full h-[5px] bg-[#56C7E1] opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
               </button>
             </div>
           </div>
@@ -315,7 +313,7 @@ export const Navigation = () => {
               </Link>
               <button
                 onClick={handleContactClick}
-                className="px-4 py-2 text-white hover:text-[#56C7E1] text-left"
+                className="mx-4 my-2 bg-white text-[#14213D] font-medium px-4 py-2 rounded-md hover:bg-opacity-90 transition-colors text-left"
               >
                 Contact
               </button>
