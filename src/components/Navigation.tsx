@@ -30,6 +30,16 @@ export const Navigation = () => {
     color: '#FFFFFF'
   };
 
+  const handleLogoClick = (event: React.MouseEvent) => {
+    event.preventDefault();
+    if (location.pathname === '/') {
+      window.location.href = '/';
+    } else {
+      navigate('/');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const scrollToSection = (sectionId: string) => {
     if (sectionId === 'accueil') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -91,8 +101,9 @@ export const Navigation = () => {
         <div className="flex h-full">
           {/* Logo column */}
           <div className="h-full flex items-center pr-8">
-            <Link 
-              to="/"
+            <a 
+              href="/"
+              onClick={handleLogoClick}
               className="h-8 hover:opacity-80 transition-opacity"
             >
               <img 
@@ -100,7 +111,7 @@ export const Navigation = () => {
                 alt="Happlyz Connect" 
                 className="h-full object-contain"
               />
-            </Link>
+            </a>
           </div>
 
           {/* Content column */}
