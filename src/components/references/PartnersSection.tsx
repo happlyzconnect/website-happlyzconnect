@@ -1,14 +1,12 @@
-
 import { motion } from "framer-motion";
 
-// Update the partner type to include an optional className property
 type Partner = {
   id: number;
   name: string;
   logo: string;
   url: string;
   alt: string;
-  className?: string; // Add optional className property
+  className?: string;
 };
 
 const partners: Partner[] = [
@@ -36,7 +34,7 @@ const partners: Partner[] = [
   {
     id: 4,
     name: "BARCO",
-    logo: "/lovable-uploads/9e077057-fe2a-4688-bffe-6f41a4002aea.png",
+    logo: "/lovable-uploads/cd6c36a5-3f84-4bb5-91e3-31438ccd2596.png",
     url: "https://www.barco.com/fr/",
     alt: "Logo BARCO - Partenaire HAPPLYZ CONNECT"
   },
@@ -64,14 +62,14 @@ const partners: Partner[] = [
   {
     id: 8,
     name: "POLY",
-    logo: "/lovable-uploads/da74ef05-9e88-40a9-aecf-64f240dc3952.png",
+    logo: "/lovable-uploads/9efb9de3-9e32-439a-9103-8cda950cf50a.png",
     url: "https://www.poly.com/fr/fr",
     alt: "Logo POLY - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 9,
     name: "NUREVA",
-    logo: "/lovable-uploads/c4f501f8-33d9-494a-ad08-195663538d21.png",
+    logo: "/lovable-uploads/a8ea6c69-c84d-4e4d-8bac-cecc3b239f6e.png",
     url: "https://www.nureva.com/",
     alt: "Logo NUREVA - Partenaire HAPPLYZ CONNECT"
   },
@@ -85,56 +83,56 @@ const partners: Partner[] = [
   {
     id: 11,
     name: "FVS",
-    logo: "/lovable-uploads/8542d24c-0edb-43a1-a7c6-d99931328400.png",
+    logo: "/lovable-uploads/6d4ad48c-9043-4e66-972f-c46716ebe863.png",
     url: "https://www.fvs.fr/",
     alt: "Logo FVS - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 12,
     name: "OSF",
-    logo: "/lovable-uploads/81477b6a-f946-4b1d-bb57-9533fce0e8ca.png",
+    logo: "/lovable-uploads/900715a0-07e8-4ae4-9d0a-17c77df0d5cc.png",
     url: "https://www.osf-global.com/",
     alt: "Logo OSF - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 13,
     name: "EET",
-    logo: "/lovable-uploads/cf0cd38b-ac57-487b-84da-d232b337f528.png",
+    logo: "/lovable-uploads/2ebcea0f-e4d2-4209-baee-56b58402fc0d.png",
     url: "https://fr.eetgroup.com/",
     alt: "Logo EET - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 14,
     name: "SIDEV",
-    logo: "/lovable-uploads/57f23413-fbca-41c3-a838-5478758e1a6f.png",
+    logo: "/lovable-uploads/233dc3f1-9c13-44fd-976d-02c7ed01b406.png",
     url: "https://www.sidev.fr/",
     alt: "Logo SIDEV - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 15,
     name: "ONE DIRECT",
-    logo: "/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png",
+    logo: "/lovable-uploads/a0f99984-2903-4518-9b7b-f01981e1b63f.png",
     url: "https://www.onedirect.fr/",
     alt: "Logo ONE DIRECT - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 16,
     name: "WINTER MUSHROOM",
-    logo: "/lovable-uploads/59de4235-9384-42ed-8773-5b167ffd673f.png",
+    logo: "/lovable-uploads/e549e333-c1c3-4df2-91c9-0c8dcb152cff.png",
     url: "https://www.wintermushroom.com/",
     alt: "Logo WINTER MUSHROOM - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 17,
     name: "Magic Info",
-    logo: "/lovable-uploads/380e90c3-7879-45d8-a761-1e7c091a8cf1.png",
+    logo: "/lovable-uploads/47f2d179-410e-4609-9a5f-48c0403ee5df.png",
     url: "https://www.samsung.com/global/business/display/solutions/digital-signage-solution/magicinfo/",
     alt: "Logo Magic Info - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 18,
     name: "EMITY",
-    logo: "/lovable-uploads/d1266ec2-fb47-40cf-936d-49f96f2cabe0.png", // Placeholder - replace with actual logo
+    logo: "/lovable-uploads/a87577c5-d016-4ced-ac2a-b467c5f53a00.png",
     url: "https://www.emity.fr/",
     alt: "Logo EMITY - Partenaire HAPPLYZ CONNECT"
   },
