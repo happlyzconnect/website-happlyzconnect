@@ -1,5 +1,6 @@
+
 import { useState } from "react";
-import { Menu, X, Phone, Mail, Globe, ArrowDown } from "lucide-react";
+import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { useLocation } from "react-router-dom";
 import {
@@ -8,6 +9,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -134,8 +140,7 @@ export const Navigation = () => {
               <div className="hidden md:flex justify-end items-center pb-2">
                 {[
                   { label: "Accueil", id: "accueil" },
-                  { label: "Services", id: "services" },
-                  { label: "Contact", id: "contact" }
+                  { label: "Services", id: "services" }
                 ].map((item) => (
                   <button
                     key={item.label}
@@ -145,6 +150,59 @@ export const Navigation = () => {
                     {item.label}
                   </button>
                 ))}
+
+                {/* Nouveau menu "Nos solutions" avec popup */}
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <button className="px-4 hover:text-[#56C7E1] text-white transition-colors">
+                      Nos solutions
+                    </button>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-80 p-0 bg-white rounded-md shadow-lg" sideOffset={5}>
+                    <div className="grid gap-4 p-4">
+                      <div className="space-y-4">
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2 font-medium">
+                            <Tv className="h-4 w-4 text-[#56C7E1]" />
+                            <h4 className="font-semibold text-sm text-black">Affichage dynamique</h4>
+                          </div>
+                          <div className="pl-6 space-y-1">
+                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Magasins</a>
+                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Vitrines</a>
+                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Corporate</a>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2 font-medium">
+                            <Users className="h-4 w-4 text-[#56C7E1]" />
+                            <h4 className="font-semibold text-sm text-black">Salles de réunion</h4>
+                          </div>
+                          <div className="pl-6">
+                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions audiovisuelles</a>
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-2">
+                          <div className="flex items-center gap-2 font-medium">
+                            <GraduationCap className="h-4 w-4 text-[#56C7E1]" />
+                            <h4 className="font-semibold text-sm text-black">Salles de classe</h4>
+                          </div>
+                          <div className="pl-6">
+                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions pédagogiques</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </PopoverContent>
+                </Popover>
+
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="px-4 hover:text-[#56C7E1] text-white transition-colors"
+                >
+                  Contact
+                </button>
               </div>
             )}
           </div>
@@ -180,19 +238,46 @@ export const Navigation = () => {
                 </div>
               </div>
               {/* Mobile navigation links */}
-              {[
-                { label: "Accueil", id: "accueil" },
-                { label: "Services", id: "services" },
-                { label: "Contact", id: "contact" }
-              ].map((item) => (
-                <button
-                  key={item.label}
-                  onClick={() => scrollToSection(item.id)}
-                  className="px-4 py-2 text-white hover:text-[#56C7E1] text-left"
-                >
-                  {item.label}
-                </button>
-              ))}
+              <button
+                onClick={() => scrollToSection("accueil")}
+                className="px-4 py-2 text-white hover:text-[#56C7E1] text-left"
+              >
+                Accueil
+              </button>
+              <button
+                onClick={() => scrollToSection("services")}
+                className="px-4 py-2 text-white hover:text-[#56C7E1] text-left"
+              >
+                Services
+              </button>
+              {/* Menu Nos solutions pour mobile */}
+              <div className="px-4 py-2 text-white hover:bg-business-primary/50">
+                <p className="mb-1">Nos solutions</p>
+                <div className="pl-4 text-sm space-y-1 mt-2">
+                  <p className="font-medium text-[#56C7E1]">Affichage dynamique</p>
+                  <div className="pl-2 space-y-1">
+                    <a href="#" className="block hover:text-[#56C7E1]">Magasins</a>
+                    <a href="#" className="block hover:text-[#56C7E1]">Vitrines</a>
+                    <a href="#" className="block hover:text-[#56C7E1]">Corporate</a>
+                  </div>
+                  
+                  <p className="font-medium text-[#56C7E1] mt-3">Salles de réunion</p>
+                  <div className="pl-2">
+                    <a href="#" className="block hover:text-[#56C7E1]">Solutions audiovisuelles</a>
+                  </div>
+                  
+                  <p className="font-medium text-[#56C7E1] mt-3">Salles de classe</p>
+                  <div className="pl-2">
+                    <a href="#" className="block hover:text-[#56C7E1]">Solutions pédagogiques</a>
+                  </div>
+                </div>
+              </div>
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="px-4 py-2 text-white hover:text-[#56C7E1] text-left"
+              >
+                Contact
+              </button>
             </div>
           </div>
         )}
