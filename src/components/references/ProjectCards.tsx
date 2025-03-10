@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 
 const referenceClients = [
@@ -76,7 +75,7 @@ const referenceClients = [
     id: 11,
     name: "Decathlon Sainte Geneviève-des-bois",
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
-    image: "",
+    image: "/lovable-uploads/2e87314c-11a3-4eff-8ce0-772efc6ff53c.png",
     description: "Installation de bornes tactiles pour afficher la gestion des réservations de l'Atelier cycle"
   },
   {
@@ -175,3 +174,4 @@ export const ProjectCards = () => {
     </>
   );
 };
+
