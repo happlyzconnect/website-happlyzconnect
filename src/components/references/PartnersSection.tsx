@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 
 type Partner = {
@@ -112,7 +111,7 @@ const partners: Partner[] = [
   {
     id: 15,
     name: "SIDEV",
-    logo: "/lovable-uploads/233dc3f1-9c13-44fd-976d-02c7ed01b406.png",
+    logo: "/lovable-uploads/d44914b3-4e48-46ac-ab2c-58f79de03100.png",
     url: "https://www.sidev.fr/",
     alt: "Logo SIDEV - Partenaire HAPPLYZ CONNECT"
   },
