@@ -29,7 +29,7 @@ export const ReferenceContainer = () => {
               Nos références
             </h1>
             <div className="h-1 w-20 bg-[#56C7E1] mb-8"></div>
-            <p className="text-lg text-gray-700 max-w-3xl">
+            <p className="text-lg text-gray-700 max-w-4xl">
               Découvrez les projets réalisés par HAPPLYZ CONNECT pour ses clients. Nous accompagnons des entreprises 
               de toutes tailles dans leur transformation numérique grâce à nos solutions d'affichage dynamique et d'équipements audiovisuels.
             </p>
