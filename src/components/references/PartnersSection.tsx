@@ -141,7 +141,7 @@ const partners: Partner[] = [
     id: 19,
     name: "EMITY",
     logo: "/lovable-uploads/a87577c5-d016-4ced-ac2a-b467c5f53a00.png",
-    url: "https://www.emity.fr/",
+    url: "https://www.emity.io/",
     alt: "Logo EMITY - Partenaire HAPPLYZ CONNECT"
   },
 ];
