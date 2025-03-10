@@ -42,7 +42,7 @@ const partners: Partner[] = [
   {
     id: 5,
     name: "YEALINK",
-    logo: "/lovable-uploads/d1266ec2-fb47-40cf-936d-49f96f2cabe0.png",
+    logo: "/lovable-uploads/17236d42-d915-45ef-854f-c4b186114f17.png",
     url: "https://www.yealink.com/fr/",
     alt: "Logo YEALINK - Partenaire HAPPLYZ CONNECT"
   },
@@ -77,7 +77,7 @@ const partners: Partner[] = [
   {
     id: 10,
     name: "KIMEX",
-    logo: "/lovable-uploads/6f6c54fc-4a56-49c1-a1f5-f43ac5a0248f.png",
+    logo: "/lovable-uploads/cd9a965d-5f87-47bd-886a-54d813c09e37.png",
     url: "https://www.kimex.fr/",
     alt: "Logo KIMEX - Partenaire HAPPLYZ CONNECT"
   },
