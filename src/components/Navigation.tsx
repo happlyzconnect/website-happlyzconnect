@@ -53,10 +53,6 @@ export const Navigation = () => {
     });
   };
 
-  const handleLogoClick = () => {
-    window.location.reload();
-  };
-
   const handleMouseEnter = () => {
     setIsPopoverOpen(true);
   };
@@ -78,8 +74,8 @@ export const Navigation = () => {
         <div className="flex h-full">
           {/* Logo column */}
           <div className="h-full flex items-center pr-8">
-            <button 
-              onClick={handleLogoClick}
+            <Link 
+              to="/"
               className="h-8 hover:opacity-80 transition-opacity"
             >
               <img 
@@ -87,7 +83,7 @@ export const Navigation = () => {
                 alt="Happlyz Connect" 
                 className="h-full object-contain"
               />
-            </button>
+            </Link>
           </div>
 
           {/* Content column */}
@@ -147,14 +143,6 @@ export const Navigation = () => {
 
             {/* Bottom row with navigation links */}
             <div className="hidden md:flex justify-end items-center pb-2">
-              <Link
-                to="/"
-                className="px-4 hover:text-[#56C7E1] text-white transition-colors relative group"
-              >
-                Accueil
-                <span className={`absolute bottom-0 left-0 w-full h-[2px] bg-white ${isHomePage ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-all duration-300`}></span>
-              </Link>
-
               {/* Nos solutions with HoverPopover */}
               <div 
                 onMouseEnter={handleMouseEnter}
