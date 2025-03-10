@@ -48,9 +48,9 @@ const References = () => {
     <div className="min-h-screen flex flex-col">
       <MetaDescription description="Découvrez les projets réalisés par HAPPLYZ CONNECT pour ses clients: écrans interactifs, affichage dynamique et solutions audiovisuelles." />
       <Navigation />
-      <main className="flex-1 pt-16 pb-16">
+      <main className="flex-1 pt-20 pb-16">
         <div className="container mx-auto px-4">
-          <div className="mb-8 pt-2">
+          <div className="mb-8 pt-4">
             <Breadcrumb 
               items={[
                 { label: "Accueil", href: "/" },
