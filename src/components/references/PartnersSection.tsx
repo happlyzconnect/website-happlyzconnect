@@ -105,7 +105,7 @@ const partners: Partner[] = [
   {
     id: 14,
     name: "EET",
-    logo: "/lovable-uploads/2ebcea0f-e4d2-4209-baee-56b58402fc0d.png",
+    logo: "/lovable-uploads/11537511-172e-4687-84b0-76c61babb94c.png",
     url: "https://fr.eetgroup.com/",
     alt: "Logo EET - Partenaire HAPPLYZ CONNECT"
   },
@@ -119,21 +119,21 @@ const partners: Partner[] = [
   {
     id: 16,
     name: "ONE DIRECT",
-    logo: "/lovable-uploads/a0f99984-2903-4518-9b7b-f01981e1b63f.png",
+    logo: "/lovable-uploads/a8ffb4f4-60e5-4533-b35a-a50ed9946413.png",
     url: "https://www.onedirect.fr/",
     alt: "Logo ONE DIRECT - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 17,
     name: "WINTER MUSHROOM",
-    logo: "/lovable-uploads/e549e333-c1c3-4df2-91c9-0c8dcb152cff.png",
+    logo: "/lovable-uploads/2c154851-20b2-43b6-8ff6-e3cb77d9739b.png",
     url: "https://www.wintermushroom.com/",
     alt: "Logo WINTER MUSHROOM - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 18,
     name: "Magic Info",
-    logo: "/lovable-uploads/47f2d179-410e-4609-9a5f-48c0403ee5df.png",
+    logo: "/lovable-uploads/c1574a4d-1c81-41ed-affa-8e23317a796e.png",
     url: "https://www.samsung.com/global/business/display/solutions/digital-signage-solution/magicinfo/",
     alt: "Logo Magic Info - Partenaire HAPPLYZ CONNECT"
   },
