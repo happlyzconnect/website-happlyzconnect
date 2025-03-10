@@ -25,7 +25,7 @@ const referenceClients = [
     id: 3,
     name: "Decathlon Poitiers",
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
-    image: "/lovable-uploads/8542d24c-0edb-43a1-a7c6-d99931328400.png",
+    image: "/lovable-uploads/6a43e84c-b012-4c3e-8d17-1e3ca0fb1b37.png",
     description: "Installation d'un écran 75 pouces à l'entrée du magasin avec adaptation du contenu vidéo pour informer les clients"
   },
   {
@@ -245,7 +245,7 @@ const References = () => {
                 key={client.id} 
                 className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
               >
-                {client.id === 1 || client.id === 2 ? (
+                {client.id === 1 || client.id === 2 || client.id === 3 ? (
                   <div className="h-64 bg-gray-100">
                     <img 
                       src={client.image} 
