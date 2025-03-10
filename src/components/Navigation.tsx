@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -198,9 +199,9 @@ export const Navigation = () => {
                             <h4 className="font-semibold text-sm uppercase text-[#14213D]">AFFICHAGE DYNAMIQUE</h4>
                           </div>
                           <div className="pl-6 space-y-1">
-                            <a href="#" className="text-sm text-black hover:text-[#56C7E1] block">Magasins</a>
-                            <a href="#" className="text-sm text-black hover:text-[#56C7E1] block">Vitrines</a>
-                            <a href="#" className="text-sm text-black hover:text-[#56C7E1] block">Corporate</a>
+                            <Link to="/solutions/affichage-dynamique/magasins" className="text-sm text-black hover:text-[#56C7E1] block">Magasins</Link>
+                            <Link to="/solutions/affichage-dynamique/vitrines" className="text-sm text-black hover:text-[#56C7E1] block">Vitrines</Link>
+                            <Link to="/solutions/affichage-dynamique/corporate" className="text-sm text-black hover:text-[#56C7E1] block">Corporate</Link>
                           </div>
                         </div>
                         
@@ -210,7 +211,7 @@ export const Navigation = () => {
                             <h4 className="font-semibold text-sm uppercase text-[#14213D]">SALLES DE RÉUNION</h4>
                           </div>
                           <div className="pl-6">
-                            <a href="#" className="text-sm text-black hover:text-[#56C7E1] block">Solutions audiovisuelles</a>
+                            <Link to="/solutions/salles-de-reunion/solutions-audiovisuelles" className="text-sm text-black hover:text-[#56C7E1] block">Solutions audiovisuelles</Link>
                           </div>
                         </div>
                         
@@ -220,7 +221,7 @@ export const Navigation = () => {
                             <h4 className="font-semibold text-sm uppercase text-[#14213D]">SALLES DE CLASSE</h4>
                           </div>
                           <div className="pl-6">
-                            <a href="#" className="text-sm text-black hover:text-[#56C7E1] block">Solutions pédagogiques</a>
+                            <Link to="/solutions/salles-de-classe/solutions-pedagogiques" className="text-sm text-black hover:text-[#56C7E1] block">Solutions pédagogiques</Link>
                           </div>
                         </div>
                       </div>
@@ -290,19 +291,19 @@ export const Navigation = () => {
                 <div className="pl-4 text-sm space-y-1 mt-2">
                   <p className="font-medium text-[#56C7E1] uppercase">AFFICHAGE DYNAMIQUE</p>
                   <div className="pl-2 space-y-1">
-                    <a href="#" className="block hover:text-[#56C7E1] text-white">Magasins</a>
-                    <a href="#" className="block hover:text-[#56C7E1] text-white">Vitrines</a>
-                    <a href="#" className="block hover:text-[#56C7E1] text-white">Corporate</a>
+                    <Link to="/solutions/affichage-dynamique/magasins" className="block hover:text-[#56C7E1] text-white">Magasins</Link>
+                    <Link to="/solutions/affichage-dynamique/vitrines" className="block hover:text-[#56C7E1] text-white">Vitrines</Link>
+                    <Link to="/solutions/affichage-dynamique/corporate" className="block hover:text-[#56C7E1] text-white">Corporate</Link>
                   </div>
                   
                   <p className="font-medium text-[#56C7E1] uppercase mt-3">SALLES DE RÉUNION</p>
                   <div className="pl-2">
-                    <a href="#" className="block hover:text-[#56C7E1] text-white">Solutions audiovisuelles</a>
+                    <Link to="/solutions/salles-de-reunion/solutions-audiovisuelles" className="block hover:text-[#56C7E1] text-white">Solutions audiovisuelles</Link>
                   </div>
                   
                   <p className="font-medium text-[#56C7E1] uppercase mt-3">SALLES DE CLASSE</p>
                   <div className="pl-2">
-                    <a href="#" className="block hover:text-[#56C7E1] text-white">Solutions pédagogiques</a>
+                    <Link to="/solutions/salles-de-classe/solutions-pedagogiques" className="block hover:text-[#56C7E1] text-white">Solutions pédagogiques</Link>
                   </div>
                 </div>
               </div>
