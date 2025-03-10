@@ -1,6 +1,8 @@
 
-import { Check, MapPin, Settings, Monitor, School, Store, Video } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Check, MapPin, Settings, Monitor, School, Store, Video, ArrowRight } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 export const Solutions = () => {
   const scrollToContact = () => {
@@ -25,7 +27,8 @@ export const Solutions = () => {
         "Systèmes de visioconférence",
         "Solutions de partage de documents",
         "Vidéoprojecteurs dernière génération"
-      ]
+      ],
+      path: "/solutions/salles-de-reunion"
     },
     {
       title: "Salles de classe",
@@ -36,7 +39,8 @@ export const Solutions = () => {
         "Vidéoprojecteurs interactifs",
         "Systèmes audio intégrés",
         "Solutions collaboratives"
-      ]
+      ],
+      path: "/solutions/salles-de-classe"
     },
     {
       title: "Affichage dynamique",
@@ -47,7 +51,8 @@ export const Solutions = () => {
         "Logiciels de diffusion de contenu",
         "Création de contenus vidéo",
         "Gestion centralisée multi-sites"
-      ]
+      ],
+      path: "/solutions/affichage-dynamique"
     }
   ];
 
@@ -114,6 +119,18 @@ export const Solutions = () => {
                   ))}
                 </ul>
               </CardContent>
+              <CardFooter className="pt-4">
+                <Button 
+                  asChild 
+                  variant="outline" 
+                  className="w-full border-business-primary text-business-primary hover:bg-business-primary hover:text-white transition-all duration-300"
+                >
+                  <Link to={solution.path}>
+                    Découvrir
+                    <ArrowRight className="ml-2" />
+                  </Link>
+                </Button>
+              </CardFooter>
             </Card>
           ))}
         </div>
