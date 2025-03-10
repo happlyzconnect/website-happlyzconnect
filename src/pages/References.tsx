@@ -17,30 +17,37 @@ const referenceClients = [
   },
   {
     id: 2,
+    name: "Decathlon CNIT",
+    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
+    image: "/lovable-uploads/efe09c78-1ef4-4d53-a69e-0826be6203be.png",
+    description: "Installation de 2 x 2 écrans 75 pouces pour affichage dynamique piloté avec logiciel et adaptation de contenus vidéos, en vitrine donnant sur le centre commercial Westfield CNIT La Défense."
+  },
+  {
+    id: 3,
     name: "Carrefour",
     logo: "/lovable-uploads/55a109ad-89c2-44b1-92c8-81f7dfb4aa63.png",
     description: "Solutions d'affichage dynamique pour les vitrines et l'intérieur des magasins."
   },
   {
-    id: 3,
+    id: 4,
     name: "BNP Paribas",
     logo: "/lovable-uploads/68fbf33c-72b6-4ab9-8903-64e0d903fa1d.png",
     description: "Équipement audiovisuel des espaces collaboratifs et salles de conférence."
   },
   {
-    id: 4,
+    id: 5,
     name: "Université Paris-Saclay",
     logo: "/lovable-uploads/aaa36cf1-55ac-4916-83e9-43f0d7674525.png",
     description: "Installation d'écrans interactifs dans les salles de classe et amphithéâtres."
   },
   {
-    id: 5,
+    id: 6,
     name: "Hôtel Mercure",
     logo: "/lovable-uploads/3aeebb1d-9d36-4a6a-a47f-cd05d216f482.png",
     description: "Solutions d'affichage dynamique pour les espaces d'accueil et les salles de séminaire."
   },
   {
-    id: 6,
+    id: 7,
     name: "Mairie de Paris",
     logo: "/lovable-uploads/1f096081-547e-4966-a3fd-258978a08106.png",
     description: "Déploiement de solutions audiovisuelles pour les espaces publics et les salles de conseil."
@@ -163,7 +170,7 @@ const References = () => {
             </p>
           </section>
           
-          {/* Nouvelle section "Ils nous font confiance" */}
+          {/* Section "Ils nous font confiance" */}
           <section className="mb-16">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -211,7 +218,7 @@ const References = () => {
             </div>
           </section>
           
-          {/* Nouvelle section titre "Nos projets" */}
+          {/* Section titre "Nos projets" */}
           <section className="mb-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -235,7 +242,7 @@ const References = () => {
                 key={client.id} 
                 className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
               >
-                {client.id === 1 ? (
+                {client.id === 1 || client.id === 2 ? (
                   <div className="h-64 bg-gray-100">
                     <img 
                       src={client.image} 
