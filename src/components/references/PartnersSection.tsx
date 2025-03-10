@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 type Partner = {
@@ -126,7 +127,7 @@ const partners: Partner[] = [
     id: 17,
     name: "WINTER MUSHROOM",
     logo: "/lovable-uploads/2c154851-20b2-43b6-8ff6-e3cb77d9739b.png",
-    url: "https://www.wintermushroom.com/",
+    url: "https://www.winter-mushroom.com/fr/",
     alt: "Logo WINTER MUSHROOM - Partenaire HAPPLYZ CONNECT"
   },
   {
