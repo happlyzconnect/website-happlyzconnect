@@ -1,4 +1,3 @@
-
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -260,12 +259,17 @@ const References = () => {
                 key={client.id} 
                 className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
               >
-                {client.id === 1 || client.id === 2 || client.id === 3 ? (
+                {client.image ? (
                   <div className="h-64 bg-gray-100">
                     <img 
                       src={client.image} 
                       alt={`Projet ${client.name}`}
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.src = client.logo;
+                        e.currentTarget.className = "max-h-full max-w-full object-contain m-auto";
+                      }}
                     />
                   </div>
                 ) : (
@@ -274,6 +278,7 @@ const References = () => {
                       src={client.logo} 
                       alt={`Logo ${client.name}`} 
                       className="max-h-full max-w-full object-contain" 
+                      loading="lazy"
                     />
                   </div>
                 )}
