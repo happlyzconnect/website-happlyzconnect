@@ -148,13 +148,13 @@ export const Navigation = () => {
 
             {/* Bottom row with navigation links */}
             {isHomePage && (
-              <div className="hidden md:flex justify-end items-center pb-2">
+              <div className="hidden md:flex justify-end items-center">
                 <button
                   onClick={() => scrollToSection("accueil")}
                   className="px-4 hover:text-[#56C7E1] text-white transition-colors relative group"
                 >
                   Accueil
-                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-1 bg-white opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </button>
 
                 {/* Nos solutions with HoverPopover */}
@@ -169,7 +169,7 @@ export const Navigation = () => {
                     <PopoverTrigger asChild>
                       <button className="px-4 hover:text-[#56C7E1] text-white transition-colors relative group">
                         Nos solutions
-                        <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                        <span className="absolute bottom-0 left-0 w-full h-1 bg-white opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                       </button>
                     </PopoverTrigger>
                     <PopoverContent 
@@ -181,7 +181,7 @@ export const Navigation = () => {
                           <div className="space-y-2">
                             <div className="flex items-center gap-2 font-medium">
                               <Tv className="h-4 w-4 text-[#56C7E1]" />
-                              <h4 className="font-semibold text-sm uppercase text-[#14213D]">Affichage dynamique</h4>
+                              <h4 className="font-semibold text-sm uppercase text-[#14213D]">AFFICHAGE DYNAMIQUE</h4>
                             </div>
                             <div className="pl-6 space-y-1">
                               <a href="#" className="text-sm text-black hover:text-[#56C7E1] block">Magasins</a>
@@ -193,7 +193,7 @@ export const Navigation = () => {
                           <div className="space-y-2">
                             <div className="flex items-center gap-2 font-medium">
                               <Users className="h-4 w-4 text-[#56C7E1]" />
-                              <h4 className="font-semibold text-sm uppercase text-[#14213D]">Salles de réunion</h4>
+                              <h4 className="font-semibold text-sm uppercase text-[#14213D]">SALLES DE RÉUNION</h4>
                             </div>
                             <div className="pl-6">
                               <a href="#" className="text-sm text-black hover:text-[#56C7E1] block">Solutions audiovisuelles</a>
@@ -203,7 +203,7 @@ export const Navigation = () => {
                           <div className="space-y-2">
                             <div className="flex items-center gap-2 font-medium">
                               <GraduationCap className="h-4 w-4 text-[#56C7E1]" />
-                              <h4 className="font-semibold text-sm uppercase text-[#14213D]">Salles de classe</h4>
+                              <h4 className="font-semibold text-sm uppercase text-[#14213D]">SALLES DE CLASSE</h4>
                             </div>
                             <div className="pl-6">
                               <a href="#" className="text-sm text-black hover:text-[#56C7E1] block">Solutions pédagogiques</a>
@@ -220,7 +220,7 @@ export const Navigation = () => {
                   className="px-4 hover:text-[#56C7E1] text-white transition-colors relative group"
                 >
                   Contact
-                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-1 bg-white opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </button>
               </div>
             )}
@@ -267,19 +267,19 @@ export const Navigation = () => {
               <div className="px-4 py-2 text-white hover:bg-business-primary/50">
                 <p className="mb-1">Nos solutions</p>
                 <div className="pl-4 text-sm space-y-1 mt-2">
-                  <p className="font-medium text-[#56C7E1] uppercase">Affichage dynamique</p>
+                  <p className="font-medium text-[#56C7E1] uppercase">AFFICHAGE DYNAMIQUE</p>
                   <div className="pl-2 space-y-1">
                     <a href="#" className="block hover:text-[#56C7E1] text-white">Magasins</a>
                     <a href="#" className="block hover:text-[#56C7E1] text-white">Vitrines</a>
                     <a href="#" className="block hover:text-[#56C7E1] text-white">Corporate</a>
                   </div>
                   
-                  <p className="font-medium text-[#56C7E1] uppercase mt-3">Salles de réunion</p>
+                  <p className="font-medium text-[#56C7E1] uppercase mt-3">SALLES DE RÉUNION</p>
                   <div className="pl-2">
                     <a href="#" className="block hover:text-[#56C7E1] text-white">Solutions audiovisuelles</a>
                   </div>
                   
-                  <p className="font-medium text-[#56C7E1] uppercase mt-3">Salles de classe</p>
+                  <p className="font-medium text-[#56C7E1] uppercase mt-3">SALLES DE CLASSE</p>
                   <div className="pl-2">
                     <a href="#" className="block hover:text-[#56C7E1] text-white">Solutions pédagogiques</a>
                   </div>
