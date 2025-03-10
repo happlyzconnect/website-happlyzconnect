@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 type Partner = {
@@ -156,21 +157,21 @@ export const PartnersSection = () => {
         </p>
       </motion.div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-8">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
         {partners.map((partner) => (
-          <div key={partner.id} className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div key={partner.id} className="flex items-center justify-center p-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow h-16 sm:h-20">
             {partner.url ? (
               <a 
                 href={partner.url} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="w-full h-24 flex items-center justify-center"
+                className="w-full h-full flex items-center justify-center"
                 aria-label={`Visiter le site de ${partner.name}`}
               >
                 <img
                   src={partner.logo}
                   alt={partner.alt}
-                  className={`max-w-full max-h-full object-contain ${partner.className || ''}`}
+                  className={`max-w-[80%] max-h-[80%] object-contain ${partner.className || ''}`}
                   loading="lazy"
                   onError={(e) => {
                     e.currentTarget.src = "/placeholder.svg";
@@ -181,7 +182,7 @@ export const PartnersSection = () => {
               <img
                 src={partner.logo}
                 alt={partner.alt}
-                className={`max-w-full max-h-full object-contain ${partner.className || ''}`}
+                className={`max-w-[80%] max-h-[80%] object-contain ${partner.className || ''}`}
                 loading="lazy"
                 onError={(e) => {
                   e.currentTarget.src = "/placeholder.svg";
