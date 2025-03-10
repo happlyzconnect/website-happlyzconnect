@@ -1,3 +1,4 @@
+
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -120,7 +121,7 @@ const referenceClients = [
     id: 4,
     name: "Decathlon Brétigny-sur-Orge",
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
-    image: "/lovable-uploads/da74ef05-9e88-40a9-aecf-64f240dc3952.png",
+    image: "/lovable-uploads/32bcd83d-899a-4d00-a03c-ceaf8b329ef1.png",
     description: "Suspension d'écrans 65 pouces et création de vidéos en Motion Design pour affichage des tarifs de l'Atelier cycle."
   },
   {
