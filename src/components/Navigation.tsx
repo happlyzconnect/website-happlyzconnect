@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
   Popover,
+  HoverPopover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
@@ -53,6 +54,14 @@ export const Navigation = () => {
 
   const handleLogoClick = () => {
     window.location.reload();
+  };
+
+  const handleMouseEnter = () => {
+    setIsPopoverOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsPopoverOpen(false);
   };
 
   return (
@@ -147,62 +156,62 @@ export const Navigation = () => {
                   Accueil
                 </button>
 
-                {/* Nos solutions avec Popover */}
-                <Popover 
-                  open={isPopoverOpen}
-                  onOpenChange={setIsPopoverOpen}
+                {/* Nos solutions with HoverPopover */}
+                <div 
+                  onMouseEnter={handleMouseEnter}
+                  onMouseLeave={handleMouseLeave}
                 >
-                  <PopoverTrigger asChild>
-                    <button 
-                      className="px-4 hover:text-[#56C7E1] text-white transition-colors"
-                      onMouseEnter={() => setIsPopoverOpen(true)}
-                    >
-                      Nos solutions
-                    </button>
-                  </PopoverTrigger>
-                  <PopoverContent 
-                    className="w-80 p-0 bg-white rounded-md shadow-lg" 
-                    align="start"
-                    onMouseLeave={() => setIsPopoverOpen(false)}
-                    onInteractOutside={() => setIsPopoverOpen(false)}
+                  <HoverPopover
+                    open={isPopoverOpen}
+                    onOpenChange={setIsPopoverOpen}
                   >
-                    <div className="grid gap-4 p-4">
-                      <div className="space-y-4">
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2 font-medium">
-                            <Tv className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm text-black">Affichage dynamique</h4>
+                    <PopoverTrigger asChild>
+                      <button className="px-4 hover:text-[#56C7E1] text-white transition-colors">
+                        Nos solutions
+                      </button>
+                    </PopoverTrigger>
+                    <PopoverContent 
+                      className="w-80 p-0 bg-white rounded-md shadow-lg" 
+                      align="start"
+                    >
+                      <div className="grid gap-4 p-4">
+                        <div className="space-y-4">
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2 font-medium">
+                              <Tv className="h-4 w-4 text-[#56C7E1]" />
+                              <h4 className="font-semibold text-sm text-black">Affichage dynamique</h4>
+                            </div>
+                            <div className="pl-6 space-y-1">
+                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Magasins</a>
+                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Vitrines</a>
+                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Corporate</a>
+                            </div>
                           </div>
-                          <div className="pl-6 space-y-1">
-                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Magasins</a>
-                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Vitrines</a>
-                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Corporate</a>
+                          
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2 font-medium">
+                              <Users className="h-4 w-4 text-[#56C7E1]" />
+                              <h4 className="font-semibold text-sm text-black">Salles de réunion</h4>
+                            </div>
+                            <div className="pl-6">
+                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions audiovisuelles</a>
+                            </div>
                           </div>
-                        </div>
-                        
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2 font-medium">
-                            <Users className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm text-black">Salles de réunion</h4>
-                          </div>
-                          <div className="pl-6">
-                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions audiovisuelles</a>
-                          </div>
-                        </div>
-                        
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2 font-medium">
-                            <GraduationCap className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm text-black">Salles de classe</h4>
-                          </div>
-                          <div className="pl-6">
-                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions pédagogiques</a>
+                          
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2 font-medium">
+                              <GraduationCap className="h-4 w-4 text-[#56C7E1]" />
+                              <h4 className="font-semibold text-sm text-black">Salles de classe</h4>
+                            </div>
+                            <div className="pl-6">
+                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions pédagogiques</a>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </PopoverContent>
-                </Popover>
+                    </PopoverContent>
+                  </HoverPopover>
+                </div>
 
                 <button
                   onClick={() => scrollToSection("contact")}
