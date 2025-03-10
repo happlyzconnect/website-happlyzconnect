@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -91,7 +90,6 @@ export const Navigation = () => {
   };
 
   const downloadBrochure = () => {
-    // Send email notification using EmailJS
     emailjs.send(
       "service_qytcdsw",
       "template_a6q4yno",
@@ -100,7 +98,6 @@ export const Navigation = () => {
       },
       "ySp_OZUSZFd1MsIZJ"
     ).then(() => {
-      // Create a link to download the file
       const link = document.createElement('a');
       link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
       link.download = 'plaquette-commerciale-happlyz.pdf';
@@ -109,7 +106,6 @@ export const Navigation = () => {
       document.body.removeChild(link);
     }).catch((error) => {
       console.error('EmailJS error:', error);
-      // Download anyway in case of error
       const link = document.createElement('a');
       link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
       link.download = 'plaquette-commerciale-happlyz.pdf';
@@ -123,7 +119,7 @@ export const Navigation = () => {
     <nav 
       className="fixed w-full shadow-sm"
       style={{
-        height: "72px",
+        height: "80px",
         backgroundColor: "#14213D",
         zIndex: 30
       }}
@@ -134,7 +130,7 @@ export const Navigation = () => {
             <a 
               href="/"
               onClick={handleLogoClick}
-              className="h-8 hover:opacity-80 transition-opacity"
+              className="h-10 hover:opacity-80 transition-opacity"
             >
               <img 
                 src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
@@ -271,7 +267,7 @@ export const Navigation = () => {
 
               <button
                 onClick={handleContactClick}
-                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-8 mt-[-8px] hover:bg-gray-200 transition-colors mb-1"
+                className="bg-white text-[#14213D] font-medium px-4 py-2 ml-2 h-10 mt-[-8px] hover:bg-gray-200 transition-colors mb-1"
               >
                 Nous contacter
               </button>
@@ -280,7 +276,7 @@ export const Navigation = () => {
         </div>
 
         {isOpen && (
-          <div className="md:hidden fixed left-0 right-0 top-16 bg-business-primary/90 backdrop-blur-sm shadow-lg">
+          <div className="md:hidden fixed left-0 right-0 top-20">
             <div className="flex flex-col">
               <div className="px-4 py-2 space-y-2 border-b border-white/10">
                 <div className="flex items-center space-x-2 text-white">
@@ -350,7 +346,7 @@ export const Navigation = () => {
               </Link>
               <button
                 onClick={handleContactClick}
-                className="mx-4 my-2 bg-white text-[#14213D] font-medium px-4 py-1 h-8 text-left hover:bg-gray-200 transition-colors"
+                className="mx-4 my-2 bg-white text-[#14213D] font-medium px-4 py-2 h-10 text-left hover:bg-gray-200 transition-colors"
               >
                 Nous contacter
               </button>
