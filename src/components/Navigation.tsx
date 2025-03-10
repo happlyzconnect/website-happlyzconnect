@@ -148,13 +148,13 @@ export const Navigation = () => {
 
             {/* Bottom row with navigation links */}
             {isHomePage && (
-              <div className="hidden md:flex justify-end items-center">
+              <div className="hidden md:flex justify-end items-center pb-2">
                 <button
                   onClick={() => scrollToSection("accueil")}
                   className="px-4 hover:text-[#56C7E1] text-white transition-colors relative group"
                 >
                   Accueil
-                  <span className="absolute bottom-0 left-0 w-full h-1 bg-white opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </button>
 
                 {/* Nos solutions with HoverPopover */}
@@ -169,7 +169,7 @@ export const Navigation = () => {
                     <PopoverTrigger asChild>
                       <button className="px-4 hover:text-[#56C7E1] text-white transition-colors relative group">
                         Nos solutions
-                        <span className="absolute bottom-0 left-0 w-full h-1 bg-white opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                        <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                       </button>
                     </PopoverTrigger>
                     <PopoverContent 
@@ -220,7 +220,7 @@ export const Navigation = () => {
                   className="px-4 hover:text-[#56C7E1] text-white transition-colors relative group"
                 >
                   Contact
-                  <span className="absolute bottom-0 left-0 w-full h-1 bg-white opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-[2px] bg-white opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                 </button>
               </div>
             )}
