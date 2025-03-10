@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -150,9 +151,10 @@ export const Navigation = () => {
               <div className="hidden md:flex justify-end items-center pb-2">
                 <button
                   onClick={() => scrollToSection("accueil")}
-                  className="px-4 hover:text-[#56C7E1] text-white transition-colors"
+                  className="px-4 hover:text-[#56C7E1] text-white transition-colors relative group"
                 >
                   Accueil
+                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                 </button>
 
                 {/* Nos solutions with HoverPopover */}
@@ -165,8 +167,9 @@ export const Navigation = () => {
                     onOpenChange={setIsPopoverOpen}
                   >
                     <PopoverTrigger asChild>
-                      <button className="px-4 hover:text-[#56C7E1] text-white transition-colors">
+                      <button className="px-4 hover:text-[#56C7E1] text-white transition-colors relative group">
                         Nos solutions
+                        <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                       </button>
                     </PopoverTrigger>
                     <PopoverContent 
@@ -181,9 +184,9 @@ export const Navigation = () => {
                               <h4 className="font-semibold text-sm uppercase text-[#14213D]">Affichage dynamique</h4>
                             </div>
                             <div className="pl-6 space-y-1">
-                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Magasins</a>
-                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Vitrines</a>
-                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Corporate</a>
+                              <a href="#" className="text-sm text-black hover:text-[#56C7E1] block">Magasins</a>
+                              <a href="#" className="text-sm text-black hover:text-[#56C7E1] block">Vitrines</a>
+                              <a href="#" className="text-sm text-black hover:text-[#56C7E1] block">Corporate</a>
                             </div>
                           </div>
                           
@@ -193,7 +196,7 @@ export const Navigation = () => {
                               <h4 className="font-semibold text-sm uppercase text-[#14213D]">Salles de réunion</h4>
                             </div>
                             <div className="pl-6">
-                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions audiovisuelles</a>
+                              <a href="#" className="text-sm text-black hover:text-[#56C7E1] block">Solutions audiovisuelles</a>
                             </div>
                           </div>
                           
@@ -203,7 +206,7 @@ export const Navigation = () => {
                               <h4 className="font-semibold text-sm uppercase text-[#14213D]">Salles de classe</h4>
                             </div>
                             <div className="pl-6">
-                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions pédagogiques</a>
+                              <a href="#" className="text-sm text-black hover:text-[#56C7E1] block">Solutions pédagogiques</a>
                             </div>
                           </div>
                         </div>
@@ -214,9 +217,10 @@ export const Navigation = () => {
 
                 <button
                   onClick={() => scrollToSection("contact")}
-                  className="px-4 hover:text-[#56C7E1] text-white transition-colors"
+                  className="px-4 hover:text-[#56C7E1] text-white transition-colors relative group"
                 >
                   Contact
+                  <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
                 </button>
               </div>
             )}
@@ -265,19 +269,19 @@ export const Navigation = () => {
                 <div className="pl-4 text-sm space-y-1 mt-2">
                   <p className="font-medium text-[#56C7E1] uppercase">Affichage dynamique</p>
                   <div className="pl-2 space-y-1">
-                    <a href="#" className="block hover:text-[#56C7E1]">Magasins</a>
-                    <a href="#" className="block hover:text-[#56C7E1]">Vitrines</a>
-                    <a href="#" className="block hover:text-[#56C7E1]">Corporate</a>
+                    <a href="#" className="block hover:text-[#56C7E1] text-white">Magasins</a>
+                    <a href="#" className="block hover:text-[#56C7E1] text-white">Vitrines</a>
+                    <a href="#" className="block hover:text-[#56C7E1] text-white">Corporate</a>
                   </div>
                   
                   <p className="font-medium text-[#56C7E1] uppercase mt-3">Salles de réunion</p>
                   <div className="pl-2">
-                    <a href="#" className="block hover:text-[#56C7E1]">Solutions audiovisuelles</a>
+                    <a href="#" className="block hover:text-[#56C7E1] text-white">Solutions audiovisuelles</a>
                   </div>
                   
                   <p className="font-medium text-[#56C7E1] uppercase mt-3">Salles de classe</p>
                   <div className="pl-2">
-                    <a href="#" className="block hover:text-[#56C7E1]">Solutions pédagogiques</a>
+                    <a href="#" className="block hover:text-[#56C7E1] text-white">Solutions pédagogiques</a>
                   </div>
                 </div>
               </div>
