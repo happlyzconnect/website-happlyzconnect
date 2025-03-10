@@ -10,9 +10,10 @@ import { Link } from "react-router-dom";
 const referenceClients = [
   {
     id: 1,
-    name: "SNCF",
-    logo: "/lovable-uploads/d1266ec2-fb47-40cf-936d-49f96f2cabe0.png",
-    description: "Déploiement d'écrans interactifs dans les espaces de formation et les salles de réunion."
+    name: "Decathlon Herblay",
+    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
+    image: "/lovable-uploads/786840ea-5fd4-41ac-b2c9-8aa326cd9640.png",
+    description: "Installation de 3 écrans 86 pouces pour l'affichage dynamique en magasin, avec diffusion et création de contenus en Motion Design pour promouvoir l'application Decathlon."
   },
   {
     id: 2,
@@ -234,13 +235,23 @@ const References = () => {
                 key={client.id} 
                 className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
               >
-                <div className="h-40 bg-gray-50 flex items-center justify-center p-6">
-                  <img 
-                    src={client.logo} 
-                    alt={`Logo ${client.name}`} 
-                    className="max-h-full max-w-full object-contain" 
-                  />
-                </div>
+                {client.id === 1 ? (
+                  <div className="h-64 bg-gray-100">
+                    <img 
+                      src={client.image} 
+                      alt={`Projet ${client.name}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className="h-40 bg-gray-50 flex items-center justify-center p-6">
+                    <img 
+                      src={client.logo} 
+                      alt={`Logo ${client.name}`} 
+                      className="max-h-full max-w-full object-contain" 
+                    />
+                  </div>
+                )}
                 <div className="p-6">
                   <h3 className="text-xl font-semibold mb-2 text-business-primary">{client.name}</h3>
                   <p className="text-gray-600">{client.description}</p>
