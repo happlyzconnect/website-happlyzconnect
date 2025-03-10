@@ -99,7 +99,7 @@ const partners: Partner[] = [
     id: 13,
     name: "OSF",
     logo: "/lovable-uploads/900715a0-07e8-4ae4-9d0a-17c77df0d5cc.png",
-    url: "https://www.osf-global.com/",
+    url: "https://osf.digital/",
     alt: "Logo OSF - Partenaire HAPPLYZ CONNECT"
   },
   {
