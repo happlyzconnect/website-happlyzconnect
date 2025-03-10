@@ -15,21 +15,21 @@ const partners: Partner[] = [
   {
     id: 1,
     name: "Samsung",
-    logo: "/lovable-uploads/568f7f6e-6e8a-4cea-9f70-11e6adee9c77.png",
+    logo: "/lovable-uploads/9bc82803-969d-4922-ab75-d9bb2d008865.png",
     url: "https://www.samsung.com/fr/business/",
     alt: "Logo Samsung - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 2,
     name: "LG",
-    logo: "/lovable-uploads/c05c4fe1-4000-420b-ab48-c98868663756.png",
+    logo: "/lovable-uploads/abc04b44-9fdb-406f-b803-bcd765972200.png",
     url: "https://www.lg.com/fr/business/",
     alt: "Logo LG - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 3,
     name: "IIYAMA",
-    logo: "/lovable-uploads/9577f219-3e69-4160-96c0-1a7704310d0f.png",
+    logo: "/lovable-uploads/36b004ce-4c72-4304-9822-a96c4448b16a.png",
     url: "https://iiyama.com/fr_fr/",
     alt: "Logo IIYAMA - Partenaire HAPPLYZ CONNECT"
   },
@@ -50,14 +50,14 @@ const partners: Partner[] = [
   {
     id: 6,
     name: "LOGITECH",
-    logo: "/lovable-uploads/cfc81ca6-da37-4cc5-b6cb-69b25b8ba04f.png",
+    logo: "/lovable-uploads/ddf6c41d-f718-4773-81b6-8f32291ab1aa.png",
     url: "https://www.logitech.com/fr-fr/business/",
     alt: "Logo LOGITECH - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 7,
     name: "AVER",
-    logo: "/lovable-uploads/a06afdfa-22c0-4e7b-b7ef-7116784098c4.png",
+    logo: "/lovable-uploads/f5517ee8-d1dc-4636-a220-a3e24e24a2b9.png",
     url: "https://www.avereurope.com/fr/",
     alt: "Logo AVER - Partenaire HAPPLYZ CONNECT"
   },
