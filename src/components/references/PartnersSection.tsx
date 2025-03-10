@@ -106,7 +106,7 @@ const partners: Partner[] = [
     id: 14,
     name: "EET",
     logo: "/lovable-uploads/11537511-172e-4687-84b0-76c61babb94c.png",
-    url: "https://fr.eetgroup.com/",
+    url: "https://www.eetgroup.com/",
     alt: "Logo EET - Partenaire HAPPLYZ CONNECT"
   },
   {
