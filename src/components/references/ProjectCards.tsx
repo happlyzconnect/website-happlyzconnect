@@ -53,7 +53,7 @@ const referenceClients = [
   },
   {
     id: 8,
-    name: "Decathlon Brétigny",
+    name: "Decathlon CNIT",
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
     image: "/lovable-uploads/d4a1e95b-d164-450a-b5f2-0ede24283847.png",
     description: "Mise en place d'un concept d'affichage des tarifs et des périodes d'ouverture du rayon cordage"
