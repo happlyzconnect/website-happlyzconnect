@@ -84,7 +84,7 @@ const partners: Partner[] = [
   {
     id: 11,
     name: "NEWLINE",
-    logo: "/lovable-uploads/b9ded6e3-c20d-4e58-b0f8-f7377a0b9c7e.png",
+    logo: "/lovable-uploads/3b74253f-03e7-4370-98ba-31ddc8045ad4.png",
     url: "https://www.newline-interactive.com/",
     alt: "Logo NEWLINE - Partenaire HAPPLYZ CONNECT"
   },
