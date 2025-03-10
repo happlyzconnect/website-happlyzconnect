@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -170,7 +171,7 @@ export const Navigation = () => {
             </div>
 
             {/* Bottom row with navigation links */}
-            <div className="hidden md:flex justify-end items-center pb-2 mt-1">
+            <div className="hidden md:flex justify-end items-center pb-2">
               {/* Nos solutions with HoverPopover */}
               <div 
                 onMouseEnter={handleMouseEnter}
@@ -239,7 +240,7 @@ export const Navigation = () => {
 
               <button
                 onClick={handleContactClick}
-                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-8 mb-4"
+                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-8 mt-[-8px]"
               >
                 Nous contacter
               </button>
