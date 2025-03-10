@@ -77,61 +77,68 @@ const partners: Partner[] = [
   {
     id: 10,
     name: "KIMEX",
-    logo: "/lovable-uploads/872b743d-ffe4-44a9-8724-8fa8e374900c.png",
+    logo: "/lovable-uploads/6f6c54fc-4a56-49c1-a1f5-f43ac5a0248f.png",
     url: "https://www.kimex.fr/",
     alt: "Logo KIMEX - Partenaire HAPPLYZ CONNECT"
   },
   {
     id: 11,
+    name: "NEWLINE",
+    logo: "/lovable-uploads/b9ded6e3-c20d-4e58-b0f8-f7377a0b9c7e.png",
+    url: "https://www.newline-interactive.com/",
+    alt: "Logo NEWLINE - Partenaire HAPPLYZ CONNECT"
+  },
+  {
+    id: 12,
     name: "FVS",
     logo: "/lovable-uploads/6d4ad48c-9043-4e66-972f-c46716ebe863.png",
     url: "https://www.fvs.fr/",
     alt: "Logo FVS - Partenaire HAPPLYZ CONNECT"
   },
   {
-    id: 12,
+    id: 13,
     name: "OSF",
     logo: "/lovable-uploads/900715a0-07e8-4ae4-9d0a-17c77df0d5cc.png",
     url: "https://www.osf-global.com/",
     alt: "Logo OSF - Partenaire HAPPLYZ CONNECT"
   },
   {
-    id: 13,
+    id: 14,
     name: "EET",
     logo: "/lovable-uploads/2ebcea0f-e4d2-4209-baee-56b58402fc0d.png",
     url: "https://fr.eetgroup.com/",
     alt: "Logo EET - Partenaire HAPPLYZ CONNECT"
   },
   {
-    id: 14,
+    id: 15,
     name: "SIDEV",
     logo: "/lovable-uploads/233dc3f1-9c13-44fd-976d-02c7ed01b406.png",
     url: "https://www.sidev.fr/",
     alt: "Logo SIDEV - Partenaire HAPPLYZ CONNECT"
   },
   {
-    id: 15,
+    id: 16,
     name: "ONE DIRECT",
     logo: "/lovable-uploads/a0f99984-2903-4518-9b7b-f01981e1b63f.png",
     url: "https://www.onedirect.fr/",
     alt: "Logo ONE DIRECT - Partenaire HAPPLYZ CONNECT"
   },
   {
-    id: 16,
+    id: 17,
     name: "WINTER MUSHROOM",
     logo: "/lovable-uploads/e549e333-c1c3-4df2-91c9-0c8dcb152cff.png",
     url: "https://www.wintermushroom.com/",
     alt: "Logo WINTER MUSHROOM - Partenaire HAPPLYZ CONNECT"
   },
   {
-    id: 17,
+    id: 18,
     name: "Magic Info",
     logo: "/lovable-uploads/47f2d179-410e-4609-9a5f-48c0403ee5df.png",
     url: "https://www.samsung.com/global/business/display/solutions/digital-signage-solution/magicinfo/",
     alt: "Logo Magic Info - Partenaire HAPPLYZ CONNECT"
   },
   {
-    id: 18,
+    id: 19,
     name: "EMITY",
     logo: "/lovable-uploads/a87577c5-d016-4ced-ac2a-b467c5f53a00.png",
     url: "https://www.emity.fr/",
@@ -159,7 +166,7 @@ export const PartnersSection = () => {
 
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
         {partners.map((partner) => (
-          <div key={partner.id} className="flex items-center justify-center p-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow h-16 sm:h-20">
+          <div key={partner.id} className="flex items-center justify-center p-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow h-14 sm:h-16">
             {partner.url ? (
               <a 
                 href={partner.url} 
@@ -171,7 +178,7 @@ export const PartnersSection = () => {
                 <img
                   src={partner.logo}
                   alt={partner.alt}
-                  className={`max-w-[80%] max-h-[80%] object-contain ${partner.className || ''}`}
+                  className={`max-w-[75%] max-h-[75%] object-contain ${partner.className || ''}`}
                   loading="lazy"
                   onError={(e) => {
                     e.currentTarget.src = "/placeholder.svg";
@@ -182,7 +189,7 @@ export const PartnersSection = () => {
               <img
                 src={partner.logo}
                 alt={partner.alt}
-                className={`max-w-[80%] max-h-[80%] object-contain ${partner.className || ''}`}
+                className={`max-w-[75%] max-h-[75%] object-contain ${partner.className || ''}`}
                 loading="lazy"
                 onError={(e) => {
                   e.currentTarget.src = "/placeholder.svg";
