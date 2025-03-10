@@ -15,7 +15,7 @@ const solutionsCatalog: Record<string, { id: string; title: string; category: st
       title: "Affichage Dynamique pour Magasins",
       category: "affichage-dynamique",
       description: "Transformez l'expérience client dans vos points de vente",
-      image: "/lovable-uploads/bb6b76a3-bda7-49e7-bf65-c515d63c871d.png"
+      image: "/lovable-uploads/c05c4fe1-4000-420b-ab48-c98868663756.png"
     },
     {
       id: "vitrines",
