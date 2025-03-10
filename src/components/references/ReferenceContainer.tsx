@@ -35,8 +35,8 @@ export const ReferenceContainer = () => {
             </p>
           </section>
           
-          <ClientLogoGrid />
           <ProjectCards />
+          <ClientLogoGrid />
           <CallToAction />
         </div>
       </main>
