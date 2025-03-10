@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -15,6 +16,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
+import emailjs from '@emailjs/browser';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -89,12 +91,32 @@ export const Navigation = () => {
   };
 
   const downloadBrochure = () => {
-    const link = document.createElement('a');
-    link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
-    link.download = 'plaquette-commerciale-happlyz.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Send email notification using EmailJS
+    emailjs.send(
+      "service_qytcdsw",
+      "template_a6q4yno",
+      {
+        brochure_download: "Plaquette commerciale téléchargée depuis la navigation"
+      },
+      "ySp_OZUSZFd1MsIZJ"
+    ).then(() => {
+      // Create a link to download the file
+      const link = document.createElement('a');
+      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+      link.download = 'plaquette-commerciale-happlyz.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }).catch((error) => {
+      console.error('EmailJS error:', error);
+      // Download anyway in case of error
+      const link = document.createElement('a');
+      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+      link.download = 'plaquette-commerciale-happlyz.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
   };
 
   return (

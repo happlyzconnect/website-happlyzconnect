@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -63,13 +64,32 @@ export const Contact = () => {
   };
 
   const downloadBrochure = () => {
-    // Create a link to download the file
-    const link = document.createElement('a');
-    link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf'; // This path will need to be updated when you upload the PDF
-    link.download = 'plaquette-commerciale-happlyz.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // Send email notification using EmailJS
+    emailjs.send(
+      "service_qytcdsw",
+      "template_a6q4yno",
+      {
+        brochure_download: "Plaquette commerciale téléchargée depuis la section contact"
+      },
+      "ySp_OZUSZFd1MsIZJ"
+    ).then(() => {
+      // Create a link to download the file
+      const link = document.createElement('a');
+      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+      link.download = 'plaquette-commerciale-happlyz.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }).catch((error) => {
+      console.error('EmailJS error:', error);
+      // Download anyway in case of error
+      const link = document.createElement('a');
+      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+      link.download = 'plaquette-commerciale-happlyz.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
   };
 
   return (
