@@ -193,7 +193,7 @@ const SolutionDetail = () => {
             <Breadcrumb 
               items={[
                 { label: "Accueil", href: "/" },
-                { label: "Nos solutions", href: "#" },
+                { label: "Nos solutions" }, // Removed href to make it non-clickable
                 { label: getCategoryTitle(), href: `/solutions/${category}` },
                 { label: solution.title }
               ]} 
