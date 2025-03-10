@@ -1,8 +1,6 @@
-
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Download } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
 // Initialiser EmailJS avec la clé publique
@@ -112,13 +110,6 @@ export const Contact = () => {
               contact@happlyz.com
             </a>
           </p>
-          <button
-            onClick={downloadBrochure}
-            className="flex items-center gap-2 text-white hover:text-[#56C7E1] transition-colors mt-4"
-          >
-            <Download size={18} />
-            <span>Télécharger notre plaquette commerciale</span>
-          </button>
         </div>
       </div>
 
