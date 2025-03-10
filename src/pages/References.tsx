@@ -6,60 +6,6 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-const referenceClients = [
-  {
-    id: 1,
-    name: "Decathlon Herblay",
-    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
-    image: "/lovable-uploads/786840ea-5fd4-41ac-b2c9-8aa326cd9640.png",
-    description: "Installation de 3 écrans 86 pouces pour l'affichage dynamique en magasin, avec diffusion et création de contenus en Motion Design pour promouvoir l'application Decathlon."
-  },
-  {
-    id: 2,
-    name: "Decathlon CNIT",
-    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
-    image: "/lovable-uploads/efe09c78-1ef4-4d53-a69e-0826be6203be.png",
-    description: "Installation de 2 x 2 écrans 75 pouces pour affichage dynamique piloté avec logiciel et adaptation de contenus vidéos, en vitrine donnant sur le centre commercial Westfield CNIT La Défense."
-  },
-  {
-    id: 3,
-    name: "Decathlon Poitiers",
-    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
-    image: "/lovable-uploads/6a43e84c-b012-4c3e-8d17-1e3ca0fb1b37.png",
-    description: "Installation d'un écran 75 pouces à l'entrée du magasin avec adaptation du contenu vidéo pour informer les clients"
-  },
-  {
-    id: 4,
-    name: "Carrefour",
-    logo: "/lovable-uploads/55a109ad-89c2-44b1-92c8-81f7dfb4aa63.png",
-    description: "Solutions d'affichage dynamique pour les vitrines et l'intérieur des magasins."
-  },
-  {
-    id: 5,
-    name: "BNP Paribas",
-    logo: "/lovable-uploads/68fbf33c-72b6-4ab9-8903-64e0d903fa1d.png",
-    description: "Équipement audiovisuel des espaces collaboratifs et salles de conférence."
-  },
-  {
-    id: 6,
-    name: "Université Paris-Saclay",
-    logo: "/lovable-uploads/aaa36cf1-55ac-4916-83e9-43f0d7674525.png",
-    description: "Installation d'écrans interactifs dans les salles de classe et amphithéâtres."
-  },
-  {
-    id: 7,
-    name: "Hôtel Mercure",
-    logo: "/lovable-uploads/3aeebb1d-9d36-4a6a-a47f-cd05d216f482.png",
-    description: "Solutions d'affichage dynamique pour les espaces d'accueil et les salles de séminaire."
-  },
-  {
-    id: 8,
-    name: "Mairie de Paris",
-    logo: "/lovable-uploads/1f096081-547e-4966-a3fd-258978a08106.png",
-    description: "Déploiement de solutions audiovisuelles pour les espaces publics et les salles de conseil."
-  }
-];
-
 const trustedClients = [
   {
     id: 1,
@@ -146,6 +92,60 @@ const trustedClients = [
     url: "https://www.parashop.com/",
     alt: "Logo Parashop - Client HAPPLYZ CONNECT"
   },
+];
+
+const referenceClients = [
+  {
+    id: 1,
+    name: "Decathlon Herblay",
+    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
+    image: "/lovable-uploads/786840ea-5fd4-41ac-b2c9-8aa326cd9640.png",
+    description: "Installation de 3 écrans 86 pouces pour l'affichage dynamique en magasin, avec diffusion et création de contenus en Motion Design pour promouvoir l'application Decathlon."
+  },
+  {
+    id: 2,
+    name: "Decathlon CNIT",
+    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
+    image: "/lovable-uploads/efe09c78-1ef4-4d53-a69e-0826be6203be.png",
+    description: "Installation de 2 x 2 écrans 75 pouces pour affichage dynamique piloté avec logiciel et adaptation de contenus vidéos, en vitrine donnant sur le centre commercial Westfield CNIT La Défense."
+  },
+  {
+    id: 3,
+    name: "Decathlon Poitiers",
+    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
+    image: "/lovable-uploads/6a43e84c-b012-4c3e-8d17-1e3ca0fb1b37.png",
+    description: "Installation d'un écran 75 pouces à l'entrée du magasin avec adaptation du contenu vidéo pour accueillir la clientèle"
+  },
+  {
+    id: 4,
+    name: "Carrefour",
+    logo: "/lovable-uploads/55a109ad-89c2-44b1-92c8-81f7dfb4aa63.png",
+    description: "Solutions d'affichage dynamique pour les vitrines et l'intérieur des magasins."
+  },
+  {
+    id: 5,
+    name: "BNP Paribas",
+    logo: "/lovable-uploads/68fbf33c-72b6-4ab9-8903-64e0d903fa1d.png",
+    description: "Équipement audiovisuel des espaces collaboratifs et salles de conférence."
+  },
+  {
+    id: 6,
+    name: "Université Paris-Saclay",
+    logo: "/lovable-uploads/aaa36cf1-55ac-4916-83e9-43f0d7674525.png",
+    description: "Installation d'écrans interactifs dans les salles de classe et amphithéâtres."
+  },
+  {
+    id: 7,
+    name: "Hôtel Mercure",
+    logo: "/lovable-uploads/3aeebb1d-9d36-4a6a-a47f-cd05d216f482.png",
+    description: "Solutions d'affichage dynamique pour les espaces d'accueil et les salles de séminaire."
+  },
+  {
+    id: 8,
+    name: "Mairie de Paris",
+    logo: "/lovable-uploads/1f096081-547e-4966-a3fd-258978a08106.png",
+    description: "Déploiement de solutions audiovisuelles pour les espaces publics et les salles de conseil."
+  }
 ];
 
 const References = () => {
