@@ -48,7 +48,7 @@ const referenceClients = [
     id: 7,
     name: "Decathlon Stade de France",
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
-    image: "/lovable-uploads/9e077057-fe2a-4688-bffe-6f41a4002aea.png",
+    image: "/lovable-uploads/8ab255c7-c615-42ee-b02a-325ba3b70638.png",
     description: "Maintenance d'un écran 100 pouces avec diffusion de vidéos en Motion Design"
   },
   {
