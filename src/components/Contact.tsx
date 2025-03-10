@@ -1,9 +1,9 @@
-
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Download } from "lucide-react";
 import emailjs from '@emailjs/browser';
+import { downloadBrochure } from "@/utils/downloadUtils";
 
 // Initialiser EmailJS avec la clé publique
 emailjs.init("ySp_OZUSZFd1MsIZJ");
@@ -64,43 +64,9 @@ export const Contact = () => {
     }
   };
 
-  const downloadBrochure = () => {
-    // Create a link to download the file
-    const link = document.createElement('a');
-    link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
-    link.download = 'plaquette-commerciale-happlyz.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Send email notification
-    emailjs.send(
-      "service_qytcdsw",
-      "template_uahaue2",
-      {
-        to_email: 'contact@happlyz.com',
-        message: 'Quelqu\'un a téléchargé la plaquette commerciale depuis la section Contact.',
-        request_type: 'Téléchargement plaquette',
-        company_name: 'Non spécifié',
-        last_name: 'Non spécifié',
-        first_name: 'Non spécifié',
-        from_email: 'notification@happlyz.com',
-        phone: 'Non spécifié',
-      },
-      "ySp_OZUSZFd1MsIZJ"
-    ).then(
-      () => {
-        console.log('Email notification sent successfully');
-      },
-      (error) => {
-        console.error('Failed to send email notification:', error);
-      }
-    );
-    
-    // Show toast notification
-    toast({
-      title: "Téléchargement démarré",
-      description: "Merci de votre intérêt pour nos services !",
+  const handleDownloadBrochure = () => {
+    downloadBrochure({
+      source: "la section Contact"
     });
   };
 
@@ -143,7 +109,7 @@ export const Contact = () => {
             </a>
           </p>
           <button
-            onClick={downloadBrochure}
+            onClick={handleDownloadBrochure}
             className="flex items-center gap-2 text-white hover:text-[#56C7E1] transition-colors mt-4"
           >
             <Download size={18} />

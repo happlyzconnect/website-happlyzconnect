@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import emailjs from '@emailjs/browser';
+import { downloadBrochure } from "@/utils/downloadUtils";
 
 export const Hero = () => {
   const { toast } = useToast();
@@ -26,40 +26,9 @@ export const Hero = () => {
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
   };
 
-  const downloadBrochure = () => {
-    const link = document.createElement('a');
-    link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
-    link.download = 'plaquette-commerciale-happlyz.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    emailjs.send(
-      "service_qytcdsw",
-      "template_uahaue2",
-      {
-        to_email: 'contact@happlyz.com',
-        message: 'Quelqu\'un a téléchargé la plaquette commerciale depuis la section Hero.',
-        request_type: 'Téléchargement plaquette',
-        company_name: 'Non spécifié',
-        last_name: 'Non spécifié',
-        first_name: 'Non spécifié',
-        from_email: 'notification@happlyz.com',
-        phone: 'Non spécifié',
-      },
-      "ySp_OZUSZFd1MsIZJ"
-    ).then(
-      () => {
-        console.log('Email notification sent successfully');
-      },
-      (error) => {
-        console.error('Failed to send email notification:', error);
-      }
-    );
-    
-    toast({
-      title: "Téléchargement démarré",
-      description: "Merci de votre intérêt pour nos services !",
+  const handleDownloadBrochure = () => {
+    downloadBrochure({
+      source: "la section Hero"
     });
   };
 
@@ -100,7 +69,7 @@ export const Hero = () => {
             </button>
           </div>
           <button
-            onClick={downloadBrochure}
+            onClick={handleDownloadBrochure}
             className="flex items-center gap-2 text-white hover:text-[#56C7E1] transition-colors mb-16"
           >
             <Download size={20} />

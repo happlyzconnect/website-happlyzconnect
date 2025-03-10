@@ -1,10 +1,10 @@
-
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import { useToast } from "@/components/ui/use-toast";
 import emailjs from '@emailjs/browser';
+import { downloadBrochure } from "@/utils/downloadUtils";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -92,42 +92,9 @@ export const Navigation = () => {
     setIsPopoverOpen(false);
   };
 
-  const downloadBrochure = () => {
-    const link = document.createElement('a');
-    link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
-    link.download = 'plaquette-commerciale-happlyz.pdf';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    
-    // Send email notification
-    emailjs.send(
-      "service_qytcdsw",
-      "template_uahaue2",
-      {
-        to_email: 'contact@happlyz.com',
-        message: 'Quelqu\'un a téléchargé la plaquette commerciale depuis la barre de navigation.',
-        request_type: 'Téléchargement plaquette',
-        company_name: 'Non spécifié',
-        last_name: 'Non spécifié',
-        first_name: 'Non spécifié',
-        from_email: 'notification@happlyz.com',
-        phone: 'Non spécifié',
-      },
-      "ySp_OZUSZFd1MsIZJ"
-    ).then(
-      () => {
-        console.log('Email notification sent successfully');
-      },
-      (error) => {
-        console.error('Failed to send email notification:', error);
-      }
-    );
-    
-    // Show toast notification
-    toast({
-      title: "Téléchargement démarré",
-      description: "Merci de votre intérêt pour nos services !",
+  const handleDownloadBrochure = () => {
+    downloadBrochure({
+      source: "la barre de navigation"
     });
   };
 
@@ -198,7 +165,7 @@ export const Navigation = () => {
                   <ArrowDown size={14} />
                 </button>
                 <button
-                  onClick={downloadBrochure}
+                  onClick={handleDownloadBrochure}
                   className="text-white hover:text-[#56C7E1] transition-colors flex items-center gap-2 text-sm"
                 >
                   <Download size={14} />
@@ -320,7 +287,7 @@ export const Navigation = () => {
                 <div className="flex items-center space-x-2 text-white">
                   <Download size={14} />
                   <button
-                    onClick={downloadBrochure}
+                    onClick={handleDownloadBrochure}
                     className="text-sm hover:text-[#56C7E1]"
                   >
                     Télécharger notre plaquette
@@ -373,3 +340,4 @@ export const Navigation = () => {
     </nav>
   );
 };
+
