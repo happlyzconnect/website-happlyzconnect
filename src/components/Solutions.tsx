@@ -116,15 +116,13 @@ export const Solutions = () => {
                 </ul>
               </CardContent>
               <CardFooter className="pt-4 mt-auto">
-                <Button 
-                  asChild 
-                  className="w-full bg-business-primary text-white hover:bg-business-primary/90 transition-all duration-300"
+                <Link 
+                  to={solution.path}
+                  className="w-full text-center text-[#0EA5E9] hover:text-[#0EA5E9]/90 font-bold text-lg flex items-center justify-center gap-2 transition-all duration-300"
                 >
-                  <Link to={solution.path}>
-                    Découvrir
-                    <ArrowRight className="ml-2" />
-                  </Link>
-                </Button>
+                  Découvrir
+                  <ArrowRight className="ml-2" />
+                </Link>
               </CardFooter>
             </Card>
           ))}
