@@ -240,7 +240,7 @@ export const Navigation = () => {
 
               <button
                 onClick={handleContactClick}
-                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-8"
+                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-8 mb-2"
               >
                 Nous contacter
               </button>
