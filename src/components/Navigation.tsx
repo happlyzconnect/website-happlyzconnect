@@ -2,9 +2,6 @@ import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { useLocation, Link, useNavigate } from "react-router-dom";
-import { useToast } from "@/components/ui/use-toast";
-import emailjs from '@emailjs/browser';
-import { downloadBrochure } from "@/utils/downloadUtils";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -25,7 +22,6 @@ export const Navigation = () => {
   const [currentLanguage, setCurrentLanguage] = useState("FR");
   const location = useLocation();
   const navigate = useNavigate();
-  const { toast } = useToast();
   const isHomePage = location.pathname === '/';
   const isReferencesPage = location.pathname === '/nos-references';
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -92,10 +88,13 @@ export const Navigation = () => {
     setIsPopoverOpen(false);
   };
 
-  const handleDownloadBrochure = () => {
-    downloadBrochure({
-      source: "la barre de navigation"
-    });
+  const downloadBrochure = () => {
+    const link = document.createElement('a');
+    link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+    link.download = 'plaquette-commerciale-happlyz.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -165,7 +164,7 @@ export const Navigation = () => {
                   <ArrowDown size={14} />
                 </button>
                 <button
-                  onClick={handleDownloadBrochure}
+                  onClick={downloadBrochure}
                   className="text-white hover:text-[#56C7E1] transition-colors flex items-center gap-2 text-sm"
                 >
                   <Download size={14} />
@@ -287,7 +286,7 @@ export const Navigation = () => {
                 <div className="flex items-center space-x-2 text-white">
                   <Download size={14} />
                   <button
-                    onClick={handleDownloadBrochure}
+                    onClick={downloadBrochure}
                     className="text-sm hover:text-[#56C7E1]"
                   >
                     Télécharger notre plaquette
@@ -340,4 +339,3 @@ export const Navigation = () => {
     </nav>
   );
 };
-

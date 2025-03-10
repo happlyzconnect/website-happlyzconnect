@@ -1,12 +1,7 @@
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { useToast } from "@/components/ui/use-toast";
-import { downloadBrochure } from "@/utils/downloadUtils";
 
 export const Hero = () => {
-  const { toast } = useToast();
-  
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     const navbarHeight = 72;
@@ -26,10 +21,13 @@ export const Hero = () => {
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
   };
 
-  const handleDownloadBrochure = () => {
-    downloadBrochure({
-      source: "la section Hero"
-    });
+  const downloadBrochure = () => {
+    const link = document.createElement('a');
+    link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+    link.download = 'plaquette-commerciale-happlyz.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -69,7 +67,7 @@ export const Hero = () => {
             </button>
           </div>
           <button
-            onClick={handleDownloadBrochure}
+            onClick={downloadBrochure}
             className="flex items-center gap-2 text-white hover:text-[#56C7E1] transition-colors mb-16"
           >
             <Download size={20} />
