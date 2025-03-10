@@ -69,7 +69,7 @@ const referenceClients = [
     id: 10,
     name: "Decathlon Poitiers",
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
-    image: "/lovable-uploads/c4f501f8-33d9-494a-ad08-195663538d21.png",
+    image: "/lovable-uploads/ec102dbc-d037-4fd6-82ba-c85a8f6d4be7.png",
     description: "Installation d'écrans 55 pouces connectés à des vélos Domyos pour démonstration de l'application KINOMAP"
   },
   {
