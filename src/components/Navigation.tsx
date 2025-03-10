@@ -14,6 +14,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Button } from "@/components/ui/button";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,6 +22,7 @@ export const Navigation = () => {
   const [currentLanguage, setCurrentLanguage] = useState("FR");
   const location = useLocation();
   const isHomePage = location.pathname === '/';
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   
   const textColorStyle = {
     color: '#FFFFFF'
@@ -151,51 +153,56 @@ export const Navigation = () => {
                   </button>
                 ))}
 
-                {/* Nouveau menu "Nos solutions" avec popup */}
-                <Popover>
-                  <PopoverTrigger asChild>
-                    <button className="px-4 hover:text-[#56C7E1] text-white transition-colors">
-                      Nos solutions
-                    </button>
-                  </PopoverTrigger>
-                  <PopoverContent className="w-80 p-0 bg-white rounded-md shadow-lg" sideOffset={5}>
-                    <div className="grid gap-4 p-4">
-                      <div className="space-y-4">
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2 font-medium">
-                            <Tv className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm text-black">Affichage dynamique</h4>
+                {/* Nos solutions avec hover popup */}
+                <div 
+                  className="relative"
+                  onMouseEnter={() => setIsPopoverOpen(true)}
+                  onMouseLeave={() => setIsPopoverOpen(false)}
+                >
+                  <button className="px-4 hover:text-[#56C7E1] text-white transition-colors">
+                    Nos solutions
+                  </button>
+                  
+                  {isPopoverOpen && (
+                    <div className="absolute left-0 mt-2 w-80 bg-white rounded-md shadow-lg p-4 z-50">
+                      <div className="grid gap-4">
+                        <div className="space-y-4">
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2 font-medium">
+                              <Tv className="h-4 w-4 text-[#56C7E1]" />
+                              <h4 className="font-semibold text-sm text-black">Affichage dynamique</h4>
+                            </div>
+                            <div className="pl-6 space-y-1">
+                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Magasins</a>
+                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Vitrines</a>
+                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Corporate</a>
+                            </div>
                           </div>
-                          <div className="pl-6 space-y-1">
-                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Magasins</a>
-                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Vitrines</a>
-                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Corporate</a>
+                          
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2 font-medium">
+                              <Users className="h-4 w-4 text-[#56C7E1]" />
+                              <h4 className="font-semibold text-sm text-black">Salles de réunion</h4>
+                            </div>
+                            <div className="pl-6">
+                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions audiovisuelles</a>
+                            </div>
                           </div>
-                        </div>
-                        
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2 font-medium">
-                            <Users className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm text-black">Salles de réunion</h4>
-                          </div>
-                          <div className="pl-6">
-                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions audiovisuelles</a>
-                          </div>
-                        </div>
-                        
-                        <div className="space-y-2">
-                          <div className="flex items-center gap-2 font-medium">
-                            <GraduationCap className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm text-black">Salles de classe</h4>
-                          </div>
-                          <div className="pl-6">
-                            <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions pédagogiques</a>
+                          
+                          <div className="space-y-2">
+                            <div className="flex items-center gap-2 font-medium">
+                              <GraduationCap className="h-4 w-4 text-[#56C7E1]" />
+                              <h4 className="font-semibold text-sm text-black">Salles de classe</h4>
+                            </div>
+                            <div className="pl-6">
+                              <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions pédagogiques</a>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </PopoverContent>
-                </Popover>
+                  )}
+                </div>
 
                 <button
                   onClick={() => scrollToSection("contact")}
