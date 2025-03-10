@@ -5,6 +5,7 @@ import { Footer } from "@/components/Footer";
 import { Navigation } from "@/components/Navigation";
 import { ClientLogoGrid } from "./ClientLogoGrid";
 import { ProjectCards } from "./ProjectCards";
+import { PartnersSection } from "./PartnersSection";
 import { CallToAction } from "./CallToAction";
 import { motion } from "framer-motion";
 
@@ -37,6 +38,7 @@ export const ReferenceContainer = () => {
           
           <ProjectCards />
           <ClientLogoGrid />
+          <PartnersSection />
           <CallToAction />
         </div>
       </main>
