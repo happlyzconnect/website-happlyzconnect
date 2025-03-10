@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 
 type Partner = {
@@ -140,7 +139,7 @@ const partners: Partner[] = [
   {
     id: 19,
     name: "EMITY",
-    logo: "/lovable-uploads/a87577c5-d016-4ced-ac2a-b467c5f53a00.png",
+    logo: "/lovable-uploads/f7bdcbea-b252-47f1-889c-3f8caef200c1.png",
     url: "https://www.emity.io/",
     alt: "Logo EMITY - Partenaire HAPPLYZ CONNECT"
   },
