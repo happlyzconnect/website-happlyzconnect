@@ -132,30 +132,37 @@ const referenceClients = [
   },
   {
     id: 6,
+    name: "Decathlon Paris La Madeleine",
+    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
+    image: "/lovable-uploads/8741ff20-be7d-468b-a25c-3f7ecef35a27.png",
+    description: "Création d'un concept d'écrans d'accueil et d'informations en file d'attente avec vidéo du personnel du magasin."
+  },
+  {
+    id: 7,
     name: "Carrefour",
     logo: "/lovable-uploads/55a109ad-89c2-44b1-92c8-81f7dfb4aa63.png",
     description: "Solutions d'affichage dynamique pour les vitrines et l'intérieur des magasins."
   },
   {
-    id: 7,
+    id: 8,
     name: "BNP Paribas",
     logo: "/lovable-uploads/68fbf33c-72b6-4ab9-8903-64e0d903fa1d.png",
     description: "Équipement audiovisuel des espaces collaboratifs et salles de conférence."
   },
   {
-    id: 8,
+    id: 9,
     name: "Université Paris-Saclay",
     logo: "/lovable-uploads/aaa36cf1-55ac-4916-83e9-43f0d7674525.png",
     description: "Installation d'écrans interactifs dans les salles de classe et amphithéâtres."
   },
   {
-    id: 9,
+    id: 10,
     name: "Hôtel Mercure",
     logo: "/lovable-uploads/3aeebb1d-9d36-4a6a-a47f-cd05d216f482.png",
     description: "Solutions d'affichage dynamique pour les espaces d'accueil et les salles de séminaire."
   },
   {
-    id: 10,
+    id: 11,
     name: "Mairie de Paris",
     logo: "/lovable-uploads/1f096081-547e-4966-a3fd-258978a08106.png",
     description: "Déploiement de solutions audiovisuelles pour les espaces publics et les salles de conseil."
