@@ -203,7 +203,7 @@ export const Navigation = () => {
               </button>
             </div>
 
-            <div className="hidden md:flex justify-end items-center pb-3">
+            <div className="hidden md:flex justify-end items-center pb-4">
               <div 
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -213,7 +213,7 @@ export const Navigation = () => {
                   onOpenChange={setIsPopoverOpen}
                 >
                   <PopoverTrigger asChild>
-                    <button className="px-4 pb-3 hover:text-[#56C7E1] text-white transition-colors relative group outline-none focus:outline-none">
+                    <button className="px-4 pb-4 hover:text-[#56C7E1] text-white transition-colors relative group outline-none focus:outline-none">
                       Nos solutions
                       <span className="absolute bottom-0 left-0 w-full h-[5px] bg-[#56C7E1] opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                     </button>
@@ -263,7 +263,7 @@ export const Navigation = () => {
 
               <Link
                 to="/nos-references"
-                className="px-4 pb-3 hover:text-[#56C7E1] text-white transition-colors relative group outline-none focus:outline-none"
+                className="px-4 pb-4 hover:text-[#56C7E1] text-white transition-colors relative group outline-none focus:outline-none"
               >
                 Nos références
                 <span className={`absolute bottom-0 left-0 w-full h-[5px] bg-[#56C7E1] ${isReferencesPage ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-all duration-300`}></span>
@@ -271,7 +271,7 @@ export const Navigation = () => {
 
               <button
                 onClick={handleContactClick}
-                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-8 mt-[-8px] hover:bg-gray-200 transition-colors mb-3"
+                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-8 mt-[-8px] hover:bg-gray-200 transition-colors mb-1"
               >
                 Nous contacter
               </button>
