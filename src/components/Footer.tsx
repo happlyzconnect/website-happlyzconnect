@@ -1,3 +1,4 @@
+
 import { Linkedin, Twitter, ArrowUp, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
@@ -35,15 +36,6 @@ export const Footer = () => {
             <p className="text-sm text-gray-300">
               SIREN : 823 127 154 RCS VERSAILLES
             </p>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={downloadBrochure}
-              className="text-gray-300 hover:text-business-accent transition-colors flex items-center gap-2 mt-4 p-0"
-            >
-              <Download size={16} />
-              Télécharger notre plaquette commerciale
-            </Button>
           </div>
 
           {/* Links & Social */}
@@ -79,6 +71,17 @@ export const Footer = () => {
                 <Twitter size={24} />
               </a>
             </div>
+            
+            {/* Download brochure button - Moved here */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={downloadBrochure}
+              className="text-gray-300 hover:text-business-accent transition-colors flex items-center gap-2 p-0"
+            >
+              <Download size={16} />
+              Télécharger notre plaquette commerciale
+            </Button>
           </div>
         </div>
 
