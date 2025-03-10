@@ -1,7 +1,8 @@
+
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
-import { Services } from "@/components/Services";
+import { Solutions } from "@/components/Solutions";
 import { WhyChooseUs } from "@/components/WhyChooseUs";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
@@ -16,7 +17,7 @@ const Index = () => {
       <main className="pt-16">
         <Hero />
         <About />
-        <Services />
+        <Solutions />
         <WhyChooseUs />
         <ClientCarousel />
         <Contact />

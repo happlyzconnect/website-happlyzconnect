@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 export const Hero = () => {
@@ -14,10 +15,10 @@ export const Hero = () => {
     }
   };
 
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById('services');
+  const scrollToSolutions = () => {
+    const solutionsSection = document.getElementById('solutions');
     const navbarHeight = 72;
-    const targetPosition = servicesSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+    const targetPosition = solutionsSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
   };
 
@@ -45,10 +46,10 @@ export const Hero = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 items-start mb-16">
             <button 
-              onClick={scrollToServices}
+              onClick={scrollToSolutions}
               className="bg-[#56C7E1] hover:bg-[#56C7E1]/90 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
             >
-              Découvrir nos services
+              Découvrir nos solutions
             </button>
             <button 
               onClick={scrollToContact}

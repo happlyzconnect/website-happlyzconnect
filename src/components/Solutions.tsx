@@ -1,7 +1,8 @@
+
 import { Check, MapPin, Settings, Monitor, School, Store, Video } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export const Services = () => {
+export const Solutions = () => {
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     const navbarHeight = 72;
@@ -14,7 +15,7 @@ export const Services = () => {
     }
   };
 
-  const services = [
+  const solutions = [
     {
       title: "Salles de réunion",
       description: "Équipements numériques professionnels pour vos espaces collaboratifs",
@@ -58,7 +59,7 @@ export const Services = () => {
   ];
 
   return (
-    <section id="services" className="bg-white">
+    <section id="solutions" className="bg-white">
       <div className="relative w-full h-[300px]"
         style={{
           backgroundImage: "url('/lovable-uploads/cfc81ca6-da37-4cc5-b6cb-69b25b8ba04f.png')",
@@ -80,7 +81,7 @@ export const Services = () => {
         {/* En-tête */}
         <div className="text-center">
           <h2 className="text-4xl font-bold text-business-primary mb-6">
-            Nos services
+            Nos solutions
           </h2>
         </div>
 
@@ -94,18 +95,18 @@ export const Services = () => {
           ))}
         </div>
 
-        {/* Services principaux */}
+        {/* Solutions principales */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {services.map((service) => (
-            <Card key={service.title} className="border-2 hover:border-business-primary transition-colors duration-300">
+          {solutions.map((solution) => (
+            <Card key={solution.title} className="border-2 hover:border-business-primary transition-colors duration-300">
               <CardHeader>
-                <service.icon className="w-12 h-12 text-business-primary mb-4" />
-                <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                <CardDescription>{service.description}</CardDescription>
+                <solution.icon className="w-12 h-12 text-business-primary mb-4" />
+                <CardTitle className="text-xl mb-2">{solution.title}</CardTitle>
+                <CardDescription>{solution.description}</CardDescription>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
-                  {service.details.map((detail) => (
+                  {solution.details.map((detail) => (
                     <li key={detail} className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
                       <span className="text-gray-600">{detail}</span>
