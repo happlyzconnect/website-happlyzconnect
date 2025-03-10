@@ -210,6 +210,24 @@ const References = () => {
             </div>
           </section>
           
+          {/* Nouvelle section titre "Nos projets" */}
+          <section className="mb-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-8"
+            >
+              <h2 className="text-3xl font-bold text-business-primary mb-4">
+                Nos projets
+              </h2>
+              <div className="h-1 w-16 bg-[#56C7E1] mx-auto mb-6"></div>
+              <p className="text-business-secondary text-lg max-w-2xl mx-auto">
+                Découvrez les réalisations concrètes de nos solutions d'affichage dynamique et d'équipements audiovisuels
+              </p>
+            </motion.div>
+          </section>
+          
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
             {referenceClients.map((client) => (
               <div 
