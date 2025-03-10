@@ -117,8 +117,8 @@ export const Navigation = () => {
 
           {/* Content column */}
           <div className="flex-1 flex flex-col justify-between">
-            {/* Top row with contact info */}
-            <div className="flex justify-end items-center py-1 mb-2">
+            {/* Top row with contact info - increased height with py-2 instead of py-1 */}
+            <div className="flex justify-end items-center py-2 mb-2">
               <div className="hidden md:flex items-center space-x-6">
                 <div className="flex items-center space-x-2">
                   <Phone size={14} style={textColorStyle} />
