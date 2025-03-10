@@ -1,4 +1,3 @@
-
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -22,7 +21,7 @@ const solutionsCatalog: Record<string, { id: string; title: string; category: st
       title: "Affichage Dynamique pour Vitrines",
       category: "affichage-dynamique",
       description: "Attirez plus de clients dans votre établissement",
-      image: "/lovable-uploads/38d126ad-eba7-4d7d-85c1-cb41469680bf.png"
+      image: "/lovable-uploads/872b743d-ffe4-44a9-8724-8fa8e374900c.png"
     },
     {
       id: "corporate",

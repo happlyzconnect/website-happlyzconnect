@@ -53,7 +53,7 @@ const solutionsCatalog: Record<string, SolutionCategory[]> = {
       category: "affichage-dynamique",
       description: "Attirez plus de clients dans votre établissement",
       longDescription: "Transformez votre vitrine en un outil marketing puissant avec nos solutions d'affichage dynamique haute luminosité. Captez l'attention des passants et incitez-les à entrer dans votre établissement grâce à des contenus attrayants et dynamiques visibles même en plein soleil.",
-      image: "/lovable-uploads/38d126ad-eba7-4d7d-85c1-cb41469680bf.png",
+      image: "/lovable-uploads/872b743d-ffe4-44a9-8724-8fa8e374900c.png",
       features: [
         { id: 1, name: "Écrans haute luminosité (2500+ nits)" },
         { id: 2, name: "Visibilité garantie même en plein soleil" },
