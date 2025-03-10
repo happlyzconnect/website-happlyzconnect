@@ -53,30 +53,37 @@ const referenceClients = [
   },
   {
     id: 8,
+    name: "Decathlon Brétigny",
+    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
+    image: "/lovable-uploads/d4a1e95b-d164-450a-b5f2-0ede24283847.png",
+    description: "Mise en place d'un concept d'affichage des tarifs et des périodes d'ouverture du rayon cordage"
+  },
+  {
+    id: 9,
     name: "Carrefour",
     logo: "/lovable-uploads/55a109ad-89c2-44b1-92c8-81f7dfb4aa63.png",
     description: "Solutions d'affichage dynamique pour les vitrines et l'intérieur des magasins."
   },
   {
-    id: 9,
+    id: 10,
     name: "BNP Paribas",
     logo: "/lovable-uploads/68fbf33c-72b6-4ab9-8903-64e0d903fa1d.png",
     description: "Équipement audiovisuel des espaces collaboratifs et salles de conférence."
   },
   {
-    id: 10,
+    id: 11,
     name: "Université Paris-Saclay",
     logo: "/lovable-uploads/aaa36cf1-55ac-4916-83e9-43f0d7674525.png",
     description: "Installation d'écrans interactifs dans les salles de classe et amphithéâtres."
   },
   {
-    id: 11,
+    id: 12,
     name: "Hôtel Mercure",
     logo: "/lovable-uploads/3aeebb1d-9d36-4a6a-a47f-cd05d216f482.png",
     description: "Solutions d'affichage dynamique pour les espaces d'accueil et les salles de séminaire."
   },
   {
-    id: 12,
+    id: 13,
     name: "Mairie de Paris",
     logo: "/lovable-uploads/1f096081-547e-4966-a3fd-258978a08106.png",
     description: "Déploiement de solutions audiovisuelles pour les espaces publics et les salles de conseil."
