@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -154,7 +155,7 @@ export const Navigation = () => {
                   <PopoverTrigger asChild>
                     <button className="px-4 pb-3 hover:text-[#56C7E1] text-white transition-colors relative group">
                       Nos solutions
-                      <span className="absolute bottom-0 left-0 w-full h-[3px] bg-white opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                      <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#56C7E1] opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
                     </button>
                   </PopoverTrigger>
                   <PopoverContent 
@@ -205,7 +206,7 @@ export const Navigation = () => {
                 className="px-4 pb-3 hover:text-[#56C7E1] text-white transition-colors relative group"
               >
                 Nos références
-                <span className={`absolute bottom-0 left-0 w-full h-[3px] bg-white ${isReferencesPage ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-all duration-300`}></span>
+                <span className={`absolute bottom-0 left-0 w-full h-[3px] bg-[#56C7E1] ${isReferencesPage ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-all duration-300`}></span>
               </Link>
 
               <button
@@ -213,7 +214,7 @@ export const Navigation = () => {
                 className="px-4 pb-3 hover:text-[#56C7E1] text-white transition-colors relative group"
               >
                 Contact
-                <span className="absolute bottom-0 left-0 w-full h-[3px] bg-white opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-full h-[3px] bg-[#56C7E1] opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
               </button>
             </div>
           </div>
