@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -140,18 +139,12 @@ export const Navigation = () => {
             {/* Bottom row with navigation links */}
             {isHomePage && (
               <div className="hidden md:flex justify-end items-center pb-2">
-                {[
-                  { label: "Accueil", id: "accueil" },
-                  { label: "Services", id: "services" }
-                ].map((item) => (
-                  <button
-                    key={item.label}
-                    onClick={() => scrollToSection(item.id)}
-                    className="px-4 hover:text-[#56C7E1] text-white transition-colors"
-                  >
-                    {item.label}
-                  </button>
-                ))}
+                <button
+                  onClick={() => scrollToSection("accueil")}
+                  className="px-4 hover:text-[#56C7E1] text-white transition-colors"
+                >
+                  Accueil
+                </button>
 
                 {/* Nos solutions avec hover popup */}
                 <div 
@@ -244,18 +237,12 @@ export const Navigation = () => {
                   <span className="text-sm">🇫🇷 Français</span>
                 </div>
               </div>
-              {/* Mobile navigation links */}
+              {/* Mobile navigation links - also removed Services here */}
               <button
                 onClick={() => scrollToSection("accueil")}
                 className="px-4 py-2 text-white hover:text-[#56C7E1] text-left"
               >
                 Accueil
-              </button>
-              <button
-                onClick={() => scrollToSection("services")}
-                className="px-4 py-2 text-white hover:text-[#56C7E1] text-left"
-              >
-                Services
               </button>
               {/* Menu Nos solutions pour mobile */}
               <div className="px-4 py-2 text-white hover:bg-business-primary/50">
