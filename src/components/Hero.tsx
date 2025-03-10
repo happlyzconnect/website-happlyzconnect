@@ -47,7 +47,7 @@ export const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 items-start mb-16">
             <button 
               onClick={scrollToSolutions}
-              className="bg-[#56C7E1] hover:bg-[#56C7E1]/90 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
+              className="bg-[#56C7E1] hover:bg-[#56C7E1]/90 text-white font-semibold py-3 px-8 rounded-lg transition-colors outline-none focus:outline-none"
             >
               Découvrir nos solutions
             </button>
