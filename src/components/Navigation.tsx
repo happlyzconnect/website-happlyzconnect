@@ -170,8 +170,8 @@ export const Navigation = () => {
               </button>
             </div>
 
-            {/* Bottom row with navigation links */}
-            <div className="hidden md:flex justify-end items-center pb-2">
+            {/* Bottom row with navigation links - increased height by changing pb-2 to pb-3 */}
+            <div className="hidden md:flex justify-end items-center pb-3">
               {/* Nos solutions with HoverPopover */}
               <div 
                 onMouseEnter={handleMouseEnter}
