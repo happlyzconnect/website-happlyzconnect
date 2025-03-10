@@ -134,7 +134,7 @@ const partners: Partner[] = [
     id: 18,
     name: "Magic Info",
     logo: "/lovable-uploads/c1574a4d-1c81-41ed-affa-8e23317a796e.png",
-    url: "https://www.samsung.com/global/business/display/solutions/digital-signage-solution/magicinfo/",
+    url: "https://www.samsung.com/fr/business/display-solutions/magicinfo/",
     alt: "Logo Magic Info - Partenaire HAPPLYZ CONNECT"
   },
   {
