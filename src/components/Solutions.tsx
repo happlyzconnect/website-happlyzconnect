@@ -1,3 +1,4 @@
+
 import { Check, MapPin, Settings, Monitor, School, Store, Video, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -118,10 +119,10 @@ export const Solutions = () => {
               <CardFooter className="pt-4 mt-auto">
                 <Link 
                   to={solution.path}
-                  className="w-full text-center text-[#0EA5E9] hover:text-[#0EA5E9]/90 font-bold text-lg flex items-center justify-center gap-2 transition-all duration-300"
+                  className="w-full text-center text-[#0EA5E9] hover:text-business-primary font-bold text-lg flex items-center justify-center gap-2 transition-all duration-300 group"
                 >
                   Découvrir
-                  <ArrowRight className="ml-2" />
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </CardFooter>
             </Card>
