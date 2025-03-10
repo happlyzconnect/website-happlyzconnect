@@ -1,5 +1,5 @@
-
 import { motion } from "framer-motion";
+import { Download } from "lucide-react";
 
 export const Hero = () => {
   const scrollToContact = () => {
@@ -8,7 +8,6 @@ export const Hero = () => {
     const targetPosition = contactSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     
-    // Sélectionner le radio bouton "Devis"
     const quoteRadio = document.getElementById('quote') as HTMLInputElement;
     if (quoteRadio) {
       quoteRadio.click();
@@ -20,6 +19,15 @@ export const Hero = () => {
     const navbarHeight = 72;
     const targetPosition = solutionsSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+  };
+
+  const downloadBrochure = () => {
+    const link = document.createElement('a');
+    link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+    link.download = 'plaquette-commerciale-happlyz.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   return (
@@ -44,7 +52,7 @@ export const Hero = () => {
           <p className="text-xl md:text-2xl mb-8 text-business-light/90">
             Nous accompagnons nos clients vers l'excellence numérique avec des solutions sur mesure.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 items-start mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 items-start mb-8">
             <button 
               onClick={scrollToSolutions}
               className="bg-[#56C7E1] hover:bg-[#56C7E1]/90 text-white font-semibold py-3 px-8 rounded-lg transition-colors outline-none focus:outline-none"
@@ -58,6 +66,13 @@ export const Hero = () => {
               Demander un devis
             </button>
           </div>
+          <button
+            onClick={downloadBrochure}
+            className="flex items-center gap-2 text-white hover:text-[#56C7E1] transition-colors mb-16"
+          >
+            <Download size={20} />
+            <span>Télécharger notre plaquette commerciale</span>
+          </button>
         </motion.div>
       </div>
     </div>

@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap } from "lucide-react";
+import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import {
@@ -89,6 +88,15 @@ export const Navigation = () => {
     setIsPopoverOpen(false);
   };
 
+  const downloadBrochure = () => {
+    const link = document.createElement('a');
+    link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+    link.download = 'plaquette-commerciale-happlyz.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <nav 
       className="fixed w-full shadow-sm"
@@ -100,7 +108,6 @@ export const Navigation = () => {
     >
       <div className="container mx-auto px-4 h-full">
         <div className="flex h-full">
-          {/* Logo column */}
           <div className="h-full flex items-center pr-8">
             <a 
               href="/"
@@ -115,10 +122,8 @@ export const Navigation = () => {
             </a>
           </div>
 
-          {/* Content column */}
           <div className="flex-1 flex flex-col justify-between">
-            {/* Top row with contact info */}
-            <div className="flex justify-end items-center py-1 mb-2">
+            <div className="flex justify-end items-center py-2 mb-2">
               <div className="hidden md:flex items-center space-x-6">
                 <div className="flex items-center space-x-2">
                   <Phone size={14} style={textColorStyle} />
@@ -158,9 +163,15 @@ export const Navigation = () => {
                   Bas du site
                   <ArrowDown size={14} />
                 </button>
+                <button
+                  onClick={downloadBrochure}
+                  className="text-white hover:text-[#56C7E1] transition-colors flex items-center gap-2 text-sm"
+                >
+                  <Download size={14} />
+                  <span>Plaquette</span>
+                </button>
               </div>
 
-              {/* Mobile menu button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="md:hidden"
@@ -170,9 +181,7 @@ export const Navigation = () => {
               </button>
             </div>
 
-            {/* Bottom row with navigation links */}
-            <div className="hidden md:flex justify-end items-center pb-2">
-              {/* Nos solutions with HoverPopover */}
+            <div className="hidden md:flex justify-end items-center pb-3">
               <div 
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -248,11 +257,9 @@ export const Navigation = () => {
           </div>
         </div>
 
-        {/* Mobile menu */}
         {isOpen && (
           <div className="md:hidden fixed left-0 right-0 top-16 bg-business-primary/90 backdrop-blur-sm shadow-lg">
             <div className="flex flex-col">
-              {/* Mobile contact info */}
               <div className="px-4 py-2 space-y-2 border-b border-white/10">
                 <div className="flex items-center space-x-2 text-white">
                   <Phone size={14} />
@@ -276,15 +283,22 @@ export const Navigation = () => {
                   <Globe size={14} />
                   <span className="text-sm">🇫🇷 Français</span>
                 </div>
+                <div className="flex items-center space-x-2 text-white">
+                  <Download size={14} />
+                  <button
+                    onClick={downloadBrochure}
+                    className="text-sm hover:text-[#56C7E1]"
+                  >
+                    Télécharger notre plaquette
+                  </button>
+                </div>
               </div>
-              {/* Mobile navigation links */}
               <Link
                 to="/"
                 className="px-4 py-2 text-white hover:text-[#56C7E1] text-left"
               >
                 Accueil
               </Link>
-              {/* Menu Nos solutions pour mobile */}
               <div className="px-4 py-2 text-white hover:bg-business-primary/50">
                 <p className="mb-1">Nos solutions</p>
                 <div className="pl-4 text-sm space-y-1 mt-2">

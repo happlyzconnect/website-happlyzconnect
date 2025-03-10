@@ -1,6 +1,8 @@
+
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Download } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
 // Initialiser EmailJS avec la clé publique
@@ -62,6 +64,16 @@ export const Contact = () => {
     }
   };
 
+  const downloadBrochure = () => {
+    // Create a link to download the file
+    const link = document.createElement('a');
+    link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf'; // This path will need to be updated when you upload the PDF
+    link.download = 'plaquette-commerciale-happlyz.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section className="py-12 bg-business-light" id="contact">
       <div 
@@ -100,6 +112,13 @@ export const Contact = () => {
               contact@happlyz.com
             </a>
           </p>
+          <button
+            onClick={downloadBrochure}
+            className="flex items-center gap-2 text-white hover:text-[#56C7E1] transition-colors mt-4"
+          >
+            <Download size={18} />
+            <span>Télécharger notre plaquette commerciale</span>
+          </button>
         </div>
       </div>
 
