@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
-import { useLocation, Link } from "react-router-dom";
+import { useLocation, Link, useNavigate } from "react-router-dom";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,6 +21,7 @@ export const Navigation = () => {
   const { scrollY } = useScrollDirection();
   const [currentLanguage, setCurrentLanguage] = useState("FR");
   const location = useLocation();
+  const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
   const isReferencesPage = location.pathname === '/nos-references';
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -41,6 +42,23 @@ export const Navigation = () => {
     if (section) {
       const targetPosition = section.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
       window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    }
+    setIsOpen(false);
+  };
+
+  const handleContactClick = () => {
+    if (!isHomePage) {
+      navigate('/');
+      setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+          const navbarHeight = 72;
+          const targetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      scrollToSection("contact");
     }
     setIsOpen(false);
   };
@@ -209,7 +227,7 @@ export const Navigation = () => {
               </Link>
 
               <button
-                onClick={() => scrollToSection("contact")}
+                onClick={handleContactClick}
                 className="px-4 pb-3 hover:text-[#56C7E1] text-white transition-colors relative group"
               >
                 Contact
@@ -284,7 +302,7 @@ export const Navigation = () => {
                 Nos références
               </Link>
               <button
-                onClick={() => scrollToSection("contact")}
+                onClick={handleContactClick}
                 className="px-4 py-2 text-white hover:text-[#56C7E1] text-left"
               >
                 Contact
