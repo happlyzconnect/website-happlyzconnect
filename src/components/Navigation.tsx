@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -89,7 +88,7 @@ export const Navigation = () => {
           {/* Content column */}
           <div className="flex-1 flex flex-col justify-between">
             {/* Top row with contact info */}
-            <div className="flex justify-end items-center py-1">
+            <div className="flex justify-end items-center py-1 mb-2">
               <div className="hidden md:flex items-center space-x-6">
                 <div className="flex items-center space-x-2">
                   <Phone size={14} style={textColorStyle} />
@@ -142,7 +141,7 @@ export const Navigation = () => {
             </div>
 
             {/* Bottom row with navigation links */}
-            <div className="hidden md:flex justify-end items-center pb-2">
+            <div className="hidden md:flex justify-end items-center pb-2 mt-1">
               {/* Nos solutions with HoverPopover */}
               <div 
                 onMouseEnter={handleMouseEnter}
@@ -297,5 +296,3 @@ export const Navigation = () => {
     </nav>
   );
 };
-
-
