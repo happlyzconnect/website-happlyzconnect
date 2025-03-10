@@ -1,7 +1,17 @@
 
 import { motion } from "framer-motion";
 
-const partners = [
+// Update the partner type to include an optional className property
+type Partner = {
+  id: number;
+  name: string;
+  logo: string;
+  url: string;
+  alt: string;
+  className?: string; // Add optional className property
+};
+
+const partners: Partner[] = [
   {
     id: 1,
     name: "Samsung",
