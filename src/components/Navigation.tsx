@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -179,7 +178,7 @@ export const Navigation = () => {
                           <div className="space-y-2">
                             <div className="flex items-center gap-2 font-medium">
                               <Tv className="h-4 w-4 text-[#56C7E1]" />
-                              <h4 className="font-semibold text-sm text-black">Affichage dynamique</h4>
+                              <h4 className="font-semibold text-sm uppercase text-[#14213D]">Affichage dynamique</h4>
                             </div>
                             <div className="pl-6 space-y-1">
                               <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Magasins</a>
@@ -191,7 +190,7 @@ export const Navigation = () => {
                           <div className="space-y-2">
                             <div className="flex items-center gap-2 font-medium">
                               <Users className="h-4 w-4 text-[#56C7E1]" />
-                              <h4 className="font-semibold text-sm text-black">Salles de réunion</h4>
+                              <h4 className="font-semibold text-sm uppercase text-[#14213D]">Salles de réunion</h4>
                             </div>
                             <div className="pl-6">
                               <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions audiovisuelles</a>
@@ -201,7 +200,7 @@ export const Navigation = () => {
                           <div className="space-y-2">
                             <div className="flex items-center gap-2 font-medium">
                               <GraduationCap className="h-4 w-4 text-[#56C7E1]" />
-                              <h4 className="font-semibold text-sm text-black">Salles de classe</h4>
+                              <h4 className="font-semibold text-sm uppercase text-[#14213D]">Salles de classe</h4>
                             </div>
                             <div className="pl-6">
                               <a href="#" className="text-sm text-gray-600 hover:text-[#56C7E1] block">Solutions pédagogiques</a>
@@ -253,7 +252,7 @@ export const Navigation = () => {
                   <span className="text-sm">🇫🇷 Français</span>
                 </div>
               </div>
-              {/* Mobile navigation links - also removed Services here */}
+              {/* Mobile navigation links */}
               <button
                 onClick={() => scrollToSection("accueil")}
                 className="px-4 py-2 text-white hover:text-[#56C7E1] text-left"
@@ -264,19 +263,19 @@ export const Navigation = () => {
               <div className="px-4 py-2 text-white hover:bg-business-primary/50">
                 <p className="mb-1">Nos solutions</p>
                 <div className="pl-4 text-sm space-y-1 mt-2">
-                  <p className="font-medium text-[#56C7E1]">Affichage dynamique</p>
+                  <p className="font-medium text-[#56C7E1] uppercase">Affichage dynamique</p>
                   <div className="pl-2 space-y-1">
                     <a href="#" className="block hover:text-[#56C7E1]">Magasins</a>
                     <a href="#" className="block hover:text-[#56C7E1]">Vitrines</a>
                     <a href="#" className="block hover:text-[#56C7E1]">Corporate</a>
                   </div>
                   
-                  <p className="font-medium text-[#56C7E1] mt-3">Salles de réunion</p>
+                  <p className="font-medium text-[#56C7E1] uppercase mt-3">Salles de réunion</p>
                   <div className="pl-2">
                     <a href="#" className="block hover:text-[#56C7E1]">Solutions audiovisuelles</a>
                   </div>
                   
-                  <p className="font-medium text-[#56C7E1] mt-3">Salles de classe</p>
+                  <p className="font-medium text-[#56C7E1] uppercase mt-3">Salles de classe</p>
                   <div className="pl-2">
                     <a href="#" className="block hover:text-[#56C7E1]">Solutions pédagogiques</a>
                   </div>
