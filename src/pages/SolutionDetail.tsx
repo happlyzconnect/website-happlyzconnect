@@ -33,7 +33,7 @@ const solutionsCatalog: Record<string, SolutionCategory[]> = {
       category: "affichage-dynamique",
       description: "Transformez l'expérience client dans vos points de vente",
       longDescription: "Captez l'attention de vos clients et augmentez vos ventes grâce à nos solutions d'affichage dynamique spécialement conçues pour les magasins et points de vente. Nos écrans professionnels et notre plateforme de gestion de contenu vous permettent de diffuser facilement vos promotions, nouveautés et informations produits.",
-      image: "/lovable-uploads/bb6b76a3-bda7-49e7-bf65-c515d63c871d.png",
+      image: "/lovable-uploads/59de4235-9384-42ed-8773-5b167ffd673f.png",
       features: [
         { id: 1, name: "Écrans professionnels haute luminosité" },
         { id: 2, name: "Gestion de contenu centralisée" },
