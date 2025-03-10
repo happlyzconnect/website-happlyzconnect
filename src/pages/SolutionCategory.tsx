@@ -1,3 +1,4 @@
+
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -28,7 +29,7 @@ const solutionsCatalog: Record<string, { id: string; title: string; category: st
       title: "Affichage Dynamique Corporate",
       category: "affichage-dynamique",
       description: "Améliorez votre communication interne et externe",
-      image: "/lovable-uploads/57f23413-fbca-41c3-a838-5478758e1a6f.png"
+      image: "/lovable-uploads/380e90c3-7879-45d8-a761-1e7c091a8cf1.png"
     }
   ],
   "salles-de-reunion": [
