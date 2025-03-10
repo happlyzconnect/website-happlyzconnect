@@ -69,7 +69,7 @@ export const Hero = () => {
           </div>
           <button
             onClick={downloadBrochure}
-            className="flex items-center gap-2 text-white hover:text-[#56C7E1] transition-colors mb-16"
+            className="flex items-center gap-2 text-white hover:text-[#56C7E1] transition-colors mb-8"
           >
             <Download size={20} />
             <span>Télécharger notre plaquette commerciale</span>
