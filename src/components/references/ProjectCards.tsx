@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 
 const referenceClients = [
@@ -111,7 +110,7 @@ const referenceClients = [
     id: 16,
     name: "Géant Casino Amiens",
     logo: null,
-    image: "/lovable-uploads/700acbff-00d6-42c1-bb65-f89d1daa0a3a.png", // Reusing the Bourges image as placeholder
+    image: "/lovable-uploads/97e78eb0-3b44-4b65-814b-00ab817ae3c7.png",
     description: "Installation d'un écran 75 pouces avec intégration d'un logiciel d'affichage dynamique au niveau de la parapharmacie"
   },
   {
