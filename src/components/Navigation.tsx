@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -240,7 +239,7 @@ export const Navigation = () => {
 
               <button
                 onClick={handleContactClick}
-                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-8 mb-2"
+                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-8 mb-4"
               >
                 Nous contacter
               </button>
