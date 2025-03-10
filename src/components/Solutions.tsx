@@ -103,13 +103,13 @@ export const Solutions = () => {
         {/* Solutions principales */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {solutions.map((solution) => (
-            <Card key={solution.title} className="border-2 hover:border-business-primary transition-colors duration-300">
+            <Card key={solution.title} className="border-2 hover:border-business-primary transition-colors duration-300 flex flex-col">
               <CardHeader>
                 <solution.icon className="w-12 h-12 text-business-primary mb-4" />
                 <CardTitle className="text-xl mb-2">{solution.title}</CardTitle>
                 <CardDescription>{solution.description}</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <ul className="space-y-3">
                   {solution.details.map((detail) => (
                     <li key={detail} className="flex items-start gap-2">
@@ -119,7 +119,7 @@ export const Solutions = () => {
                   ))}
                 </ul>
               </CardContent>
-              <CardFooter className="pt-4">
+              <CardFooter className="pt-4 mt-auto">
                 <Button 
                   asChild 
                   variant="outline" 
