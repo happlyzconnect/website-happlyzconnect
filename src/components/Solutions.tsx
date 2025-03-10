@@ -1,4 +1,3 @@
-
 import { Check, MapPin, Settings, Monitor, School, Store, Video, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -83,14 +82,12 @@ export const Solutions = () => {
       </div>
 
       <div className="container mx-auto px-4">
-        {/* En-tête */}
         <div className="text-center">
           <h2 className="text-4xl font-bold text-business-primary mb-6">
             Nos solutions
           </h2>
         </div>
 
-        {/* Types de clients */}
         <div className="flex flex-wrap justify-center gap-6 mb-8">
           {clientTypes.map((client) => (
             <div key={client.label} className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full text-sm">
@@ -100,7 +97,6 @@ export const Solutions = () => {
           ))}
         </div>
 
-        {/* Solutions principales */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {solutions.map((solution) => (
             <Card key={solution.title} className="border-2 hover:border-business-primary transition-colors duration-300 flex flex-col">
@@ -122,8 +118,7 @@ export const Solutions = () => {
               <CardFooter className="pt-4 mt-auto">
                 <Button 
                   asChild 
-                  variant="outline" 
-                  className="w-full border-business-primary text-business-primary hover:bg-business-primary hover:text-white transition-all duration-300"
+                  className="w-full bg-business-primary text-white hover:bg-business-primary/90 transition-all duration-300"
                 >
                   <Link to={solution.path}>
                     Découvrir
@@ -135,7 +130,6 @@ export const Solutions = () => {
           ))}
         </div>
 
-        {/* Notre approche */}
         <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-2xl font-bold text-business-primary mb-4">
@@ -180,9 +174,7 @@ export const Solutions = () => {
           </div>
         </div>
 
-        {/* CTA Section with background image */}
         <div className="relative">
-          {/* Background image with overlay */}
           <div 
             className="relative w-full h-[300px]"
             style={{
@@ -200,7 +192,6 @@ export const Solutions = () => {
               }}
             ></div>
             
-            {/* Content */}
             <div className="absolute bottom-8 right-8">
               <button 
                 onClick={scrollToContact}
