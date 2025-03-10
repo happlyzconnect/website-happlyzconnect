@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 const referenceClients = [
@@ -108,34 +109,41 @@ const referenceClients = [
   },
   {
     id: 16,
+    name: "Géant Casino Amiens",
+    logo: null,
+    image: "/lovable-uploads/700acbff-00d6-42c1-bb65-f89d1daa0a3a.png", // Reusing the Bourges image as placeholder
+    description: "Installation d'un écran 75 pouces avec intégration d'un logiciel d'affichage dynamique au niveau de la parapharmacie"
+  },
+  {
+    id: 17,
     name: "Carrefour",
     logo: "/lovable-uploads/55a109ad-89c2-44b1-92c8-81f7dfb4aa63.png",
     image: "/lovable-uploads/b668f626-055f-4a48-b40f-02c6d629a227.png",
     description: "Solutions d'affichage dynamique pour les vitrines et l'intérieur des magasins."
   },
   {
-    id: 17,
+    id: 18,
     name: "BNP Paribas",
     logo: "/lovable-uploads/68fbf33c-72b6-4ab9-8903-64e0d903fa1d.png",
     image: "/lovable-uploads/03182aed-5f37-4d1a-be82-ec16661863f4.png",
     description: "Équipement audiovisuel des espaces collaboratifs et salles de conférence."
   },
   {
-    id: 18,
+    id: 19,
     name: "Université Paris-Saclay",
     logo: "/lovable-uploads/aaa36cf1-55ac-4916-83e9-43f0d7674525.png",
     image: "/lovable-uploads/859d1346-c2f4-4363-bf7f-33b3073d4012.png",
     description: "Installation d'écrans interactifs dans les salles de classe et amphithéâtres."
   },
   {
-    id: 19,
+    id: 20,
     name: "Hôtel Mercure",
     logo: "/lovable-uploads/3aeebb1d-9d36-4a6a-a47f-cd05d216f482.png",
     image: "/lovable-uploads/d915b1ae-d6f3-471b-8ae1-bbd2422bb08e.png",
     description: "Solutions d'affichage dynamique pour les espaces d'accueil et les salles de séminaire."
   },
   {
-    id: 20,
+    id: 21,
     name: "Mairie de Paris",
     logo: "/lovable-uploads/1f096081-547e-4966-a3fd-258978a08106.png",
     image: "/lovable-uploads/33bd802c-0762-4850-93d8-fa1632bf49d6.png",
