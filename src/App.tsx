@@ -8,6 +8,7 @@ import { CookieConsent } from "@/components/CookieConsent";
 import { useEffect } from "react";
 import Index from "./pages/Index";
 import References from "./pages/References";
+import SolutionCategory from "./pages/SolutionCategory";
 import SolutionDetail from "./pages/SolutionDetail";
 import MentionsLegales from "./pages/MentionsLegales";
 import ConditionsGenerales from "./pages/ConditionsGenerales";
@@ -36,6 +37,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/nos-references" element={<References />} />
+          <Route path="/solutions/:category" element={<SolutionCategory />} />
           <Route path="/solutions/:category/:id" element={<SolutionDetail />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/conditions-generales" element={<ConditionsGenerales />} />
