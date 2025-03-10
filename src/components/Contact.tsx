@@ -67,11 +67,41 @@ export const Contact = () => {
   const downloadBrochure = () => {
     // Create a link to download the file
     const link = document.createElement('a');
-    link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf'; // This path will need to be updated when you upload the PDF
+    link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
     link.download = 'plaquette-commerciale-happlyz.pdf';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    
+    // Send email notification
+    emailjs.send(
+      "service_qytcdsw",
+      "template_uahaue2",
+      {
+        to_email: 'contact@happlyz.com',
+        message: 'Quelqu\'un a téléchargé la plaquette commerciale depuis la section Contact.',
+        request_type: 'Téléchargement plaquette',
+        company_name: 'Non spécifié',
+        last_name: 'Non spécifié',
+        first_name: 'Non spécifié',
+        from_email: 'notification@happlyz.com',
+        phone: 'Non spécifié',
+      },
+      "ySp_OZUSZFd1MsIZJ"
+    ).then(
+      () => {
+        console.log('Email notification sent successfully');
+      },
+      (error) => {
+        console.error('Failed to send email notification:', error);
+      }
+    );
+    
+    // Show toast notification
+    toast({
+      title: "Téléchargement démarré",
+      description: "Merci de votre intérêt pour nos services !",
+    });
   };
 
   return (

@@ -1,7 +1,12 @@
 import { motion } from "framer-motion";
 import { Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/use-toast";
+import emailjs from '@emailjs/browser';
 
 export const Hero = () => {
+  const { toast } = useToast();
+  
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     const navbarHeight = 72;
@@ -28,6 +33,34 @@ export const Hero = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    
+    emailjs.send(
+      "service_qytcdsw",
+      "template_uahaue2",
+      {
+        to_email: 'contact@happlyz.com',
+        message: 'Quelqu\'un a téléchargé la plaquette commerciale depuis la section Hero.',
+        request_type: 'Téléchargement plaquette',
+        company_name: 'Non spécifié',
+        last_name: 'Non spécifié',
+        first_name: 'Non spécifié',
+        from_email: 'notification@happlyz.com',
+        phone: 'Non spécifié',
+      },
+      "ySp_OZUSZFd1MsIZJ"
+    ).then(
+      () => {
+        console.log('Email notification sent successfully');
+      },
+      (error) => {
+        console.error('Failed to send email notification:', error);
+      }
+    );
+    
+    toast({
+      title: "Téléchargement démarré",
+      description: "Merci de votre intérêt pour nos services !",
+    });
   };
 
   return (

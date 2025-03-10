@@ -1,7 +1,10 @@
+
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { useLocation, Link, useNavigate } from "react-router-dom";
+import { useToast } from "@/components/ui/use-toast";
+import emailjs from '@emailjs/browser';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,6 +25,7 @@ export const Navigation = () => {
   const [currentLanguage, setCurrentLanguage] = useState("FR");
   const location = useLocation();
   const navigate = useNavigate();
+  const { toast } = useToast();
   const isHomePage = location.pathname === '/';
   const isReferencesPage = location.pathname === '/nos-references';
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -95,6 +99,36 @@ export const Navigation = () => {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
+    
+    // Send email notification
+    emailjs.send(
+      "service_qytcdsw",
+      "template_uahaue2",
+      {
+        to_email: 'contact@happlyz.com',
+        message: 'Quelqu\'un a téléchargé la plaquette commerciale depuis la barre de navigation.',
+        request_type: 'Téléchargement plaquette',
+        company_name: 'Non spécifié',
+        last_name: 'Non spécifié',
+        first_name: 'Non spécifié',
+        from_email: 'notification@happlyz.com',
+        phone: 'Non spécifié',
+      },
+      "ySp_OZUSZFd1MsIZJ"
+    ).then(
+      () => {
+        console.log('Email notification sent successfully');
+      },
+      (error) => {
+        console.error('Failed to send email notification:', error);
+      }
+    );
+    
+    // Show toast notification
+    toast({
+      title: "Téléchargement démarré",
+      description: "Merci de votre intérêt pour nos services !",
+    });
   };
 
   return (
