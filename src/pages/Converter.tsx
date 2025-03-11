@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Navigation } from "@/components/Navigation";
@@ -52,13 +51,11 @@ const ScreenSizeConverter = () => {
       const cmValue = inchesValue * 2.54;
       setCentimeters(cmValue.toFixed(2));
       
-      // Calculate screen dimensions based on aspect ratio
       const aspectRatio = aspectRatios[displayType as keyof typeof aspectRatios].ratio;
       const diagonal = cmValue;
       
       setDiagonalCm(cmValue.toFixed(2));
       
-      // Using the Pythagorean theorem and aspect ratio to calculate dimensions
       const diagonalSquared = diagonal * diagonal;
       const widthRatio = aspectRatio / Math.sqrt(1 + aspectRatio * aspectRatio);
       const heightRatio = 1 / Math.sqrt(1 + aspectRatio * aspectRatio);
@@ -101,20 +98,26 @@ const ScreenSizeConverter = () => {
 
   // Handle columns and rows changes
   const incrementColumns = () => {
-    setColumns(prev => Math.min(prev + 1, 6)); // Limit to 6 columns
+    setColumns(prev => Math.min(prev + 1, 6));
   };
 
   const decrementColumns = () => {
-    setColumns(prev => Math.max(prev - 1, 1)); // Minimum 1 column
+    setColumns(prev => Math.max(prev - 1, 1));
   };
 
   const incrementRows = () => {
-    setRows(prev => Math.min(prev + 1, 6)); // Limit to 6 rows
+    setRows(prev => Math.min(prev + 1, 6));
   };
 
   const decrementRows = () => {
-    setRows(prev => Math.max(prev - 1, 1)); // Minimum 1 row
+    setRows(prev => Math.max(prev - 1, 1));
   };
+
+  // Default values for visualization when no size is selected
+  const defaultAspectRatio = aspectRatios[displayType as keyof typeof aspectRatios].ratio;
+  const effectiveWidth = width || "32.00";
+  const effectiveHeight = height || "18.00";
+  const effectiveDiagonal = diagonalCm || "36.00";
 
   return (
     <>
@@ -250,127 +253,125 @@ const ScreenSizeConverter = () => {
               </CardContent>
             </Card>
 
-            {diagonalCm && (
-              <Card className="border-2 border-[#56C7E1]/20 shadow-lg mb-6">
-                <CardContent className="pt-6">
-                  <div className="flex items-center justify-center mb-6">
-                    <Settings className="text-[#56C7E1] mr-2" size={24} />
-                    <h2 className="text-xl font-bold text-business-primary">Configurateur d'écran</h2>
-                  </div>
-                  
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="md:col-span-1">
-                      <div className="mb-4">
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Orientation
-                        </label>
-                        <RadioGroup 
-                          value={orientation} 
-                          onValueChange={(value: "landscape" | "portrait") => handleOrientationChange(value)}
-                          className="flex flex-col space-y-2"
-                        >
-                          <div className="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-50">
-                            <RadioGroupItem value="landscape" id="landscape" />
-                            <label htmlFor="landscape" className="flex items-center cursor-pointer">
-                              <RotateCw size={18} className="mr-2 text-[#56C7E1]" />
-                              <span>Mode paysage</span>
-                            </label>
-                          </div>
-                          <div className="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-50">
-                            <RadioGroupItem value="portrait" id="portrait" />
-                            <label htmlFor="portrait" className="flex items-center cursor-pointer">
-                              <RotateCcw size={18} className="mr-2 text-[#56C7E1]" />
-                              <span>Mode portrait</span>
-                            </label>
-                          </div>
-                        </RadioGroup>
-                      </div>
-
-                      <div className="mb-4">
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Configuration de la grille
-                        </label>
-                        <div className="space-y-3">
-                          <div className="flex items-center">
-                            <Columns size={18} className="mr-2 text-[#56C7E1]" />
-                            <span className="w-24 text-sm">Colonnes:</span>
-                            <div className="flex items-center ml-2">
-                              <Button
-                                variant="outline"
-                                size="icon"
-                                onClick={decrementColumns}
-                                disabled={columns <= 1}
-                                className="h-8 w-8 rounded-md"
-                              >
-                                <span>-</span>
-                              </Button>
-                              <div className="mx-3 w-8 text-center font-medium">{columns}</div>
-                              <Button
-                                variant="outline"
-                                size="icon"
-                                onClick={incrementColumns}
-                                disabled={columns >= 6}
-                                className="h-8 w-8 rounded-md"
-                              >
-                                <span>+</span>
-                              </Button>
-                            </div>
-                          </div>
-                          
-                          <div className="flex items-center">
-                            <Rows size={18} className="mr-2 text-[#56C7E1]" />
-                            <span className="w-24 text-sm">Lignes:</span>
-                            <div className="flex items-center ml-2">
-                              <Button
-                                variant="outline"
-                                size="icon"
-                                onClick={decrementRows}
-                                disabled={rows <= 1}
-                                className="h-8 w-8 rounded-md"
-                              >
-                                <span>-</span>
-                              </Button>
-                              <div className="mx-3 w-8 text-center font-medium">{rows}</div>
-                              <Button
-                                variant="outline"
-                                size="icon"
-                                onClick={incrementRows}
-                                disabled={rows >= 6}
-                                className="h-8 w-8 rounded-md"
-                              >
-                                <span>+</span>
-                              </Button>
-                            </div>
-                          </div>
-                          
-                          <div className="flex items-center mt-2 bg-gray-50 px-3 py-2 rounded-md">
-                            <Grid2X2 size={18} className="mr-2 text-[#56C7E1]" />
-                            <span className="text-sm font-medium">Configuration {columns}×{rows}</span>
-                            <span className="ml-1 text-xs text-gray-500">({columns * rows} écrans)</span>
-                          </div>
+            <Card className="border-2 border-[#56C7E1]/20 shadow-lg mb-6">
+              <CardContent className="pt-6">
+                <div className="flex items-center justify-center mb-6">
+                  <Settings className="text-[#56C7E1] mr-2" size={24} />
+                  <h2 className="text-xl font-bold text-business-primary">Configurateur d'écran</h2>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div className="md:col-span-1">
+                    <div className="mb-4">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Orientation
+                      </label>
+                      <RadioGroup 
+                        value={orientation} 
+                        onValueChange={(value: "landscape" | "portrait") => handleOrientationChange(value)}
+                        className="flex flex-col space-y-2"
+                      >
+                        <div className="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-50">
+                          <RadioGroupItem value="landscape" id="landscape" />
+                          <label htmlFor="landscape" className="flex items-center cursor-pointer">
+                            <RotateCw size={18} className="mr-2 text-[#56C7E1]" />
+                            <span>Mode paysage</span>
+                          </label>
                         </div>
-                      </div>
+                        <div className="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-50">
+                          <RadioGroupItem value="portrait" id="portrait" />
+                          <label htmlFor="portrait" className="flex items-center cursor-pointer">
+                            <RotateCcw size={18} className="mr-2 text-[#56C7E1]" />
+                            <span>Mode portrait</span>
+                          </label>
+                        </div>
+                      </RadioGroup>
                     </div>
 
-                    <div className="md:col-span-2">
-                      <div className="bg-white p-3 rounded-md border border-gray-100">
-                        <div className={`w-full max-w-md mx-auto`}>
-                          <ScreenVisualization 
-                            width={width}
-                            height={height}
-                            diagonal={diagonalCm}
-                            aspectRatio={aspectRatios[displayType as keyof typeof aspectRatios].ratio}
-                            orientation={orientation}
-                            columns={columns}
-                            rows={rows}
-                          />
+                    <div className="mb-4">
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Configuration de la grille
+                      </label>
+                      <div className="space-y-3">
+                        <div className="flex items-center">
+                          <Columns size={18} className="mr-2 text-[#56C7E1]" />
+                          <span className="w-24 text-sm">Colonnes:</span>
+                          <div className="flex items-center ml-2">
+                            <Button
+                              variant="outline"
+                              size="icon"
+                              onClick={decrementColumns}
+                              disabled={columns <= 1}
+                              className="h-8 w-8 rounded-md"
+                            >
+                              <span>-</span>
+                            </Button>
+                            <div className="mx-3 w-8 text-center font-medium">{columns}</div>
+                            <Button
+                              variant="outline"
+                              size="icon"
+                              onClick={incrementColumns}
+                              disabled={columns >= 6}
+                              className="h-8 w-8 rounded-md"
+                            >
+                              <span>+</span>
+                            </Button>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center">
+                          <Rows size={18} className="mr-2 text-[#56C7E1]" />
+                          <span className="w-24 text-sm">Lignes:</span>
+                          <div className="flex items-center ml-2">
+                            <Button
+                              variant="outline"
+                              size="icon"
+                              onClick={decrementRows}
+                              disabled={rows <= 1}
+                              className="h-8 w-8 rounded-md"
+                            >
+                              <span>-</span>
+                            </Button>
+                            <div className="mx-3 w-8 text-center font-medium">{rows}</div>
+                            <Button
+                              variant="outline"
+                              size="icon"
+                              onClick={incrementRows}
+                              disabled={rows >= 6}
+                              className="h-8 w-8 rounded-md"
+                            >
+                              <span>+</span>
+                            </Button>
+                          </div>
+                        </div>
+                        
+                        <div className="flex items-center mt-2 bg-gray-50 px-3 py-2 rounded-md">
+                          <Grid2X2 size={18} className="mr-2 text-[#56C7E1]" />
+                          <span className="text-sm font-medium">Configuration {columns}×{rows}</span>
+                          <span className="ml-1 text-xs text-gray-500">({columns * rows} écrans)</span>
                         </div>
                       </div>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            )}
+
+                  <div className="md:col-span-2">
+                    <div className="bg-white p-3 rounded-md border border-gray-100">
+                      <div className={`w-full max-w-md mx-auto`}>
+                        <ScreenVisualization 
+                          width={effectiveWidth}
+                          height={effectiveHeight}
+                          diagonal={effectiveDiagonal}
+                          aspectRatio={defaultAspectRatio}
+                          orientation={orientation}
+                          columns={columns}
+                          rows={rows}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
 
             <div className="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
               <h2 className="text-lg font-semibold text-business-primary mb-2">Pourquoi convertir les pouces en centimètres ?</h2>
