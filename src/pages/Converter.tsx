@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Navigation } from "@/components/Navigation";
@@ -32,13 +31,12 @@ const ScreenSizeConverter = () => {
     { label: "98 pouces", value: "98" },
   ];
 
-  // Aspect ratios for different display types
+  // Aspect ratios for different display types - Remove cinema option
   const aspectRatios = {
     standard: { ratio: 16 / 9, name: "16:9 (Standard)" },
     ultrawide: { ratio: 21 / 9, name: "21:9 (Ultrawide)" },
     square: { ratio: 1 / 1, name: "1:1 (Carré)" },
     classic: { ratio: 4 / 3, name: "4:3 (Classique)" },
-    cinema: { ratio: 2.35, name: "2.35:1 (Cinéma)" },
   };
 
   // Convert inches to centimeters when user inputs or selects a value
