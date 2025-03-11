@@ -38,7 +38,7 @@ const solutionsCatalog: Record<string, { id: string; title: string; category: st
       title: "Solutions Audiovisuelles pour Salles de Réunion",
       category: "salles-de-reunion",
       description: "Optimisez vos espaces collaboratifs",
-      image: "/lovable-uploads/08e3244a-3696-4615-a107-31ecd05a9557.png"
+      image: "/lovable-uploads/ec4384d3-38ac-41ab-b9ea-93796b792b22.png"
     }
   ],
   "salles-de-classe": [
