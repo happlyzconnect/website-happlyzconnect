@@ -55,9 +55,9 @@ export const ScreenVisualization = ({
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Set up dimensions - increase the margins to prevent screens being cut off
-    const maxWidth = canvas.width - 120; // Increased margin from 80 to 120
-    const maxHeight = canvas.height - 120; // Increased margin from 80 to 120
+    // Set up dimensions - use larger canvas for better visualization
+    const maxWidth = canvas.width - 80; 
+    const maxHeight = canvas.height - 80;
     
     // Get screen dimensions (parse the strings to numbers)
     const diagonalValue = parseFloat(diagonal);
@@ -66,42 +66,46 @@ export const ScreenVisualization = ({
     // Use a logarithmic scale to smooth the differences between large and small screens
     const scaleBase = 20; // Base diagonal (e.g., 20 inches is standard)
     const logScale = Math.log(diagonalValue) / Math.log(scaleBase);
-    const scaleFactor = Math.max(0.5, Math.min(1, logScale)); // Constrain between 0.5 and 1
     
-    // Calculate screen dimensions maintaining aspect ratio with scale factor
+    // Increase the base scale factor to make the visualization larger overall
+    const baseFactor = 1.5; // Increased from 1.0 to make displays larger
+    const scaleFactor = baseFactor * Math.max(0.5, Math.min(1, logScale)); // Constrain between 0.5 and 1.5
+    
     // For portrait, we invert the aspect ratio
     const effectiveAspectRatio = orientation === "portrait" ? 1 / aspectRatio : aspectRatio;
     
-    // Adjust scale factor based on number of screens to ensure they fit
-    // Make this scaling factor more aggressive when multiple screens are present
-    const screenScaleFactor = screenCount > 1 ? 
-      scaleFactor * Math.min(1, 1 / Math.max(columns, rows)) : 
-      scaleFactor;
+    // Adjust scaling for multiple screens - less aggressive reduction for multi-screen setups
+    const multiScreenScaleFactor = screenCount > 1 ? 
+      0.9 / Math.sqrt(Math.max(columns, rows)) : // Make multi-screen scaling less aggressive
+      1.0;
+    
+    // Apply the scaling factors
+    const screenScaleFactor = scaleFactor * multiScreenScaleFactor;
     
     let singleScreenWidth, singleScreenHeight;
     if (effectiveAspectRatio > 1) {
       // For landscape orientation (wider than tall)
-      singleScreenWidth = maxWidth * screenScaleFactor / columns; // Divide by columns to ensure fit
+      singleScreenWidth = (maxWidth * screenScaleFactor) / columns;
       singleScreenHeight = singleScreenWidth / effectiveAspectRatio;
       
       // Check if the height exceeds the available height
       if (singleScreenHeight * rows > maxHeight) {
-        singleScreenHeight = maxHeight / rows;
+        singleScreenHeight = (maxHeight * screenScaleFactor) / rows;
         singleScreenWidth = singleScreenHeight * effectiveAspectRatio;
       }
     } else {
       // For portrait orientation (taller than wide)
-      singleScreenHeight = maxHeight * screenScaleFactor / rows; // Divide by rows to ensure fit
+      singleScreenHeight = (maxHeight * screenScaleFactor) / rows;
       singleScreenWidth = singleScreenHeight * effectiveAspectRatio;
       
       // Check if the width exceeds the available width
       if (singleScreenWidth * columns > maxWidth) {
-        singleScreenWidth = maxWidth / columns;
+        singleScreenWidth = (maxWidth * screenScaleFactor) / columns;
         singleScreenHeight = singleScreenWidth / effectiveAspectRatio;
       }
     }
     
-    // Calculate spacing between screens
+    // Calculate spacing between screens - make it proportional but not too large
     const spacing = Math.max(4, singleScreenWidth * 0.02);
     
     // Adjust grid position to center the grid
@@ -174,8 +178,8 @@ export const ScreenVisualization = ({
     <div className="relative">
       <canvas 
         ref={canvasRef} 
-        width={400} 
-        height={300} 
+        width={500} // Increased from 400 to make visualization larger
+        height={375} // Increased from 300 to maintain aspect ratio
         className="w-full h-auto border border-gray-200 rounded-lg bg-white"
       />
       
