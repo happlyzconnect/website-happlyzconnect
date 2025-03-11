@@ -5,7 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calculator, ArrowRight, Monitor, RotateCcw, RotateCw, Settings } from "lucide-react";
+import { Calculator, ArrowRight, Monitor, RotateCcw, RotateCw, Settings, Plus, Minus } from "lucide-react";
 import { MetaDescription } from "@/components/MetaDescription";
 import { ScreenVisualization } from "@/components/ScreenVisualization";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -19,6 +19,7 @@ const ScreenSizeConverter = () => {
   const [width, setWidth] = useState<string>("");
   const [height, setHeight] = useState<string>("");
   const [orientation, setOrientation] = useState<"landscape" | "portrait">("landscape");
+  const [screenCount, setScreenCount] = useState<number>(1);
 
   // Common screen sizes for the dropdown
   const commonSizes = [
@@ -95,6 +96,15 @@ const ScreenSizeConverter = () => {
   // Handle orientation change
   const handleOrientationChange = (value: "landscape" | "portrait") => {
     setOrientation(value);
+  };
+
+  // Handle screen count changes
+  const incrementScreenCount = () => {
+    setScreenCount(prev => Math.min(prev + 1, 16)); // Limit to 16 screens
+  };
+
+  const decrementScreenCount = () => {
+    setScreenCount(prev => Math.max(prev - 1, 1)); // Minimum 1 screen
   };
 
   return (
@@ -266,6 +276,33 @@ const ScreenSizeConverter = () => {
                           </div>
                         </RadioGroup>
                       </div>
+
+                      <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Nombre d'écrans
+                        </label>
+                        <div className="flex items-center">
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            onClick={decrementScreenCount}
+                            disabled={screenCount <= 1}
+                            className="h-9 w-9 rounded-md"
+                          >
+                            <Minus size={16} />
+                          </Button>
+                          <div className="mx-3 w-16 text-center font-medium">{screenCount}</div>
+                          <Button
+                            variant="outline"
+                            size="icon"
+                            onClick={incrementScreenCount}
+                            disabled={screenCount >= 16}
+                            className="h-9 w-9 rounded-md"
+                          >
+                            <Plus size={16} />
+                          </Button>
+                        </div>
+                      </div>
                     </div>
 
                     <div className="md:col-span-2">
@@ -277,6 +314,7 @@ const ScreenSizeConverter = () => {
                             diagonal={diagonalCm}
                             aspectRatio={aspectRatios[displayType as keyof typeof aspectRatios].ratio}
                             orientation={orientation}
+                            screenCount={screenCount}
                           />
                         </div>
                       </div>
