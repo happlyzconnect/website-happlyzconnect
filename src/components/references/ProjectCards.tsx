@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Monitor, UserRound, GraduationCap } from "lucide-react";
@@ -178,6 +177,14 @@ const referenceClients = [
     logo: null,
     image: "/lovable-uploads/c3352f74-5333-4267-85bb-5c6787edb65b.png",
     description: "Installation d'un écran Samsung Flip 75 pouces sur support mobile permettant l'affichage interactif, l'annotation et le partage de contenu pour des réunions collaboratives efficaces.",
+    category: "salle-reunion"
+  },
+  {
+    id: 23,
+    name: "SHELL France",
+    logo: null,
+    image: "/lovable-uploads/1f4f3597-463f-4bd3-9fdb-36b9325dcebf.png",
+    description: "Installation de 2 écrans 65 pouces avec système Barco CX-50 et système audio complet incluant des micros plafond et haut-parleurs pour des visioconférences haute qualité.",
     category: "salle-reunion"
   }
 ];
