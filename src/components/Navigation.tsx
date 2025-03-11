@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -145,7 +146,7 @@ export const Navigation = () => {
 
           <div className="flex-1 flex flex-col justify-between">
             <div className="flex justify-end items-center py-3 mb-2"> {/* Adjusted padding for better spacing */}
-              <div className="hidden md:flex items-center space-x-6">
+              <div className="hidden lg:flex items-center space-x-6">
                 <div className="flex items-center space-x-2">
                   <Phone size={14} style={textColorStyle} />
                   <a 
@@ -195,14 +196,14 @@ export const Navigation = () => {
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden"
+                className="lg:hidden"
                 style={textColorStyle}
               >
                 {isOpen ? <X /> : <Menu />}
               </button>
             </div>
 
-            <div className="hidden md:flex justify-end items-center pb-3">
+            <div className="hidden lg:flex justify-end items-center pb-3">
               <div 
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -279,7 +280,7 @@ export const Navigation = () => {
         </div>
 
         {isOpen && (
-          <div className="md:hidden fixed left-0 right-0 top-20 bg-business-primary/90 backdrop-blur-sm shadow-lg"> {/* Adjusted top position */}
+          <div className="lg:hidden fixed left-0 right-0 top-20 bg-business-primary/90 backdrop-blur-sm shadow-lg"> {/* Adjusted top position */}
             <div className="flex flex-col">
               <div className="px-4 py-2 space-y-2 border-b border-white/10">
                 <div className="flex items-center space-x-2 text-white">
