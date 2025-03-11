@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -16,7 +15,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
-import emailjs from '@emailjs/browser';
+import emailjs from '@emailjs/browser";
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -134,7 +133,7 @@ export const Navigation = () => {
             <a 
               href="/"
               onClick={handleLogoClick}
-              className="h-10 hover:opacity-80 transition-opacity" // Increased logo size slightly
+              className="h-10 w-32 hover:opacity-80 transition-opacity" // Added w-32 to reduce width
             >
               <img 
                 src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
