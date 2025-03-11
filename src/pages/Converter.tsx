@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calculator, ArrowRight, Monitor } from "lucide-react";
 import { MetaDescription } from "@/components/MetaDescription";
+import { ScreenVisualization } from "@/components/ScreenVisualization";
 
 const ScreenSizeConverter = () => {
   const [inches, setInches] = useState<string>("");
@@ -202,18 +203,30 @@ const ScreenSizeConverter = () => {
                         <Monitor className="text-[#56C7E1] mr-2" size={20} />
                         <h3 className="text-lg font-semibold text-business-primary">Dimensions de l'écran</h3>
                       </div>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div className="bg-white p-3 rounded-md border border-gray-100">
-                          <p className="text-sm text-gray-500 mb-1">Diagonale</p>
-                          <p className="font-bold text-business-primary">{diagonalCm} cm</p>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="grid grid-cols-3 gap-4">
+                          <div className="bg-white p-3 rounded-md border border-gray-100">
+                            <p className="text-sm text-gray-500 mb-1">Diagonale</p>
+                            <p className="font-bold text-business-primary">{diagonalCm} cm</p>
+                          </div>
+                          <div className="bg-white p-3 rounded-md border border-gray-100">
+                            <p className="text-sm text-gray-500 mb-1">Largeur</p>
+                            <p className="font-bold text-business-primary">{width} cm</p>
+                          </div>
+                          <div className="bg-white p-3 rounded-md border border-gray-100">
+                            <p className="text-sm text-gray-500 mb-1">Hauteur</p>
+                            <p className="font-bold text-business-primary">{height} cm</p>
+                          </div>
                         </div>
+                        
                         <div className="bg-white p-3 rounded-md border border-gray-100">
-                          <p className="text-sm text-gray-500 mb-1">Largeur</p>
-                          <p className="font-bold text-business-primary">{width} cm</p>
-                        </div>
-                        <div className="bg-white p-3 rounded-md border border-gray-100">
-                          <p className="text-sm text-gray-500 mb-1">Hauteur</p>
-                          <p className="font-bold text-business-primary">{height} cm</p>
+                          <ScreenVisualization 
+                            width={width}
+                            height={height}
+                            diagonal={diagonalCm}
+                            aspectRatio={aspectRatios[displayType as keyof typeof aspectRatios].ratio}
+                          />
                         </div>
                       </div>
                     </div>
