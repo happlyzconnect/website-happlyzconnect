@@ -1,10 +1,9 @@
-
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { MetaDescription } from "@/components/MetaDescription";
 import { useParams, Link } from "react-router-dom";
-import { Check, ArrowRight } from "lucide-react";
+import { Check, ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Solution type definitions
@@ -210,9 +209,17 @@ const SolutionDetail = () => {
               <p className="text-lg text-gray-700 mb-6">
                 {solution.longDescription}
               </p>
-              <Button onClick={scrollToContact} className="bg-business-primary hover:bg-business-primary/90 text-white">
-                Demander un devis gratuit
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button onClick={scrollToContact} className="bg-business-primary hover:bg-business-primary/90 text-white">
+                  Demander un devis gratuit
+                </Button>
+                <Button variant="outline" className="border-business-primary text-business-primary hover:bg-business-primary/10" asChild>
+                  <Link to="/nos-references" className="flex items-center gap-2">
+                    <span>Découvrir nos références</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg">
               <img 
