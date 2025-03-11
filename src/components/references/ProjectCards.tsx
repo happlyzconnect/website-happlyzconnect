@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Monitor, UserRound, GraduationCap } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const referenceClients = [
   {
@@ -253,7 +254,17 @@ const referenceClients = [
   }
 ];
 
-export const ProjectCards = () => {
+interface ProjectCardsProps {
+  initialTab?: string;
+}
+
+export const ProjectCards = ({ initialTab = "affichage-dynamique" }: ProjectCardsProps) => {
+  const [activeTab, setActiveTab] = useState(initialTab);
+
+  useEffect(() => {
+    setActiveTab(initialTab);
+  }, [initialTab]);
+
   return (
     <>
       <section className="mb-8">
@@ -273,7 +284,7 @@ export const ProjectCards = () => {
         </motion.div>
       </section>
       
-      <Tabs defaultValue="affichage-dynamique" className="w-full mb-8">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full mb-8">
         <TabsList className="w-full flex justify-center gap-4 mb-8">
           <TabsTrigger value="affichage-dynamique" className="flex items-center gap-2">
             <Monitor className="w-4 h-4" />

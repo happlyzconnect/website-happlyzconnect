@@ -182,6 +182,16 @@ const SolutionDetail = () => {
     }
   };
 
+  // Determine the target tab for references page based on the current solution category
+  const getReferencesTab = () => {
+    switch(category) {
+      case "affichage-dynamique": return "affichage-dynamique";
+      case "salles-de-reunion": return "salle-reunion";
+      case "salles-de-classe": return "salle-classe";
+      default: return "salle-reunion"; // Default to "Salles de réunion" tab
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <MetaDescription description={`${solution.title} | HAPPLYZ CONNECT - ${solution.description}`} />
@@ -214,7 +224,7 @@ const SolutionDetail = () => {
                   Demander un devis gratuit
                 </Button>
                 <Button variant="outline" className="border-business-primary text-business-primary hover:bg-business-primary/10" asChild>
-                  <Link to="/nos-references" className="flex items-center gap-2">
+                  <Link to={`/nos-references?tab=${getReferencesTab()}`} className="flex items-center gap-2">
                     <span>Découvrir nos références</span>
                     <ExternalLink className="w-4 h-4" />
                   </Link>
