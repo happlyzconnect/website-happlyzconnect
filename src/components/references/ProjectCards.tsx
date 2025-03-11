@@ -171,6 +171,14 @@ const referenceClients = [
     image: "/lovable-uploads/4c315d56-63b2-4096-86a1-28dea5785690.png",
     description: "Installation et configuration d'un écran numérique interactif sur support mobile pour une flexibilité d'enseignement optimale et une utilisation dans différentes salles de classe.",
     category: "salle-classe"
+  },
+  {
+    id: 22,
+    name: "IUT Draguignan",
+    logo: null,
+    image: "/lovable-uploads/c3352f74-5333-4267-85bb-5c6787edb65b.png",
+    description: "Installation d'un écran Samsung Flip 75 pouces sur support mobile permettant l'affichage interactif, l'annotation et le partage de contenu pour des réunions collaboratives efficaces.",
+    category: "salle-reunion"
   }
 ];
 
