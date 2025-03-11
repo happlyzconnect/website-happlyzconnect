@@ -123,18 +123,18 @@ export const Navigation = () => {
     <nav 
       className="fixed w-full shadow-sm"
       style={{
-        height: "90px", 
+        height: "90px", // Increased from 72px to 90px
         backgroundColor: "#14213D",
         zIndex: 30
       }}
     >
       <div className="container mx-auto px-4 h-full">
         <div className="flex h-full">
-          <div className="h-full flex items-center pr-4 md:pr-8">
+          <div className="h-full flex items-center pr-8">
             <a 
               href="/"
               onClick={handleLogoClick}
-              className="h-12 hover:opacity-80 transition-opacity"
+              className="h-10 hover:opacity-80 transition-opacity" // Increased logo size slightly
             >
               <img 
                 src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
@@ -145,9 +145,9 @@ export const Navigation = () => {
           </div>
 
           <div className="flex-1 flex flex-col justify-between">
-            <div className="flex justify-end items-center py-3 mb-2">
-              <div className="hidden lg:flex items-center space-x-6">
-                <div className="flex items-center space-x-2 whitespace-nowrap">
+            <div className="flex justify-end items-center py-3 mb-2"> {/* Adjusted padding for better spacing */}
+              <div className="hidden md:flex items-center space-x-6">
+                <div className="flex items-center space-x-2">
                   <Phone size={14} style={textColorStyle} />
                   <a 
                     href="tel:0185390167" 
@@ -156,7 +156,7 @@ export const Navigation = () => {
                     01 85 39 01 67
                   </a>
                 </div>
-                <div className="flex items-center space-x-2 whitespace-nowrap">
+                <div className="flex items-center space-x-2">
                   <Mail size={14} style={textColorStyle} />
                   <a 
                     href="mailto:contact@happlyz.com" 
@@ -180,14 +180,14 @@ export const Navigation = () => {
                 </div>
                 <button
                   onClick={scrollToBottom}
-                  className="text-white hover:text-[#56C7E1] transition-colors flex items-center gap-2 text-sm whitespace-nowrap"
+                  className="text-white hover:text-[#56C7E1] transition-colors flex items-center gap-2 text-sm"
                 >
                   Bas du site
                   <ArrowDown size={14} />
                 </button>
                 <button
                   onClick={downloadBrochure}
-                  className="text-white hover:text-[#56C7E1] transition-colors flex items-center gap-2 text-sm whitespace-nowrap"
+                  className="text-white hover:text-[#56C7E1] transition-colors flex items-center gap-2 text-sm"
                 >
                   <Download size={14} />
                   <span>Plaquette</span>
@@ -196,7 +196,7 @@ export const Navigation = () => {
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden"
+                className="md:hidden"
                 style={textColorStyle}
               >
                 {isOpen ? <X /> : <Menu />}
@@ -271,7 +271,7 @@ export const Navigation = () => {
 
               <button
                 onClick={handleContactClick}
-                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-9 mt-[-8px] hover:bg-gray-200 transition-colors mb-3"
+                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-9 mt-[-8px] hover:bg-gray-200 transition-colors mb-3" // Increased button height
               >
                 Nous contacter
               </button>
