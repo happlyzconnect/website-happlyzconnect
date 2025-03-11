@@ -84,32 +84,6 @@ export const ScreenVisualization = ({
     ctx.fillStyle = gradient;
     ctx.fillRect(x, y, screenWidth, screenHeight);
     
-    // Draw screen stand (for larger screens)
-    if (screenWidth > 100) {
-      const standWidth = screenWidth * 0.3;
-      const standHeight = screenHeight * 0.15;
-      const standX = x + (screenWidth - standWidth) / 2;
-      const standY = y + screenHeight;
-      
-      // Stand neck
-      ctx.fillStyle = "#222222";
-      ctx.fillRect(
-        standX + standWidth * 0.4, 
-        standY, 
-        standWidth * 0.2, 
-        standHeight * 0.7
-      );
-      
-      // Stand base
-      ctx.fillStyle = "#222222";
-      ctx.fillRect(
-        standX, 
-        standY + standHeight * 0.5, 
-        standWidth, 
-        standHeight * 0.5
-      );
-    }
-    
     // Draw diagonal line
     ctx.beginPath();
     ctx.moveTo(x, y);
