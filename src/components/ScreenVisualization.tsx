@@ -1,6 +1,6 @@
 
-import { useEffect, useRef } from "react";
-import { ArrowUpRight, ArrowLeftRight, ArrowUpDown } from "lucide-react";
+import { useEffect, useRef, useMemo } from "react";
+import { ArrowUpRight, ArrowLeftRight, ArrowUpDown, Monitor } from "lucide-react";
 
 interface ScreenVisualizationProps {
   width: string;
@@ -20,6 +20,32 @@ export const ScreenVisualization = ({
   screenCount = 1,
 }: ScreenVisualizationProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  
+  // Calculate grid configuration based on screenCount
+  const gridConfiguration = useMemo(() => {
+    const columns = Math.ceil(Math.sqrt(screenCount));
+    const rows = Math.ceil(screenCount / columns);
+    return { columns, rows };
+  }, [screenCount]);
+  
+  // Calculate total dimensions
+  const totalDimensions = useMemo(() => {
+    if (!width || !height) return { width: "0", height: "0" };
+    
+    const widthValue = parseFloat(orientation === "portrait" ? height : width);
+    const heightValue = parseFloat(orientation === "portrait" ? width : height);
+    
+    // Add a small gap between screens (3% of screen width)
+    const gap = widthValue * 0.03;
+    
+    const totalWidth = (widthValue * gridConfiguration.columns) + (gap * (gridConfiguration.columns - 1));
+    const totalHeight = (heightValue * gridConfiguration.rows) + (gap * (gridConfiguration.rows - 1));
+    
+    return {
+      width: totalWidth.toFixed(2),
+      height: totalHeight.toFixed(2)
+    };
+  }, [width, height, orientation, gridConfiguration, screenCount]);
   
   useEffect(() => {
     if (!canvasRef.current || !width || !height || !diagonal) return;
@@ -187,6 +213,26 @@ export const ScreenVisualization = ({
               {screenCount}
             </div>
           )}
+        </div>
+      )}
+      
+      {/* Total dimensions for multi-screen setup */}
+      {screenCount > 1 && width && height && (
+        <div className="mt-3 p-3 bg-[#F8FBFE] rounded-lg border border-[#56C7E1]/20">
+          <div className="flex items-center mb-2">
+            <Monitor className="text-[#56C7E1] mr-2" size={16} />
+            <h4 className="text-sm font-semibold text-business-primary">Dimensions totales</h4>
+          </div>
+          <div className="grid grid-cols-2 gap-3">
+            <div className="bg-white p-2 rounded-md border border-gray-100">
+              <p className="text-xs text-gray-500 mb-1">Largeur totale</p>
+              <p className="font-bold text-business-primary text-sm">{totalDimensions.width} cm</p>
+            </div>
+            <div className="bg-white p-2 rounded-md border border-gray-100">
+              <p className="text-xs text-gray-500 mb-1">Hauteur totale</p>
+              <p className="font-bold text-business-primary text-sm">{totalDimensions.height} cm</p>
+            </div>
+          </div>
         </div>
       )}
     </div>
