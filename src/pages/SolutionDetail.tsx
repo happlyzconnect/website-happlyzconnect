@@ -121,7 +121,7 @@ const solutionsCatalog: Record<string, SolutionCategory[]> = {
       category: "salles-de-classe",
       description: "Modernisez vos espaces d'apprentissage",
       longDescription: "Révolutionnez l'expérience d'apprentissage avec nos solutions pédagogiques numériques. Nos écrans interactifs et nos outils collaboratifs permettent aux enseignants d'animer des cours dynamiques et interactifs, favorisant l'engagement et la participation des élèves.",
-      image: "/lovable-uploads/f5c4ccd9-3e0c-4214-8c98-2d65b936f03d.png",
+      image: "/lovable-uploads/836b625b-8997-41ac-a4da-41f16cdf875c.png",
       features: [
         { id: 1, name: "Écrans Numériques Interactifs (ENI)" },
         { id: 2, name: "Logiciels pédagogiques intégrés" },
