@@ -9,7 +9,11 @@ import { PartnersSection } from "./PartnersSection";
 import { CallToAction } from "./CallToAction";
 import { motion } from "framer-motion";
 
-export const ReferenceContainer = () => {
+interface ReferenceContainerProps {
+  initialTab?: string;
+}
+
+export const ReferenceContainer = ({ initialTab = "affichage-dynamique" }: ReferenceContainerProps) => {
   return (
     <div className="min-h-screen flex flex-col">
       <MetaDescription description="Découvrez les projets réalisés par HAPPLYZ CONNECT pour ses clients: écrans interactifs, affichage dynamique et solutions audiovisuelles." />
@@ -36,7 +40,7 @@ export const ReferenceContainer = () => {
             </p>
           </section>
           
-          <ProjectCards />
+          <ProjectCards initialTab={initialTab} />
           <ClientLogoGrid />
           <PartnersSection />
           <CallToAction />

@@ -38,7 +38,7 @@ const solutionsCatalog: Record<string, { id: string; title: string; category: st
       title: "Solutions Audiovisuelles pour Salles de Réunion",
       category: "salles-de-reunion",
       description: "Optimisez vos espaces collaboratifs",
-      image: "/lovable-uploads/ec4384d3-38ac-41ab-b9ea-93796b792b22.png"
+      image: "/lovable-uploads/08e3244a-3696-4615-a107-31ecd05a9557.png"
     }
   ],
   "salles-de-classe": [
@@ -47,7 +47,7 @@ const solutionsCatalog: Record<string, { id: string; title: string; category: st
       title: "Solutions Pédagogiques pour Salles de Classe",
       category: "salles-de-classe",
       description: "Modernisez vos espaces d'apprentissage",
-      image: "/lovable-uploads/f5c4ccd9-3e0c-4214-8c98-2d65b936f03d.png"
+      image: "/lovable-uploads/836b625b-8997-41ac-a4da-41f16cdf875c.png"
     }
   ]
 };

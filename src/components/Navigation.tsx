@@ -123,7 +123,7 @@ export const Navigation = () => {
     <nav 
       className="fixed w-full shadow-sm"
       style={{
-        height: "90px", // Increased from 72px to 90px
+        height: "90px",
         backgroundColor: "#14213D",
         zIndex: 30
       }}
@@ -145,8 +145,8 @@ export const Navigation = () => {
           </div>
 
           <div className="flex-1 flex flex-col justify-between">
-            <div className="flex justify-end items-center py-3 mb-2"> 
-              <div className="hidden lg:flex items-center space-x-6">
+            <div className="flex justify-end items-center py-3 mb-2"> {/* Adjusted padding for better spacing */}
+              <div className="hidden md:flex items-center space-x-6">
                 <div className="flex items-center space-x-2">
                   <Phone size={14} style={textColorStyle} />
                   <a 
@@ -196,14 +196,14 @@ export const Navigation = () => {
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="lg:hidden"
+                className="md:hidden"
                 style={textColorStyle}
               >
                 {isOpen ? <X /> : <Menu />}
               </button>
             </div>
 
-            <div className="hidden lg:flex justify-end items-center pb-3">
+            <div className="hidden md:flex justify-end items-center pb-3">
               <div 
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -225,10 +225,13 @@ export const Navigation = () => {
                     <div className="grid gap-4 p-4">
                       <div className="space-y-4">
                         <div className="space-y-2">
-                          <div className="flex items-center gap-2 font-medium">
+                          <Link 
+                            to="/solutions/affichage-dynamique" 
+                            className="flex items-center gap-2 font-medium hover:text-[#56C7E1] transition-colors"
+                          >
                             <Tv className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm uppercase text-[#14213D]">AFFICHAGE DYNAMIQUE</h4>
-                          </div>
+                            <h4 className="font-semibold text-sm uppercase text-[#14213D] group-hover:text-[#56C7E1] hover:text-[#56C7E1] transition-colors">AFFICHAGE DYNAMIQUE</h4>
+                          </Link>
                           <div className="pl-6 space-y-1">
                             <Link to="/solutions/affichage-dynamique/magasins" className="text-sm text-black hover:text-[#56C7E1] block">Magasins</Link>
                             <Link to="/solutions/affichage-dynamique/vitrines" className="text-sm text-black hover:text-[#56C7E1] block">Vitrines</Link>
@@ -237,20 +240,26 @@ export const Navigation = () => {
                         </div>
                         
                         <div className="space-y-2">
-                          <div className="flex items-center gap-2 font-medium">
+                          <Link 
+                            to="/solutions/salles-de-reunion" 
+                            className="flex items-center gap-2 font-medium hover:text-[#56C7E1] transition-colors"
+                          >
                             <Users className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm uppercase text-[#14213D]">SALLES DE RÉUNION</h4>
-                          </div>
+                            <h4 className="font-semibold text-sm uppercase text-[#14213D] group-hover:text-[#56C7E1] hover:text-[#56C7E1] transition-colors">SALLES DE RÉUNION</h4>
+                          </Link>
                           <div className="pl-6">
                             <Link to="/solutions/salles-de-reunion/solutions-audiovisuelles" className="text-sm text-black hover:text-[#56C7E1] block">Solutions audiovisuelles</Link>
                           </div>
                         </div>
                         
                         <div className="space-y-2">
-                          <div className="flex items-center gap-2 font-medium">
+                          <Link 
+                            to="/solutions/salles-de-classe" 
+                            className="flex items-center gap-2 font-medium hover:text-[#56C7E1] transition-colors"
+                          >
                             <GraduationCap className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm uppercase text-[#14213D]">SALLES DE CLASSE</h4>
-                          </div>
+                            <h4 className="font-semibold text-sm uppercase text-[#14213D] group-hover:text-[#56C7E1] hover:text-[#56C7E1] transition-colors">SALLES DE CLASSE</h4>
+                          </Link>
                           <div className="pl-6">
                             <Link to="/solutions/salles-de-classe/solutions-pedagogiques" className="text-sm text-black hover:text-[#56C7E1] block">Solutions pédagogiques</Link>
                           </div>
@@ -271,7 +280,7 @@ export const Navigation = () => {
 
               <button
                 onClick={handleContactClick}
-                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-9 mt-[-8px] hover:bg-gray-200 transition-colors mb-3"
+                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-9 mt-[-8px] hover:bg-gray-200 transition-colors mb-3" // Increased button height
               >
                 Nous contacter
               </button>
@@ -280,7 +289,7 @@ export const Navigation = () => {
         </div>
 
         {isOpen && (
-          <div className="lg:hidden fixed left-0 right-0 top-20 bg-business-primary/90 backdrop-blur-sm shadow-lg">
+          <div className="md:hidden fixed left-0 right-0 top-20 bg-business-primary/90 backdrop-blur-sm shadow-lg"> {/* Adjusted top position */}
             <div className="flex flex-col">
               <div className="px-4 py-2 space-y-2 border-b border-white/10">
                 <div className="flex items-center space-x-2 text-white">
@@ -361,3 +370,4 @@ export const Navigation = () => {
     </nav>
   );
 };
+

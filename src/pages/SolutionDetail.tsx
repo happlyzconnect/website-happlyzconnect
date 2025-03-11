@@ -3,8 +3,8 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { MetaDescription } from "@/components/MetaDescription";
-import { useParams, Link } from "react-router-dom";
-import { Check, ArrowRight } from "lucide-react";
+import { useParams, Link, useNavigate } from "react-router-dom";
+import { Check, ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 // Solution type definitions
@@ -98,9 +98,9 @@ const solutionsCatalog: Record<string, SolutionCategory[]> = {
       category: "salles-de-reunion",
       description: "Optimisez vos espaces collaboratifs",
       longDescription: "Transformez vos salles de réunion en espaces collaboratifs performants avec nos solutions audiovisuelles intégrées. De la visioconférence à la présentation sans fil, nous proposons des équipements de pointe pour faciliter les échanges et améliorer la productivité de vos équipes.",
-      image: "/lovable-uploads/ec4384d3-38ac-41ab-b9ea-93796b792b22.png",
+      image: "/lovable-uploads/08e3244a-3696-4615-a107-31ecd05a9557.png",
       features: [
-        { id: 1, name: "Écrans interactifs tactiles" },
+        { id: 1, name: "Écrans professionnels" },
         { id: 2, name: "Systèmes de visioconférence HD" },
         { id: 3, name: "Solutions de présentation sans fil" },
         { id: 4, name: "Systèmes audio intégrés" },
@@ -121,13 +121,14 @@ const solutionsCatalog: Record<string, SolutionCategory[]> = {
       category: "salles-de-classe",
       description: "Modernisez vos espaces d'apprentissage",
       longDescription: "Révolutionnez l'expérience d'apprentissage avec nos solutions pédagogiques numériques. Nos écrans interactifs et nos outils collaboratifs permettent aux enseignants d'animer des cours dynamiques et interactifs, favorisant l'engagement et la participation des élèves.",
-      image: "/lovable-uploads/f5c4ccd9-3e0c-4214-8c98-2d65b936f03d.png",
+      image: "/lovable-uploads/836b625b-8997-41ac-a4da-41f16cdf875c.png",
       features: [
         { id: 1, name: "Écrans Numériques Interactifs (ENI)" },
         { id: 2, name: "Logiciels pédagogiques intégrés" },
         { id: 3, name: "Systèmes de partage d'écran" },
         { id: 4, name: "Solutions de visioconférence pour l'enseignement à distance" },
-        { id: 5, name: "Formation et accompagnement des enseignants" }
+        { id: 5, name: "Formation et accompagnement des enseignants" },
+        { id: 6, name: "Vidéoprojecteurs courtes focales" }
       ],
       benefits: [
         "Augmentation de l'engagement des élèves",
@@ -141,6 +142,7 @@ const solutionsCatalog: Record<string, SolutionCategory[]> = {
 
 const SolutionDetail = () => {
   const { category, id } = useParams<{ category: string; id: string }>();
+  const navigate = useNavigate();
   
   // Find the solution based on URL parameters
   const categoryData = solutionsCatalog[category || ""] || [];
@@ -169,8 +171,8 @@ const SolutionDetail = () => {
   
   // Function to navigate to contact section on homepage
   const scrollToContact = () => {
-    // Navigate to homepage and then scroll to contact
-    window.location.href = "/#contact";
+    // Navigate to homepage and then scroll to contact section
+    navigate("/?scrollTo=contact");
   };
   
   // Get breadcrumb category title
@@ -180,6 +182,16 @@ const SolutionDetail = () => {
       case "salles-de-reunion": return "Salles de Réunion";
       case "salles-de-classe": return "Salles de Classe";
       default: return "";
+    }
+  };
+
+  // Determine the target tab for references page based on the current solution category
+  const getReferencesTab = () => {
+    switch(category) {
+      case "affichage-dynamique": return "affichage-dynamique";
+      case "salles-de-reunion": return "salle-reunion";
+      case "salles-de-classe": return "salle-classe";
+      default: return "salle-reunion"; // Default to "Salles de réunion" tab
     }
   };
 
@@ -210,9 +222,17 @@ const SolutionDetail = () => {
               <p className="text-lg text-gray-700 mb-6">
                 {solution.longDescription}
               </p>
-              <Button onClick={scrollToContact} className="bg-business-primary hover:bg-business-primary/90 text-white">
-                Demander un devis gratuit
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button onClick={scrollToContact} className="bg-business-primary hover:bg-business-primary/90 text-white">
+                  Demander un devis gratuit
+                </Button>
+                <Button variant="outline" className="border-business-primary text-business-primary hover:bg-business-primary/10" asChild>
+                  <Link to={`/nos-references?tab=${getReferencesTab()}`} className="flex items-center gap-2">
+                    <span>Découvrir nos références</span>
+                    <ExternalLink className="w-4 h-4" />
+                  </Link>
+                </Button>
+              </div>
             </div>
             <div className="rounded-lg overflow-hidden shadow-lg">
               <img 
