@@ -155,6 +155,14 @@ const referenceClients = [
     image: "/lovable-uploads/e046f28a-81d8-41b1-a11b-e2980a62b13a.png",
     description: "Installation d'un écran numérique interactif 75 pouces avec caméra intégrée, hub de connexion et système audio pour une expérience d'enseignement moderne et immersive.",
     category: "salle-classe"
+  },
+  {
+    id: 20,
+    name: "BTP CFA Loire Atlantique - Saint Herblain",
+    logo: null,
+    image: "/lovable-uploads/f97bf874-444b-428c-a544-53b6f5bc706c.png",
+    description: "Installation d'un vidéoprojecteur haute résolution et d'un système audio professionnel pour offrir une expérience d'apprentissage optimale aux étudiants du secteur du BTP.",
+    category: "salle-classe"
   }
 ];
 
