@@ -220,12 +220,14 @@ const ScreenSizeConverter = () => {
                         </div>
                         
                         <div className="bg-white p-3 rounded-md border border-gray-100">
-                          <ScreenVisualization 
-                            width={width}
-                            height={height}
-                            diagonal={diagonalCm}
-                            aspectRatio={aspectRatios[displayType as keyof typeof aspectRatios].ratio}
-                          />
+                          <div className={`w-full ${parseFloat(diagonal) < 40 ? 'max-w-xs' : parseFloat(diagonal) < 70 ? 'max-w-md' : 'max-w-lg'} mx-auto`}>
+                            <ScreenVisualization 
+                              width={width}
+                              height={height}
+                              diagonal={diagonalCm}
+                              aspectRatio={aspectRatios[displayType as keyof typeof aspectRatios].ratio}
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>

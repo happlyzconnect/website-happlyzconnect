@@ -31,25 +31,34 @@ export const ScreenVisualization = ({
     const maxWidth = canvas.width - 80; // Leave space for labels
     const maxHeight = canvas.height - 80;
     
-    // Calculate screen dimensions maintaining aspect ratio
+    // Get screen dimensions (parse the strings to numbers)
+    const diagonalValue = parseFloat(diagonal);
+    
+    // Scale visualization based on diagonal size (bigger diagonal = bigger visual)
+    // Use a logarithmic scale to smooth the differences between large and small screens
+    const scaleBase = 20; // Base diagonal (e.g., 20 inches is standard)
+    const logScale = Math.log(diagonalValue) / Math.log(scaleBase);
+    const scaleFactor = Math.max(0.5, Math.min(1, logScale)); // Constrain between 0.5 and 1
+    
+    // Calculate screen dimensions maintaining aspect ratio with scale factor
     let screenWidth, screenHeight;
     if (aspectRatio > 1) {
-      screenWidth = maxWidth;
+      screenWidth = maxWidth * scaleFactor;
       screenHeight = screenWidth / aspectRatio;
-      if (screenHeight > maxHeight) {
-        screenHeight = maxHeight;
+      if (screenHeight > maxHeight * scaleFactor) {
+        screenHeight = maxHeight * scaleFactor;
         screenWidth = screenHeight * aspectRatio;
       }
     } else {
-      screenHeight = maxHeight;
+      screenHeight = maxHeight * scaleFactor;
       screenWidth = screenHeight * aspectRatio;
-      if (screenWidth > maxWidth) {
-        screenWidth = maxWidth;
+      if (screenWidth > maxWidth * scaleFactor) {
+        screenWidth = maxWidth * scaleFactor;
         screenHeight = screenWidth / aspectRatio;
       }
     }
     
-    // Calculate position
+    // Calculate position to center the screen
     const x = (canvas.width - screenWidth) / 2;
     const y = (canvas.height - screenHeight) / 2;
     
@@ -68,8 +77,6 @@ export const ScreenVisualization = ({
     ctx.strokeStyle = "#9b87f5";
     ctx.lineWidth = 2;
     ctx.stroke();
-    
-    // We're removing the text labels from the canvas since they'll be shown as overlays
   }, [width, height, diagonal, aspectRatio]);
   
   return (
