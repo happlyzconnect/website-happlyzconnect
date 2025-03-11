@@ -230,7 +230,7 @@ export const Navigation = () => {
                             className="flex items-center gap-2 font-medium hover:text-[#56C7E1] transition-colors"
                           >
                             <Tv className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm uppercase text-[#14213D]">AFFICHAGE DYNAMIQUE</h4>
+                            <h4 className="font-semibold text-sm uppercase text-[#14213D] group-hover:text-[#56C7E1] hover:text-[#56C7E1] transition-colors">AFFICHAGE DYNAMIQUE</h4>
                           </Link>
                           <div className="pl-6 space-y-1">
                             <Link to="/solutions/affichage-dynamique/magasins" className="text-sm text-black hover:text-[#56C7E1] block">Magasins</Link>
@@ -245,7 +245,7 @@ export const Navigation = () => {
                             className="flex items-center gap-2 font-medium hover:text-[#56C7E1] transition-colors"
                           >
                             <Users className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm uppercase text-[#14213D]">SALLES DE RÉUNION</h4>
+                            <h4 className="font-semibold text-sm uppercase text-[#14213D] group-hover:text-[#56C7E1] hover:text-[#56C7E1] transition-colors">SALLES DE RÉUNION</h4>
                           </Link>
                           <div className="pl-6">
                             <Link to="/solutions/salles-de-reunion/solutions-audiovisuelles" className="text-sm text-black hover:text-[#56C7E1] block">Solutions audiovisuelles</Link>
@@ -258,7 +258,7 @@ export const Navigation = () => {
                             className="flex items-center gap-2 font-medium hover:text-[#56C7E1] transition-colors"
                           >
                             <GraduationCap className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm uppercase text-[#14213D]">SALLES DE CLASSE</h4>
+                            <h4 className="font-semibold text-sm uppercase text-[#14213D] group-hover:text-[#56C7E1] hover:text-[#56C7E1] transition-colors">SALLES DE CLASSE</h4>
                           </Link>
                           <div className="pl-6">
                             <Link to="/solutions/salles-de-classe/solutions-pedagogiques" className="text-sm text-black hover:text-[#56C7E1] block">Solutions pédagogiques</Link>
