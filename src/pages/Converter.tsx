@@ -1,13 +1,15 @@
+
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calculator, ArrowRight, Monitor, RotateCcw, RotateCw } from "lucide-react";
+import { Calculator, ArrowRight, Monitor, RotateCcw, RotateCw, Settings } from "lucide-react";
 import { MetaDescription } from "@/components/MetaDescription";
 import { ScreenVisualization } from "@/components/ScreenVisualization";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const ScreenSizeConverter = () => {
   const [inches, setInches] = useState<string>("");
@@ -33,7 +35,7 @@ const ScreenSizeConverter = () => {
     { label: "98 pouces", value: "98" },
   ];
 
-  // Aspect ratios for different display types - Remove cinema option
+  // Aspect ratios for different display types
   const aspectRatios = {
     standard: { ratio: 16 / 9, name: "16:9 (Standard)" },
     ultrawide: { ratio: 21 / 9, name: "21:9 (Ultrawide)" },
@@ -119,7 +121,7 @@ const ScreenSizeConverter = () => {
 
         <main className="flex-grow container mx-auto px-4 py-8">
           <div className="max-w-3xl mx-auto">
-            <Card className="border-2 border-[#56C7E1]/20 shadow-lg">
+            <Card className="border-2 border-[#56C7E1]/20 shadow-lg mb-6">
               <CardContent className="pt-6">
                 <div className="flex items-center justify-center mb-6">
                   <Calculator className="text-[#56C7E1] mr-2" size={28} />
@@ -127,52 +129,6 @@ const ScreenSizeConverter = () => {
                 </div>
                 
                 <div className="grid gap-6 mb-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="display-type" className="block text-sm font-medium text-gray-700 mb-1">
-                        Format d'affichage
-                      </label>
-                      <select
-                        id="display-type"
-                        className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#56C7E1]"
-                        value={displayType}
-                        onChange={handleDisplayTypeSelect}
-                      >
-                        {Object.entries(aspectRatios).map(([key, { name }]) => (
-                          <option key={key} value={key}>
-                            {name}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Orientation
-                      </label>
-                      <RadioGroup 
-                        value={orientation} 
-                        onValueChange={(value: "landscape" | "portrait") => handleOrientationChange(value)}
-                        className="flex space-x-4"
-                      >
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="landscape" id="landscape" />
-                          <label htmlFor="landscape" className="flex items-center cursor-pointer">
-                            <RotateCw size={18} className="mr-1 text-[#56C7E1]" />
-                            <span>Paysage</span>
-                          </label>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <RadioGroupItem value="portrait" id="portrait" />
-                          <label htmlFor="portrait" className="flex items-center cursor-pointer">
-                            <RotateCcw size={18} className="mr-1 text-[#56C7E1]" />
-                            <span>Portrait</span>
-                          </label>
-                        </div>
-                      </RadioGroup>
-                    </div>
-                  </div>
-
                   <div>
                     <label htmlFor="common-sizes" className="block text-sm font-medium text-gray-700 mb-1">
                       Tailles standards
@@ -191,41 +147,57 @@ const ScreenSizeConverter = () => {
                     </select>
                   </div>
 
-                  <div className="flex gap-4">
-                    <div className="w-1/2">
-                      <label htmlFor="inches" className="block text-sm font-medium text-gray-700 mb-1">
-                        Taille en pouces
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="display-type" className="block text-sm font-medium text-gray-700 mb-1">
+                        Format d'affichage
                       </label>
-                      <div className="relative">
-                        <input
-                          id="inches"
-                          type="text"
-                          className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#56C7E1]"
-                          placeholder="Ex: 32"
-                          value={inches}
-                          onChange={handleInchesInput}
-                        />
-                        <span className="absolute right-3 top-2 text-gray-500">″</span>
+                      <select
+                        id="display-type"
+                        className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#56C7E1]"
+                        value={displayType}
+                        onChange={handleDisplayTypeSelect}
+                      >
+                        {Object.entries(aspectRatios).map(([key, { name }]) => (
+                          <option key={key} value={key}>
+                            {name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    <div className="flex gap-4">
+                      <div className="w-1/2">
+                        <label htmlFor="inches" className="block text-sm font-medium text-gray-700 mb-1">
+                          Taille en pouces
+                        </label>
+                        <div className="relative">
+                          <input
+                            id="inches"
+                            type="text"
+                            className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#56C7E1]"
+                            placeholder="Ex: 32"
+                            value={inches}
+                            onChange={handleInchesInput}
+                          />
+                          <span className="absolute right-3 top-2 text-gray-500">″</span>
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="w-1/2 flex items-center justify-center">
-                      <ArrowRight size={24} className="text-[#56C7E1] mt-6" />
-                    </div>
-                    
-                    <div className="w-1/2">
-                      <label htmlFor="centimeters" className="block text-sm font-medium text-gray-700 mb-1">
-                        Taille en centimètres
-                      </label>
-                      <div className="relative">
-                        <input
-                          id="centimeters"
-                          type="text"
-                          className="w-full px-4 py-2 rounded-md border border-gray-300 bg-gray-50"
-                          value={centimeters}
-                          readOnly
-                        />
-                        <span className="absolute right-3 top-2 text-gray-500">cm</span>
+                      
+                      <div className="w-1/2">
+                        <label htmlFor="centimeters" className="block text-sm font-medium text-gray-700 mb-1">
+                          Taille en centimètres
+                        </label>
+                        <div className="relative">
+                          <input
+                            id="centimeters"
+                            type="text"
+                            className="w-full px-4 py-2 rounded-md border border-gray-300 bg-gray-50"
+                            value={centimeters}
+                            readOnly
+                          />
+                          <span className="absolute right-3 top-2 text-gray-500">cm</span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -252,37 +224,80 @@ const ScreenSizeConverter = () => {
                             <p className="font-bold text-business-primary">{height} cm</p>
                           </div>
                         </div>
-                        
-                        <div className="bg-white p-3 rounded-md border border-gray-100">
-                          <div className={`w-full ${parseFloat(diagonalCm) < 40 ? 'max-w-xs' : parseFloat(diagonalCm) < 70 ? 'max-w-md' : 'max-w-lg'} mx-auto`}>
-                            <ScreenVisualization 
-                              width={width}
-                              height={height}
-                              diagonal={diagonalCm}
-                              aspectRatio={aspectRatios[displayType as keyof typeof aspectRatios].ratio}
-                              orientation={orientation}
-                            />
-                          </div>
-                        </div>
                       </div>
                     </div>
                   )}
                 </div>
-
-                <div className="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
-                  <h2 className="text-lg font-semibold text-business-primary mb-2">Pourquoi convertir les pouces en centimètres ?</h2>
-                  <p className="text-sm text-gray-600 mb-3">
-                    La conversion des pouces en centimètres est essentielle pour comprendre les dimensions réelles d'un écran, particulièrement pour :
-                  </p>
-                  <ul className="text-sm text-gray-600 list-disc pl-5 space-y-1">
-                    <li>Vérifier si un écran s'adaptera à votre espace</li>
-                    <li>Choisir la bonne taille d'écran pour votre salle de réunion ou de classe</li>
-                    <li>Calculer la distance de visionnage optimale</li>
-                    <li>Planifier l'installation d'écrans d'affichage dynamique</li>
-                  </ul>
-                </div>
               </CardContent>
             </Card>
+
+            {diagonalCm && (
+              <Card className="border-2 border-[#56C7E1]/20 shadow-lg mb-6">
+                <CardContent className="pt-6">
+                  <div className="flex items-center justify-center mb-6">
+                    <Settings className="text-[#56C7E1] mr-2" size={24} />
+                    <h2 className="text-xl font-bold text-business-primary">Configurateur d'écran</h2>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="md:col-span-1">
+                      <div className="mb-4">
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Orientation
+                        </label>
+                        <RadioGroup 
+                          value={orientation} 
+                          onValueChange={(value: "landscape" | "portrait") => handleOrientationChange(value)}
+                          className="flex flex-col space-y-2"
+                        >
+                          <div className="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-50">
+                            <RadioGroupItem value="landscape" id="landscape" />
+                            <label htmlFor="landscape" className="flex items-center cursor-pointer">
+                              <RotateCw size={18} className="mr-2 text-[#56C7E1]" />
+                              <span>Mode paysage</span>
+                            </label>
+                          </div>
+                          <div className="flex items-center space-x-2 p-2 rounded-md hover:bg-gray-50">
+                            <RadioGroupItem value="portrait" id="portrait" />
+                            <label htmlFor="portrait" className="flex items-center cursor-pointer">
+                              <RotateCcw size={18} className="mr-2 text-[#56C7E1]" />
+                              <span>Mode portrait</span>
+                            </label>
+                          </div>
+                        </RadioGroup>
+                      </div>
+                    </div>
+
+                    <div className="md:col-span-2">
+                      <div className="bg-white p-3 rounded-md border border-gray-100">
+                        <div className={`w-full max-w-md mx-auto`}>
+                          <ScreenVisualization 
+                            width={width}
+                            height={height}
+                            diagonal={diagonalCm}
+                            aspectRatio={aspectRatios[displayType as keyof typeof aspectRatios].ratio}
+                            orientation={orientation}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
+
+            <div className="mt-8 p-4 bg-gray-50 rounded-lg border border-gray-200">
+              <h2 className="text-lg font-semibold text-business-primary mb-2">Pourquoi convertir les pouces en centimètres ?</h2>
+              <p className="text-sm text-gray-600 mb-3">
+                La conversion des pouces en centimètres est essentielle pour comprendre les dimensions réelles d'un écran, particulièrement pour :
+              </p>
+              <ul className="text-sm text-gray-600 list-disc pl-5 space-y-1">
+                <li>Vérifier si un écran s'adaptera à votre espace</li>
+                <li>Choisir la bonne taille d'écran pour votre salle de réunion ou de classe</li>
+                <li>Calculer la distance de visionnage optimale</li>
+                <li>Planifier l'installation d'écrans d'affichage dynamique</li>
+              </ul>
+            </div>
 
             <div className="mt-12 text-center">
               <h2 className="text-xl font-bold text-business-primary mb-4">
