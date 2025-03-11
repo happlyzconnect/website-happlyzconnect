@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download } from "lucide-react";
+import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download, Calculator } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import {
@@ -27,6 +27,7 @@ export const Navigation = () => {
   const isHomePage = location.pathname === '/';
   const isReferencesPage = location.pathname === '/nos-references';
   const isSolutionPage = location.pathname.includes('/solutions/');
+  const isConverterPage = location.pathname === '/convertisseur-taille-ecran';
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   
   const textColorStyle = {
@@ -279,6 +280,17 @@ export const Navigation = () => {
                 <span className={`absolute bottom-0 left-0 w-full h-[5px] bg-[#56C7E1] ${isReferencesPage ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-all duration-300`}></span>
               </Link>
 
+              <Link
+                to="/convertisseur-taille-ecran"
+                className="px-4 pb-3 hover:text-[#56C7E1] text-white transition-colors relative group outline-none focus:outline-none"
+              >
+                <div className="flex items-center">
+                  <Calculator size={14} className="mr-1" />
+                  <span>Convertisseur</span>
+                </div>
+                <span className={`absolute bottom-0 left-0 w-full h-[5px] bg-[#56C7E1] ${isConverterPage ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-all duration-300`}></span>
+              </Link>
+
               <button
                 onClick={handleContactClick}
                 className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-9 mt-[-8px] hover:bg-gray-200 transition-colors mb-3" // Increased button height
@@ -357,6 +369,13 @@ export const Navigation = () => {
                 className="px-4 py-2 text-white hover:text-[#56C7E1] text-left"
               >
                 Nos références
+              </Link>
+              <Link
+                to="/convertisseur-taille-ecran"
+                className={`px-4 py-2 text-white hover:text-[#56C7E1] text-left flex items-center ${isConverterPage ? 'bg-business-primary/50' : ''}`}
+              >
+                <Calculator size={14} className="mr-2" />
+                Convertisseur d'écran
               </Link>
               <button
                 onClick={handleContactClick}

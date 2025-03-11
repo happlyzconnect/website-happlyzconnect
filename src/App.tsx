@@ -12,6 +12,7 @@ import SolutionCategory from "./pages/SolutionCategory";
 import SolutionDetail from "./pages/SolutionDetail";
 import MentionsLegales from "./pages/MentionsLegales";
 import ConditionsGenerales from "./pages/ConditionsGenerales";
+import Converter from "./pages/Converter";
 
 // ScrollToTop component to reset scroll position on route change
 const ScrollToTop = () => {
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/solutions/:category/:id" element={<SolutionDetail />} />
           <Route path="/mentions-legales" element={<MentionsLegales />} />
           <Route path="/conditions-generales" element={<ConditionsGenerales />} />
+          <Route path="/convertisseur-taille-ecran" element={<Converter />} />
         </Routes>
       </TooltipProvider>
     </QueryClientProvider>
