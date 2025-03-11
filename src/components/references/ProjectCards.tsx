@@ -36,6 +36,14 @@ const referenceClients = [
     category: "salle-reunion"
   },
   {
+    id: 27,
+    name: "Decathlon Paris La Madeleine",
+    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
+    image: "/lovable-uploads/33e5977a-e4a8-4bcb-83a2-f2ae69ff9e34.png",
+    description: "Installation d'écrans 75 pouces avec système de projection sans fil BenQ InstaShow",
+    category: "salle-reunion"
+  },
+  {
     id: 2,
     name: "Decathlon CNIT",
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
