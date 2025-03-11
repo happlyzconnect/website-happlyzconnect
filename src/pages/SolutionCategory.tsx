@@ -47,7 +47,7 @@ const solutionsCatalog: Record<string, { id: string; title: string; category: st
       title: "Solutions Pédagogiques pour Salles de Classe",
       category: "salles-de-classe",
       description: "Modernisez vos espaces d'apprentissage",
-      image: "/lovable-uploads/f5c4ccd9-3e0c-4214-8c98-2d65b936f03d.png"
+      image: "/lovable-uploads/836b625b-8997-41ac-a4da-41f16cdf875c.png"
     }
   ]
 };
