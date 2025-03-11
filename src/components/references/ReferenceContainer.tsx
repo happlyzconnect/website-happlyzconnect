@@ -19,8 +19,8 @@ export const ReferenceContainer = () => {
         <div className="container mx-auto px-4 py-8">
           <Breadcrumb
             items={[
-              { label: "Accueil", path: "/" },
-              { label: "Nos références", path: "/nos-references" },
+              { label: "Accueil", href: "/" },
+              { label: "Nos références", href: "/nos-references" },
             ]}
           />
 
