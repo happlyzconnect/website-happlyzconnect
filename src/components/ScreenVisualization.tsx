@@ -106,20 +106,20 @@ export const ScreenVisualization = ({
         <div className="absolute inset-0 pointer-events-none">
           {/* Width arrow */}
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex items-center">
-            <ArrowLeftRight className="text-[#56C7E1] mr-1" size={18} />
-            <span className="text-xs font-medium text-gray-700">L: {width} cm</span>
+            <ArrowLeftRight className="text-[#9b87f5] mr-1" size={18} />
+            <span className="text-xs font-medium text-[#9b87f5] bg-white/80 px-1 rounded">L: {width} cm</span>
           </div>
           
           {/* Height arrow */}
           <div className="absolute top-1/2 left-8 transform -translate-y-1/2 flex items-center">
-            <ArrowUpDown className="text-[#56C7E1] mr-1" size={18} />
-            <span className="text-xs font-medium text-gray-700">H: {height} cm</span>
+            <ArrowUpDown className="text-[#9b87f5] mr-1" size={18} />
+            <span className="text-xs font-medium text-[#9b87f5] bg-white/80 px-1 rounded">H: {height} cm</span>
           </div>
           
           {/* Diagonal arrow */}
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center">
             <ArrowUpRight className="text-[#9b87f5] mr-1" size={18} />
-            <span className="text-xs font-medium text-gray-700 bg-white/80 px-1 rounded">
+            <span className="text-xs font-medium text-[#9b87f5] bg-white/80 px-1 rounded">
               D: {diagonal} cm
             </span>
           </div>
