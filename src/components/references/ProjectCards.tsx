@@ -242,6 +242,14 @@ const referenceClients = [
     image: "/lovable-uploads/fc38a092-8019-4642-a592-64350cb60f94.png",
     description: "Installation de plusieurs salles de réunion avec écrans et système de diffusion sans fil Infobit",
     category: "salle-reunion"
+  },
+  {
+    id: 31,
+    name: "Decathlon Châteauroux",
+    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
+    image: "/lovable-uploads/e9d3e853-ab30-4449-bbe4-f3c39645f3fb.png",
+    description: "Installation d'un écran 65 pouces et système de diffusion sans fil Infobit dans une salle de réunion",
+    category: "salle-reunion"
   }
 ];
 
