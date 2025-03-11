@@ -69,19 +69,7 @@ export const ScreenVisualization = ({
     ctx.lineWidth = 2;
     ctx.stroke();
     
-    // Add dimensions text
-    ctx.font = "14px Inter, sans-serif";
-    ctx.fillStyle = "#333";
-    
-    // Width label
-    ctx.fillText(`${width} cm`, x + screenWidth / 2 - 20, y + screenHeight + 25);
-    
-    // Height label
-    ctx.fillText(`${height} cm`, x - 50, y + screenHeight / 2 + 5);
-    
-    // Diagonal label
-    ctx.fillStyle = "#8B5CF6";
-    ctx.fillText(`${diagonal} cm`, x + screenWidth / 2 - 30, y + screenHeight / 2 - 10);
+    // We're removing the text labels from the canvas since they'll be shown as overlays
   }, [width, height, diagonal, aspectRatio]);
   
   return (
