@@ -12,6 +12,14 @@ const referenceClients = [
     category: "salle-reunion"
   },
   {
+    id: 25,
+    name: "SHELL France - Nanterre",
+    logo: null,
+    image: "/lovable-uploads/9c42a0f2-76fb-4b29-a641-a900009990a7.png",
+    description: "Installation d'un écran 98 pouces avec système Barco ClickShare CX-50, caméra et système audio (micros / haut-parleurs)",
+    category: "salle-reunion"
+  },
+  {
     id: 1,
     name: "Decathlon Herblay",
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
