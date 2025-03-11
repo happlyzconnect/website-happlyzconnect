@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Monitor, UserRound, GraduationCap } from "lucide-react";
@@ -89,7 +90,7 @@ const referenceClients = [
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
     image: "/lovable-uploads/2e87314c-11a3-4eff-8ce0-772efc6ff53c.png",
     description: "Installation de bornes tactiles pour afficher la gestion des réservations de l'Atelier cycle",
-    category: "salle-reunion"
+    category: "affichage-dynamique"
   },
   {
     id: 12,
