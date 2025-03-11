@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Navigation } from "@/components/Navigation";
@@ -202,8 +203,8 @@ const ScreenSizeConverter = () => {
                         <h3 className="text-lg font-semibold text-business-primary">Dimensions de l'écran</h3>
                       </div>
                       
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="grid grid-cols-3 gap-4">
+                      <div className="flex flex-col">
+                        <div className="grid grid-cols-3 gap-4 mb-4">
                           <div className="bg-white p-3 rounded-md border border-gray-100">
                             <p className="text-sm text-gray-500 mb-1">Diagonale</p>
                             <p className="font-bold text-business-primary">{diagonalCm} cm</p>
