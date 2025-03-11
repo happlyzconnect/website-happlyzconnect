@@ -15,7 +15,7 @@ export const MetaDescription = ({ title, description, className }: MetaDescripti
         <meta name="description" content={description} />
       </Helmet>
       {title && <h1 className="text-3xl font-bold text-business-primary mb-4">{title}</h1>}
-      <p className="text-gray-600 max-w-3xl">{description}</p>
+      <p className="text-gray-600 max-w-3xl mx-auto">{description}</p>
     </div>
   );
 };
