@@ -104,8 +104,8 @@ export const ScreenVisualization = ({
       
       {width && height && diagonal && (
         <div className="absolute inset-0 pointer-events-none">
-          {/* Width arrow - Moved closer to the screen by changing bottom-8 to bottom-4 */}
-          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex items-center">
+          {/* Width arrow - Positioned at the bottom of the screen visualization */}
+          <div className="absolute bottom-[25%] left-1/2 transform -translate-x-1/2 flex items-center">
             <ArrowLeftRight className="text-[#9b87f5] mr-1" size={18} />
             <span className="text-xs font-medium text-[#9b87f5] bg-white/80 px-1 rounded">L: {width} cm</span>
           </div>
