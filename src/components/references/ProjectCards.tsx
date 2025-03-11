@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Monitor, UserRound, GraduationCap } from "lucide-react";
@@ -139,6 +138,14 @@ const referenceClients = [
     image: "/lovable-uploads/aedfeba9-d6fb-4e53-a8b1-0c09e872b9c4.png",
     description: "Installation d'un écran 75 pouces avec intégration d'un logiciel d'affichage dynamique au niveau de la parapharmacie",
     category: "affichage-dynamique"
+  },
+  {
+    id: 18,
+    name: "Collège Condorcet Paris",
+    logo: null,
+    image: "/lovable-uploads/4a20aa23-6b6f-4249-b7ee-4056f77685df.png",
+    description: "Modernisation complète de 7 salles de classe avec installation de vidéoprojecteurs interactifs, tableaux blancs magnétiques et système audio haute-fidélité intégré.",
+    category: "salle-classe"
   }
 ];
 
