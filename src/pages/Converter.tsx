@@ -220,7 +220,7 @@ const ScreenSizeConverter = () => {
                         </div>
                         
                         <div className="bg-white p-3 rounded-md border border-gray-100">
-                          <div className={`w-full ${parseFloat(diagonal) < 40 ? 'max-w-xs' : parseFloat(diagonal) < 70 ? 'max-w-md' : 'max-w-lg'} mx-auto`}>
+                          <div className={`w-full ${parseFloat(diagonalCm) < 40 ? 'max-w-xs' : parseFloat(diagonalCm) < 70 ? 'max-w-md' : 'max-w-lg'} mx-auto`}>
                             <ScreenVisualization 
                               width={width}
                               height={height}
