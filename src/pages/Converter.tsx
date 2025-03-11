@@ -108,7 +108,7 @@ const ScreenSizeConverter = () => {
         <MetaDescription
           title="Convertisseur de taille d'écran : Pouces en Centimètres"
           description="Utilisez notre outil gratuit pour convertir instantanément les tailles d'écran de pouces en centimètres et calculer les dimensions exactes selon différents formats."
-          className="mt-24 pt-4"
+          className="mt-24 pt-4 text-center"
         />
 
         <main className="flex-grow container mx-auto px-4 py-8">
