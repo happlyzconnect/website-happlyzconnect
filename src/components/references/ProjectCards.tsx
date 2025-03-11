@@ -8,7 +8,7 @@ const referenceClients = [
     name: "CHIESI - Bois-Colombes",
     logo: null,
     image: "/lovable-uploads/9bb5ce3d-5e9c-4bd1-ada5-8ca33bb73365.png",
-    description: "Intégration de systèmes BARCO ClickShare CX-50 dans 5 salles de réunion avec interface video, caméra et audio (micros plafond et hauts-parleurs)",
+    description: "Intégration de systèmes BARCO ClickShare CX-50 dans 5 salles de réunion avec interface video, caméra et audio (micros plafond et haut-parleurs)",
     category: "salle-reunion"
   },
   {
@@ -225,6 +225,14 @@ const referenceClients = [
     logo: null,
     image: "/lovable-uploads/1f4f3597-463f-4bd3-9fdb-36b9325dcebf.png",
     description: "Installation de 2 écrans 65 pouces avec système Barco CX-50 et système audio complet incluant des micros plafond et haut-parleurs pour des visioconférences haute qualité.",
+    category: "salle-reunion"
+  },
+  {
+    id: 29,
+    name: "Decathlon Paris La Madeleine",
+    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
+    image: "/lovable-uploads/8cdccc08-dbd8-4713-a063-c87ccfdcc117.png",
+    description: "Installation et configuration d'une borne tactile de gestion des équipes",
     category: "salle-reunion"
   }
 ];
