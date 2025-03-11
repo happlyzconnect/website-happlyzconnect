@@ -1,17 +1,8 @@
-
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Monitor, UserRound, GraduationCap } from "lucide-react";
 
 const referenceClients = [
-  {
-    id: 26,
-    name: "CHIESI - Blois",
-    logo: null,
-    image: "/lovable-uploads/70fb3dcd-cbf6-4874-a389-0fd47b6c0310.png",
-    description: "Intégration de systèmes Barco ClickShare dans plusieurs salles de réunion avec interface vidéo, caméra, et audio (micros plafond et haut-parleurs)",
-    category: "salle-reunion"
-  },
   {
     id: 24,
     name: "CHIESI - Bois-Colombes",
@@ -35,6 +26,14 @@ const referenceClients = [
     image: "/lovable-uploads/786840ea-5fd4-41ac-b2c9-8aa326cd9640.png",
     description: "Installation de 3 écrans 86 pouces pour l'affichage dynamique en magasin, avec diffusion et création de contenus en Motion Design pour promouvoir l'application Decathlon.",
     category: "affichage-dynamique"
+  },
+  {
+    id: 26,
+    name: "CHIESI - Blois",
+    logo: null,
+    image: "/lovable-uploads/70fb3dcd-cbf6-4874-a389-0fd47b6c0310.png",
+    description: "Intégration de systèmes Barco ClickShare dans plusieurs salles de réunion avec interface vidéo, caméra, et audio (micros plafond et haut-parleurs)",
+    category: "salle-reunion"
   },
   {
     id: 2,
@@ -376,4 +375,3 @@ export const ProjectCards = () => {
     </>
   );
 };
-
