@@ -55,9 +55,9 @@ export const ScreenVisualization = ({
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Set up dimensions
-    const maxWidth = canvas.width - 80; // Leave space for labels
-    const maxHeight = canvas.height - 80;
+    // Set up dimensions - increase the margins to prevent screens being cut off
+    const maxWidth = canvas.width - 120; // Increased margin from 80 to 120
+    const maxHeight = canvas.height - 120; // Increased margin from 80 to 120
     
     // Get screen dimensions (parse the strings to numbers)
     const diagonalValue = parseFloat(diagonal);
@@ -73,23 +73,30 @@ export const ScreenVisualization = ({
     const effectiveAspectRatio = orientation === "portrait" ? 1 / aspectRatio : aspectRatio;
     
     // Adjust scale factor based on number of screens to ensure they fit
+    // Make this scaling factor more aggressive when multiple screens are present
     const screenScaleFactor = screenCount > 1 ? 
-      scaleFactor * Math.min(1, 1.2 / Math.sqrt(screenCount)) : 
+      scaleFactor * Math.min(1, 1 / Math.max(columns, rows)) : 
       scaleFactor;
     
     let singleScreenWidth, singleScreenHeight;
     if (effectiveAspectRatio > 1) {
-      singleScreenWidth = maxWidth * screenScaleFactor;
+      // For landscape orientation (wider than tall)
+      singleScreenWidth = maxWidth * screenScaleFactor / columns; // Divide by columns to ensure fit
       singleScreenHeight = singleScreenWidth / effectiveAspectRatio;
-      if (singleScreenHeight > maxHeight * screenScaleFactor) {
-        singleScreenHeight = maxHeight * screenScaleFactor;
+      
+      // Check if the height exceeds the available height
+      if (singleScreenHeight * rows > maxHeight) {
+        singleScreenHeight = maxHeight / rows;
         singleScreenWidth = singleScreenHeight * effectiveAspectRatio;
       }
     } else {
-      singleScreenHeight = maxHeight * screenScaleFactor;
+      // For portrait orientation (taller than wide)
+      singleScreenHeight = maxHeight * screenScaleFactor / rows; // Divide by rows to ensure fit
       singleScreenWidth = singleScreenHeight * effectiveAspectRatio;
-      if (singleScreenWidth > maxWidth * screenScaleFactor) {
-        singleScreenWidth = maxWidth * screenScaleFactor;
+      
+      // Check if the width exceeds the available width
+      if (singleScreenWidth * columns > maxWidth) {
+        singleScreenWidth = maxWidth / columns;
         singleScreenHeight = singleScreenWidth / effectiveAspectRatio;
       }
     }
@@ -98,8 +105,8 @@ export const ScreenVisualization = ({
     const spacing = Math.max(4, singleScreenWidth * 0.02);
     
     // Adjust grid position to center the grid
-    const totalGridWidth = singleScreenWidth * columns + spacing * (columns - 1);
-    const totalGridHeight = singleScreenHeight * rows + spacing * (rows - 1);
+    const totalGridWidth = (singleScreenWidth * columns) + (spacing * (columns - 1));
+    const totalGridHeight = (singleScreenHeight * rows) + (spacing * (rows - 1));
     const gridX = (canvas.width - totalGridWidth) / 2;
     const gridY = (canvas.height - totalGridHeight) / 2;
     
@@ -155,8 +162,6 @@ export const ScreenVisualization = ({
       ctx.fillStyle = "#ffffff";
       ctx.font = "12px Arial";
       ctx.fillText(`Configuration: ${columns}×${rows}`, 15, canvas.height - 15);
-      
-      // Removed the gray total dimensions display that was here
     }
     
   }, [width, height, diagonal, aspectRatio, orientation, screenCount, columns, rows, totalDimensions]);
