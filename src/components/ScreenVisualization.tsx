@@ -7,6 +7,7 @@ interface ScreenVisualizationProps {
   height: string;
   diagonal: string;
   aspectRatio: number;
+  orientation?: "landscape" | "portrait";
 }
 
 export const ScreenVisualization = ({
@@ -14,6 +15,7 @@ export const ScreenVisualization = ({
   height,
   diagonal,
   aspectRatio,
+  orientation = "landscape",
 }: ScreenVisualizationProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
@@ -41,20 +43,23 @@ export const ScreenVisualization = ({
     const scaleFactor = Math.max(0.5, Math.min(1, logScale)); // Constrain between 0.5 and 1
     
     // Calculate screen dimensions maintaining aspect ratio with scale factor
+    // For portrait, we invert the aspect ratio
+    const effectiveAspectRatio = orientation === "portrait" ? 1 / aspectRatio : aspectRatio;
+    
     let screenWidth, screenHeight;
-    if (aspectRatio > 1) {
+    if (effectiveAspectRatio > 1) {
       screenWidth = maxWidth * scaleFactor;
-      screenHeight = screenWidth / aspectRatio;
+      screenHeight = screenWidth / effectiveAspectRatio;
       if (screenHeight > maxHeight * scaleFactor) {
         screenHeight = maxHeight * scaleFactor;
-        screenWidth = screenHeight * aspectRatio;
+        screenWidth = screenHeight * effectiveAspectRatio;
       }
     } else {
       screenHeight = maxHeight * scaleFactor;
-      screenWidth = screenHeight * aspectRatio;
+      screenWidth = screenHeight * effectiveAspectRatio;
       if (screenWidth > maxWidth * scaleFactor) {
         screenWidth = maxWidth * scaleFactor;
-        screenHeight = screenWidth / aspectRatio;
+        screenHeight = screenWidth / effectiveAspectRatio;
       }
     }
     
@@ -91,7 +96,11 @@ export const ScreenVisualization = ({
     ctx.strokeStyle = "#9b87f5";
     ctx.lineWidth = 2;
     ctx.stroke();
-  }, [width, height, diagonal, aspectRatio]);
+  }, [width, height, diagonal, aspectRatio, orientation]);
+  
+  // Déterminer les dimensions à afficher
+  const displayWidth = orientation === "portrait" ? height : width;
+  const displayHeight = orientation === "portrait" ? width : height;
   
   return (
     <div className="relative">
@@ -107,13 +116,17 @@ export const ScreenVisualization = ({
           {/* Width arrow - Positioned at the center bottom of the screen visualization */}
           <div className="absolute bottom-[35%] left-1/2 transform -translate-x-1/2 flex items-center">
             <ArrowLeftRight className="text-[#9b87f5] mr-1" size={18} />
-            <span className="text-xs font-medium text-[#9b87f5] bg-white/80 px-1 rounded">L: {width} cm</span>
+            <span className="text-xs font-medium text-[#9b87f5] bg-white/80 px-1 rounded">
+              L: {displayWidth} cm
+            </span>
           </div>
           
           {/* Height arrow */}
           <div className="absolute top-1/2 left-8 transform -translate-y-1/2 flex items-center">
             <ArrowUpDown className="text-[#9b87f5] mr-1" size={18} />
-            <span className="text-xs font-medium text-[#9b87f5] bg-white/80 px-1 rounded">H: {height} cm</span>
+            <span className="text-xs font-medium text-[#9b87f5] bg-white/80 px-1 rounded">
+              H: {displayHeight} cm
+            </span>
           </div>
           
           {/* Diagonal arrow */}

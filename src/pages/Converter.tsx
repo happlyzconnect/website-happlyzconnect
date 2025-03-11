@@ -1,13 +1,13 @@
-
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calculator, ArrowRight, Monitor } from "lucide-react";
+import { Calculator, ArrowRight, Monitor, RotateCcw, RotateCw } from "lucide-react";
 import { MetaDescription } from "@/components/MetaDescription";
 import { ScreenVisualization } from "@/components/ScreenVisualization";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const ScreenSizeConverter = () => {
   const [inches, setInches] = useState<string>("");
@@ -16,6 +16,7 @@ const ScreenSizeConverter = () => {
   const [diagonalCm, setDiagonalCm] = useState<string>("");
   const [width, setWidth] = useState<string>("");
   const [height, setHeight] = useState<string>("");
+  const [orientation, setOrientation] = useState<"landscape" | "portrait">("landscape");
 
   // Common screen sizes for the dropdown
   const commonSizes = [
@@ -89,6 +90,11 @@ const ScreenSizeConverter = () => {
     }
   };
 
+  // Handle orientation change
+  const handleOrientationChange = (value: "landscape" | "portrait") => {
+    setOrientation(value);
+  };
+
   return (
     <>
       <Helmet>
@@ -121,22 +127,50 @@ const ScreenSizeConverter = () => {
                 </div>
                 
                 <div className="grid gap-6 mb-6">
-                  <div>
-                    <label htmlFor="display-type" className="block text-sm font-medium text-gray-700 mb-1">
-                      Format d'affichage
-                    </label>
-                    <select
-                      id="display-type"
-                      className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#56C7E1]"
-                      value={displayType}
-                      onChange={handleDisplayTypeSelect}
-                    >
-                      {Object.entries(aspectRatios).map(([key, { name }]) => (
-                        <option key={key} value={key}>
-                          {name}
-                        </option>
-                      ))}
-                    </select>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="display-type" className="block text-sm font-medium text-gray-700 mb-1">
+                        Format d'affichage
+                      </label>
+                      <select
+                        id="display-type"
+                        className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#56C7E1]"
+                        value={displayType}
+                        onChange={handleDisplayTypeSelect}
+                      >
+                        {Object.entries(aspectRatios).map(([key, { name }]) => (
+                          <option key={key} value={key}>
+                            {name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Orientation
+                      </label>
+                      <RadioGroup 
+                        value={orientation} 
+                        onValueChange={(value: "landscape" | "portrait") => handleOrientationChange(value)}
+                        className="flex space-x-4"
+                      >
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="landscape" id="landscape" />
+                          <label htmlFor="landscape" className="flex items-center cursor-pointer">
+                            <RotateCw size={18} className="mr-1 text-[#56C7E1]" />
+                            <span>Paysage</span>
+                          </label>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <RadioGroupItem value="portrait" id="portrait" />
+                          <label htmlFor="portrait" className="flex items-center cursor-pointer">
+                            <RotateCcw size={18} className="mr-1 text-[#56C7E1]" />
+                            <span>Portrait</span>
+                          </label>
+                        </div>
+                      </RadioGroup>
+                    </div>
                   </div>
 
                   <div>
@@ -226,6 +260,7 @@ const ScreenSizeConverter = () => {
                               height={height}
                               diagonal={diagonalCm}
                               aspectRatio={aspectRatios[displayType as keyof typeof aspectRatios].ratio}
+                              orientation={orientation}
                             />
                           </div>
                         </div>
