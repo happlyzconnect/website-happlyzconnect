@@ -3,7 +3,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { MetaDescription } from "@/components/MetaDescription";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { Check, ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -142,6 +142,7 @@ const solutionsCatalog: Record<string, SolutionCategory[]> = {
 
 const SolutionDetail = () => {
   const { category, id } = useParams<{ category: string; id: string }>();
+  const navigate = useNavigate();
   
   // Find the solution based on URL parameters
   const categoryData = solutionsCatalog[category || ""] || [];
@@ -170,8 +171,8 @@ const SolutionDetail = () => {
   
   // Function to navigate to contact section on homepage
   const scrollToContact = () => {
-    // Navigate to homepage and then scroll to contact
-    window.location.href = "/#contact";
+    // Navigate to homepage and then scroll to contact section
+    navigate("/?scrollTo=contact");
   };
   
   // Get breadcrumb category title
