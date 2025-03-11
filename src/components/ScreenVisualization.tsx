@@ -62,13 +62,53 @@ export const ScreenVisualization = ({
     const x = (canvas.width - screenWidth) / 2;
     const y = (canvas.height - screenHeight) / 2;
     
+    // Draw screen bezel (black border)
+    const bezelThickness = Math.max(4, screenWidth * 0.02); // Proportional bezel
+    ctx.fillStyle = "#222222";
+    ctx.fillRect(
+      x - bezelThickness, 
+      y - bezelThickness, 
+      screenWidth + bezelThickness * 2, 
+      screenHeight + bezelThickness * 2
+    );
+    
     // Draw screen
-    ctx.fillStyle = "#F6F6F7";
+    ctx.fillStyle = "#333333";
     ctx.fillRect(x, y, screenWidth, screenHeight);
     
-    ctx.strokeStyle = "#56C7E1";
-    ctx.lineWidth = 3;
-    ctx.strokeRect(x, y, screenWidth, screenHeight);
+    // Add screen glossiness/reflection
+    const gradient = ctx.createLinearGradient(x, y, x, y + screenHeight);
+    gradient.addColorStop(0, "rgba(255, 255, 255, 0.1)");
+    gradient.addColorStop(0.2, "rgba(255, 255, 255, 0.05)");
+    gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
+    ctx.fillStyle = gradient;
+    ctx.fillRect(x, y, screenWidth, screenHeight);
+    
+    // Draw screen stand (for larger screens)
+    if (screenWidth > 100) {
+      const standWidth = screenWidth * 0.3;
+      const standHeight = screenHeight * 0.15;
+      const standX = x + (screenWidth - standWidth) / 2;
+      const standY = y + screenHeight;
+      
+      // Stand neck
+      ctx.fillStyle = "#222222";
+      ctx.fillRect(
+        standX + standWidth * 0.4, 
+        standY, 
+        standWidth * 0.2, 
+        standHeight * 0.7
+      );
+      
+      // Stand base
+      ctx.fillStyle = "#222222";
+      ctx.fillRect(
+        standX, 
+        standY + standHeight * 0.5, 
+        standWidth, 
+        standHeight * 0.5
+      );
+    }
     
     // Draw diagonal line
     ctx.beginPath();
