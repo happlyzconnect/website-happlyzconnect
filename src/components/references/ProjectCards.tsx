@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Monitor, UserRound, GraduationCap } from "lucide-react";
@@ -145,6 +146,14 @@ const referenceClients = [
     logo: null,
     image: "/lovable-uploads/4a20aa23-6b6f-4249-b7ee-4056f77685df.png",
     description: "Modernisation complète de 7 salles de classe avec installation de vidéoprojecteurs interactifs, tableaux blancs magnétiques et système audio haute-fidélité intégré.",
+    category: "salle-classe"
+  },
+  {
+    id: 19,
+    name: "Lycée agricole Les Vaseix",
+    logo: null,
+    image: "/lovable-uploads/e046f28a-81d8-41b1-a11b-e2980a62b13a.png",
+    description: "Installation d'un écran numérique interactif 75 pouces avec caméra intégrée, hub de connexion et système audio pour une expérience d'enseignement moderne et immersive.",
     category: "salle-classe"
   }
 ];
