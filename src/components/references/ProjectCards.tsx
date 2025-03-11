@@ -163,6 +163,14 @@ const referenceClients = [
     image: "/lovable-uploads/f97bf874-444b-428c-a544-53b6f5bc706c.png",
     description: "Installation d'un vidéoprojecteur haute résolution et d'un système audio professionnel pour offrir une expérience d'apprentissage optimale aux étudiants du secteur du BTP.",
     category: "salle-classe"
+  },
+  {
+    id: 21,
+    name: "Collège Albert Schweitzer - Neufchâtel-en-Bray",
+    logo: null,
+    image: "/lovable-uploads/4c315d56-63b2-4096-86a1-28dea5785690.png",
+    description: "Installation et configuration d'un écran numérique interactif sur support mobile pour une flexibilité d'enseignement optimale et une utilisation dans différentes salles de classe.",
+    category: "salle-classe"
   }
 ];
 
