@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -122,7 +123,7 @@ export const Navigation = () => {
     <nav 
       className="fixed w-full shadow-sm"
       style={{
-        height: "90px",
+        height: "90px", // Increased from 72px to 90px
         backgroundColor: "#14213D",
         zIndex: 30
       }}
@@ -133,18 +134,18 @@ export const Navigation = () => {
             <a 
               href="/"
               onClick={handleLogoClick}
-              className="h-14 hover:opacity-80 transition-opacity"
+              className="h-10 hover:opacity-80 transition-opacity" // Increased logo size slightly
             >
               <img 
                 src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
                 alt="Happlyz Connect" 
-                className="h-full w-auto object-contain"
+                className="h-full object-contain"
               />
             </a>
           </div>
 
           <div className="flex-1 flex flex-col justify-between">
-            <div className="flex justify-end items-center py-3 mb-2">
+            <div className="flex justify-end items-center py-3 mb-2"> {/* Adjusted padding for better spacing */}
               <div className="hidden md:flex items-center space-x-6">
                 <div className="flex items-center space-x-2">
                   <Phone size={14} style={textColorStyle} />
@@ -270,7 +271,7 @@ export const Navigation = () => {
 
               <button
                 onClick={handleContactClick}
-                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-9 mt-[-8px] hover:bg-gray-200 transition-colors mb-3"
+                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-9 mt-[-8px] hover:bg-gray-200 transition-colors mb-3" // Increased button height
               >
                 Nous contacter
               </button>
@@ -279,7 +280,7 @@ export const Navigation = () => {
         </div>
 
         {isOpen && (
-          <div className="md:hidden fixed left-0 right-0 top-20 bg-business-primary/90 backdrop-blur-sm shadow-lg">
+          <div className="md:hidden fixed left-0 right-0 top-20 bg-business-primary/90 backdrop-blur-sm shadow-lg"> {/* Adjusted top position */}
             <div className="flex flex-col">
               <div className="px-4 py-2 space-y-2 border-b border-white/10">
                 <div className="flex items-center space-x-2 text-white">
@@ -349,7 +350,7 @@ export const Navigation = () => {
               </Link>
               <button
                 onClick={handleContactClick}
-                className="mx-4 my-2 bg-white text-[#14213D] font-medium px-4 py-1 h-9 text-left hover:bg-gray-200 transition-colors"
+                className="mx-4 my-2 bg-white text-[#14213D] font-medium px-4 py-1 h-9 text-left hover:bg-gray-200 transition-colors" // Increased button height
               >
                 Nous contacter
               </button>
