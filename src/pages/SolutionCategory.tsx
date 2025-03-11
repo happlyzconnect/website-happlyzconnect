@@ -38,7 +38,7 @@ const solutionsCatalog: Record<string, { id: string; title: string; category: st
       title: "Solutions Audiovisuelles pour Salles de Réunion",
       category: "salles-de-reunion",
       description: "Optimisez vos espaces collaboratifs",
-      image: "/lovable-uploads/2e87314c-11a3-4eff-8ce0-772efc6ff53c.png" // Updated to CHIESI Bois Colombes image
+      image: "/lovable-uploads/ec4384d3-38ac-41ab-b9ea-93796b792b22.png"
     }
   ],
   "salles-de-classe": [

@@ -1,55 +1,48 @@
 
 import { Breadcrumb } from "@/components/Breadcrumb";
-import { ClientLogoGrid } from "./ClientLogoGrid";
-import { PartnersSection } from "./PartnersSection";
-import { ProjectCards } from "./ProjectCards";
-import { CallToAction } from "./CallToAction";
 import { MetaDescription } from "@/components/MetaDescription";
+import { Footer } from "@/components/Footer";
+import { Navigation } from "@/components/Navigation";
+import { ClientLogoGrid } from "./ClientLogoGrid";
+import { ProjectCards } from "./ProjectCards";
+import { PartnersSection } from "./PartnersSection";
+import { CallToAction } from "./CallToAction";
+import { motion } from "framer-motion";
 
 export const ReferenceContainer = () => {
   return (
-    <>
-      <MetaDescription 
-        title="Nos références | HAPPLYZ CONNECT" 
-        description="Découvrez nos réalisations pour des clients comme Decathlon, Casino, Shell et le Ministère de l'Éducation Nationale. Projets d'affichage dynamique et équipements audiovisuels."
-        image="/lovable-uploads/9bb5ce3d-5e9c-4bd1-ada5-8ca33bb73365.png"
-      />
-
-      <div className="bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4 py-8">
-          <Breadcrumb
-            items={[
-              { label: "Accueil", href: "/" },
-              { label: "Nos références", href: "/nos-references" },
-            ]}
-          />
-
-          <div 
-            className="relative w-full h-[400px] rounded-xl overflow-hidden mb-16 shadow-lg"
-          >
-            <img 
-              src="/lovable-uploads/9bb5ce3d-5e9c-4bd1-ada5-8ca33bb73365.png" 
-              alt="CHIESI Bois-Colombes - Salle de réunion équipée par HAPPLYZ CONNECT" 
-              className="w-full h-full object-cover"
+    <div className="min-h-screen flex flex-col">
+      <MetaDescription description="Découvrez les projets réalisés par HAPPLYZ CONNECT pour ses clients: écrans interactifs, affichage dynamique et solutions audiovisuelles." />
+      <Navigation />
+      <main className="flex-1 pt-20 pb-16">
+        <div className="container mx-auto px-4">
+          <div className="mb-8 pt-4">
+            <Breadcrumb 
+              items={[
+                { label: "Accueil", href: "/" },
+                { label: "Nos références" }
+              ]} 
             />
-            <div 
-              className="absolute inset-0 bg-gradient-to-r from-[rgba(0,0,0,0.7)] to-transparent flex flex-col justify-center px-8 md:px-16"
-            >
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-                Nos références
-              </h1>
-              <p className="text-white text-lg md:text-xl max-w-xl">
-                Découvrez les projets réalisés pour nos clients dans différents secteurs d'activité
-              </p>
-            </div>
           </div>
-
-          <ClientLogoGrid />
+          
+          <section className="mb-16">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-business-primary">
+              Nos références
+            </h1>
+            <div className="h-1 w-20 bg-[#56C7E1] mb-8"></div>
+            <p className="text-lg text-gray-700 max-w-4xl">
+              Découvrez les projets réalisés par HAPPLYZ CONNECT pour ses clients. Nous accompagnons des entreprises 
+              de toutes tailles dans leur transformation numérique grâce à nos solutions d'affichage dynamique et d'équipements audiovisuels.
+            </p>
+          </section>
+          
           <ProjectCards />
+          <ClientLogoGrid />
           <PartnersSection />
           <CallToAction />
         </div>
-      </div>
-    </>
+      </main>
+      <Footer />
+    </div>
   );
 };
