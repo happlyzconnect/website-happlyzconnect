@@ -1,4 +1,3 @@
-
 import { useEffect, useRef, useMemo } from "react";
 import { ArrowUpRight, ArrowLeftRight, ArrowUpDown, Monitor } from "lucide-react";
 
@@ -175,7 +174,7 @@ export const ScreenVisualization = ({
       />
       
       <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center">
-        <div className={`${hasScreenSize ? 'bg-[#56C7E1]/90' : 'bg-gray-400/80'} text-white px-4 py-1.5 rounded-full text-sm font-medium flex items-center shadow-md transition-colors duration-300`}>
+        <div className={`${hasScreenSize ? 'bg-[#56C7E1]' : 'bg-gray-500'} text-white px-4 py-1.5 rounded-full text-sm font-medium flex items-center shadow-md transition-colors duration-300`}>
           <Monitor className="mr-2" size={16} />
           {hasScreenSize ? (
             <span>
