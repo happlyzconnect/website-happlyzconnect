@@ -144,17 +144,6 @@ export const ScreenVisualization = ({
         gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
         ctx.fillStyle = gradient;
         ctx.fillRect(x, y, singleScreenWidth, singleScreenHeight);
-        
-        // If this is the first screen, draw dimension indicators
-        if (row === 0 && col === 0) {
-          // Draw diagonal line
-          ctx.beginPath();
-          ctx.moveTo(x, y);
-          ctx.lineTo(x + singleScreenWidth, y + singleScreenHeight);
-          ctx.strokeStyle = "#9b87f5";
-          ctx.lineWidth = 2;
-          ctx.stroke();
-        }
       }
     }
     
@@ -169,7 +158,7 @@ export const ScreenVisualization = ({
     
   }, [width, height, diagonal, aspectRatio, orientation, screenCount, columns, rows, totalDimensions]);
   
-  // Déterminer les dimensions à afficher
+  // Determine the dimensions to display
   const displayWidth = orientation === "portrait" ? height : width;
   const displayHeight = orientation === "portrait" ? width : height;
   
@@ -183,45 +172,14 @@ export const ScreenVisualization = ({
       />
       
       {width && height && diagonal && (
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Width arrow - Positioned at the center bottom of the screen visualization */}
-          <div className="absolute bottom-[35%] left-1/2 transform -translate-x-1/2 flex items-center">
-            <ArrowLeftRight className="text-[#9b87f5] mr-1" size={18} />
-            <span className="text-xs font-medium text-[#9b87f5] bg-white/80 px-1 rounded">
-              L: {displayWidth} cm
+        <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center">
+          <div className="bg-[#56C7E1]/90 text-white px-4 py-1.5 rounded-full text-sm font-medium flex items-center shadow-md">
+            <Monitor className="mr-2" size={16} />
+            <span>
+              {displayWidth} × {displayHeight} cm 
+              {screenCount > 1 ? ` (Total: ${totalDimensions.width} × ${totalDimensions.height} cm)` : ''}
             </span>
           </div>
-          
-          {/* Height arrow */}
-          <div className="absolute top-1/2 left-8 transform -translate-y-1/2 flex items-center">
-            <ArrowUpDown className="text-[#9b87f5] mr-1" size={18} />
-            <span className="text-xs font-medium text-[#9b87f5] bg-white/80 px-1 rounded">
-              H: {displayHeight} cm
-            </span>
-          </div>
-          
-          {/* Diagonal arrow */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex items-center">
-            <ArrowUpRight className="text-[#9b87f5] mr-1" size={18} />
-            <span className="text-xs font-medium text-[#9b87f5] bg-white/80 px-1 rounded">
-              D: {diagonal} cm
-            </span>
-          </div>
-          
-          {/* Total number of screens */}
-          {screenCount > 1 && (
-            <div className="absolute top-4 right-4 bg-[#9b87f5]/90 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold">
-              {screenCount}
-            </div>
-          )}
-          
-          {/* Total dimensions for multi-screen setup - Displayed as overlay badge */}
-          {screenCount > 1 && (
-            <div className="absolute bottom-4 right-4 bg-[#56C7E1]/90 text-white px-3 py-1 rounded-full text-xs font-medium flex items-center">
-              <Monitor className="mr-1" size={14} />
-              {totalDimensions.width} × {totalDimensions.height} cm
-            </div>
-          )}
         </div>
       )}
     </div>
