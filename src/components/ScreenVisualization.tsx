@@ -165,12 +165,7 @@ export const ScreenVisualization = ({
       ctx.font = "12px Arial";
       ctx.fillText(`Configuration: ${columns}×${rows}`, 15, canvas.height - 15);
       
-      // Draw total dimensions on the canvas for multi-screen setups
-      ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
-      ctx.fillRect(canvas.width - 210, canvas.height - 30, 200, 20);
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "12px Arial";
-      ctx.fillText(`Dimensions totales: ${totalDimensions.width}×${totalDimensions.height} cm`, canvas.width - 205, canvas.height - 15);
+      // Removed the gray total dimensions display that was here
     }
     
   }, [width, height, diagonal, aspectRatio, orientation, screenCount, totalDimensions]);
