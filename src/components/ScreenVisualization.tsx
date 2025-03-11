@@ -162,6 +162,9 @@ export const ScreenVisualization = ({
   const displayWidth = orientation === "portrait" ? height : width;
   const displayHeight = orientation === "portrait" ? width : height;
   
+  // Check if a screen size has been selected
+  const hasScreenSize = Boolean(width && height && diagonal);
+  
   return (
     <div className="relative">
       <canvas 
@@ -171,17 +174,19 @@ export const ScreenVisualization = ({
         className="w-full h-auto border border-gray-200 rounded-lg bg-white"
       />
       
-      {width && height && diagonal && (
-        <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center">
-          <div className="bg-[#56C7E1]/90 text-white px-4 py-1.5 rounded-full text-sm font-medium flex items-center shadow-md">
-            <Monitor className="mr-2" size={16} />
+      <div className="absolute bottom-3 left-0 right-0 flex items-center justify-center">
+        <div className={`${hasScreenSize ? 'bg-[#56C7E1]/90' : 'bg-gray-400/80'} text-white px-4 py-1.5 rounded-full text-sm font-medium flex items-center shadow-md transition-colors duration-300`}>
+          <Monitor className="mr-2" size={16} />
+          {hasScreenSize ? (
             <span>
               {displayWidth} × {displayHeight} cm 
               {screenCount > 1 ? ` (Total: ${totalDimensions.width} × ${totalDimensions.height} cm)` : ''}
             </span>
-          </div>
+          ) : (
+            <span>Aucune taille d'écran sélectionnée</span>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };
