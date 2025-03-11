@@ -26,6 +26,7 @@ export const Navigation = () => {
   const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
   const isReferencesPage = location.pathname === '/nos-references';
+  const isSolutionPage = location.pathname.includes('/solutions/');
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   
   const textColorStyle = {
@@ -145,7 +146,7 @@ export const Navigation = () => {
           </div>
 
           <div className="flex-1 flex flex-col justify-between">
-            <div className="flex justify-end items-center py-3 mb-2"> {/* Adjusted padding for better spacing */}
+            <div className="flex justify-end items-center py-3 mb-2"> 
               <div className="hidden md:flex items-center space-x-6">
                 <div className="flex items-center space-x-2">
                   <Phone size={14} style={textColorStyle} />
@@ -215,7 +216,7 @@ export const Navigation = () => {
                   <PopoverTrigger asChild>
                     <button className="px-4 pb-3 hover:text-[#56C7E1] text-white transition-colors relative group outline-none focus:outline-none">
                       Nos solutions
-                      <span className="absolute bottom-0 left-0 w-full h-[5px] bg-[#56C7E1] opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                      <span className={`absolute bottom-0 left-0 w-full h-[5px] bg-[#56C7E1] ${isSolutionPage ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-all duration-300`}></span>
                     </button>
                   </PopoverTrigger>
                   <PopoverContent 
@@ -330,7 +331,7 @@ export const Navigation = () => {
               >
                 Accueil
               </Link>
-              <div className="px-4 py-2 text-white hover:bg-business-primary/50">
+              <div className={`px-4 py-2 text-white hover:bg-business-primary/50 ${isSolutionPage ? 'bg-business-primary/50' : ''}`}>
                 <p className="mb-1">Nos solutions</p>
                 <div className="pl-4 text-sm space-y-1 mt-2">
                   <p className="font-medium text-[#56C7E1] uppercase">AFFICHAGE DYNAMIQUE</p>
@@ -370,4 +371,3 @@ export const Navigation = () => {
     </nav>
   );
 };
-
