@@ -234,6 +234,14 @@ const referenceClients = [
     image: "/lovable-uploads/8cdccc08-dbd8-4713-a063-c87ccfdcc117.png",
     description: "Installation et configuration d'une borne tactile de gestion des équipes",
     category: "salle-reunion"
+  },
+  {
+    id: 30,
+    name: "Decathlon Brétigny-sur-Orge",
+    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
+    image: "/lovable-uploads/fc38a092-8019-4642-a592-64350cb60f94.png",
+    description: "Installation de plusieurs salles de réunion avec écrans et système de diffusion sans fil Infobit",
+    category: "salle-reunion"
   }
 ];
 
