@@ -1,3 +1,4 @@
+
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
@@ -99,7 +100,7 @@ const solutionsCatalog: Record<string, SolutionCategory[]> = {
       longDescription: "Transformez vos salles de réunion en espaces collaboratifs performants avec nos solutions audiovisuelles intégrées. De la visioconférence à la présentation sans fil, nous proposons des équipements de pointe pour faciliter les échanges et améliorer la productivité de vos équipes.",
       image: "/lovable-uploads/08e3244a-3696-4615-a107-31ecd05a9557.png",
       features: [
-        { id: 1, name: "Écrans interactifs tactiles" },
+        { id: 1, name: "Ecrans professionnels" },
         { id: 2, name: "Systèmes de visioconférence HD" },
         { id: 3, name: "Solutions de présentation sans fil" },
         { id: 4, name: "Systèmes audio intégrés" },
