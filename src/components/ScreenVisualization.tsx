@@ -164,9 +164,16 @@ export const ScreenVisualization = ({
       ctx.fillStyle = "#ffffff";
       ctx.font = "12px Arial";
       ctx.fillText(`Configuration: ${columns}×${rows}`, 15, canvas.height - 15);
+      
+      // Draw total dimensions on the canvas for multi-screen setups
+      ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
+      ctx.fillRect(canvas.width - 210, canvas.height - 30, 200, 20);
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "12px Arial";
+      ctx.fillText(`Dimensions totales: ${totalDimensions.width}×${totalDimensions.height} cm`, canvas.width - 205, canvas.height - 15);
     }
     
-  }, [width, height, diagonal, aspectRatio, orientation, screenCount]);
+  }, [width, height, diagonal, aspectRatio, orientation, screenCount, totalDimensions]);
   
   // Déterminer les dimensions à afficher
   const displayWidth = orientation === "portrait" ? height : width;
@@ -213,26 +220,14 @@ export const ScreenVisualization = ({
               {screenCount}
             </div>
           )}
-        </div>
-      )}
-      
-      {/* Total dimensions for multi-screen setup */}
-      {screenCount > 1 && width && height && (
-        <div className="mt-3 p-3 bg-[#F8FBFE] rounded-lg border border-[#56C7E1]/20">
-          <div className="flex items-center mb-2">
-            <Monitor className="text-[#56C7E1] mr-2" size={16} />
-            <h4 className="text-sm font-semibold text-business-primary">Dimensions totales</h4>
-          </div>
-          <div className="grid grid-cols-2 gap-3">
-            <div className="bg-white p-2 rounded-md border border-gray-100">
-              <p className="text-xs text-gray-500 mb-1">Largeur totale</p>
-              <p className="font-bold text-business-primary text-sm">{totalDimensions.width} cm</p>
+          
+          {/* Total dimensions for multi-screen setup - Displayed as overlay badge */}
+          {screenCount > 1 && (
+            <div className="absolute bottom-4 right-4 bg-[#56C7E1]/90 text-white px-3 py-1 rounded-full text-xs font-medium flex items-center">
+              <Monitor className="mr-1" size={14} />
+              {totalDimensions.width} × {totalDimensions.height} cm
             </div>
-            <div className="bg-white p-2 rounded-md border border-gray-100">
-              <p className="text-xs text-gray-500 mb-1">Hauteur totale</p>
-              <p className="font-bold text-business-primary text-sm">{totalDimensions.height} cm</p>
-            </div>
-          </div>
+          )}
         </div>
       )}
     </div>
