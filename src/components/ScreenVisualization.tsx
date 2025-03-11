@@ -8,7 +8,8 @@ interface ScreenVisualizationProps {
   diagonal: string;
   aspectRatio: number;
   orientation?: "landscape" | "portrait";
-  screenCount?: number;
+  columns?: number;
+  rows?: number;
 }
 
 export const ScreenVisualization = ({
@@ -17,16 +18,13 @@ export const ScreenVisualization = ({
   diagonal,
   aspectRatio,
   orientation = "landscape",
-  screenCount = 1,
+  columns = 1,
+  rows = 1,
 }: ScreenVisualizationProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   
-  // Calculate grid configuration based on screenCount
-  const gridConfiguration = useMemo(() => {
-    const columns = Math.ceil(Math.sqrt(screenCount));
-    const rows = Math.ceil(screenCount / columns);
-    return { columns, rows };
-  }, [screenCount]);
+  // Calculate total screen count
+  const screenCount = columns * rows;
   
   // Calculate total dimensions
   const totalDimensions = useMemo(() => {
@@ -38,14 +36,14 @@ export const ScreenVisualization = ({
     // Add a small gap between screens (3% of screen width)
     const gap = widthValue * 0.03;
     
-    const totalWidth = (widthValue * gridConfiguration.columns) + (gap * (gridConfiguration.columns - 1));
-    const totalHeight = (heightValue * gridConfiguration.rows) + (gap * (gridConfiguration.rows - 1));
+    const totalWidth = (widthValue * columns) + (gap * (columns - 1));
+    const totalHeight = (heightValue * rows) + (gap * (rows - 1));
     
     return {
       width: totalWidth.toFixed(2),
       height: totalHeight.toFixed(2)
     };
-  }, [width, height, orientation, gridConfiguration, screenCount]);
+  }, [width, height, orientation, columns, rows]);
   
   useEffect(() => {
     if (!canvasRef.current || !width || !height || !diagonal) return;
@@ -96,21 +94,14 @@ export const ScreenVisualization = ({
       }
     }
     
-    // Calculate how many screens we can place in each row/column
-    // Using a square-like grid arrangement based on screenCount
-    const columns = Math.ceil(Math.sqrt(screenCount));
-    const rows = Math.ceil(screenCount / columns);
-    
-    // Calculate the total grid size
-    const totalWidth = singleScreenWidth * columns;
-    const totalHeight = singleScreenHeight * rows;
-    
     // Calculate spacing between screens
     const spacing = Math.max(4, singleScreenWidth * 0.02);
     
     // Adjust grid position to center the grid
-    const gridX = (canvas.width - totalWidth - (spacing * (columns - 1))) / 2;
-    const gridY = (canvas.height - totalHeight - (spacing * (rows - 1))) / 2;
+    const totalGridWidth = singleScreenWidth * columns + spacing * (columns - 1);
+    const totalGridHeight = singleScreenHeight * rows + spacing * (rows - 1);
+    const gridX = (canvas.width - totalGridWidth) / 2;
+    const gridY = (canvas.height - totalGridHeight) / 2;
     
     // Draw each screen
     let screenNumber = 0;
@@ -168,7 +159,7 @@ export const ScreenVisualization = ({
       // Removed the gray total dimensions display that was here
     }
     
-  }, [width, height, diagonal, aspectRatio, orientation, screenCount, totalDimensions]);
+  }, [width, height, diagonal, aspectRatio, orientation, screenCount, columns, rows, totalDimensions]);
   
   // Déterminer les dimensions à afficher
   const displayWidth = orientation === "portrait" ? height : width;

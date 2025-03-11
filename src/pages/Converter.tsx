@@ -5,7 +5,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calculator, ArrowRight, Monitor, RotateCcw, RotateCw, Settings, Plus, Minus } from "lucide-react";
+import { Calculator, ArrowRight, Monitor, RotateCcw, RotateCw, Settings, Grid2X2, Columns, Rows } from "lucide-react";
 import { MetaDescription } from "@/components/MetaDescription";
 import { ScreenVisualization } from "@/components/ScreenVisualization";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -19,7 +19,8 @@ const ScreenSizeConverter = () => {
   const [width, setWidth] = useState<string>("");
   const [height, setHeight] = useState<string>("");
   const [orientation, setOrientation] = useState<"landscape" | "portrait">("landscape");
-  const [screenCount, setScreenCount] = useState<number>(1);
+  const [columns, setColumns] = useState<number>(1);
+  const [rows, setRows] = useState<number>(1);
 
   // Common screen sizes for the dropdown
   const commonSizes = [
@@ -98,13 +99,21 @@ const ScreenSizeConverter = () => {
     setOrientation(value);
   };
 
-  // Handle screen count changes
-  const incrementScreenCount = () => {
-    setScreenCount(prev => Math.min(prev + 1, 16)); // Limit to 16 screens
+  // Handle columns and rows changes
+  const incrementColumns = () => {
+    setColumns(prev => Math.min(prev + 1, 6)); // Limit to 6 columns
   };
 
-  const decrementScreenCount = () => {
-    setScreenCount(prev => Math.max(prev - 1, 1)); // Minimum 1 screen
+  const decrementColumns = () => {
+    setColumns(prev => Math.max(prev - 1, 1)); // Minimum 1 column
+  };
+
+  const incrementRows = () => {
+    setRows(prev => Math.min(prev + 1, 6)); // Limit to 6 rows
+  };
+
+  const decrementRows = () => {
+    setRows(prev => Math.max(prev - 1, 1)); // Minimum 1 row
   };
 
   return (
@@ -279,28 +288,66 @@ const ScreenSizeConverter = () => {
 
                       <div className="mb-4">
                         <label className="block text-sm font-medium text-gray-700 mb-2">
-                          Nombre d'écrans
+                          Configuration de la grille
                         </label>
-                        <div className="flex items-center">
-                          <Button
-                            variant="outline"
-                            size="icon"
-                            onClick={decrementScreenCount}
-                            disabled={screenCount <= 1}
-                            className="h-9 w-9 rounded-md"
-                          >
-                            <Minus size={16} />
-                          </Button>
-                          <div className="mx-3 w-16 text-center font-medium">{screenCount}</div>
-                          <Button
-                            variant="outline"
-                            size="icon"
-                            onClick={incrementScreenCount}
-                            disabled={screenCount >= 16}
-                            className="h-9 w-9 rounded-md"
-                          >
-                            <Plus size={16} />
-                          </Button>
+                        <div className="space-y-3">
+                          <div className="flex items-center">
+                            <Columns size={18} className="mr-2 text-[#56C7E1]" />
+                            <span className="w-24 text-sm">Colonnes:</span>
+                            <div className="flex items-center ml-2">
+                              <Button
+                                variant="outline"
+                                size="icon"
+                                onClick={decrementColumns}
+                                disabled={columns <= 1}
+                                className="h-8 w-8 rounded-md"
+                              >
+                                <span>-</span>
+                              </Button>
+                              <div className="mx-3 w-8 text-center font-medium">{columns}</div>
+                              <Button
+                                variant="outline"
+                                size="icon"
+                                onClick={incrementColumns}
+                                disabled={columns >= 6}
+                                className="h-8 w-8 rounded-md"
+                              >
+                                <span>+</span>
+                              </Button>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center">
+                            <Rows size={18} className="mr-2 text-[#56C7E1]" />
+                            <span className="w-24 text-sm">Lignes:</span>
+                            <div className="flex items-center ml-2">
+                              <Button
+                                variant="outline"
+                                size="icon"
+                                onClick={decrementRows}
+                                disabled={rows <= 1}
+                                className="h-8 w-8 rounded-md"
+                              >
+                                <span>-</span>
+                              </Button>
+                              <div className="mx-3 w-8 text-center font-medium">{rows}</div>
+                              <Button
+                                variant="outline"
+                                size="icon"
+                                onClick={incrementRows}
+                                disabled={rows >= 6}
+                                className="h-8 w-8 rounded-md"
+                              >
+                                <span>+</span>
+                              </Button>
+                            </div>
+                          </div>
+                          
+                          <div className="flex items-center mt-2 bg-gray-50 px-3 py-2 rounded-md">
+                            <Grid2X2 size={18} className="mr-2 text-[#56C7E1]" />
+                            <span className="text-sm font-medium">Configuration {columns}×{rows}</span>
+                            <span className="ml-1 text-xs text-gray-500">({columns * rows} écrans)</span>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -314,7 +361,8 @@ const ScreenSizeConverter = () => {
                             diagonal={diagonalCm}
                             aspectRatio={aspectRatios[displayType as keyof typeof aspectRatios].ratio}
                             orientation={orientation}
-                            screenCount={screenCount}
+                            columns={columns}
+                            rows={rows}
                           />
                         </div>
                       </div>
