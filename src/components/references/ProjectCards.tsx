@@ -4,6 +4,14 @@ import { Monitor, UserRound, GraduationCap } from "lucide-react";
 
 const referenceClients = [
   {
+    id: 24,
+    name: "CHIESI - Bois-Colombes",
+    logo: null,
+    image: "/lovable-uploads/9bb5ce3d-5e9c-4bd1-ada5-8ca33bb73365.png",
+    description: "Intégration de systèmes BARCO ClickShare CX-50 dans 5 salles de réunion avec interface video, caméra et audio (micros plafond et hauts-parleurs)",
+    category: "salle-reunion"
+  },
+  {
     id: 1,
     name: "Decathlon Herblay",
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
