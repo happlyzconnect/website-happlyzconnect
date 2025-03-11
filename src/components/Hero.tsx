@@ -53,7 +53,7 @@ export const Hero = () => {
   };
 
   return (
-    <div className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-business-primary to-business-secondary text-white overflow-hidden pt-[72px]">
+    <div className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-business-primary to-business-secondary text-white overflow-hidden">
       <div 
         className="absolute inset-0 bg-[url('/lovable-uploads/aaa36cf1-55ac-4916-83e9-43f0d7674525.png')] bg-cover bg-right-top opacity-90"
         style={{ backgroundPosition: '85% 40%' }}

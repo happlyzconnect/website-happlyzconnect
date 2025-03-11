@@ -39,7 +39,7 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <MetaDescription description="HAPPLYZ CONNECT intègre des solutions numériques et audiovisuelles pour entreprises et collectivités : écrans interactifs, affichage dynamique et outils connectés." />
       <Navigation />
-      <main className="pt-16">
+      <main className="flex-1">
         <Hero />
         <About />
         <Solutions />
