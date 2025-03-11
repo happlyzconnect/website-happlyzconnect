@@ -134,7 +134,7 @@ export const Navigation = () => {
             <a 
               href="/"
               onClick={handleLogoClick}
-              className="h-10 hover:opacity-80 transition-opacity" // Increased logo size slightly
+              className="h-9 hover:opacity-80 transition-opacity" // Changed from h-10 to h-9
             >
               <img 
                 src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
