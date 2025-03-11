@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -122,7 +123,7 @@ export const Navigation = () => {
     <nav 
       className="fixed w-full shadow-sm"
       style={{
-        height: "90px", // Increased from 72px to 90px
+        height: "90px",
         backgroundColor: "#14213D",
         zIndex: 30
       }}
@@ -224,10 +225,13 @@ export const Navigation = () => {
                     <div className="grid gap-4 p-4">
                       <div className="space-y-4">
                         <div className="space-y-2">
-                          <div className="flex items-center gap-2 font-medium">
+                          <Link 
+                            to="/solutions/affichage-dynamique" 
+                            className="flex items-center gap-2 font-medium hover:text-[#56C7E1] transition-colors"
+                          >
                             <Tv className="h-4 w-4 text-[#56C7E1]" />
                             <h4 className="font-semibold text-sm uppercase text-[#14213D]">AFFICHAGE DYNAMIQUE</h4>
-                          </div>
+                          </Link>
                           <div className="pl-6 space-y-1">
                             <Link to="/solutions/affichage-dynamique/magasins" className="text-sm text-black hover:text-[#56C7E1] block">Magasins</Link>
                             <Link to="/solutions/affichage-dynamique/vitrines" className="text-sm text-black hover:text-[#56C7E1] block">Vitrines</Link>
@@ -236,20 +240,26 @@ export const Navigation = () => {
                         </div>
                         
                         <div className="space-y-2">
-                          <div className="flex items-center gap-2 font-medium">
+                          <Link 
+                            to="/solutions/salles-de-reunion" 
+                            className="flex items-center gap-2 font-medium hover:text-[#56C7E1] transition-colors"
+                          >
                             <Users className="h-4 w-4 text-[#56C7E1]" />
                             <h4 className="font-semibold text-sm uppercase text-[#14213D]">SALLES DE RÉUNION</h4>
-                          </div>
+                          </Link>
                           <div className="pl-6">
                             <Link to="/solutions/salles-de-reunion/solutions-audiovisuelles" className="text-sm text-black hover:text-[#56C7E1] block">Solutions audiovisuelles</Link>
                           </div>
                         </div>
                         
                         <div className="space-y-2">
-                          <div className="flex items-center gap-2 font-medium">
+                          <Link 
+                            to="/solutions/salles-de-classe" 
+                            className="flex items-center gap-2 font-medium hover:text-[#56C7E1] transition-colors"
+                          >
                             <GraduationCap className="h-4 w-4 text-[#56C7E1]" />
                             <h4 className="font-semibold text-sm uppercase text-[#14213D]">SALLES DE CLASSE</h4>
-                          </div>
+                          </Link>
                           <div className="pl-6">
                             <Link to="/solutions/salles-de-classe/solutions-pedagogiques" className="text-sm text-black hover:text-[#56C7E1] block">Solutions pédagogiques</Link>
                           </div>
@@ -360,3 +370,4 @@ export const Navigation = () => {
     </nav>
   );
 };
+
