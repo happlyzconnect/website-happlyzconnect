@@ -1,8 +1,17 @@
+
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Monitor, UserRound, GraduationCap } from "lucide-react";
 
 const referenceClients = [
+  {
+    id: 26,
+    name: "CHIESI - Blois",
+    logo: null,
+    image: "/lovable-uploads/70fb3dcd-cbf6-4874-a389-0fd47b6c0310.png",
+    description: "Intégration de systèmes Barco ClickShare dans plusieurs salles de réunion avec interface vidéo, caméra, et audio (micros plafond et haut-parleurs)",
+    category: "salle-reunion"
+  },
   {
     id: 24,
     name: "CHIESI - Bois-Colombes",
@@ -367,3 +376,4 @@ export const ProjectCards = () => {
     </>
   );
 };
+
