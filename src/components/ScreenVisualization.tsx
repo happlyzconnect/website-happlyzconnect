@@ -55,29 +55,28 @@ export const ScreenVisualization = ({
     // Clear canvas
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     
-    // Set up dimensions - use larger canvas for better visualization
-    const maxWidth = canvas.width - 80; 
-    const maxHeight = canvas.height - 80;
+    // Set up dimensions with appropriate margins
+    const maxWidth = canvas.width - 100; 
+    const maxHeight = canvas.height - 100;
     
     // Get screen dimensions (parse the strings to numbers)
     const diagonalValue = parseFloat(diagonal);
     
-    // Scale visualization based on diagonal size (bigger diagonal = bigger visual)
-    // Use a logarithmic scale to smooth the differences between large and small screens
-    const scaleBase = 20; // Base diagonal (e.g., 20 inches is standard)
+    // Scale visualization based on diagonal size and screen count
+    const scaleBase = 20; // Base diagonal size reference
     const logScale = Math.log(diagonalValue) / Math.log(scaleBase);
     
-    // Increase the base scale factor to make the visualization larger overall
-    const baseFactor = 1.5; // Increased from 1.0 to make displays larger
-    const scaleFactor = baseFactor * Math.max(0.5, Math.min(1, logScale)); // Constrain between 0.5 and 1.5
+    // Adjust base scale factor depending on whether it's a single screen or multiple screens
+    const baseFactor = screenCount === 1 ? 1.0 : 1.5; 
+    const scaleFactor = baseFactor * Math.max(0.5, Math.min(1, logScale));
     
     // For portrait, we invert the aspect ratio
     const effectiveAspectRatio = orientation === "portrait" ? 1 / aspectRatio : aspectRatio;
     
-    // Adjust scaling for multiple screens - less aggressive reduction for multi-screen setups
+    // Adjust scaling factor based on screen configuration
     const multiScreenScaleFactor = screenCount > 1 ? 
-      0.9 / Math.sqrt(Math.max(columns, rows)) : // Make multi-screen scaling less aggressive
-      1.0;
+      0.9 / Math.sqrt(Math.max(columns, rows)) : 
+      0.8; // Reduced from 1.0 to 0.8 for single screens to prevent cutoff
     
     // Apply the scaling factors
     const screenScaleFactor = scaleFactor * multiScreenScaleFactor;
@@ -178,8 +177,8 @@ export const ScreenVisualization = ({
     <div className="relative">
       <canvas 
         ref={canvasRef} 
-        width={500} // Increased from 400 to make visualization larger
-        height={375} // Increased from 300 to maintain aspect ratio
+        width={500}
+        height={375}
         className="w-full h-auto border border-gray-200 rounded-lg bg-white"
       />
       
