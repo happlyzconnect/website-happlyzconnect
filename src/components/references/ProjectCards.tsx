@@ -82,7 +82,7 @@ const referenceClients = [
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
     image: "/lovable-uploads/ec102dbc-d037-4fd6-82ba-c85a8f6d4be7.png",
     description: "Installation d'écrans 55 pouces connectés à des vélos Domyos pour démonstration de l'application KINOMAP",
-    category: "salle-classe"
+    category: "affichage-dynamique"
   },
   {
     id: 11,
@@ -98,7 +98,7 @@ const referenceClients = [
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
     image: "/lovable-uploads/222f1b22-2147-41d4-8959-0a83f6865e6a.png",
     description: "Intégration d'un écran 32 pouces tactile connecté à un vélo Domyos pour démonstration de l'application KINOMAP",
-    category: "salle-classe"
+    category: "affichage-dynamique"
   },
   {
     id: 13,
