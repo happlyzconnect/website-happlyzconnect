@@ -98,7 +98,7 @@ const solutionsCatalog: Record<string, SolutionCategory[]> = {
       category: "salles-de-reunion",
       description: "Optimisez vos espaces collaboratifs",
       longDescription: "Transformez vos salles de réunion en espaces collaboratifs performants avec nos solutions audiovisuelles intégrées. De la visioconférence à la présentation sans fil, nous proposons des équipements de pointe pour faciliter les échanges et améliorer la productivité de vos équipes.",
-      image: "/lovable-uploads/ec4384d3-38ac-41ab-b9ea-93796b792b22.png",
+      image: "/lovable-uploads/9bb5ce3d-5e9c-4bd1-ada5-8ca33bb73365.png",
       features: [
         { id: 1, name: "Écrans interactifs tactiles" },
         { id: 2, name: "Systèmes de visioconférence HD" },
