@@ -209,34 +209,25 @@ const SolutionDetail = () => {
             />
           </div>
           
-          {/* Hero section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-            <div>
-              <h1 className="text-4xl font-bold mb-4 text-business-primary">
-                {solution.title}
-              </h1>
-              <div className="h-1 w-20 bg-[#56C7E1] mb-8"></div>
-              <p className="text-lg text-gray-700 mb-6">
-                {solution.longDescription}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button onClick={scrollToContact} className="bg-business-primary hover:bg-business-primary/90 text-white">
-                  Demander un devis gratuit
-                </Button>
-                <Button variant="outline" className="border-business-primary text-business-primary hover:bg-business-primary/10" asChild>
-                  <Link to={`/nos-references?tab=${getReferencesTab()}`} className="flex items-center gap-2">
-                    <span>Découvrir nos références</span>
-                    <ExternalLink className="w-4 h-4" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
-            <div className="rounded-lg overflow-hidden shadow-lg">
-              <img 
-                src={solution.image} 
-                alt={solution.title} 
-                className="w-full h-full object-cover" 
-              />
+          {/* Hero section - without image */}
+          <div className="mb-16">
+            <h1 className="text-4xl font-bold mb-4 text-business-primary">
+              {solution.title}
+            </h1>
+            <div className="h-1 w-20 bg-[#56C7E1] mb-8"></div>
+            <p className="text-lg text-gray-700 mb-6">
+              {solution.longDescription}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button onClick={scrollToContact} className="bg-business-primary hover:bg-business-primary/90 text-white">
+                Demander un devis gratuit
+              </Button>
+              <Button variant="outline" className="border-business-primary text-business-primary hover:bg-business-primary/10" asChild>
+                <Link to={`/nos-references?tab=${getReferencesTab()}`} className="flex items-center gap-2">
+                  <span>Découvrir nos références</span>
+                  <ExternalLink className="w-4 h-4" />
+                </Link>
+              </Button>
             </div>
           </div>
           
