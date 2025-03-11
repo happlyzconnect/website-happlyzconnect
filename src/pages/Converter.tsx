@@ -1,14 +1,16 @@
+
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calculator, ArrowRight, Monitor, RotateCcw, RotateCw, Settings, Grid2X2, Columns, Rows } from "lucide-react";
+import { Calculator, ArrowRight, Monitor, RotateCcw, RotateCw, Settings, Grid2X2, Columns, Rows, AlertCircle } from "lucide-react";
 import { MetaDescription } from "@/components/MetaDescription";
 import { ScreenVisualization } from "@/components/ScreenVisualization";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useToast } from "@/hooks/use-toast";
 
 const ScreenSizeConverter = () => {
   const [inches, setInches] = useState<string>("");
@@ -20,6 +22,7 @@ const ScreenSizeConverter = () => {
   const [orientation, setOrientation] = useState<"landscape" | "portrait">("landscape");
   const [columns, setColumns] = useState<number>(1);
   const [rows, setRows] = useState<number>(1);
+  const { toast } = useToast();
 
   // Common screen sizes for the dropdown
   const commonSizes = [
@@ -118,6 +121,7 @@ const ScreenSizeConverter = () => {
   const effectiveWidth = width || "32.00";
   const effectiveHeight = height || "18.00";
   const effectiveDiagonal = diagonalCm || "36.00";
+  const hasScreenSize = inches !== "";
 
   return (
     <>
@@ -355,7 +359,30 @@ const ScreenSizeConverter = () => {
                   </div>
 
                   <div className="md:col-span-2">
-                    <div className="bg-white p-3 rounded-md border border-gray-100">
+                    {!hasScreenSize && (
+                      <div className="absolute inset-0 flex items-center justify-center z-10 bg-[#F1F0FB]/60 backdrop-blur-[2px] rounded-md">
+                        <div className="bg-white p-4 rounded-lg shadow-md border border-[#56C7E1]/30 flex flex-col items-center max-w-[80%]">
+                          <AlertCircle className="text-[#56C7E1] mb-2" size={28} />
+                          <p className="text-center text-business-primary font-medium mb-1">Aucune taille d'écran sélectionnée</p>
+                          <p className="text-center text-gray-500 text-sm mb-3">Veuillez sélectionner une taille d'écran pour visualiser le résultat</p>
+                          <Button 
+                            variant="outline" 
+                            className="border-[#56C7E1] text-[#56C7E1] hover:bg-[#56C7E1]/5"
+                            onClick={() => {
+                              document.getElementById('common-sizes')?.focus();
+                              toast({
+                                title: "Astuce",
+                                description: "Sélectionnez une taille standard ou entrez une valeur personnalisée en pouces",
+                                duration: 3000,
+                              });
+                            }}
+                          >
+                            Choisir une taille
+                          </Button>
+                        </div>
+                      </div>
+                    )}
+                    <div className={`bg-white p-3 rounded-md border border-gray-100 relative ${!hasScreenSize ? 'blur-[1px]' : ''}`}>
                       <div className={`w-full max-w-md mx-auto`}>
                         <ScreenVisualization 
                           width={effectiveWidth}
