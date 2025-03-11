@@ -44,6 +44,14 @@ const referenceClients = [
     category: "salle-reunion"
   },
   {
+    id: 28,
+    name: "Decathlon CNIT",
+    logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
+    image: "/lovable-uploads/9be36cd2-f8b0-43f3-84b7-d8c463748c6e.png",
+    description: "Installation d'écrans dans plusieurs salles de réunion sur support mural ou support mobile",
+    category: "salle-reunion"
+  },
+  {
     id: 2,
     name: "Decathlon CNIT",
     logo: "/lovable-uploads/10869478-3a75-4fbf-83b9-378231d8ad46.png",
