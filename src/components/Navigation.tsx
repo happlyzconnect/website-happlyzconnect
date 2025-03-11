@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
@@ -50,7 +49,7 @@ export const Navigation = () => {
     }
     
     const section = document.getElementById(sectionId);
-    const navbarHeight = 90; // Updated to match new navbar height
+    const navbarHeight = 90;
     if (section) {
       const targetPosition = section.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
       window.scrollTo({ top: targetPosition, behavior: 'smooth' });
@@ -64,7 +63,7 @@ export const Navigation = () => {
       setTimeout(() => {
         const contactSection = document.getElementById('contact');
         if (contactSection) {
-          const navbarHeight = 90; // Updated to match new navbar height
+          const navbarHeight = 90;
           const targetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
           window.scrollTo({ top: targetPosition, behavior: 'smooth' });
         }
@@ -91,7 +90,6 @@ export const Navigation = () => {
   };
 
   const downloadBrochure = () => {
-    // Send email notification using EmailJS
     emailjs.send(
       "service_qytcdsw",
       "template_a6q4yno",
@@ -100,7 +98,6 @@ export const Navigation = () => {
       },
       "ySp_OZUSZFd1MsIZJ"
     ).then(() => {
-      // Create a link to download the file
       const link = document.createElement('a');
       link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
       link.download = 'plaquette-commerciale-happlyz.pdf';
@@ -109,7 +106,6 @@ export const Navigation = () => {
       document.body.removeChild(link);
     }).catch((error) => {
       console.error('EmailJS error:', error);
-      // Download anyway in case of error
       const link = document.createElement('a');
       link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
       link.download = 'plaquette-commerciale-happlyz.pdf';
@@ -123,7 +119,7 @@ export const Navigation = () => {
     <nav 
       className="fixed w-full shadow-sm"
       style={{
-        height: "90px", // Increased from 72px to 90px
+        height: "90px",
         backgroundColor: "#14213D",
         zIndex: 30
       }}
@@ -134,7 +130,7 @@ export const Navigation = () => {
             <a 
               href="/"
               onClick={handleLogoClick}
-              className="h-8 hover:opacity-80 transition-opacity" // Changed from h-9 to h-8
+              className="h-8 hover:opacity-80 transition-opacity"
             >
               <img 
                 src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
@@ -227,7 +223,9 @@ export const Navigation = () => {
                         <div className="space-y-2">
                           <div className="flex items-center gap-2 font-medium">
                             <Tv className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm uppercase text-[#14213D]">AFFICHAGE DYNAMIQUE</h4>
+                            <Link to="/solutions/affichage-dynamique" className="font-semibold text-sm uppercase text-[#14213D] hover:text-[#56C7E1]">
+                              AFFICHAGE DYNAMIQUE
+                            </Link>
                           </div>
                           <div className="pl-6 space-y-1">
                             <Link to="/solutions/affichage-dynamique/magasins" className="text-sm text-black hover:text-[#56C7E1] block">Magasins</Link>
@@ -239,7 +237,9 @@ export const Navigation = () => {
                         <div className="space-y-2">
                           <div className="flex items-center gap-2 font-medium">
                             <Users className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm uppercase text-[#14213D]">SALLES DE RÉUNION</h4>
+                            <Link to="/solutions/salles-de-reunion" className="font-semibold text-sm uppercase text-[#14213D] hover:text-[#56C7E1]">
+                              SALLES DE RÉUNION
+                            </Link>
                           </div>
                           <div className="pl-6">
                             <Link to="/solutions/salles-de-reunion/solutions-audiovisuelles" className="text-sm text-black hover:text-[#56C7E1] block">Solutions audiovisuelles</Link>
@@ -249,7 +249,9 @@ export const Navigation = () => {
                         <div className="space-y-2">
                           <div className="flex items-center gap-2 font-medium">
                             <GraduationCap className="h-4 w-4 text-[#56C7E1]" />
-                            <h4 className="font-semibold text-sm uppercase text-[#14213D]">SALLES DE CLASSE</h4>
+                            <Link to="/solutions/salles-de-classe" className="font-semibold text-sm uppercase text-[#14213D] hover:text-[#56C7E1]">
+                              SALLES DE CLASSE
+                            </Link>
                           </div>
                           <div className="pl-6">
                             <Link to="/solutions/salles-de-classe/solutions-pedagogiques" className="text-sm text-black hover:text-[#56C7E1] block">Solutions pédagogiques</Link>
@@ -324,19 +326,19 @@ export const Navigation = () => {
               <div className="px-4 py-2 text-white hover:bg-business-primary/50">
                 <p className="mb-1">Nos solutions</p>
                 <div className="pl-4 text-sm space-y-1 mt-2">
-                  <p className="font-medium text-[#56C7E1] uppercase">AFFICHAGE DYNAMIQUE</p>
+                  <Link to="/solutions/affichage-dynamique" className="font-medium text-[#56C7E1] uppercase hover:opacity-80">AFFICHAGE DYNAMIQUE</Link>
                   <div className="pl-2 space-y-1">
                     <Link to="/solutions/affichage-dynamique/magasins" className="block hover:text-[#56C7E1] text-white">Magasins</Link>
                     <Link to="/solutions/affichage-dynamique/vitrines" className="block hover:text-[#56C7E1] text-white">Vitrines</Link>
                     <Link to="/solutions/affichage-dynamique/corporate" className="block hover:text-[#56C7E1] text-white">Corporate</Link>
                   </div>
                   
-                  <p className="font-medium text-[#56C7E1] uppercase mt-3">SALLES DE RÉUNION</p>
+                  <Link to="/solutions/salles-de-reunion" className="font-medium text-[#56C7E1] uppercase mt-3 hover:opacity-80">SALLES DE RÉUNION</Link>
                   <div className="pl-2">
                     <Link to="/solutions/salles-de-reunion/solutions-audiovisuelles" className="block hover:text-[#56C7E1] text-white">Solutions audiovisuelles</Link>
                   </div>
                   
-                  <p className="font-medium text-[#56C7E1] uppercase mt-3">SALLES DE CLASSE</p>
+                  <Link to="/solutions/salles-de-classe" className="font-medium text-[#56C7E1] uppercase mt-3 hover:opacity-80">SALLES DE CLASSE</Link>
                   <div className="pl-2">
                     <Link to="/solutions/salles-de-classe/solutions-pedagogiques" className="block hover:text-[#56C7E1] text-white">Solutions pédagogiques</Link>
                   </div>
@@ -350,7 +352,7 @@ export const Navigation = () => {
               </Link>
               <button
                 onClick={handleContactClick}
-                className="mx-4 my-2 bg-white text-[#14213D] font-medium px-4 py-1 h-9 text-left hover:bg-gray-200 transition-colors" // Increased button height
+                className="mx-4 my-2 bg-white text-[#14213D] font-medium px-4 py-1 h-9 text-left hover:bg-gray-200 transition-colors"
               >
                 Nous contacter
               </button>
