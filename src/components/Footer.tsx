@@ -1,12 +1,43 @@
-import { Linkedin, Twitter, ArrowUp } from "lucide-react";
+
+import { Linkedin, Twitter, ArrowUp, Download } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
+import emailjs from '@emailjs/browser';
 
 export const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
       behavior: "smooth"
+    });
+  };
+
+  const downloadBrochure = () => {
+    // Send email notification using EmailJS
+    emailjs.send(
+      "service_qytcdsw",
+      "template_a6q4yno",
+      {
+        brochure_download: "Plaquette commerciale téléchargée depuis le footer"
+      },
+      "ySp_OZUSZFd1MsIZJ"
+    ).then(() => {
+      // Create a link to download the file
+      const link = document.createElement('a');
+      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+      link.download = 'plaquette-commerciale-happlyz.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }).catch((error) => {
+      console.error('EmailJS error:', error);
+      // Download anyway in case of error
+      const link = document.createElement('a');
+      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+      link.download = 'plaquette-commerciale-happlyz.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     });
   };
 
@@ -61,6 +92,17 @@ export const Footer = () => {
                 <Twitter size={24} />
               </a>
             </div>
+            
+            {/* Download brochure button - Moved here */}
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={downloadBrochure}
+              className="text-gray-300 hover:text-business-accent transition-colors flex items-center gap-2 p-0"
+            >
+              <Download size={16} />
+              Télécharger notre plaquette commerciale
+            </Button>
           </div>
         </div>
 

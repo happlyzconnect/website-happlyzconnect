@@ -1,15 +1,10 @@
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { MetaDescription } from "@/components/MetaDescription";
 
 const MentionsLegales = () => {
   const navigate = useNavigate();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const handleHomeClick = () => {
     navigate('/');

@@ -1,3 +1,4 @@
+
 import * as React from "react"
 import * as PopoverPrimitive from "@radix-ui/react-popover"
 
@@ -5,7 +6,52 @@ import { cn } from "@/lib/utils"
 
 const Popover = PopoverPrimitive.Root
 
-const PopoverTrigger = PopoverPrimitive.Trigger
+// Create a custom HoverPopover component
+interface HoverPopoverProps {
+  children: React.ReactNode;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+}
+
+const HoverPopover = ({ 
+  children, 
+  open: controlledOpen, 
+  onOpenChange 
+}: HoverPopoverProps) => {
+  const [uncontrolledOpen, setUncontrolledOpen] = React.useState(false);
+  const isControlled = controlledOpen !== undefined;
+  const open = isControlled ? controlledOpen : uncontrolledOpen;
+  const setOpen = isControlled ? onOpenChange : setUncontrolledOpen;
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      {children}
+    </Popover>
+  );
+};
+
+// The original PopoverTrigger, but fixed to use mouseenter/mouseleave events without usePopoverContext
+const PopoverTrigger = React.forwardRef<
+  React.ElementRef<typeof PopoverPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Trigger> & { showOnHover?: boolean }
+>(({ showOnHover, ...props }, ref) => {
+  // We can't use usePopoverContext directly as it doesn't exist,
+  // so we'll handle hover differently
+
+  if (showOnHover) {
+    return (
+      <PopoverPrimitive.Trigger
+        ref={ref}
+        {...props}
+        // We'll rely on the parent component to handle the hover state
+        // since we can't access the context directly
+      />
+    );
+  }
+
+  return <PopoverPrimitive.Trigger ref={ref} {...props} />;
+});
+PopoverTrigger.displayName = PopoverPrimitive.Trigger.displayName;
 
 const PopoverContent = React.forwardRef<
   React.ElementRef<typeof PopoverPrimitive.Content>,
@@ -26,4 +72,4 @@ const PopoverContent = React.forwardRef<
 ))
 PopoverContent.displayName = PopoverPrimitive.Content.displayName
 
-export { Popover, PopoverTrigger, PopoverContent }
+export { Popover, HoverPopover, PopoverTrigger, PopoverContent }

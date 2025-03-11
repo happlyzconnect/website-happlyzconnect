@@ -1,4 +1,7 @@
+
 import { motion } from "framer-motion";
+import { Download } from "lucide-react";
+import emailjs from '@emailjs/browser';
 
 export const Hero = () => {
   const scrollToContact = () => {
@@ -7,18 +10,46 @@ export const Hero = () => {
     const targetPosition = contactSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
     
-    // Sélectionner le radio bouton "Devis"
     const quoteRadio = document.getElementById('quote') as HTMLInputElement;
     if (quoteRadio) {
       quoteRadio.click();
     }
   };
 
-  const scrollToServices = () => {
-    const servicesSection = document.getElementById('services');
+  const scrollToSolutions = () => {
+    const solutionsSection = document.getElementById('solutions');
     const navbarHeight = 72;
-    const targetPosition = servicesSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+    const targetPosition = solutionsSection?.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+  };
+
+  const downloadBrochure = () => {
+    // Send email notification using EmailJS
+    emailjs.send(
+      "service_qytcdsw",
+      "template_a6q4yno",
+      {
+        brochure_download: "Plaquette commerciale téléchargée depuis le hero"
+      },
+      "ySp_OZUSZFd1MsIZJ"
+    ).then(() => {
+      // Create a link to download the file
+      const link = document.createElement('a');
+      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+      link.download = 'plaquette-commerciale-happlyz.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }).catch((error) => {
+      console.error('EmailJS error:', error);
+      // Download anyway in case of error
+      const link = document.createElement('a');
+      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+      link.download = 'plaquette-commerciale-happlyz.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
   };
 
   return (
@@ -43,12 +74,12 @@ export const Hero = () => {
           <p className="text-xl md:text-2xl mb-8 text-business-light/90">
             Nous accompagnons nos clients vers l'excellence numérique avec des solutions sur mesure.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 items-start mb-16">
+          <div className="flex flex-col sm:flex-row gap-4 items-start mb-8">
             <button 
-              onClick={scrollToServices}
-              className="bg-[#56C7E1] hover:bg-[#56C7E1]/90 text-white font-semibold py-3 px-8 rounded-lg transition-colors"
+              onClick={scrollToSolutions}
+              className="bg-[#56C7E1] hover:bg-[#56C7E1]/90 text-white font-semibold py-3 px-8 rounded-lg transition-colors outline-none focus:outline-none"
             >
-              Découvrir nos services
+              Découvrir nos solutions
             </button>
             <button 
               onClick={scrollToContact}
@@ -57,6 +88,13 @@ export const Hero = () => {
               Demander un devis
             </button>
           </div>
+          <button
+            onClick={downloadBrochure}
+            className="flex items-center gap-2 text-white hover:text-[#56C7E1] transition-colors mb-8"
+          >
+            <Download size={20} />
+            <span>Télécharger notre plaquette commerciale</span>
+          </button>
         </motion.div>
       </div>
     </div>

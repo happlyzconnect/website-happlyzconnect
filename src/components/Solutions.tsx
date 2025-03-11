@@ -1,7 +1,10 @@
-import { Check, MapPin, Settings, Monitor, School, Store, Video } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-export const Services = () => {
+import { Check, MapPin, Settings, Monitor, School, Store, Video, ArrowRight } from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
+
+export const Solutions = () => {
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     const navbarHeight = 72;
@@ -14,7 +17,7 @@ export const Services = () => {
     }
   };
 
-  const services = [
+  const solutions = [
     {
       title: "Salles de réunion",
       description: "Équipements numériques professionnels pour vos espaces collaboratifs",
@@ -24,7 +27,8 @@ export const Services = () => {
         "Systèmes de visioconférence",
         "Solutions de partage de documents",
         "Vidéoprojecteurs dernière génération"
-      ]
+      ],
+      path: "/solutions/salles-de-reunion"
     },
     {
       title: "Salles de classe",
@@ -35,7 +39,8 @@ export const Services = () => {
         "Vidéoprojecteurs interactifs",
         "Systèmes audio intégrés",
         "Solutions collaboratives"
-      ]
+      ],
+      path: "/solutions/salles-de-classe"
     },
     {
       title: "Affichage dynamique",
@@ -46,7 +51,8 @@ export const Services = () => {
         "Logiciels de diffusion de contenu",
         "Création de contenus vidéo",
         "Gestion centralisée multi-sites"
-      ]
+      ],
+      path: "/solutions/affichage-dynamique"
     }
   ];
 
@@ -58,7 +64,7 @@ export const Services = () => {
   ];
 
   return (
-    <section id="services" className="bg-white">
+    <section id="solutions" className="bg-white">
       <div className="relative w-full h-[300px]"
         style={{
           backgroundImage: "url('/lovable-uploads/cfc81ca6-da37-4cc5-b6cb-69b25b8ba04f.png')",
@@ -77,14 +83,12 @@ export const Services = () => {
       </div>
 
       <div className="container mx-auto px-4">
-        {/* En-tête */}
         <div className="text-center">
           <h2 className="text-4xl font-bold text-business-primary mb-6">
-            Nos services
+            Nos solutions
           </h2>
         </div>
 
-        {/* Types de clients */}
         <div className="flex flex-wrap justify-center gap-6 mb-8">
           {clientTypes.map((client) => (
             <div key={client.label} className="flex items-center gap-2 bg-gray-50 px-4 py-2 rounded-full text-sm">
@@ -94,18 +98,17 @@ export const Services = () => {
           ))}
         </div>
 
-        {/* Services principaux */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {services.map((service) => (
-            <Card key={service.title} className="border-2 hover:border-business-primary transition-colors duration-300">
+          {solutions.map((solution) => (
+            <Card key={solution.title} className="border-2 hover:border-business-primary transition-colors duration-300 flex flex-col">
               <CardHeader>
-                <service.icon className="w-12 h-12 text-business-primary mb-4" />
-                <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                <CardDescription>{service.description}</CardDescription>
+                <solution.icon className="w-12 h-12 text-business-primary mb-4" />
+                <CardTitle className="text-xl mb-2">{solution.title}</CardTitle>
+                <CardDescription>{solution.description}</CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="flex-grow">
                 <ul className="space-y-3">
-                  {service.details.map((detail) => (
+                  {solution.details.map((detail) => (
                     <li key={detail} className="flex items-start gap-2">
                       <Check className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
                       <span className="text-gray-600">{detail}</span>
@@ -113,11 +116,19 @@ export const Services = () => {
                   ))}
                 </ul>
               </CardContent>
+              <CardFooter className="pt-4 mt-auto">
+                <Link 
+                  to={solution.path}
+                  className="w-full text-center text-[#0EA5E9] hover:text-business-primary font-bold text-lg flex items-center justify-center gap-2 transition-all duration-300 group"
+                >
+                  Découvrir
+                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+              </CardFooter>
             </Card>
           ))}
         </div>
 
-        {/* Notre approche */}
         <div className="bg-gray-50 rounded-2xl p-8 md:p-12">
           <div className="max-w-3xl mx-auto text-center mb-12">
             <h2 className="text-2xl font-bold text-business-primary mb-4">
@@ -162,9 +173,7 @@ export const Services = () => {
           </div>
         </div>
 
-        {/* CTA Section with background image */}
         <div className="relative">
-          {/* Background image with overlay */}
           <div 
             className="relative w-full h-[300px]"
             style={{
@@ -182,7 +191,6 @@ export const Services = () => {
               }}
             ></div>
             
-            {/* Content */}
             <div className="absolute bottom-8 right-8">
               <button 
                 onClick={scrollToContact}
