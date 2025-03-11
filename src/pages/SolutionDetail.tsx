@@ -127,7 +127,8 @@ const solutionsCatalog: Record<string, SolutionCategory[]> = {
         { id: 2, name: "Logiciels pédagogiques intégrés" },
         { id: 3, name: "Systèmes de partage d'écran" },
         { id: 4, name: "Solutions de visioconférence pour l'enseignement à distance" },
-        { id: 5, name: "Formation et accompagnement des enseignants" }
+        { id: 5, name: "Formation et accompagnement des enseignants" },
+        { id: 6, name: "Vidéoprojecteurs courtes focales" }
       ],
       benefits: [
         "Augmentation de l'engagement des élèves",
