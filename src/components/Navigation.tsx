@@ -15,7 +15,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
-import emailjs from '@emailjs/browser";
+import emailjs from '@emailjs/browser';
 
 export const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
