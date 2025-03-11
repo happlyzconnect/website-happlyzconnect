@@ -50,7 +50,7 @@ export const Navigation = () => {
     }
     
     const section = document.getElementById(sectionId);
-    const navbarHeight = 72;
+    const navbarHeight = 90; // Updated to match new navbar height
     if (section) {
       const targetPosition = section.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
       window.scrollTo({ top: targetPosition, behavior: 'smooth' });
@@ -64,7 +64,7 @@ export const Navigation = () => {
       setTimeout(() => {
         const contactSection = document.getElementById('contact');
         if (contactSection) {
-          const navbarHeight = 72;
+          const navbarHeight = 90; // Updated to match new navbar height
           const targetPosition = contactSection.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
           window.scrollTo({ top: targetPosition, behavior: 'smooth' });
         }
@@ -123,7 +123,7 @@ export const Navigation = () => {
     <nav 
       className="fixed w-full shadow-sm"
       style={{
-        height: "72px",
+        height: "90px", // Increased from 72px to 90px
         backgroundColor: "#14213D",
         zIndex: 30
       }}
@@ -134,7 +134,7 @@ export const Navigation = () => {
             <a 
               href="/"
               onClick={handleLogoClick}
-              className="h-8 hover:opacity-80 transition-opacity"
+              className="h-8 hover:opacity-80 transition-opacity" // Changed from h-9 to h-8
             >
               <img 
                 src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
@@ -145,8 +145,8 @@ export const Navigation = () => {
           </div>
 
           <div className="flex-1 flex flex-col justify-between">
-            <div className="flex justify-end items-center py-2 mb-2">
-              <div className="hidden md:flex items-center space-x-6">
+            <div className="flex justify-end items-center py-3 mb-2"> 
+              <div className="hidden lg:flex items-center space-x-6">
                 <div className="flex items-center space-x-2">
                   <Phone size={14} style={textColorStyle} />
                   <a 
@@ -196,14 +196,14 @@ export const Navigation = () => {
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden"
+                className="lg:hidden"
                 style={textColorStyle}
               >
                 {isOpen ? <X /> : <Menu />}
               </button>
             </div>
 
-            <div className="hidden md:flex justify-end items-center pb-3">
+            <div className="hidden lg:flex justify-end items-center pb-3">
               <div 
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -271,7 +271,7 @@ export const Navigation = () => {
 
               <button
                 onClick={handleContactClick}
-                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-8 mt-[-8px] hover:bg-gray-200 transition-colors mb-3"
+                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-9 mt-[-8px] hover:bg-gray-200 transition-colors mb-3"
               >
                 Nous contacter
               </button>
@@ -280,7 +280,7 @@ export const Navigation = () => {
         </div>
 
         {isOpen && (
-          <div className="md:hidden fixed left-0 right-0 top-16 bg-business-primary/90 backdrop-blur-sm shadow-lg">
+          <div className="lg:hidden fixed left-0 right-0 top-20 bg-business-primary/90 backdrop-blur-sm shadow-lg">
             <div className="flex flex-col">
               <div className="px-4 py-2 space-y-2 border-b border-white/10">
                 <div className="flex items-center space-x-2 text-white">
@@ -350,7 +350,7 @@ export const Navigation = () => {
               </Link>
               <button
                 onClick={handleContactClick}
-                className="mx-4 my-2 bg-white text-[#14213D] font-medium px-4 py-1 h-8 text-left hover:bg-gray-200 transition-colors"
+                className="mx-4 my-2 bg-white text-[#14213D] font-medium px-4 py-1 h-9 text-left hover:bg-gray-200 transition-colors" // Increased button height
               >
                 Nous contacter
               </button>
