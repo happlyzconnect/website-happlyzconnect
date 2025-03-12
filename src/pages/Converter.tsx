@@ -137,7 +137,7 @@ const ScreenSizeConverter = () => {
       <div className="min-h-screen flex flex-col">
         <Navigation />
         <MetaDescription
-          title="Calculateur et visualiseur d'écrans interactif"
+          title="Outils de configuration"
           description="Convertissez les pouces en centimètres, visualisez l'aspect réel des écrans et créez des configurations en grille pour vos projets d'affichage dynamique."
           className="mt-24 pt-4 text-center"
         />
