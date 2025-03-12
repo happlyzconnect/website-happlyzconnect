@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Monitor, UserRound, GraduationCap } from "lucide-react";
@@ -261,65 +260,10 @@ interface ProjectCardsProps {
 
 export const ProjectCards = ({ initialTab = "affichage-dynamique" }: ProjectCardsProps) => {
   const [activeTab, setActiveTab] = useState(initialTab);
-  const [failedImages, setFailedImages] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     setActiveTab(initialTab);
   }, [initialTab]);
-
-  const handleImageError = (clientId: number) => {
-    console.log(`Image failed to load for client ID: ${clientId}`);
-    setFailedImages(prev => ({
-      ...prev,
-      [clientId]: true
-    }));
-  };
-
-  const renderProjectCard = (client: any) => (
-    <div 
-      key={client.id} 
-      className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
-    >
-      {client.image && !failedImages[client.id] ? (
-        <div className="h-64 bg-gray-100">
-          <img 
-            src={client.image} 
-            alt={`Projet ${client.name}`}
-            className="w-full h-full object-cover"
-            loading="lazy"
-            onError={() => handleImageError(client.id)}
-          />
-        </div>
-      ) : (
-        <div className="h-64 bg-gray-50 flex items-center justify-center p-6">
-          {client.logo && !failedImages[`logo_${client.id}`] ? (
-            <img 
-              src={client.logo} 
-              alt={`Logo ${client.name}`} 
-              className="max-h-full max-w-full object-contain" 
-              loading="lazy"
-              onError={() => {
-                console.log(`Logo failed to load for client ID: ${client.id}`);
-                setFailedImages(prev => ({
-                  ...prev,
-                  [`logo_${client.id}`]: true
-                }));
-              }}
-            />
-          ) : (
-            <div className="text-center">
-              <div className="text-xl font-semibold text-business-primary">{client.name}</div>
-              <div className="text-gray-500 mt-2">Image non disponible</div>
-            </div>
-          )}
-        </div>
-      )}
-      <div className="p-6">
-        <h3 className="text-xl font-semibold mb-2 text-business-primary">{client.name}</h3>
-        <p className="text-gray-600">{client.description}</p>
-      </div>
-    </div>
-  );
 
   return (
     <>
@@ -360,7 +304,40 @@ export const ProjectCards = ({ initialTab = "affichage-dynamique" }: ProjectCard
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {referenceClients
               .filter(client => client.category === "affichage-dynamique")
-              .map(renderProjectCard)}
+              .map((client) => (
+                <div 
+                  key={client.id} 
+                  className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
+                >
+                  {client.image ? (
+                    <div className="h-64 bg-gray-100">
+                      <img 
+                        src={client.image} 
+                        alt={`Projet ${client.name}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.src = client.logo;
+                          e.currentTarget.className = "max-h-full max-w-full object-contain m-auto";
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <div className="h-40 bg-gray-50 flex items-center justify-center p-6">
+                      <img 
+                        src={client.logo} 
+                        alt={`Logo ${client.name}`} 
+                        className="max-h-full max-w-full object-contain" 
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2 text-business-primary">{client.name}</h3>
+                    <p className="text-gray-600">{client.description}</p>
+                  </div>
+                </div>
+              ))}
           </section>
         </TabsContent>
 
@@ -368,7 +345,40 @@ export const ProjectCards = ({ initialTab = "affichage-dynamique" }: ProjectCard
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {referenceClients
               .filter(client => client.category === "salle-reunion")
-              .map(renderProjectCard)}
+              .map((client) => (
+                <div 
+                  key={client.id} 
+                  className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
+                >
+                  {client.image ? (
+                    <div className="h-64 bg-gray-100">
+                      <img 
+                        src={client.image} 
+                        alt={`Projet ${client.name}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.src = client.logo;
+                          e.currentTarget.className = "max-h-full max-w-full object-contain m-auto";
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <div className="h-40 bg-gray-50 flex items-center justify-center p-6">
+                      <img 
+                        src={client.logo} 
+                        alt={`Logo ${client.name}`} 
+                        className="max-h-full max-w-full object-contain" 
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2 text-business-primary">{client.name}</h3>
+                    <p className="text-gray-600">{client.description}</p>
+                  </div>
+                </div>
+              ))}
           </section>
         </TabsContent>
 
@@ -376,7 +386,40 @@ export const ProjectCards = ({ initialTab = "affichage-dynamique" }: ProjectCard
           <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {referenceClients
               .filter(client => client.category === "salle-classe")
-              .map(renderProjectCard)}
+              .map((client) => (
+                <div 
+                  key={client.id} 
+                  className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
+                >
+                  {client.image ? (
+                    <div className="h-64 bg-gray-100">
+                      <img 
+                        src={client.image} 
+                        alt={`Projet ${client.name}`}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.src = client.logo;
+                          e.currentTarget.className = "max-h-full max-w-full object-contain m-auto";
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <div className="h-40 bg-gray-50 flex items-center justify-center p-6">
+                      <img 
+                        src={client.logo} 
+                        alt={`Logo ${client.name}`} 
+                        className="max-h-full max-w-full object-contain" 
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2 text-business-primary">{client.name}</h3>
+                    <p className="text-gray-600">{client.description}</p>
+                  </div>
+                </div>
+              ))}
           </section>
         </TabsContent>
       </Tabs>

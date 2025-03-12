@@ -1,6 +1,7 @@
+
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { Navigation } from "@/components/navigation/Navigation";
+import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";

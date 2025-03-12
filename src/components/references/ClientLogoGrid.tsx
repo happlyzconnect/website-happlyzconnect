@@ -1,6 +1,5 @@
 
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 const trustedClients = [
   {
@@ -91,16 +90,6 @@ const trustedClients = [
 ];
 
 export const ClientLogoGrid = () => {
-  const [failedImages, setFailedImages] = useState<Record<number, boolean>>({});
-
-  const handleImageError = (clientId: number) => {
-    console.log(`Logo failed to load for client ID: ${clientId}`);
-    setFailedImages(prev => ({
-      ...prev,
-      [clientId]: true
-    }));
-  };
-  
   return (
     <section className="mb-16">
       <motion.div
@@ -121,7 +110,7 @@ export const ClientLogoGrid = () => {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 mt-8">
         {trustedClients.map((client) => (
           <div key={client.id} className="flex items-center justify-center p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-            {client.url && !failedImages[client.id] ? (
+            {client.url ? (
               <a 
                 href={client.url} 
                 target="_blank" 
@@ -134,21 +123,15 @@ export const ClientLogoGrid = () => {
                   alt={client.alt}
                   className={`max-w-full max-h-full object-contain ${client.className || ''}`}
                   loading="lazy"
-                  onError={() => handleImageError(client.id)}
                 />
               </a>
-            ) : !failedImages[client.id] ? (
+            ) : (
               <img
                 src={client.logo}
                 alt={client.alt}
                 className={`max-w-full max-h-full object-contain ${client.className || ''}`}
                 loading="lazy"
-                onError={() => handleImageError(client.id)}
               />
-            ) : (
-              <div className="text-center">
-                <div className="text-business-primary font-medium">{client.name}</div>
-              </div>
             )}
           </div>
         ))}

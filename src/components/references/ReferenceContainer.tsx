@@ -2,7 +2,7 @@
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { MetaDescription } from "@/components/MetaDescription";
 import { Footer } from "@/components/Footer";
-import { Navigation } from "@/components/navigation/Navigation";
+import { Navigation } from "@/components/Navigation";
 import { ClientLogoGrid } from "./ClientLogoGrid";
 import { ProjectCards } from "./ProjectCards";
 import { PartnersSection } from "./PartnersSection";
