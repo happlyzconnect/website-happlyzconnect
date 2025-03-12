@@ -123,22 +123,22 @@ const ScreenSizeConverter = () => {
   return (
     <>
       <Helmet>
-        <title>Convertisseur de taille d'écran : Pouces en Centimètres | Happlyz Connect</title>
+        <title>Convertisseur de tailles d'écran | Happlyz Connect</title>
         <meta 
           name="description" 
-          content="Convertissez facilement les tailles d'écran de pouces en centimètres avec notre outil gratuit. Calculez les dimensions exactes de votre écran pour vos projets d'affichage dynamique et solutions audiovisuelles." 
+          content="Calculez facilement les dimensions réelles de vos écrans et visualisez leur configuration en grille. Un outil indispensable pour vos projets d'affichage dynamique." 
         />
         <meta 
           name="keywords" 
-          content="convertisseur pouces centimètres, taille écran, dimensions écran, conversion écran, écran affichage dynamique, écran interactif, calculateur taille écran" 
+          content="convertisseur dimensions écran, configuration mur d'écrans, calculateur taille écran, visualisation écrans, affichage dynamique" 
         />
       </Helmet>
 
       <div className="min-h-screen flex flex-col">
         <Navigation />
         <MetaDescription
-          title="Convertisseur de taille d'écran : Pouces en Centimètres"
-          description="Utilisez notre outil gratuit pour convertir instantanément les tailles d'écran de pouces en centimètres et calculer les dimensions exactes selon différents formats."
+          title="Calculateur et visualiseur d'écrans interactif"
+          description="Convertissez les pouces en centimètres, visualisez l'aspect réel des écrans et créez des configurations en grille pour vos projets d'affichage dynamique."
           className="mt-24 pt-4 text-center"
         />
 
