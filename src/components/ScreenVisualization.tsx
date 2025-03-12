@@ -1,3 +1,4 @@
+
 import { useEffect, useRef, useMemo } from "react";
 import { ArrowUpRight, ArrowLeftRight, ArrowUpDown, Monitor } from "lucide-react";
 
@@ -157,12 +158,12 @@ export const ScreenVisualization = ({
     
   }, [width, height, diagonal, aspectRatio, orientation, screenCount, columns, rows, totalDimensions]);
   
+  // Check if a screen size has been explicitly selected
+  const hasScreenSize = Boolean(width && height && diagonal) && width !== "0" && height !== "0" && diagonal !== "0";
+  
   // Determine the dimensions to display
   const displayWidth = orientation === "portrait" ? height : width;
   const displayHeight = orientation === "portrait" ? width : height;
-  
-  // Check if a screen size has been selected
-  const hasScreenSize = Boolean(width && height && diagonal);
   
   return (
     <div className="relative">

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Helmet } from "react-helmet";
 import { Navigation } from "@/components/Navigation";
@@ -113,11 +114,11 @@ const ScreenSizeConverter = () => {
     setRows(prev => Math.max(prev - 1, 1));
   };
 
-  // Default values for visualization when no size is selected
-  const defaultAspectRatio = aspectRatios[displayType as keyof typeof aspectRatios].ratio;
-  const effectiveWidth = width || "32.00";
-  const effectiveHeight = height || "18.00";
-  const effectiveDiagonal = diagonalCm || "36.00";
+  // Get the current aspect ratio
+  const currentAspectRatio = aspectRatios[displayType as keyof typeof aspectRatios].ratio;
+
+  // We no longer use default values here
+  const hasScreenSize = Boolean(width && height && diagonalCm);
 
   return (
     <>
@@ -358,10 +359,10 @@ const ScreenSizeConverter = () => {
                     <div className="bg-white p-3 rounded-md border border-gray-100">
                       <div className={`w-full max-w-md mx-auto`}>
                         <ScreenVisualization 
-                          width={effectiveWidth}
-                          height={effectiveHeight}
-                          diagonal={effectiveDiagonal}
-                          aspectRatio={defaultAspectRatio}
+                          width={width}
+                          height={height}
+                          diagonal={diagonalCm}
+                          aspectRatio={currentAspectRatio}
                           orientation={orientation}
                           columns={columns}
                           rows={rows}
