@@ -28,7 +28,7 @@ export const Logo = () => {
           src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
           alt="Happlyz Connect" 
           className="h-full object-contain"
-          onError={(e) => {
+          onError={() => {
             console.error("Logo image failed to load");
             setImageError(true);
           }}

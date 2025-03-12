@@ -123,6 +123,10 @@ export const ClientLogoGrid = () => {
                   alt={client.alt}
                   className={`max-w-full max-h-full object-contain ${client.className || ''}`}
                   loading="lazy"
+                  onError={(e) => {
+                    console.error(`Failed to load client logo: ${client.name}`);
+                    e.currentTarget.src = "/placeholder.svg";
+                  }}
                 />
               </a>
             ) : (
@@ -131,6 +135,10 @@ export const ClientLogoGrid = () => {
                 alt={client.alt}
                 className={`max-w-full max-h-full object-contain ${client.className || ''}`}
                 loading="lazy"
+                onError={(e) => {
+                  console.error(`Failed to load client logo: ${client.name}`);
+                  e.currentTarget.src = "/placeholder.svg";
+                }}
               />
             )}
           </div>

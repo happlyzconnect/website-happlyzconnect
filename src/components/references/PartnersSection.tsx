@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 
 type Partner = {
@@ -180,6 +181,7 @@ export const PartnersSection = () => {
                   className={`max-w-[75%] max-h-[75%] object-contain ${partner.className || ''}`}
                   loading="lazy"
                   onError={(e) => {
+                    console.error(`Failed to load partner logo: ${partner.name}`);
                     e.currentTarget.src = "/placeholder.svg";
                   }}
                 />
@@ -191,6 +193,7 @@ export const PartnersSection = () => {
                 className={`max-w-[75%] max-h-[75%] object-contain ${partner.className || ''}`}
                 loading="lazy"
                 onError={(e) => {
+                  console.error(`Failed to load partner logo: ${partner.name}`);
                   e.currentTarget.src = "/placeholder.svg";
                 }}
               />
