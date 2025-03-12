@@ -33,7 +33,7 @@ export const Hero = () => {
       "ySp_OZUSZFd1MsIZJ"
     ).then(() => {
       const link = document.createElement('a');
-      link.href = '/uploads/plaquette-commerciale-happlyz.pdf';
+      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
       link.download = 'plaquette-commerciale-happlyz.pdf';
       document.body.appendChild(link);
       link.click();
@@ -41,7 +41,7 @@ export const Hero = () => {
     }).catch((error) => {
       console.error('EmailJS error:', error);
       const link = document.createElement('a');
-      link.href = '/uploads/plaquette-commerciale-happlyz.pdf';
+      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
       link.download = 'plaquette-commerciale-happlyz.pdf';
       document.body.appendChild(link);
       link.click();
@@ -52,7 +52,7 @@ export const Hero = () => {
   return (
     <div className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-business-primary to-business-secondary text-white overflow-hidden">
       <div 
-        className="absolute inset-0 bg-[url('/uploads/aaa36cf1-55ac-4916-83e9-43f0d7674525.png')] bg-cover bg-right-top opacity-90"
+        className="absolute inset-0 bg-[url('/lovable-uploads/aaa36cf1-55ac-4916-83e9-43f0d7674525.png')] bg-cover bg-right-top opacity-90"
         style={{ backgroundPosition: '85% 40%', top: '0' }}
         role="img"
         aria-label="Solutions numériques et audiovisuelles professionnelles"
