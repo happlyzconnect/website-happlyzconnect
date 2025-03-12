@@ -1,5 +1,4 @@
-
-import { Navigation } from "@/components/Navigation";
+import { Navigation } from "@/components/navigation/Navigation";
 import { Footer } from "@/components/Footer";
 import { Breadcrumb } from "@/components/Breadcrumb";
 import { MetaDescription } from "@/components/MetaDescription";
