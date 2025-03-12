@@ -24,7 +24,6 @@ export const Hero = () => {
   };
 
   const downloadBrochure = () => {
-    // Send email notification using EmailJS
     emailjs.send(
       "service_qytcdsw",
       "template_a6q4yno",
@@ -33,7 +32,6 @@ export const Hero = () => {
       },
       "ySp_OZUSZFd1MsIZJ"
     ).then(() => {
-      // Create a link to download the file
       const link = document.createElement('a');
       link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
       link.download = 'plaquette-commerciale-happlyz.pdf';
@@ -42,7 +40,6 @@ export const Hero = () => {
       document.body.removeChild(link);
     }).catch((error) => {
       console.error('EmailJS error:', error);
-      // Download anyway in case of error
       const link = document.createElement('a');
       link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
       link.download = 'plaquette-commerciale-happlyz.pdf';
@@ -53,15 +50,15 @@ export const Hero = () => {
   };
 
   return (
-    <div className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-business-primary to-business-secondary text-white overflow-hidden pt-[72px]">
+    <div className="relative min-h-[80vh] flex items-center bg-gradient-to-br from-business-primary to-business-secondary text-white overflow-hidden">
       <div 
         className="absolute inset-0 bg-[url('/lovable-uploads/aaa36cf1-55ac-4916-83e9-43f0d7674525.png')] bg-cover bg-right-top opacity-90"
-        style={{ backgroundPosition: '85% 40%' }}
+        style={{ backgroundPosition: '85% 40%', top: '0' }}
         role="img"
         aria-label="Solutions numériques et audiovisuelles professionnelles"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-business-primary/90 via-business-primary/70 to-transparent" />
-      <div className="container mx-auto px-8 relative z-20">
+      <div className="absolute inset-0 bg-gradient-to-r from-business-primary/90 via-business-primary/70 to-transparent" style={{ top: '0' }} />
+      <div className="container mx-auto px-8 relative z-20 pt-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

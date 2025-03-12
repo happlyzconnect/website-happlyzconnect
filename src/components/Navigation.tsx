@@ -1,6 +1,5 @@
-
 import { useState } from "react";
-import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download } from "lucide-react";
+import { Menu, X, Phone, Mail, Globe, ArrowDown, Tv, Users, GraduationCap, Download, Calculator } from "lucide-react";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 import { useLocation, Link, useNavigate } from "react-router-dom";
 import {
@@ -26,6 +25,8 @@ export const Navigation = () => {
   const navigate = useNavigate();
   const isHomePage = location.pathname === '/';
   const isReferencesPage = location.pathname === '/nos-references';
+  const isSolutionPage = location.pathname.includes('/solutions/');
+  const isConverterPage = location.pathname === '/convertisseur-taille-ecran';
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   
   const textColorStyle = {
@@ -134,7 +135,7 @@ export const Navigation = () => {
             <a 
               href="/"
               onClick={handleLogoClick}
-              className="h-8 hover:opacity-80 transition-opacity" // Changed from h-9 to h-8
+              className="h-8 hover:opacity-80 transition-opacity"
             >
               <img 
                 src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
@@ -145,7 +146,7 @@ export const Navigation = () => {
           </div>
 
           <div className="flex-1 flex flex-col justify-between">
-            <div className="flex justify-end items-center py-3 mb-2"> {/* Adjusted padding for better spacing */}
+            <div className="flex justify-end items-center py-3 mb-2"> 
               <div className="hidden md:flex items-center space-x-6">
                 <div className="flex items-center space-x-2">
                   <Phone size={14} style={textColorStyle} />
@@ -215,7 +216,7 @@ export const Navigation = () => {
                   <PopoverTrigger asChild>
                     <button className="px-4 pb-3 hover:text-[#56C7E1] text-white transition-colors relative group outline-none focus:outline-none">
                       Nos solutions
-                      <span className="absolute bottom-0 left-0 w-full h-[5px] bg-[#56C7E1] opacity-0 group-hover:opacity-100 transition-all duration-300"></span>
+                      <span className={`absolute bottom-0 left-0 w-full h-[5px] bg-[#56C7E1] ${isSolutionPage ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-all duration-300`}></span>
                     </button>
                   </PopoverTrigger>
                   <PopoverContent 
@@ -278,9 +279,20 @@ export const Navigation = () => {
                 <span className={`absolute bottom-0 left-0 w-full h-[5px] bg-[#56C7E1] ${isReferencesPage ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-all duration-300`}></span>
               </Link>
 
+              <Link
+                to="/convertisseur-taille-ecran"
+                className="px-4 pb-3 hover:text-[#56C7E1] text-white transition-colors relative group outline-none focus:outline-none"
+              >
+                <div className="flex items-center">
+                  <Calculator size={14} className="mr-1" />
+                  <span>Configurateur</span>
+                </div>
+                <span className={`absolute bottom-0 left-0 w-full h-[5px] bg-[#56C7E1] ${isConverterPage ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'} transition-all duration-300`}></span>
+              </Link>
+
               <button
                 onClick={handleContactClick}
-                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-9 mt-[-8px] hover:bg-gray-200 transition-colors mb-3" // Increased button height
+                className="bg-white text-[#14213D] font-medium px-4 py-1 ml-2 h-9 mt-[-8px] hover:bg-gray-200 transition-colors mb-3"
               >
                 Nous contacter
               </button>
@@ -289,7 +301,7 @@ export const Navigation = () => {
         </div>
 
         {isOpen && (
-          <div className="md:hidden fixed left-0 right-0 top-20 bg-business-primary/90 backdrop-blur-sm shadow-lg"> {/* Adjusted top position */}
+          <div className="md:hidden fixed left-0 right-0 top-20 bg-business-primary/90 backdrop-blur-sm shadow-lg">
             <div className="flex flex-col">
               <div className="px-4 py-2 space-y-2 border-b border-white/10">
                 <div className="flex items-center space-x-2 text-white">
@@ -330,7 +342,7 @@ export const Navigation = () => {
               >
                 Accueil
               </Link>
-              <div className="px-4 py-2 text-white hover:bg-business-primary/50">
+              <div className={`px-4 py-2 text-white hover:bg-business-primary/50 ${isSolutionPage ? 'bg-business-primary/50' : ''}`}>
                 <p className="mb-1">Nos solutions</p>
                 <div className="pl-4 text-sm space-y-1 mt-2">
                   <p className="font-medium text-[#56C7E1] uppercase">AFFICHAGE DYNAMIQUE</p>
@@ -357,9 +369,16 @@ export const Navigation = () => {
               >
                 Nos références
               </Link>
+              <Link
+                to="/convertisseur-taille-ecran"
+                className={`px-4 py-2 text-white hover:text-[#56C7E1] text-left flex items-center ${isConverterPage ? 'bg-business-primary/50' : ''}`}
+              >
+                <Calculator size={14} className="mr-2" />
+                Configurateur d'écran
+              </Link>
               <button
                 onClick={handleContactClick}
-                className="mx-4 my-2 bg-white text-[#14213D] font-medium px-4 py-1 h-9 text-left hover:bg-gray-200 transition-colors" // Increased button height
+                className="mx-4 my-2 bg-white text-[#14213D] font-medium px-4 py-1 h-9 text-left hover:bg-gray-200 transition-colors"
               >
                 Nous contacter
               </button>
@@ -370,4 +389,3 @@ export const Navigation = () => {
     </nav>
   );
 };
-
