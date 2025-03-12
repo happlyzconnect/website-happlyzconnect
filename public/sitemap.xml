@@ -1,20 +1,51 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.happlyzconnect.com/</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
+    <loc>https://www.happlyzconnect.com/nos-references</loc>
+    <lastmod>2024-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.happlyzconnect.com/convertisseur-taille-ecran</loc>
+    <lastmod>2024-06-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.happlyzconnect.com/solutions/affichage-dynamique</loc>
+    <lastmod>2024-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.happlyzconnect.com/solutions/ecrans-interactifs</loc>
+    <lastmod>2024-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.happlyzconnect.com/solutions/solutions-audiovisuelles</loc>
+    <lastmod>2024-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.happlyzconnect.com/mentions-legales</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-06-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://www.happlyzconnect.com/conditions-generales</loc>
-    <lastmod>2024-03-20</lastmod>
+    <lastmod>2024-06-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
