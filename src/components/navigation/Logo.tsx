@@ -25,6 +25,10 @@ export const Logo = () => {
         src="/uploads/31538189-590f-499b-80e7-052171630c35.png"
         alt="Happlyz Connect" 
         className="h-full object-contain"
+        onError={(e) => {
+          console.error("Logo image failed to load");
+          e.currentTarget.src = "/placeholder.svg";
+        }}
       />
     </a>
   );
