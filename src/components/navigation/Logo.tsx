@@ -17,6 +17,11 @@ export const Logo = () => {
     }
   };
 
+  const handleImageError = () => {
+    console.error("Logo image failed to load");
+    setImageError(true);
+  };
+
   return (
     <a 
       href="/"
@@ -28,10 +33,7 @@ export const Logo = () => {
           src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
           alt="Happlyz Connect" 
           className="h-full object-contain"
-          onError={() => {
-            console.error("Logo image failed to load");
-            setImageError(true);
-          }}
+          onError={handleImageError}
         />
       ) : (
         <div className="text-white font-bold text-lg">HAPPLYZ CONNECT</div>

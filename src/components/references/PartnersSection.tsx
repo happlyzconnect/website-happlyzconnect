@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 type Partner = {
   id: number;
@@ -147,6 +148,16 @@ const partners: Partner[] = [
 ];
 
 export const PartnersSection = () => {
+  const [failedImages, setFailedImages] = useState<Record<number, boolean>>({});
+
+  const handleImageError = (partnerId: number) => {
+    console.log(`Partner logo failed to load for ID: ${partnerId}`);
+    setFailedImages(prev => ({
+      ...prev,
+      [partnerId]: true
+    }));
+  };
+  
   return (
     <section className="mb-16">
       <motion.div
@@ -167,7 +178,7 @@ export const PartnersSection = () => {
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
         {partners.map((partner) => (
           <div key={partner.id} className="flex items-center justify-center p-2 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow h-14 sm:h-16">
-            {partner.url ? (
+            {partner.url && !failedImages[partner.id] ? (
               <a 
                 href={partner.url} 
                 target="_blank" 
@@ -180,23 +191,21 @@ export const PartnersSection = () => {
                   alt={partner.alt}
                   className={`max-w-[75%] max-h-[75%] object-contain ${partner.className || ''}`}
                   loading="lazy"
-                  onError={(e) => {
-                    console.error(`Failed to load partner logo: ${partner.name}`);
-                    e.currentTarget.src = "/placeholder.svg";
-                  }}
+                  onError={() => handleImageError(partner.id)}
                 />
               </a>
-            ) : (
+            ) : !failedImages[partner.id] ? (
               <img
                 src={partner.logo}
                 alt={partner.alt}
                 className={`max-w-[75%] max-h-[75%] object-contain ${partner.className || ''}`}
                 loading="lazy"
-                onError={(e) => {
-                  console.error(`Failed to load partner logo: ${partner.name}`);
-                  e.currentTarget.src = "/placeholder.svg";
-                }}
+                onError={() => handleImageError(partner.id)}
               />
+            ) : (
+              <div className="text-xs text-center font-medium text-business-primary">
+                {partner.name}
+              </div>
             )}
           </div>
         ))}
