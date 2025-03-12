@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
@@ -64,7 +63,6 @@ export const Contact = () => {
   };
 
   const downloadBrochure = () => {
-    // Send email notification using EmailJS
     emailjs.send(
       "service_qytcdsw",
       "template_a6q4yno",
@@ -73,18 +71,16 @@ export const Contact = () => {
       },
       "ySp_OZUSZFd1MsIZJ"
     ).then(() => {
-      // Create a link to download the file
       const link = document.createElement('a');
-      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+      link.href = '/uploads/plaquette-commerciale-happlyz.pdf';
       link.download = 'plaquette-commerciale-happlyz.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     }).catch((error) => {
       console.error('EmailJS error:', error);
-      // Download anyway in case of error
       const link = document.createElement('a');
-      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+      link.href = '/uploads/plaquette-commerciale-happlyz.pdf';
       link.download = 'plaquette-commerciale-happlyz.pdf';
       document.body.appendChild(link);
       link.click();
@@ -97,7 +93,7 @@ export const Contact = () => {
       <div 
         className="relative w-full h-[300px]"
         style={{
-          backgroundImage: "url('/lovable-uploads/b668f626-055f-4a48-b40f-02c6d629a227.png')",
+          backgroundImage: "url('/uploads/b668f626-055f-4a48-b40f-02c6d629a227.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center 30%',
           filter: 'brightness(0.9)',

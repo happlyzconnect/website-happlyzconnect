@@ -1,4 +1,3 @@
-
 import { Check, MapPin, Settings, Monitor, School, Store, Video, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -67,7 +66,7 @@ export const Solutions = () => {
     <section id="solutions" className="bg-white">
       <div className="relative w-full h-[300px]"
         style={{
-          backgroundImage: "url('/lovable-uploads/cfc81ca6-da37-4cc5-b6cb-69b25b8ba04f.png')",
+          backgroundImage: "url('/uploads/cfc81ca6-da37-4cc5-b6cb-69b25b8ba04f.png')",
           backgroundSize: 'cover',
           backgroundPosition: 'center -100px',
           filter: 'brightness(0.9)',
@@ -177,7 +176,7 @@ export const Solutions = () => {
           <div 
             className="relative w-full h-[300px]"
             style={{
-              backgroundImage: "url('/lovable-uploads/d1266ec2-fb47-40cf-936d-49f96f2cabe0.png')",
+              backgroundImage: "url('/uploads/d1266ec2-fb47-40cf-936d-49f96f2cabe0.png')",
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               filter: 'brightness(0.9)',
