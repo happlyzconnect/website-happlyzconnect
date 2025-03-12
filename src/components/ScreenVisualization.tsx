@@ -169,15 +169,6 @@ export const ScreenVisualization = ({
       }
     }
     
-    // If multiple screens, add a note about the arrangement
-    if (screenCount > 1) {
-      ctx.fillStyle = "rgba(0, 0, 0, 0.6)";
-      ctx.fillRect(10, canvas.height - 30, 200, 20);
-      ctx.fillStyle = "#ffffff";
-      ctx.font = "12px Arial";
-      ctx.fillText(`Configuration: ${columns}×${rows}`, 15, canvas.height - 15);
-    }
-    
   }, [effectiveWidth, effectiveHeight, effectiveDiagonal, aspectRatio, orientation, screenCount, columns, rows, totalDimensions, hasScreenSize]);
   
   // Determine the dimensions to display
