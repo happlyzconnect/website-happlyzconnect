@@ -92,7 +92,6 @@ export const Navigation = () => {
   };
 
   const downloadBrochure = () => {
-    // Send email notification using EmailJS
     emailjs.send(
       "service_qytcdsw",
       "template_a6q4yno",
@@ -101,18 +100,16 @@ export const Navigation = () => {
       },
       "ySp_OZUSZFd1MsIZJ"
     ).then(() => {
-      // Create a link to download the file
       const link = document.createElement('a');
-      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+      link.href = '/uploads/plaquette-commerciale-happlyz.pdf';
       link.download = 'plaquette-commerciale-happlyz.pdf';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
     }).catch((error) => {
       console.error('EmailJS error:', error);
-      // Download anyway in case of error
       const link = document.createElement('a');
-      link.href = '/lovable-uploads/plaquette-commerciale-happlyz.pdf';
+      link.href = '/uploads/plaquette-commerciale-happlyz.pdf';
       link.download = 'plaquette-commerciale-happlyz.pdf';
       document.body.appendChild(link);
       link.click();
@@ -138,7 +135,7 @@ export const Navigation = () => {
               className="h-8 hover:opacity-80 transition-opacity"
             >
               <img 
-                src="/lovable-uploads/31538189-590f-499b-80e7-052171630c35.png"
+                src="/uploads/31538189-590f-499b-80e7-052171630c35.png"
                 alt="Happlyz Connect" 
                 className="h-full object-contain"
               />
