@@ -1,5 +1,6 @@
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const trustedClients = [
   {
@@ -90,6 +91,12 @@ const trustedClients = [
 ];
 
 export const ClientLogoGrid = () => {
+  const [failedImages, setFailedImages] = useState<number[]>([]);
+
+  const handleImageError = (clientId: number) => {
+    setFailedImages(prev => [...prev, clientId]);
+  };
+
   return (
     <section className="mb-16">
       <motion.div
@@ -118,20 +125,36 @@ export const ClientLogoGrid = () => {
                 className="w-full h-24 flex items-center justify-center"
                 aria-label={`Visiter le site de ${client.name}`}
               >
-                <img
-                  src={client.logo}
-                  alt={client.alt}
-                  className={`max-w-full max-h-full object-contain ${client.className || ''}`}
-                  loading="lazy"
-                />
+                {failedImages.includes(client.id) ? (
+                  <div className="flex flex-col items-center justify-center text-gray-400">
+                    <div className="text-xs text-center">{client.name}</div>
+                  </div>
+                ) : (
+                  <img
+                    src={client.logo}
+                    alt={client.alt}
+                    className={`max-w-full max-h-full object-contain ${client.className || ''}`}
+                    loading="lazy"
+                    onError={() => handleImageError(client.id)}
+                  />
+                )}
               </a>
             ) : (
-              <img
-                src={client.logo}
-                alt={client.alt}
-                className={`max-w-full max-h-full object-contain ${client.className || ''}`}
-                loading="lazy"
-              />
+              <>
+                {failedImages.includes(client.id) ? (
+                  <div className="flex flex-col items-center justify-center text-gray-400">
+                    <div className="text-xs text-center">{client.name}</div>
+                  </div>
+                ) : (
+                  <img
+                    src={client.logo}
+                    alt={client.alt}
+                    className={`max-w-full max-h-full object-contain ${client.className || ''}`}
+                    loading="lazy"
+                    onError={() => handleImageError(client.id)}
+                  />
+                )}
+              </>
             )}
           </div>
         ))}
