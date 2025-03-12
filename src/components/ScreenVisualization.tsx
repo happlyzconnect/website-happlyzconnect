@@ -26,12 +26,25 @@ export const ScreenVisualization = ({
   // Calculate total screen count
   const screenCount = columns * rows;
   
+  // Check if a screen size has been explicitly selected
+  const hasScreenSize = Boolean(width && height && diagonal) && width !== "0" && height !== "0" && diagonal !== "0";
+  
+  // Default values to use when no screen size is selected
+  const defaultWidth = "70";
+  const defaultHeight = "40";
+  const defaultDiagonal = "80";
+  
+  // Use default values if no values are provided
+  const effectiveWidth = hasScreenSize ? width : defaultWidth;
+  const effectiveHeight = hasScreenSize ? height : defaultHeight;
+  const effectiveDiagonal = hasScreenSize ? diagonal : defaultDiagonal;
+  
   // Calculate total dimensions
   const totalDimensions = useMemo(() => {
-    if (!width || !height) return { width: "0", height: "0" };
+    if (!effectiveWidth || !effectiveHeight) return { width: "0", height: "0" };
     
-    const widthValue = parseFloat(orientation === "portrait" ? height : width);
-    const heightValue = parseFloat(orientation === "portrait" ? width : height);
+    const widthValue = parseFloat(orientation === "portrait" ? effectiveHeight : effectiveWidth);
+    const heightValue = parseFloat(orientation === "portrait" ? effectiveWidth : effectiveHeight);
     
     // Add a small gap between screens (3% of screen width)
     const gap = widthValue * 0.03;
@@ -43,10 +56,10 @@ export const ScreenVisualization = ({
       width: totalWidth.toFixed(2),
       height: totalHeight.toFixed(2)
     };
-  }, [width, height, orientation, columns, rows]);
+  }, [effectiveWidth, effectiveHeight, orientation, columns, rows]);
   
   useEffect(() => {
-    if (!canvasRef.current || !width || !height || !diagonal) return;
+    if (!canvasRef.current) return;
     
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
@@ -60,7 +73,7 @@ export const ScreenVisualization = ({
     const maxHeight = canvas.height - 100;
     
     // Get screen dimensions (parse the strings to numbers)
-    const diagonalValue = parseFloat(diagonal);
+    const diagonalValue = parseFloat(effectiveDiagonal);
     
     // Scale visualization based on diagonal size and screen count
     const scaleBase = 20; // Base diagonal size reference
@@ -134,7 +147,7 @@ export const ScreenVisualization = ({
         );
         
         // Draw screen
-        ctx.fillStyle = "#333333";
+        ctx.fillStyle = hasScreenSize ? "#333333" : "#555555";
         ctx.fillRect(x, y, singleScreenWidth, singleScreenHeight);
         
         // Add screen glossiness/reflection
@@ -144,6 +157,15 @@ export const ScreenVisualization = ({
         gradient.addColorStop(1, "rgba(0, 0, 0, 0)");
         ctx.fillStyle = gradient;
         ctx.fillRect(x, y, singleScreenWidth, singleScreenHeight);
+        
+        // If no screen size is selected, show placeholder text
+        if (!hasScreenSize) {
+          ctx.fillStyle = "rgba(255, 255, 255, 0.7)";
+          ctx.font = `${Math.max(10, singleScreenWidth * 0.1)}px Arial`;
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText("Exemple", x + singleScreenWidth / 2, y + singleScreenHeight / 2);
+        }
       }
     }
     
@@ -156,14 +178,16 @@ export const ScreenVisualization = ({
       ctx.fillText(`Configuration: ${columns}×${rows}`, 15, canvas.height - 15);
     }
     
-  }, [width, height, diagonal, aspectRatio, orientation, screenCount, columns, rows, totalDimensions]);
-  
-  // Check if a screen size has been explicitly selected
-  const hasScreenSize = Boolean(width && height && diagonal) && width !== "0" && height !== "0" && diagonal !== "0";
+  }, [effectiveWidth, effectiveHeight, effectiveDiagonal, aspectRatio, orientation, screenCount, columns, rows, totalDimensions, hasScreenSize]);
   
   // Determine the dimensions to display
-  const displayWidth = orientation === "portrait" ? height : width;
-  const displayHeight = orientation === "portrait" ? width : height;
+  const displayWidth = orientation === "portrait" 
+    ? (hasScreenSize ? height : defaultHeight) 
+    : (hasScreenSize ? width : defaultWidth);
+    
+  const displayHeight = orientation === "portrait" 
+    ? (hasScreenSize ? width : defaultWidth) 
+    : (hasScreenSize ? height : defaultHeight);
   
   return (
     <div className="relative">
@@ -183,7 +207,10 @@ export const ScreenVisualization = ({
               {screenCount > 1 ? ` (Total: ${totalDimensions.width} × ${totalDimensions.height} cm)` : ''}
             </span>
           ) : (
-            <span>Aucune taille d'écran sélectionnée</span>
+            <span>
+              Configuration {columns}×{rows} 
+              {screenCount > 1 ? ` (${screenCount} écrans)` : ''}
+            </span>
           )}
         </div>
       </div>
