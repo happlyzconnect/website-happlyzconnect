@@ -16,7 +16,11 @@ interface ReferenceContainerProps {
 export const ReferenceContainer = ({ initialTab = "affichage-dynamique" }: ReferenceContainerProps) => {
   return (
     <div className="min-h-screen flex flex-col">
-      <MetaDescription description="Découvrez les projets réalisés par HAPPLYZ CONNECT pour ses clients: écrans interactifs, affichage dynamique et solutions audiovisuelles." />
+      <MetaDescription 
+        title="Nos Références | HAPPLYZ CONNECT"
+        description="Découvrez les projets réalisés par HAPPLYZ CONNECT pour ses clients: écrans interactifs, affichage dynamique et solutions audiovisuelles." 
+        canonicalUrl="https://www.happlyzconnect.com/nos-references"
+      />
       <Navigation />
       <main className="flex-1 pt-20 pb-16">
         <div className="container mx-auto px-4">

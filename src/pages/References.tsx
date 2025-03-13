@@ -17,7 +17,10 @@ const References = () => {
 
   return (
     <>
-      <MetaDescription description="Découvrez nos références et projets audiovisuels réalisés pour nos clients : affichage dynamique, salles de réunion et salles de classe." />
+      <MetaDescription 
+        description="Découvrez nos références et projets audiovisuels réalisés pour nos clients : affichage dynamique, salles de réunion et salles de classe." 
+        canonicalUrl="https://www.happlyzconnect.com/nos-references"
+      />
       <ReferenceContainer initialTab={activeTab} />
     </>
   );
