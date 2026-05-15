@@ -122,7 +122,7 @@ export const Navigation = () => {
 
   return (
     <nav 
-      className="fixed w-full shadow-sm"
+      className="fixed top-0 w-full shadow-sm"
       style={{
         height: "90px",
         backgroundColor: "#14213D",

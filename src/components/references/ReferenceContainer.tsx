@@ -22,7 +22,7 @@ export const ReferenceContainer = ({ initialTab = "affichage-dynamique" }: Refer
         canonicalUrl="https://www.happlyzconnect.com/nos-references"
       />
       <Navigation />
-      <main className="flex-1 pt-20 pb-16">
+      <main className="flex-1 pt-28 pb-16">
         <div className="container mx-auto px-4">
           <div className="mb-2 pt-1">
             <Breadcrumb 

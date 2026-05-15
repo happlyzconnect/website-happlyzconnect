@@ -137,12 +137,21 @@ const ScreenSizeConverter = () => {
       <div className="min-h-screen flex flex-col">
         <Navigation />
         <MetaDescription
-          title="Outils de configuration"
+          title="Outils de configuration | Happlyz Connect"
           description="Convertissez les pouces en centimètres, visualisez l'aspect réel des écrans et créez des configurations en grille pour vos projets d'affichage dynamique."
-          className="mt-24 pt-4 text-center"
+          canonicalUrl="https://www.happlyzconnect.com/convertisseur-taille-ecran"
         />
 
-        <main className="flex-grow container mx-auto px-4 py-8">
+        <main className="flex-grow container mx-auto px-4 py-8 pt-28">
+          <div className="text-center mb-8">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-business-primary">
+              Outils de configuration
+            </h1>
+            <div className="h-1 w-20 bg-[#56C7E1] mb-6 mx-auto"></div>
+            <p className="text-lg text-gray-700 max-w-4xl mx-auto">
+              Convertissez les pouces en centimètres, visualisez l'aspect réel des écrans et créez des configurations en grille pour vos projets d'affichage dynamique.
+            </p>
+          </div>
           <div className="max-w-3xl mx-auto">
             <Card className="border-2 border-[#56C7E1]/20 shadow-lg mb-6">
               <CardContent className="pt-6">
