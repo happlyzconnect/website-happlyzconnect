@@ -11,8 +11,8 @@ const faq = [
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 ---
 <Base
-  title="Convertisseur de taille d’écran : pouces en centimètres"
-  description="Convertissez la diagonale d’un écran en pouces en largeur, hauteur et diagonale en centimètres. Formats 16:9, 16:10, 21:9, 4:3, orientation portrait et mur d’images."
+  title="Convertisseur taille d’écran : pouces en cm"
+  description="Convertissez la diagonale d’un écran en pouces en largeur, hauteur et diagonale en cm. Formats 16:9, 16:10, 21:9, 4:3, portrait et mur d’images."
   breadcrumbs={crumbs}
   schema={[faqSchema]}
 >

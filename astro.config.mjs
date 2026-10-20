@@ -23,6 +23,7 @@ export default defineConfig({
   redirects,
   integrations: [
     sitemap({
+      lastmod: new Date(),
       filter: (page) => !Object.keys(redirects).includes(new URL(page).pathname.replace(/\/$/, '')),
     }),
   ],

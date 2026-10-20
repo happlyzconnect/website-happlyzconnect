@@ -61,9 +61,9 @@ export const solutions: Solution[] = [
     icon: 'video',
     photo: 'salle-shell',
     short: 'Des espaces collaboratifs efficaces et simples à utiliser.',
-    metaTitle: 'Salles de réunion & visioconférence — Intégrateur audiovisuel',
+    metaTitle: 'Salles de réunion et visioconférence',
     metaDescription:
-      "HAPPLYZ Connect conçoit, installe et maintient vos salles de réunion et de visioconférence : écrans, barres de visio, micros, partage sans fil. Île-de-France et toute la France.",
+      "Salles de réunion et de visioconférence clés en main : écrans, barres de visio, micros, partage sans fil. Installation et maintenance partout en France.",
     heroTitle: 'Salles de réunion & visioconférence',
     heroText:
       "Des espaces de collaboration performants, pour des réunions plus simples et plus efficaces. Nous concevons, installons et maintenons des salles adaptées à vos usages, de la petite salle d'équipe à la salle de conseil.",
@@ -108,9 +108,9 @@ export const solutions: Solution[] = [
     icon: 'signage',
     photo: 'vitrine-decathlon',
     short: 'Informez, animez et valorisez vos espaces.',
-    metaTitle: 'Affichage dynamique — Écrans, vitrines, murs d’images',
+    metaTitle: 'Affichage dynamique : écrans et vitrines',
     metaDescription:
-      "Affichage dynamique clé en main : écrans vitrine haute luminosité, totems, murs d'images, logiciel de diffusion, installation et maintenance par HAPPLYZ Connect.",
+      "Affichage dynamique clé en main : écrans vitrine, totems, murs d'images et logiciel de diffusion. Installation et maintenance partout en France.",
     heroTitle: 'Affichage dynamique',
     heroText:
       'Des écrans qui captent l’attention et des contenus qui se mettent à jour à distance. Accueil, vitrine, magasin, établissement scolaire : nous déployons l’affichage dynamique de bout en bout.',
@@ -147,9 +147,9 @@ export const solutions: Solution[] = [
     icon: 'touch',
     photo: 'tactile-iut',
     short: 'Des outils engageants pour apprendre et collaborer.',
-    metaTitle: 'Écrans tactiles & interactifs — Écoles, entreprises',
+    metaTitle: 'Écrans tactiles et interactifs (ENI)',
     metaDescription:
-      'Écrans numériques interactifs (ENI) pour salles de classe et salles de réunion : fourniture, supports muraux ou mobiles, installation, formation et maintenance.',
+      'Écrans numériques interactifs pour salles de classe et de réunion : fourniture, supports muraux ou mobiles, installation, formation et maintenance.',
     heroTitle: 'Écrans tactiles & interactifs',
     heroText:
       'Annoter, partager, co-construire : les écrans interactifs remplacent le tableau blanc et le vidéoprojecteur dans les salles de classe comme dans les salles de réunion.',
@@ -185,7 +185,7 @@ export const solutions: Solution[] = [
     icon: 'projector',
     photo: 'ipsa-lyon-videoprojecteur',
     short: 'Des solutions pour tous vos espaces, de la salle de classe à l’amphithéâtre.',
-    metaTitle: 'Vidéoprojection — Salles de classe, amphithéâtres, salles de réunion',
+    metaTitle: 'Vidéoprojection : salles de classe et amphis',
     metaDescription:
       'Vidéoprojecteurs courte focale, interactifs ou grande salle, toiles et écrans de projection : étude, installation et maintenance par HAPPLYZ Connect.',
     heroTitle: 'Vidéoprojection',
@@ -222,9 +222,9 @@ export const solutions: Solution[] = [
     icon: 'speaker',
     photo: 'salle-enceintes',
     short: 'Une diffusion audio claire et homogène, adaptée à vos espaces.',
-    metaTitle: 'Sonorisation professionnelle — Salles, magasins, établissements',
+    metaTitle: 'Sonorisation professionnelle',
     metaDescription:
-      'Sonorisation de salles de réunion, magasins et établissements scolaires : enceintes, micros, diffusion d’ambiance et messages d’alerte. Étude, installation et maintenance.',
+      'Sonorisation de salles de réunion, magasins et établissements scolaires : enceintes, micros, musique d’ambiance et alertes. Installation et maintenance.',
     heroTitle: 'Sonorisation',
     heroText:
       'Le son est souvent le maillon faible d’une installation. Nous concevons des systèmes audio clairs et homogènes, de la salle de réunion à la diffusion d’alertes dans un établissement.',
@@ -285,9 +285,9 @@ export const sectors: Sector[] = [
     icon: 'building',
     photo: 'bureau-ecran',
     short: 'Salles de réunion, visioconférence, affichage interne : des espaces qui favorisent la collaboration et la performance.',
-    metaTitle: 'Audiovisuel pour entreprises — Salles de réunion, visio, affichage',
+    metaTitle: 'Audiovisuel pour les entreprises',
     metaDescription:
-      "Intégrateur audiovisuel pour les entreprises : salles de réunion et visioconférence, affichage dynamique d'accueil, sonorisation, écrans de collaboration. Conception, installation, maintenance.",
+      "Intégrateur audiovisuel pour les entreprises : salles de réunion, visio, affichage d'accueil, sonorisation, écrans collaboratifs. Installation et maintenance.",
     heroTitle: 'Des espaces de travail connectés, pour des équipes plus performantes.',
     heroText:
       'Nous accompagnons les entreprises dans la conception, l’installation et la maintenance de leurs équipements audiovisuels, pour des environnements de travail modernes, efficaces et valorisants.',
@@ -319,9 +319,9 @@ export const sectors: Sector[] = [
     icon: 'graduation',
     photo: 'classe-ecran',
     short: 'Lycées, collèges, CFA : des équipements audiovisuels pour des environnements d’apprentissage modernes.',
-    metaTitle: 'Audiovisuel pour l’éducation — Écrans interactifs, vidéoprojection, sonorisation',
+    metaTitle: 'Audiovisuel pour lycées, collèges et CFA',
     metaDescription:
-      'Équipement audiovisuel des lycées, collèges et CFA : écrans numériques interactifs, vidéoprojecteurs, sonorisation, affichage dynamique. Installation pendant les vacances scolaires.',
+      'Équipement audiovisuel des écoles, lycées, collèges et CFA : écrans interactifs, vidéoprojecteurs, sonorisation. Installation pendant les vacances scolaires.',
     heroTitle: 'Des environnements d’apprentissage modernes, simples et durables.',
     heroText:
       'Nous accompagnons les établissements scolaires dans l’équipement de leurs salles de classe, amphithéâtres et espaces de vie, avec des solutions fiables, faciles à utiliser et adaptées aux usages pédagogiques.',
@@ -354,9 +354,9 @@ export const sectors: Sector[] = [
     icon: 'store',
     photo: 'snipes-mur-led-aulnay',
     short: 'Affichage dynamique en magasin et en vitrine : attirez l’attention et valorisez vos espaces de vente.',
-    metaTitle: 'Affichage dynamique pour magasins et vitrines — Retail',
+    metaTitle: 'Affichage dynamique pour magasins',
     metaDescription:
-      'Affichage dynamique pour les magasins et réseaux de points de vente : écrans vitrine haute luminosité, murs d’images, totems, sonorisation d’ambiance. Installation et maintenance partout en France.',
+      'Affichage dynamique pour magasins et réseaux : écrans vitrine, murs d’images, totems, sonorisation. Installation et maintenance partout en France.',
     heroTitle: 'Des expériences en magasin plus attractives et plus performantes.',
     heroText:
       'Nous accompagnons les magasins et les réseaux de points de vente dans le déploiement de solutions audiovisuelles pour informer, séduire et engager leurs clients, avec des équipements fiables et simples à piloter.',

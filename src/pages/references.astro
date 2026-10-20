@@ -17,8 +17,8 @@ const refs = [...data.refs].sort((a, b) => order.indexOf(a.category) - order.ind
 const catLabel: Record<string, string> = { 'salle-reunion': 'Salle de réunion', 'affichage-dynamique': 'Affichage dynamique', 'salle-classe': 'Éducation' };
 ---
 <Base
-  title="Nos références — Projets audiovisuels réalisés"
-  description="Découvrez les projets audiovisuels réalisés par HAPPLYZ Connect : salles de réunion (Shell, Chiesi, Decathlon), affichage dynamique (Decathlon, Géant Casino), équipement d'établissements scolaires."
+  title="Nos références audiovisuelles"
+  description="Plus de 60 projets audiovisuels : salles de réunion (AP-HP, Shell, CNR), affichage dynamique (SNIPES, Decathlon), lycées, collèges, écoles."
   breadcrumbs={[{ label: 'Références', href: '/references' }]}
 >
   <section class="page-head">
@@ -40,7 +40,7 @@ const catLabel: Record<string, string> = { 'salle-reunion': 'Salle de réunion',
             <RefMedia image={r.image} client={r.client} category={r.category} />
             <div class="card__body">
               <span class="ref__cat">{catLabel[r.category]}</span>
-              <h2 class="ref__client">{r.client}</h2>
+              <h3 class="ref__client">{r.client}</h3>
               <p>{r.description}</p>
             </div>
           </article>
