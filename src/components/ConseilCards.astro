@@ -1,0 +1,37 @@
+---
+// Bloc « Nos conseils » : articles liés à une solution (ou les premiers articles).
+import { getCollection } from 'astro:content';
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+interface Props { solution?: string; title?: string; soft?: boolean; limit?: number }
+const { solution, title = 'Nos conseils pour préparer votre projet.', soft = false, limit = 3 } = Astro.props;
+const all = (await getCollection('conseils')).sort((a, b) => a.data.order - b.data.order);
+const items = (solution ? all.filter((a) => a.data.solutions.includes(solution)) : all).slice(0, limit);
+---
+{items.length > 0 && (
+  <section class={`section ${soft ? 'section--soft' : ''}`}>
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">Conseils et guides</span><h2>{title}</h2></div>
+        <p><a href="/conseils" class="cc-more">Tous nos conseils <Icon name="arrow" /></a></p>
+      </div>
+      <div class="grid grid-3">
+        {items.map((a) => (
+          <a href={`/conseils/${a.id}`} class="card card--link reveal">
+            <div class="card__media"><Photo name={a.data.image} alt={a.data.imageAlt} sizes="(max-width: 640px) 100vw, 400px" /></div>
+            <div class="card__body">
+              <span class="eyebrow">{a.data.category}</span>
+              <h3>{a.data.title}</h3>
+              <p class="cc-ex">{a.data.excerpt}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}
+<style>
+  .cc-more { display: inline-flex; align-items: center; gap: 6px; color: var(--link); font-weight: 700; }
+  .cc-more :global(svg) { width: 16px; height: 16px; }
+  .cc-ex { color: var(--muted); margin: 0; font-size: 0.95rem; }
+</style>

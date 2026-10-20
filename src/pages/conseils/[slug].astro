@@ -1,0 +1,185 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import Icon from '../../components/Icon.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { solutions } from '../../data/site';
+import { readingTime, formatDate } from '../../data/conseils';
+
+export async function getStaticPaths() {
+  const all = await getCollection('conseils');
+  return all.map((entry) => ({ params: { slug: entry.id }, props: { entry, all } }));
+}
+const { entry, all } = Astro.props;
+const a = entry.data;
+const { Content, headings } = await render(entry);
+const toc = headings.filter((h) => h.depth === 2);
+const minutes = readingTime(entry.body ?? '');
+const url = `/conseils/${entry.id}`;
+const site = Astro.site!.toString().replace(/\/$/, '');
+
+const related = all
+  .filter((o) => o.id !== entry.id)
+  .map((o) => ({ o, score: o.data.solutions.filter((s) => a.solutions.includes(s)).length }))
+  .sort((x, y) => y.score - x.score || x.o.data.order - y.o.data.order)
+  .slice(0, 3)
+  .map((x) => x.o);
+const linkedSolutions = solutions.filter((s) => a.solutions.includes(s.slug));
+
+const crumbs = [{ label: 'Conseils', href: '/conseils' }, { label: a.title, href: url }];
+const article = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: a.title,
+  description: a.description,
+  datePublished: a.date.toISOString().slice(0, 10),
+  dateModified: (a.updated ?? a.date).toISOString().slice(0, 10),
+  inLanguage: 'fr-FR',
+  mainEntityOfPage: site + url,
+  image: `${site}/og-image.png`,
+  author: { '@type': 'Organization', name: 'HAPPLYZ Connect', url: site },
+  publisher: { '@id': `${site}/#organisation` },
+  articleSection: a.category,
+};
+const faqSchema = a.faq.length
+  ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: a.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]
+  : [];
+---
+<Base title={a.metaTitle} description={a.description} breadcrumbs={crumbs} schema={[article, ...faqSchema]}>
+  <section class="page-head art-head">
+    <div class="container">
+      <ol class="breadcrumb breadcrumb--dark">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/conseils">Conseils</a></li>
+        <li><span aria-current="page">{a.category}</span></li>
+      </ol>
+      <span class="eyebrow">{a.category}</span>
+      <h1>{a.title}</h1>
+      <p class="lead">{a.excerpt}</p>
+      <p class="art-meta"><Icon name="clock" /> {minutes} min de lecture · Publié le <time datetime={a.date.toISOString().slice(0, 10)}>{formatDate(a.date)}</time> · Par l’équipe HAPPLYZ Connect</p>
+    </div>
+  </section>
+
+  <section class="section art-section">
+    <div class="container art">
+      <article class="art__body">
+        <div class="art__cover"><Photo name={a.image} alt={a.imageAlt} widths={[800, 1200]} sizes="(max-width: 1000px) 100vw, 780px" loading="eager" fetchpriority="high" /></div>
+        <div class="prose art__prose"><Content /></div>
+      </article>
+
+      <aside class="art__aside">
+        {toc.length > 2 && (
+          <nav class="art__box art__toc" aria-label="Sommaire">
+            <p class="art__box-title">Sommaire</p>
+            <ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+          </nav>
+        )}
+        <div class="art__box art__cta">
+          <p class="art__box-title">Un projet ?</p>
+          <p>Nos experts vous conseillent et chiffrent votre projet gratuitement.</p>
+          <a href="/contact?demande=devis" class="btn btn--primary btn--sm">Demander un devis <Icon name="arrow" /></a>
+          <a href="tel:+33185390167" class="art__tel"><Icon name="phone" /> 01 85 39 01 67</a>
+        </div>
+        <div class="art__box">
+          <p class="art__box-title">Nos outils en ligne</p>
+          <ul class="art__links">
+            <li><a href="/outils/configurateur-salle"><Icon name="arrow" /> Configurateur de salle</a></li>
+            <li><a href="/outils/convertisseur-taille-ecran"><Icon name="arrow" /> Convertisseur pouces / cm</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  {a.faq.length > 0 && <Faq items={a.faq} />}
+
+  {linkedSolutions.length > 0 && (
+    <section class="section section--tight">
+      <div class="container">
+        <span class="eyebrow">Nos solutions</span>
+        <h2 class="art-h2">Aller plus loin</h2>
+        <div class="art-sol">
+          {linkedSolutions.map((s) => (
+            <a href={`/solutions/${s.slug}`} class="art-sol__item">
+              <Photo name={s.photo} alt="" widths={[400]} sizes="120px" />
+              <span><strong>{s.title}</strong><small>Étude, installation et maintenance</small></span>
+              <Icon name="arrow" />
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">À lire aussi</span><h2>D’autres conseils pour vos projets.</h2></div>
+        <p><a href="/conseils" class="link-arrow">Tous les conseils <Icon name="arrow" /></a></p>
+      </div>
+      <div class="grid grid-3">
+        {related.map((r) => (
+          <a href={`/conseils/${r.id}`} class="card card--link">
+            <div class="card__media"><Photo name={r.data.image} alt={r.data.imageAlt} sizes="(max-width: 640px) 100vw, 400px" /></div>
+            <div class="card__body">
+              <span class="eyebrow">{r.data.category}</span>
+              <h3>{r.data.title}</h3>
+              <p>{r.data.excerpt}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title="Parlons de votre projet." label="Demander un devis" photo={a.image} />
+</Base>
+
+<style>
+  .art-head h1 { max-width: 900px; font-size: clamp(1.8rem, 3.4vw, 2.7rem); margin: 6px 0 14px; }
+  .art-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin: 16px 0 0; font-size: 0.9rem; color: var(--muted); }
+  .art-meta :global(svg) { width: 16px; height: 16px; }
+  .art-section { padding-top: 40px; }
+  .art { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 56px; align-items: start; }
+  .art__cover { border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 9; margin-bottom: 32px; }
+  .art__cover :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .art__prose { max-width: 780px; font-size: 1.05rem; line-height: 1.7; }
+  .art__prose :global(h2) { font-size: 1.5rem; margin: 1.8em 0 0.6em; scroll-margin-top: 100px; }
+  .art__prose :global(h3) { font-size: 1.15rem; margin: 1.5em 0 0.4em; }
+  .art__prose :global(strong) { color: var(--navy); }
+  .art__prose :global(li) { margin-bottom: 0.35em; }
+  .art__prose :global(table) { width: 100%; border-collapse: collapse; margin: 1.4em 0; font-size: 0.9rem; display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .art__prose :global(th), .art__prose :global(td) { padding: 10px 12px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+  .art__prose :global(th) { background: var(--bg-soft); color: var(--navy); font-weight: 700; }
+  .art__prose :global(tbody tr:hover) { background: #fafcfe; }
+  .art__aside { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 18px; }
+  .art__box { border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 22px; background: #fff; }
+  .art__box-title { font-weight: 750; color: var(--navy); margin: 0 0 10px; }
+  .art__toc ol { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 8px; font-size: 0.9rem; }
+  .art__toc a { color: var(--muted); }
+  .art__toc a:hover { color: var(--link); }
+  .art__cta { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .art__cta .art__box-title { color: #fff; }
+  .art__cta p { color: rgba(255, 255, 255, 0.82); font-size: 0.92rem; margin: 0 0 14px; }
+  .art__tel { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; color: #fff; font-weight: 600; font-size: 0.92rem; }
+  .art__tel :global(svg) { width: 16px; height: 16px; }
+  .art__links { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem; }
+  .art__links a { display: inline-flex; align-items: center; gap: 6px; color: var(--link); font-weight: 600; }
+  .art__links :global(svg) { width: 15px; height: 15px; }
+  .art-h2 { margin: 6px 0 24px; }
+  .art-sol { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+  .art-sol__item { display: flex; align-items: center; gap: 16px; border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 18px 12px 12px; background: #fff; transition: box-shadow 0.2s; }
+  .art-sol__item:hover { box-shadow: var(--shadow); }
+  .art-sol__item :global(img) { width: 88px; height: 64px; object-fit: cover; border-radius: 8px; flex: none; }
+  .art-sol__item span { display: flex; flex-direction: column; flex: 1; color: var(--navy); }
+  .art-sol__item small { color: var(--muted); font-size: 0.82rem; }
+  .art-sol__item > :global(svg) { width: 18px; height: 18px; color: var(--link); flex: none; }
+  .link-arrow { display: inline-flex; align-items: center; gap: 6px; color: var(--link); font-weight: 700; }
+  .link-arrow :global(svg) { width: 16px; height: 16px; }
+  @media (max-width: 1000px) {
+    .art { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+    .art__aside { position: static; }
+    .art__toc { display: none; }
+  }
+</style>

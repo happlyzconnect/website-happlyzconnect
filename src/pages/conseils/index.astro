@@ -1,0 +1,98 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import Icon from '../../components/Icon.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { readingTime } from '../../data/conseils';
+
+const articles = (await getCollection('conseils')).sort((a, b) => a.data.order - b.data.order);
+const categories = [...new Set(articles.map((a) => a.data.category))];
+const [first, ...rest] = articles;
+const site = Astro.site!.toString().replace(/\/$/, '');
+const list = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  itemListElement: articles.map((a, i) => ({ '@type': 'ListItem', position: i + 1, url: `${site}/conseils/${a.id}`, name: a.data.title })),
+};
+---
+<Base
+  title="Conseils et guides audiovisuels"
+  description="Guides pratiques pour vos projets audiovisuels : taille d’écran, salle de visioconférence, écran interactif ou vidéoprojecteur, affichage dynamique, sonorisation."
+  breadcrumbs={[{ label: 'Conseils', href: '/conseils' }]}
+  schema={[list]}
+>
+  <section class="page-head">
+    <div class="container">
+      <ol class="breadcrumb breadcrumb--dark"><li><a href="/">Accueil</a></li><li><span aria-current="page">Conseils</span></li></ol>
+      <span class="eyebrow">Conseils et guides</span>
+      <h1>Bien choisir son équipement audiovisuel.</h1>
+      <p class="lead">Taille d’écran, visioconférence, écrans interactifs, affichage dynamique, sonorisation : nos conseils d’intégrateur, tirés de nos chantiers, pour préparer vos projets.</p>
+      <ul class="cats" aria-label="Thèmes">
+        {categories.map((c) => <li><button type="button" data-cat={c}>{c}</button></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:48px">
+    <div class="container">
+      <a href={`/conseils/${first.id}`} class="feat card card--link" data-cat={first.data.category}>
+        <div class="feat__media"><Photo name={first.data.image} alt={first.data.imageAlt} widths={[800, 1200]} sizes="(max-width: 900px) 100vw, 640px" loading="eager" /></div>
+        <div class="feat__body">
+          <span class="eyebrow">{first.data.category}</span>
+          <h2>{first.data.title}</h2>
+          <p>{first.data.excerpt}</p>
+          <span class="meta"><Icon name="clock" /> {readingTime(first.body ?? '')} min de lecture</span>
+          <span class="btn btn--primary btn--sm">Lire le guide <Icon name="arrow" /></span>
+        </div>
+      </a>
+
+      <div class="grid grid-3 list">
+        {rest.map((a) => (
+          <a href={`/conseils/${a.id}`} class="card card--link" data-cat={a.data.category}>
+            <div class="card__media"><Photo name={a.data.image} alt={a.data.imageAlt} sizes="(max-width: 640px) 100vw, 400px" /></div>
+            <div class="card__body">
+              <span class="eyebrow">{a.data.category}</span>
+              <h2 class="card-title">{a.data.title}</h2>
+              <p>{a.data.excerpt}</p>
+              <span class="meta"><Icon name="clock" /> {readingTime(a.body ?? '')} min de lecture</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title="Une question sur votre projet ?" text="Chaque salle est différente. Nos experts se déplacent pour une visite technique et vous proposent la solution adaptée." label="Nous contacter" />
+</Base>
+
+<style>
+  .cats { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; padding: 0; margin: 22px 0 0; }
+  .cats button { font: inherit; font-size: 0.85rem; font-weight: 600; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border); background: #fff; color: var(--navy); cursor: pointer; }
+  .cats button:hover, .cats button[aria-pressed='true'] { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .feat { display: grid; grid-template-columns: 1.15fr 1fr; margin-bottom: 28px; }
+  .feat__media { min-height: 320px; overflow: hidden; }
+  .feat__media :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .feat__body { padding: 36px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; justify-content: center; }
+  .feat__body h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
+  .feat__body p { color: var(--muted); margin: 0; }
+  .card-title { font-size: 1.12rem; letter-spacing: -0.01em; }
+  .card__body p { color: var(--muted); margin: 0; font-size: 0.95rem; }
+  .meta { display: inline-flex; align-items: center; gap: 6px; font-size: 0.85rem; color: var(--muted); margin-top: auto; padding-top: 6px; }
+  .meta :global(svg) { width: 15px; height: 15px; }
+  [data-hidden] { display: none !important; }
+  @media (max-width: 900px) { .feat { grid-template-columns: 1fr; } .feat__media { min-height: 0; aspect-ratio: 16 / 10; } .feat__body { padding: 24px; } }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.cats button');
+  const items = document.querySelectorAll<HTMLElement>('[data-cat]:not(button)');
+  buttons.forEach((b) =>
+    b.addEventListener('click', () => {
+      const on = b.getAttribute('aria-pressed') !== 'true';
+      buttons.forEach((x) => x.setAttribute('aria-pressed', 'false'));
+      b.setAttribute('aria-pressed', String(on));
+      items.forEach((it) => (on && it.dataset.cat !== b.dataset.cat ? it.setAttribute('data-hidden', '') : it.removeAttribute('data-hidden')));
+    }),
+  );
+</script>

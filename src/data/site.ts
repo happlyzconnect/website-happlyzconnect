@@ -397,9 +397,10 @@ export const nav = [
   { label: 'Secteurs', href: '/secteurs/corporate', children: sectors.map((s) => ({ label: s.title, href: `/secteurs/${s.slug}` })) },
   { label: 'Nos services', href: '/services' },
   {
-    label: 'Outils',
-    href: '/outils/configurateur-salle',
+    label: 'Ressources',
+    href: '/conseils',
     children: [
+      { label: 'Conseils et guides', href: '/conseils' },
       { label: 'Configurateur de salle', href: '/outils/configurateur-salle' },
       { label: 'Convertisseur de taille d’écran', href: '/outils/convertisseur-taille-ecran' },
     ],

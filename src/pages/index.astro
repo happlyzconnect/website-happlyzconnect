@@ -7,6 +7,7 @@ import BuildRun from '../components/BuildRun.astro';
 import ClientLogos from '../components/ClientLogos.astro';
 import SignageBand from '../components/SignageBand.astro';
 import CtaBand from '../components/CtaBand.astro';
+import ConseilCards from '../components/ConseilCards.astro';
 import { solutions, sectors, stats } from '../data/site';
 ---
 <Base
@@ -124,6 +125,8 @@ import { solutions, sectors, stats } from '../data/site';
   </section>
 
   <SignageBand />
+
+  <ConseilCards title="Nos conseils d’intégrateur." soft />
 
   <CtaBand title="Parlons-en dès maintenant." label="Demander un devis" />
 </Base>

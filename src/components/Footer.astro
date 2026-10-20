@@ -20,8 +20,9 @@ const year = new Date().getFullYear();
       <div>
         <h2 class="site-footer__title">Secteurs</h2>
         <ul>{sectors.map((s) => <li><a href={`/secteurs/${s.slug}`}>{s.title}</a></li>)}</ul>
-        <h2 class="site-footer__title">Outils</h2>
+        <h2 class="site-footer__title">Ressources</h2>
         <ul>
+          <li><a href="/conseils">Conseils et guides</a></li>
           <li><a href="/outils/configurateur-salle">Configurateur de salle</a></li>
           <li><a href="/outils/convertisseur-taille-ecran">Convertisseur de taille d’écran</a></li>
         </ul>

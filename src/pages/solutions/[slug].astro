@@ -10,6 +10,7 @@ import CtaBand from '../../components/CtaBand.astro';
 import SignageBand from '../../components/SignageBand.astro';
 import Photo from '../../components/Photo.astro';
 import Icon from '../../components/Icon.astro';
+import ConseilCards from '../../components/ConseilCards.astro';
 import { solutions, type Solution } from '../../data/site';
 
 export function getStaticPaths() {
@@ -75,6 +76,8 @@ const showsTool = s.slug === 'salles-de-reunion-visioconference' || s.slug === '
   <RefCards ids={s.refIds} title="Ils nous ont fait confiance." soft />
 
   <Faq items={s.faq} />
+
+  <ConseilCards solution={s.slug} />
 
   <section class="section section--soft section--tight">
     <div class="container">
