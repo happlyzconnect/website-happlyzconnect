@@ -43,6 +43,13 @@
    "description": "Remplacement d'un mur d'images 2x2 (4 écrans ViewSonic 55\") au Musée numérique : pose, chaînage des écrans, raccordement du PC de diffusion et de la sonorisation existante, câblage entièrement masqué."
   },
   {
+   "id": 63,
+   "client": "Préfecture de Police - Laboratoire central (75)",
+   "image": "prefecture-police-lcpp",
+   "category": "salle-reunion",
+   "description": "Équipement d'une salle de réunion : écran 86\" sur poteau au sol et écran 65\" sur support réalisé sur mesure, distribution HDMI, raccordement de la barre de visioconférence et des micros."
+  },
+  {
    "id": 41,
    "client": "Lycée Saint-Vincent-de-Paul - Loos (59)",
    "image": "lycee-saint-vincent-de-paul",
