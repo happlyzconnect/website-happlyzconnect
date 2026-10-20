@@ -9,7 +9,7 @@ const icon = category === 'salle-classe' ? 'graduation' : category === 'affichag
 {image ? (
   <div class="card__media"><Photo name={image} folder="refs" alt={`Réalisation HAPPLYZ Connect — ${client}`} /></div>
 ) : (
-  <div class="card__media ref-ph" aria-hidden="true"><Icon name={icon} /><span>{client.split(' — ')[0]}</span></div>
+  <div class="card__media ref-ph" aria-hidden="true"><Icon name={icon} /><span>{client.split(' - ')[0].replace(/ \(\d+\)$/, '')}</span></div>
 )}
 <style>
   .ref-ph { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, var(--navy) 0%, #1d3a6b 100%); color: #fff; }
