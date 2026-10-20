@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://www.happlyzconnect.com/sitemap-index.xml
