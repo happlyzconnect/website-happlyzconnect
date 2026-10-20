@@ -1,0 +1,197 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import RefMedia from '../components/RefMedia.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import ConseilCards from '../components/ConseilCards.astro';
+import { company } from '../data/site';
+import data from '../data/references.json';
+
+const crumbs = [{ label: 'Marchés publics et établissements scolaires', href: '/marches-publics' }];
+
+// Références publiques et éducation : sélection avec photos, puis liste complète.
+const featuredIds = [63, 34, 41, 49, 40, 39];
+const featured = featuredIds.map((id) => data.refs.find((r) => r.id === id)!).filter(Boolean);
+const publicIds = [63, 34, 18, 49, 50, 21, 19, 20, 41, 39, 22, 48, 33, 36, 40, 53, 54, 61];
+const publicList = publicIds.map((id) => data.refs.find((r) => r.id === id)!).filter(Boolean);
+const logoNames = ['ministere-de-l-education-nationale', 'ministere-interieur', 'ministere-des-armees', 'ap-hp', 'universite-de-toulon', 'crous-nice-toulon', 'polytech'];
+const logos = logoNames.map((l) => data.clients.find((c) => c.logo === l)!).filter(Boolean);
+
+const engagements = [
+  { icon: 'file', title: 'Réponse aux consultations', text: 'MAPA et appels d’offres : mémoire technique, bordereau de prix, références et pièces administratives, dans les délais de la consultation.' },
+  { icon: 'eye', title: 'Visite avant l’offre', text: 'Nous nous déplaçons pour les visites de site, obligatoires ou conseillées, afin de chiffrer au plus juste et sans mauvaise surprise.' },
+  { icon: 'clock', title: 'Hors temps scolaire', text: 'Installations planifiées pendant les vacances scolaires, les mercredis après-midi ou en dehors des heures d’ouverture au public.' },
+  { icon: 'shield', title: 'Sites sensibles et occupés', text: 'Hôpitaux, administrations, établissements recevant du public : nous respectons vos procédures d’accès et de sécurité.' },
+  { icon: 'users', title: 'Formation des équipes', text: 'Prise en main par les enseignants, agents et utilisateurs, avec une documentation simple laissée sur place.' },
+  { icon: 'check', title: 'Réception et suivi', text: 'Procès-verbal de réception pour chaque intervention, garantie constructeur gérée et maintenance possible sur plusieurs années.' },
+];
+
+const domaines = [
+  { photo: 'classe-ecran', title: 'Écrans numériques interactifs', text: 'Équipement des salles de classe et de formation : écrans muraux ou mobiles, connectique, logiciels et formation.', href: '/solutions/ecrans-tactiles-interactifs' },
+  { photo: 'classe-projection', title: 'Vidéoprojection', text: 'Vidéoprojecteurs courte focale et interactifs, enceintes, tableaux blancs, amphithéâtres.', href: '/solutions/videoprojection' },
+  { photo: 'salle-enceintes', title: 'Sonorisation et alertes', text: 'Sonorisation des salles et des espaces, diffusion d’annonces et de signaux d’alerte, notamment dans le cadre du PPMS.', href: '/solutions/sonorisation' },
+  { photo: 'salle-shell', title: 'Salles de réunion et visioconférence', text: 'Salles de réunion des administrations, hôpitaux et rectorats : écrans, visio, partage sans fil.', href: '/solutions/salles-de-reunion-visioconference' },
+  { photo: 'hall-ecran', title: 'Affichage dynamique', text: 'Écrans d’information dans les halls, médiathèques, mairies et établissements scolaires.', href: '/solutions/affichage-dynamique' },
+];
+
+const steps = [
+  { t: 'Consultation', d: 'Vous publiez votre consultation ou nous la transmettez. Nous l’étudions et organisons la visite de site si nécessaire.' },
+  { t: 'Offre', d: 'Nous remettons une offre conforme au cahier des charges : solution technique, prix détaillés, planning et références.' },
+  { t: 'Planification', d: 'Après notification, nous fixons ensemble les dates d’intervention, de préférence hors temps scolaire.' },
+  { t: 'Installation et réception', d: 'Pose, câblage, configuration, tests et formation, puis signature du procès-verbal de réception.' },
+  { t: 'Suivi', d: 'Garantie, assistance et maintenance : un interlocuteur unique pendant toute la durée de vie des équipements.' },
+];
+
+const faq = [
+  { q: 'Répondez-vous aux marchés à procédure adaptée (MAPA) ?', a: 'Oui. Nous répondons aux MAPA comme aux appels d’offres, pour des établissements scolaires, des collectivités et des établissements publics. Nous déposons nos offres sur les plateformes de dématérialisation des marchés publics.' },
+  { q: 'Pouvez-vous intervenir pendant les vacances scolaires ?', a: 'Oui, c’est même ce que nous recommandons pour les établissements scolaires : les salles sont libres et l’équipement est prêt pour la rentrée. Nous pouvons aussi intervenir les mercredis après-midi ou en soirée.' },
+  { q: 'Fournissez-vous les pièces administratives demandées ?', a: 'Oui : formulaires de candidature, attestations sociales et fiscales, attestation d’assurance, extrait Kbis, références de prestations similaires. Elles sont jointes à chaque offre.' },
+  { q: 'Comment se passe la facturation ?', a: 'Les factures adressées aux entités publiques sont déposées sur Chorus Pro, avec les références du bon de commande ou du marché.' },
+  { q: 'Intervenez-vous en dehors de l’Île-de-France ?', a: 'Oui. Nous avons équipé des établissements à Perpignan, Nice, Toulon, Draguignan, Hagetmau ou Neufchâtel-en-Bray. Les interventions en région sont planifiées avec vous.' },
+];
+
+const site = Astro.site!.toString().replace(/\/$/, '');
+const service = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Équipement audiovisuel des établissements scolaires et des acheteurs publics',
+  serviceType: 'Intégration audiovisuelle',
+  provider: { '@id': `${site}/#organisation` },
+  areaServed: { '@type': 'Country', name: 'France' },
+  audience: { '@type': 'Audience', audienceType: 'Établissements scolaires, collectivités, administrations et établissements publics' },
+};
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Base
+  title="Marchés publics et établissements scolaires"
+  description="Intégrateur audiovisuel des acheteurs publics : écrans interactifs, vidéoprojection, sonorisation, visio. MAPA et appels d’offres, pose en vacances."
+  breadcrumbs={crumbs}
+  schema={[service, faqSchema]}
+>
+  <Hero
+    photo="classe-tbi"
+    photoAlt="Salle de classe équipée d’un vidéoprojecteur interactif"
+    breadcrumbs={crumbs}
+    eyebrow="Acheteurs publics"
+    title="Marchés publics et établissements scolaires"
+    text="Collèges, lycées, universités, hôpitaux, administrations et collectivités : nous répondons à vos consultations et équipons vos salles, en respectant vos procédures et votre calendrier."
+    primary={{ label: 'Nous transmettre une consultation', href: '/contact?demande=devis' }}
+    secondary={{ label: 'Nos références publiques', href: '#references' }}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">Nos engagements</span><h2>Un partenaire qui connaît les règles de l’achat public.</h2></div>
+        <p>De la réponse à la consultation jusqu’à la maintenance, nous nous adaptons aux contraintes des établissements publics : procédures, calendrier scolaire, sécurité des sites.</p>
+      </div>
+      <div class="grid grid-3">
+        {engagements.map((e) => (
+          <div class="card card--plain reveal"><Icon name={e.icon} class="card__icon" /><h3>{e.title}</h3><p>{e.text}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head reveal"><div><span class="eyebrow">Nos domaines</span><h2>Ce que nous installons pour les établissements publics.</h2></div></div>
+      <div class="grid grid-3 mp-dom">
+        {domaines.map((d) => (
+          <a href={d.href} class="card card--link reveal">
+            <div class="card__media"><Photo name={d.photo} alt={d.title} sizes="(max-width: 640px) 100vw, 400px" /></div>
+            <div class="card__body"><h3>{d.title}</h3><p>{d.text}</p><span class="mp-more">En savoir plus <Icon name="arrow" /></span></div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal"><div><span class="eyebrow">Notre méthode</span><h2>Du dépôt de l’offre à la réception.</h2></div></div>
+      <ol class="mp-steps">
+        {steps.map((s, i) => (
+          <li class="reveal"><span class="mp-steps__n">{i + 1}</span><h3>{s.t}</h3><p>{s.d}</p></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--soft" id="references">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">Références publiques</span><h2>Ils nous ont confié leurs équipements.</h2></div>
+        <p>Ministères, hôpitaux de l’AP-HP, Préfecture de Police, universités, Crous, collèges, lycées et collectivités.</p>
+      </div>
+      <ul class="mp-logos reveal">
+        {logos.map((c) => <li title={c.name}><Photo name={c.logo} folder="logos" alt={c.name} widths={[240]} sizes="130px" format="png" /></li>)}
+      </ul>
+      <div class="grid grid-3">
+        {featured.map((r) => (
+          <article class="card reveal">
+            <RefMedia image={r.image} client={r.client} category={r.category} />
+            <div class="card__body"><h3 class="mp-ref">{r.client}</h3><p>{r.description}</p></div>
+          </article>
+        ))}
+      </div>
+      <h3 class="mp-all-title">Toutes nos références auprès d’établissements publics et scolaires</h3>
+      <ul class="mp-all">
+        {publicList.map((r) => <li><Icon name="check" />{r.client}</li>)}
+      </ul>
+      <p class="mp-link"><a href="/references" class="mp-more">Voir toutes nos références <Icon name="arrow" /></a></p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container mp-contact reveal">
+      <div>
+        <span class="eyebrow">Une consultation en cours ?</span>
+        <h2>Transmettez-nous votre dossier de consultation.</h2>
+        <p>Envoyez-nous le lien de la consultation ou le règlement et le cahier des charges : nous vous confirmons rapidement notre réponse et organisons la visite si besoin.</p>
+      </div>
+      <div class="mp-contact__actions">
+        <a href="/contact?demande=devis" class="btn btn--primary">Nous contacter <Icon name="arrow" /></a>
+        <a href={`mailto:${company.email}?subject=Consultation%20march%C3%A9%20public`} class="btn btn--outline"><Icon name="mail" /> {company.email}</a>
+        <a href={`tel:${company.phoneIntl}`} class="btn btn--outline"><Icon name="phone" /> {company.phone}</a>
+      </div>
+    </div>
+  </section>
+
+  <Faq items={faq} />
+
+  <ConseilCards solution="ecrans-tactiles-interactifs" title="Nos conseils pour équiper vos salles." soft />
+
+  <CtaBand eyebrow="Établissements publics" title="Préparons ensemble votre projet." label="Demander un devis" photo="classe-projection" />
+</Base>
+
+<style>
+  .card__body p { color: var(--muted); margin: 0; font-size: 0.95rem; }
+  .mp-more { display: inline-flex; align-items: center; gap: 6px; color: var(--link); font-weight: 700; font-size: 0.92rem; margin-top: auto; padding-top: 6px; }
+  .mp-more :global(svg) { width: 15px; height: 15px; }
+  .mp-steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: 18px; }
+  .mp-steps li { position: relative; padding: 22px 20px; border: 1px solid var(--border); border-radius: var(--radius); background: #fff; }
+  .mp-steps__n { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--navy); color: #fff; font-weight: 750; margin-bottom: 12px; }
+  .mp-steps h3 { font-size: 1.02rem; margin-bottom: 6px; }
+  .mp-steps p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+  .mp-logos { list-style: none; margin: 0 0 36px; padding: 0; display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: center; justify-content: center; }
+  .mp-logos li { width: 120px; height: 60px; display: flex; align-items: center; justify-content: center; }
+  .mp-logos :global(img) { max-width: 120px; max-height: 60px; width: auto; height: auto; object-fit: contain; filter: grayscale(1); opacity: 0.8; }
+  .mp-ref { font-size: 1rem; }
+  .mp-all-title { margin: 44px 0 16px; font-size: 1.1rem; }
+  .mp-all { list-style: none; margin: 0; padding: 0; columns: 3 280px; column-gap: 32px; }
+  .mp-all li { display: flex; gap: 8px; align-items: flex-start; break-inside: avoid; padding: 5px 0; font-size: 0.93rem; color: #334260; }
+  .mp-all :global(svg) { width: 16px; height: 16px; color: var(--link); flex: none; margin-top: 3px; }
+  .mp-link { margin: 22px 0 0; }
+  .mp-contact { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; background: var(--navy); color: #fff; border-radius: var(--radius); padding: 40px; }
+  .mp-contact h2 { color: #fff; font-size: clamp(1.4rem, 2.4vw, 1.9rem); margin: 6px 0 10px; }
+  .mp-contact p { color: rgba(255, 255, 255, 0.82); margin: 0; }
+  .mp-contact__actions { display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+  .mp-contact .btn--outline { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.6); }
+  @media (max-width: 1100px) { .mp-steps { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 900px) { .mp-contact { grid-template-columns: 1fr; padding: 28px; } }
+  @media (max-width: 640px) { .mp-steps { grid-template-columns: 1fr; } }
+</style>

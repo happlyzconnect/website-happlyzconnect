@@ -20,7 +20,7 @@ const year = new Date().getFullYear();
       </div>
       <div>
         <h2 class="site-footer__title">Secteurs</h2>
-        <ul>{sectors.map((s) => <li><a href={`/secteurs/${s.slug}`}>{s.title}</a></li>)}</ul>
+        <ul>{sectors.map((s) => <li><a href={`/secteurs/${s.slug}`}>{s.title}</a></li>)}<li><a href="/marches-publics">Marchés publics</a></li></ul>
         <h2 class="site-footer__title">Ressources</h2>
         <ul>
           <li><a href="/conseils">Conseils et guides</a></li>

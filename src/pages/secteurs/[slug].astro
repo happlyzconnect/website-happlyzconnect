@@ -51,6 +51,17 @@ const crumbs = [{ label: 'Secteurs', href: `/secteurs/${sectors[0].slug}` }, { l
 
   <BuildRun eyebrow="Un accompagnement complet" title={s.accompTitle} build={s.build} run={s.run} soft={s.slug !== 'retail'} />
 
+  {s.slug === 'education' && (
+    <section class="section section--tight">
+      <div class="container">
+        <a href="/marches-publics" class="mp-band reveal">
+          <div><span class="eyebrow">Acheteurs publics</span><h2>Une consultation ou un marché public ?</h2><p>MAPA, appels d’offres, visite de site, installation pendant les vacances scolaires : découvrez notre accompagnement des établissements publics.</p></div>
+          <span class="btn btn--primary btn--sm">Marchés publics et établissements scolaires <Icon name="arrow" /></span>
+        </a>
+      </div>
+    </section>
+  )}
+
   <div id="realisations">
     <RefCards ids={s.refIds} title={s.refTitle} soft={s.slug === 'retail'} />
   </div>
@@ -59,6 +70,11 @@ const crumbs = [{ label: 'Secteurs', href: `/secteurs/${sectors[0].slug}` }, { l
 </Base>
 
 <style>
+  .mp-band { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; padding: 28px 32px; border-radius: var(--radius); background: var(--orange-soft); border: 1px solid #f6dfae; }
+  .mp-band h2 { font-size: clamp(1.3rem, 2.2vw, 1.7rem); margin: 6px 0 8px; }
+  .mp-band p { margin: 0; color: var(--muted); max-width: 640px; }
+  .mp-band .btn { white-space: normal; max-width: 100%; }
+  @media (max-width: 640px) { .mp-band { padding: 22px; } }
   .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; counter-reset: s; }
   @media (max-width: 900px) { .steps { grid-template-columns: 1fr; } }
 </style>

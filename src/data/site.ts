@@ -394,7 +394,7 @@ export const stats = [
 export const nav = [
   { label: 'Accueil', href: '/' },
   { label: 'Nos solutions', href: '/solutions/salles-de-reunion-visioconference', children: solutions.map((s) => ({ label: s.menuTitle, href: `/solutions/${s.slug}` })) },
-  { label: 'Secteurs', href: '/secteurs/corporate', children: sectors.map((s) => ({ label: s.title, href: `/secteurs/${s.slug}` })) },
+  { label: 'Secteurs', href: '/secteurs/corporate', children: [...sectors.map((s) => ({ label: s.title, href: `/secteurs/${s.slug}` })), { label: 'Marchés publics', href: '/marches-publics' }] },
   { label: 'Nos services', href: '/services' },
   {
     label: 'Ressources',
