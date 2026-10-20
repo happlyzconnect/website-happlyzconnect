@@ -43,6 +43,160 @@
    "description": "Remplacement d'un mur d'images 2x2 (4 écrans ViewSonic 55\") au Musée numérique : pose, chaînage des écrans, raccordement du PC de diffusion et de la sonorisation existante, câblage entièrement masqué."
   },
   {
+   "id": 41,
+   "client": "Lycée Saint-Vincent-de-Paul — Loos",
+   "image": "lycee-saint-vincent-de-paul",
+   "category": "salle-classe",
+   "description": "Pose d'un écran interactif Samsung Flip 85\" sur support mural en salle de classe, alimentation sous goulotte, configuration et mise en service."
+  },
+  {
+   "id": 42,
+   "client": "We Prom — 4 sites (Montpellier, Bourg-en-Bresse, Hoerdt, La Fouillouse)",
+   "image": "we-prom-montpellier",
+   "category": "salle-reunion",
+   "description": "Déploiement multisite d'écrans interactifs iiyama : 55\" muraux sur trois sites et 86\" sur support mobile à La Fouillouse."
+  },
+  {
+   "id": 43,
+   "client": "Papillons Blancs du Cambrésis — Cambrai",
+   "image": "papillons-blancs-cambrai",
+   "category": "salle-reunion",
+   "description": "Écran interactif iiyama 98\" sur support mural renforcé avec barre de visio Yealink au siège, puis deux écrans 75\" mobiles équipés pour la visio dans deux établissements."
+  },
+  {
+   "id": 44,
+   "client": "Bioline AgroSciences — Paris",
+   "image": "bioline-paris",
+   "category": "salle-reunion",
+   "description": "Équipement de deux espaces de visioconférence : écrans LG OLED 55\" et barres Logitech MeetUp, dont un sur support mobile."
+  },
+  {
+   "id": 45,
+   "client": "La Rosée — Lyon",
+   "image": null,
+   "category": "salle-reunion",
+   "description": "Salle de réunion équipée d'un écran Samsung Flip 75\" sur pied électrique, d'une barre de visio Yealink et de sa tablette de contrôle."
+  },
+  {
+   "id": 46,
+   "client": "Gallin (groupe Desautel) — Montluel",
+   "image": null,
+   "category": "salle-reunion",
+   "description": "Écran interactif Newline 65\" sur support mobile avec PC et visioconférence, puis maintenance : Teams, Google Meet, calibration de la caméra et formation."
+  },
+  {
+   "id": 47,
+   "client": "Unisson — Paris",
+   "image": "unisson-paris",
+   "category": "affichage-dynamique",
+   "description": "Écran iiyama 55\" en mode portrait dans la vitrine d'un centre auditif, avec diffusion de vidéos en boucle."
+  },
+  {
+   "id": 48,
+   "client": "Crous Nice-Toulon — Nice",
+   "image": null,
+   "category": "salle-classe",
+   "description": "Installation et remise en service d'un vidéoprojecteur au plafond."
+  },
+  {
+   "id": 49,
+   "client": "Lycée Pablo Picasso — Perpignan",
+   "image": "lycee-pablo-picasso-perpignan",
+   "category": "salle-classe",
+   "description": "Vidéoprojecteur interactif Epson EB-685Wi, deux enceintes et boîtier de commande en salle de classe, réception sans réserves."
+  },
+  {
+   "id": 50,
+   "client": "Collège Pierre Brossolette — Brionne",
+   "image": "college-pierre-brossolette-brionne",
+   "category": "salle-classe",
+   "description": "Remplacement d'un ancien écran par un vidéoprojecteur interactif sur tableau, raccordement du PC et configuration du tactile."
+  },
+  {
+   "id": 51,
+   "client": "In'li (groupe Action Logement) — Bordeaux",
+   "image": "inli-bordeaux",
+   "category": "salle-reunion",
+   "description": "Écran interactif Samsung Flip 55\" sur support mural avec caméra de visio, câblage sous goulotte et formation des utilisateurs."
+  },
+  {
+   "id": 52,
+   "client": "NAFASI — La Mézière",
+   "image": "nafasi",
+   "category": "salle-reunion",
+   "description": "Deux écrans interactifs Newline 65\" et un Newline 86\" sur supports muraux orientables, avec formation."
+  },
+  {
+   "id": 53,
+   "client": "Musée Jean et Denis Letaille — Bullecourt",
+   "image": "musee-letaille-bullecourt",
+   "category": "affichage-dynamique",
+   "description": "Remplacement de deux vidéoprojecteurs laser Epson pour les projections muséographiques, installés en hauteur."
+  },
+  {
+   "id": 54,
+   "client": "Mairie de Saint-Béron",
+   "image": "mairie-saint-beron",
+   "category": "salle-reunion",
+   "description": "Remplacement du vidéoprojecteur de la salle municipale."
+  },
+  {
+   "id": 55,
+   "client": "SISE — Corbeny",
+   "image": "sise-corbeny",
+   "category": "salle-classe",
+   "description": "Salle de formation : tableau blanc, vidéoprojecteur courte focale, prise électrique dédiée et prise HDMI murale."
+  },
+  {
+   "id": 56,
+   "client": "Cabinet De Baecque Bellec — Paris",
+   "image": "cabinet-de-baecque-bellec",
+   "category": "salle-reunion",
+   "description": "Salle de visioconférence : écran Samsung 43\" mural, Logitech MeetUp avec micro d'extension et prises encastrées."
+  },
+  {
+   "id": 57,
+   "client": "Le Creuset d'Art — Beauchamp",
+   "image": "creuset-d-art-beauchamp",
+   "category": "salle-reunion",
+   "description": "Écran LG 65\" sur chariot mobile, mini-PC et caméra pour une salle Teams."
+  },
+  {
+   "id": 58,
+   "client": "Greffe du Tribunal de commerce — Roanne",
+   "image": null,
+   "category": "salle-reunion",
+   "description": "Salle de visioconférence : écran 55\" mural, Logitech MeetUp, PC dédié et câblage sous goulotte."
+  },
+  {
+   "id": 59,
+   "client": "Forankra — Mions",
+   "image": null,
+   "category": "salle-reunion",
+   "description": "Deux salles Microsoft Teams Rooms : barres Yealink MeetingBar A25, tablettes de contrôle et dongles de partage sans fil."
+  },
+  {
+   "id": 60,
+   "client": "SEMOP — Port-la-Nouvelle",
+   "image": null,
+   "category": "salle-reunion",
+   "description": "Écran tactile iiyama 86\" sur support mobile, barre de visio Yealink, deux micros sans fil et partage d'écran sans fil."
+  },
+  {
+   "id": 61,
+   "client": "École élémentaire d'Hagetmau",
+   "image": null,
+   "category": "salle-classe",
+   "description": "Maintenance de 11 vidéoprojecteurs interactifs Epson en salles de classe : filtres, calibrage et interactivité."
+  },
+  {
+   "id": 62,
+   "client": "Bibliothèque d'Hermonville",
+   "image": null,
+   "category": "affichage-dynamique",
+   "description": "Écran interactif ViewSonic 65\" : diffusion depuis tablettes, diaporama d'accueil et formation des équipes."
+  },
+  {
    "id": 39,
    "client": "Polytech Nice Sophia — Biot",
    "image": "polytech-nice",
@@ -301,9 +455,19 @@
    "url": "https://www.comexposium.com/"
   },
   {
+   "name": "Crous Nice-Toulon",
+   "logo": "crous-nice-toulon",
+   "url": null
+  },
+  {
    "name": "Decathlon",
    "logo": "decathlon",
    "url": "https://www.decathlon.fr/"
+  },
+  {
+   "name": "Gallin (groupe Desautel)",
+   "logo": "gallin",
+   "url": null
   },
   {
    "name": "Géant Casino",
@@ -314,6 +478,11 @@
    "name": "IPSA",
    "logo": "ipsa",
    "url": "https://www.ipsa.fr/"
+  },
+  {
+   "name": "La Rosée",
+   "logo": "la-rosee",
+   "url": null
   },
   {
    "name": "LDLC Pro",
@@ -381,9 +550,19 @@
    "url": "https://www.snipes.com/fr-fr"
   },
   {
+   "name": "Unisson",
+   "logo": "unisson",
+   "url": null
+  },
+  {
    "name": "Université de Toulon",
    "logo": "universite-de-toulon",
    "url": "https://www.univ-tln.fr/"
+  },
+  {
+   "name": "We Prom",
+   "logo": "we-prom",
+   "url": null
   },
   {
    "name": "Winter Mushroom",
