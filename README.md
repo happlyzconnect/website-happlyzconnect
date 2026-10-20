@@ -23,4 +23,4 @@ npm run build     # génère le site dans dist/ (à mettre en ligne)
 ## Mise en ligne
 
 Le contenu de `dist/` se dépose sur n'importe quel hébergement statique.
-Les redirections des anciennes URLs sont fournies pour Apache/OVH (`public/.htaccess`) et Netlify/Cloudflare (`public/_redirects`), en plus des pages de redirection générées par Astro.
+Hébergement Netlify : la configuration est dans `netlify.toml`, les redirections 301 des anciennes URLs dans `public/_redirects`.

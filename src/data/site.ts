@@ -12,7 +12,7 @@ export const company = {
   phoneIntl: '+33185390167',
   mobile: '06 37 60 92 57',
   email: 'contact@happlyz.com',
-  linkedin: 'https://www.linkedin.com/company/happlyz-connect/',
+  linkedin: 'https://www.linkedin.com/company/happlyzconnect',
   siren: '823 127 154',
 };
 

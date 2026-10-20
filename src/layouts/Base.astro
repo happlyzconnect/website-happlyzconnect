@@ -14,7 +14,8 @@ interface Props {
 }
 const { title, description, breadcrumbs, ogImage = '/og-image.png', noindex = false, schema = [] } = Astro.props;
 const site = Astro.site!.toString().replace(/\/$/, '');
-const canonical = site + (Astro.url.pathname.replace(/\/$/, '') || '/');
+const cleanPath = Astro.url.pathname.replace(/(\/index)?\.html$/, '').replace(/\/$/, '') || '/';
+const canonical = site + cleanPath;
 const fullTitle = title.includes('HAPPLYZ') ? title : `${title} | HAPPLYZ Connect`;
 
 const org = {

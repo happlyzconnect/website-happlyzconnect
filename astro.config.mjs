@@ -19,7 +19,7 @@ const redirects = {
 export default defineConfig({
   site: 'https://www.happlyzconnect.com',
   trailingSlash: 'never',
-  build: { format: 'directory' },
+  build: { format: 'file' },
   redirects,
   integrations: [
     sitemap({
