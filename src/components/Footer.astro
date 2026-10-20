@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import logo from '../assets/logo-navy.png';
 import Icon from './Icon.astro';
 import { company, solutions, sectors } from '../data/site';
+import { zones } from '../data/zones';
 const year = new Date().getFullYear();
 ---
 <footer class="site-footer">
@@ -34,6 +35,11 @@ const year = new Date().getFullYear();
           <li><Icon name="phone" /><a href={`tel:${company.phoneIntl}`}>{company.phone}</a></li>
           <li><Icon name="mail" /><a href={`mailto:${company.email}`}>{company.email}</a></li>
           <li><Icon name="linkedin" /><a href={company.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+        <h2 class="site-footer__title">Zones d’intervention</h2>
+        <ul>
+          {zones.filter((z) => z.idf).map((z) => <li><a href={`/intervention/${z.slug}`}>{z.name}</a></li>)}
+          <li><a href="/intervention">Toute la France</a></li>
         </ul>
         <a href="/happlyz-signage" class="site-footer__signage">HAPPLYZ Signage <Icon name="arrow" /></a>
       </div>

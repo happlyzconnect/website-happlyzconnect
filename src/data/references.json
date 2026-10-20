@@ -5,427 +5,611 @@
    "client": "AP-HP - Hôpitaux Lariboisière, Saint-Louis et Pitié-Salpêtrière (75)",
    "image": "aphp-lariboisiere",
    "category": "salle-reunion",
-   "description": "Équipement de salles de réunion et de visioconférence (écrans interactifs de 55 à 86 pouces sur support mural ou mobile, caméras et barres de visioconférence) et installation d'écrans d'information dans les services, avec câblage réseau."
+   "description": "Équipement de salles de réunion et de visioconférence (écrans interactifs de 55 à 86 pouces sur support mural ou mobile, caméras et barres de visioconférence) et installation d'écrans d'information dans les services, avec câblage réseau.",
+   "depts": [
+    "75"
+   ]
   },
   {
    "id": 35,
    "client": "CNR - Villeneuve-lès-Avignon (30)",
    "image": "cnr",
    "category": "salle-reunion",
-   "description": "Salle de visioconférence : écran interactif 86 pouces avec PC intégré, système de partage sans fil ClickShare CX-30, caméra PTZ et barre audio Nureva, complétés par trois écrans supplémentaires."
+   "description": "Salle de visioconférence : écran interactif 86 pouces avec PC intégré, système de partage sans fil ClickShare CX-30, caméra PTZ et barre audio Nureva, complétés par trois écrans supplémentaires.",
+   "depts": [
+    "30"
+   ]
   },
   {
    "id": 36,
    "client": "IPSA - Campus d'Ivry-sur-Seine (94)",
    "image": null,
    "category": "salle-classe",
-   "description": "Installation de vidéoprojecteurs dans 9 salles de cours, dont 2 en double projection, et sonorisation de 2 salles, avec procès-verbaux de réception."
+   "description": "Installation de vidéoprojecteurs dans 9 salles de cours, dont 2 en double projection, et sonorisation de 2 salles, avec procès-verbaux de réception.",
+   "depts": [
+    "94"
+   ]
   },
   {
    "id": 37,
    "client": "NHCO (groupe Chiesi) - Nice (06)",
    "image": null,
    "category": "salle-reunion",
-   "description": "Modernisation de la salle Matisse et d'un bureau : retrait de l'ancien système de contrôle et installation de systèmes de partage sans fil ClickShare CX-30 Gen2."
+   "description": "Modernisation de la salle Matisse et d'un bureau : retrait de l'ancien système de contrôle et installation de systèmes de partage sans fil ClickShare CX-30 Gen2.",
+   "depts": [
+    "06"
+   ]
   },
   {
    "id": 38,
    "client": "Maisons de famille - Lézignan-Corbières (11)",
    "image": "maisons-de-famille",
    "category": "affichage-dynamique",
-   "description": "Fourniture et installation de 53 téléviseurs 32 pouces sur supports muraux, configurés en mode hôtel dans les chambres de l'établissement."
+   "description": "Fourniture et installation de 53 téléviseurs 32 pouces sur supports muraux, configurés en mode hôtel dans les chambres de l'établissement.",
+   "depts": [
+    "11"
+   ]
   },
   {
    "id": 40,
    "client": "Médiathèque Elsa Triolet - Bobigny (93)",
    "image": "mediatheque-bobigny",
    "category": "affichage-dynamique",
-   "description": "Remplacement d'un mur d'images 2x2 (4 écrans ViewSonic 55\") au Musée numérique : pose, chaînage des écrans, raccordement du PC de diffusion et de la sonorisation existante, câblage entièrement masqué."
+   "description": "Remplacement d'un mur d'images 2x2 (4 écrans ViewSonic 55\") au Musée numérique : pose, chaînage des écrans, raccordement du PC de diffusion et de la sonorisation existante, câblage entièrement masqué.",
+   "depts": [
+    "93"
+   ]
   },
   {
    "id": 63,
    "client": "Préfecture de Police - Laboratoire central (75)",
    "image": "prefecture-police-lcpp",
    "category": "salle-reunion",
-   "description": "Équipement d'une salle de réunion : écran 86\" sur poteau au sol et écran 65\" sur support réalisé sur mesure, distribution HDMI, raccordement de la barre de visioconférence et des micros."
+   "description": "Équipement d'une salle de réunion : écran 86\" sur poteau au sol et écran 65\" sur support réalisé sur mesure, distribution HDMI, raccordement de la barre de visioconférence et des micros.",
+   "depts": [
+    "75"
+   ]
   },
   {
    "id": 41,
    "client": "Lycée Saint-Vincent-de-Paul - Loos (59)",
    "image": "lycee-saint-vincent-de-paul",
    "category": "salle-classe",
-   "description": "Pose d'un écran interactif Samsung Flip 85\" sur support mural en salle de classe, alimentation sous goulotte, configuration et mise en service."
+   "description": "Pose d'un écran interactif Samsung Flip 85\" sur support mural en salle de classe, alimentation sous goulotte, configuration et mise en service.",
+   "depts": [
+    "59"
+   ]
   },
   {
    "id": 42,
    "client": "We Prom - 4 sites : Montpellier (34), Bourg-en-Bresse (01), Hoerdt (67), La Fouillouse (42)",
    "image": "we-prom-montpellier",
    "category": "salle-reunion",
-   "description": "Déploiement multisite d'écrans interactifs iiyama : 55\" muraux sur trois sites et 86\" sur support mobile à La Fouillouse."
+   "description": "Déploiement multisite d'écrans interactifs iiyama : 55\" muraux sur trois sites et 86\" sur support mobile à La Fouillouse.",
+   "depts": [
+    "34",
+    "01",
+    "67",
+    "42"
+   ]
   },
   {
    "id": 43,
    "client": "Papillons Blancs du Cambrésis - Cambrai (59)",
    "image": "papillons-blancs-cambrai",
    "category": "salle-reunion",
-   "description": "Écran interactif iiyama 98\" sur support mural renforcé avec barre de visio Yealink au siège, puis deux écrans 75\" mobiles équipés pour la visio dans deux établissements."
+   "description": "Écran interactif iiyama 98\" sur support mural renforcé avec barre de visio Yealink au siège, puis deux écrans 75\" mobiles équipés pour la visio dans deux établissements.",
+   "depts": [
+    "59"
+   ]
   },
   {
    "id": 44,
    "client": "Bioline AgroSciences - Paris (75)",
    "image": "bioline-paris",
    "category": "salle-reunion",
-   "description": "Équipement de deux espaces de visioconférence : écrans LG OLED 55\" et barres Logitech MeetUp, dont un sur support mobile."
+   "description": "Équipement de deux espaces de visioconférence : écrans LG OLED 55\" et barres Logitech MeetUp, dont un sur support mobile.",
+   "depts": [
+    "75"
+   ]
   },
   {
    "id": 45,
    "client": "La Rosée - Lyon (69)",
    "image": null,
    "category": "salle-reunion",
-   "description": "Salle de réunion équipée d'un écran Samsung Flip 75\" sur pied électrique, d'une barre de visio Yealink et de sa tablette de contrôle."
+   "description": "Salle de réunion équipée d'un écran Samsung Flip 75\" sur pied électrique, d'une barre de visio Yealink et de sa tablette de contrôle.",
+   "depts": [
+    "69"
+   ]
   },
   {
    "id": 46,
    "client": "Gallin (groupe Desautel) - Montluel (01)",
    "image": null,
    "category": "salle-reunion",
-   "description": "Écran interactif Newline 65\" sur support mobile avec PC et visioconférence, puis maintenance : Teams, Google Meet, calibration de la caméra et formation."
+   "description": "Écran interactif Newline 65\" sur support mobile avec PC et visioconférence, puis maintenance : Teams, Google Meet, calibration de la caméra et formation.",
+   "depts": [
+    "01"
+   ]
   },
   {
    "id": 47,
    "client": "Unisson - Paris (75)",
    "image": "unisson-paris",
    "category": "affichage-dynamique",
-   "description": "Écran iiyama 55\" en mode portrait dans la vitrine d'un centre auditif, avec diffusion de vidéos en boucle."
+   "description": "Écran iiyama 55\" en mode portrait dans la vitrine d'un centre auditif, avec diffusion de vidéos en boucle.",
+   "depts": [
+    "75"
+   ]
   },
   {
    "id": 48,
    "client": "Crous Nice-Toulon - Nice (06)",
    "image": null,
    "category": "salle-classe",
-   "description": "Installation et remise en service d'un vidéoprojecteur au plafond."
+   "description": "Installation et remise en service d'un vidéoprojecteur au plafond.",
+   "depts": [
+    "06"
+   ]
   },
   {
    "id": 49,
    "client": "Lycée Pablo Picasso - Perpignan (66)",
    "image": "lycee-pablo-picasso-perpignan",
    "category": "salle-classe",
-   "description": "Vidéoprojecteur interactif Epson EB-685Wi, deux enceintes et boîtier de commande en salle de classe, réception sans réserves."
+   "description": "Vidéoprojecteur interactif Epson EB-685Wi, deux enceintes et boîtier de commande en salle de classe, réception sans réserves.",
+   "depts": [
+    "66"
+   ]
   },
   {
    "id": 50,
    "client": "Collège Pierre Brossolette - Brionne (27)",
    "image": "college-pierre-brossolette-brionne",
    "category": "salle-classe",
-   "description": "Remplacement d'un ancien écran par un vidéoprojecteur interactif sur tableau, raccordement du PC et configuration du tactile."
+   "description": "Remplacement d'un ancien écran par un vidéoprojecteur interactif sur tableau, raccordement du PC et configuration du tactile.",
+   "depts": [
+    "27"
+   ]
   },
   {
    "id": 51,
    "client": "In'li (groupe Action Logement) - Bordeaux (33)",
    "image": "inli-bordeaux",
    "category": "salle-reunion",
-   "description": "Écran interactif Samsung Flip 55\" sur support mural avec caméra de visio, câblage sous goulotte et formation des utilisateurs."
+   "description": "Écran interactif Samsung Flip 55\" sur support mural avec caméra de visio, câblage sous goulotte et formation des utilisateurs.",
+   "depts": [
+    "33"
+   ]
   },
   {
    "id": 52,
    "client": "NAFASI - La Mézière (35)",
    "image": "nafasi",
    "category": "salle-reunion",
-   "description": "Deux écrans interactifs Newline 65\" et un Newline 86\" sur supports muraux orientables, avec formation."
+   "description": "Deux écrans interactifs Newline 65\" et un Newline 86\" sur supports muraux orientables, avec formation.",
+   "depts": [
+    "35"
+   ]
   },
   {
    "id": 53,
    "client": "Musée Jean et Denis Letaille - Bullecourt (62)",
    "image": "musee-letaille-bullecourt",
    "category": "affichage-dynamique",
-   "description": "Remplacement de deux vidéoprojecteurs laser Epson pour les projections muséographiques, installés en hauteur."
+   "description": "Remplacement de deux vidéoprojecteurs laser Epson pour les projections muséographiques, installés en hauteur.",
+   "depts": [
+    "62"
+   ]
   },
   {
    "id": 54,
    "client": "Mairie de Saint-Béron (73)",
    "image": "mairie-saint-beron",
    "category": "salle-reunion",
-   "description": "Remplacement du vidéoprojecteur de la salle municipale."
+   "description": "Remplacement du vidéoprojecteur de la salle municipale.",
+   "depts": [
+    "73"
+   ]
   },
   {
    "id": 55,
    "client": "SISE - Corbeny (02)",
    "image": "sise-corbeny",
    "category": "salle-classe",
-   "description": "Salle de formation : tableau blanc, vidéoprojecteur courte focale, prise électrique dédiée et prise HDMI murale."
+   "description": "Salle de formation : tableau blanc, vidéoprojecteur courte focale, prise électrique dédiée et prise HDMI murale.",
+   "depts": [
+    "02"
+   ]
   },
   {
    "id": 56,
    "client": "Cabinet De Baecque Bellec - Paris (75)",
    "image": "cabinet-de-baecque-bellec",
    "category": "salle-reunion",
-   "description": "Salle de visioconférence : écran Samsung 43\" mural, Logitech MeetUp avec micro d'extension et prises encastrées."
+   "description": "Salle de visioconférence : écran Samsung 43\" mural, Logitech MeetUp avec micro d'extension et prises encastrées.",
+   "depts": [
+    "75"
+   ]
   },
   {
    "id": 57,
    "client": "Le Creuset d'Art - Beauchamp (95)",
    "image": "creuset-d-art-beauchamp",
    "category": "salle-reunion",
-   "description": "Écran LG 65\" sur chariot mobile, mini-PC et caméra pour une salle Teams."
+   "description": "Écran LG 65\" sur chariot mobile, mini-PC et caméra pour une salle Teams.",
+   "depts": [
+    "95"
+   ]
   },
   {
    "id": 58,
    "client": "Greffe du Tribunal de commerce - Roanne (42)",
    "image": null,
    "category": "salle-reunion",
-   "description": "Salle de visioconférence : écran 55\" mural, Logitech MeetUp, PC dédié et câblage sous goulotte."
+   "description": "Salle de visioconférence : écran 55\" mural, Logitech MeetUp, PC dédié et câblage sous goulotte.",
+   "depts": [
+    "42"
+   ]
   },
   {
    "id": 59,
    "client": "Forankra - Mions (69)",
    "image": null,
    "category": "salle-reunion",
-   "description": "Deux salles Microsoft Teams Rooms : barres Yealink MeetingBar A25, tablettes de contrôle et dongles de partage sans fil."
+   "description": "Deux salles Microsoft Teams Rooms : barres Yealink MeetingBar A25, tablettes de contrôle et dongles de partage sans fil.",
+   "depts": [
+    "69"
+   ]
   },
   {
    "id": 60,
    "client": "SEMOP - Port-la-Nouvelle (11)",
    "image": null,
    "category": "salle-reunion",
-   "description": "Écran tactile iiyama 86\" sur support mobile, barre de visio Yealink, deux micros sans fil et partage d'écran sans fil."
+   "description": "Écran tactile iiyama 86\" sur support mobile, barre de visio Yealink, deux micros sans fil et partage d'écran sans fil.",
+   "depts": [
+    "11"
+   ]
   },
   {
    "id": 61,
    "client": "École élémentaire d'Hagetmau (40)",
    "image": null,
    "category": "salle-classe",
-   "description": "Maintenance de 11 vidéoprojecteurs interactifs Epson en salles de classe : filtres, calibrage et interactivité."
+   "description": "Maintenance de 11 vidéoprojecteurs interactifs Epson en salles de classe : filtres, calibrage et interactivité.",
+   "depts": [
+    "40"
+   ]
   },
   {
    "id": 39,
    "client": "Polytech Nice Sophia - Biot (06)",
    "image": "polytech-nice",
    "category": "salle-classe",
-   "description": "Installation d'un écran 98 pouces avec système de présentation sans fil ClickShare CX-20."
+   "description": "Installation d'un écran 98 pouces avec système de présentation sans fil ClickShare CX-20.",
+   "depts": [
+    "06"
+   ]
   },
   {
    "id": 33,
    "client": "IPSA - Campus de Lyon (69)",
    "image": "ipsa-lyon",
    "category": "salle-classe",
-   "description": "Installation et mise en service de 14 vidéoprojecteurs courte focale dans les salles de cours du campus lyonnais de l'école d'ingénieurs."
+   "description": "Installation et mise en service de 14 vidéoprojecteurs courte focale dans les salles de cours du campus lyonnais de l'école d'ingénieurs.",
+   "depts": [
+    "69"
+   ]
   },
   {
    "id": 32,
    "client": "SNIPES - réseau de magasins",
    "image": "snipes-reseau",
    "category": "affichage-dynamique",
-   "description": "Maintenance des écrans et dispositifs LED des 40 magasins SNIPES en France, soit l'ensemble du réseau, et remplacement d'écrans 98 pouces."
+   "description": "Maintenance des écrans et dispositifs LED des 40 magasins SNIPES en France, soit l'ensemble du réseau, et remplacement d'écrans 98 pouces.",
+   "depts": []
   },
   {
    "id": 24,
    "client": "CHIESI - Bois-Colombes (92)",
    "image": "chiesi-bois-colombes",
    "description": "Intégration de systèmes BARCO ClickShare CX-50 dans 5 salles de réunion avec interface video, caméra et audio (micros plafond et haut-parleurs)",
-   "category": "salle-reunion"
+   "category": "salle-reunion",
+   "depts": [
+    "92"
+   ]
   },
   {
    "id": 25,
    "client": "SHELL France - Nanterre (92)",
    "image": "shell-france-nanterre",
    "description": "Installation d'un écran 98 pouces avec système Barco ClickShare CX-50, caméra et système audio (micros / haut-parleurs)",
-   "category": "salle-reunion"
+   "category": "salle-reunion",
+   "depts": [
+    "92"
+   ]
   },
   {
    "id": 1,
    "client": "Decathlon Herblay (95)",
    "image": "decathlon-herblay",
    "description": "Installation de 3 écrans 86 pouces pour l'affichage dynamique en magasin, avec diffusion et création de contenus en Motion Design pour promouvoir l'application Decathlon.",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "95"
+   ]
   },
   {
    "id": 26,
    "client": "CHIESI - Blois (41)",
    "image": "chiesi-blois",
    "description": "Intégration de systèmes Barco ClickShare dans plusieurs salles de réunion avec interface vidéo, caméra, et audio (micros plafond et haut-parleurs)",
-   "category": "salle-reunion"
+   "category": "salle-reunion",
+   "depts": [
+    "41"
+   ]
   },
   {
    "id": 27,
    "client": "Decathlon Paris La Madeleine (75)",
    "image": "decathlon-paris-la-madeleine",
    "description": "Installation d'écrans 75 pouces avec système de projection sans fil BenQ InstaShow",
-   "category": "salle-reunion"
+   "category": "salle-reunion",
+   "depts": [
+    "75"
+   ]
   },
   {
    "id": 28,
    "client": "Decathlon CNIT (92)",
    "image": "decathlon-cnit",
    "description": "Installation d'écrans dans plusieurs salles de réunion sur support mural ou support mobile",
-   "category": "salle-reunion"
+   "category": "salle-reunion",
+   "depts": [
+    "92"
+   ]
   },
   {
    "id": 2,
    "client": "Decathlon CNIT (92)",
    "image": "decathlon-cnit-2",
    "description": "Installation de 2 x 2 écrans 75 pouces pour affichage dynamique piloté avec logiciel et adaptation de contenus vidéos, en vitrine donnant sur le centre commercial Westfield CNIT La Défense.",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "92"
+   ]
   },
   {
    "id": 3,
    "client": "Decathlon Poitiers (86)",
    "image": "decathlon-poitiers",
    "description": "Installation d'un écran 75 pouces à l'entrée du magasin avec adaptation du contenu vidéo pour accueillir la clientèle",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "86"
+   ]
   },
   {
    "id": 4,
    "client": "Decathlon Brétigny-sur-Orge (91)",
    "image": "decathlon-bretigny-sur-orge",
    "description": "Suspension d'écrans 65 pouces et création de vidéos en Motion Design pour affichage des tarifs de l'Atelier cycle.",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "91"
+   ]
   },
   {
    "id": 5,
    "client": "Decathlon Vélizy (78)",
    "image": "decathlon-velizy",
    "description": "Installation d'un bandeau de 2 écrans 55 pouces pour l'affichage des tarifs de l'Atelier cycle et création du visuel en Motion Design.",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "78"
+   ]
   },
   {
    "id": 6,
    "client": "Decathlon Paris La Madeleine (75)",
    "image": "decathlon-paris-la-madeleine-2",
    "description": "Création d'un concept d'écrans d'accueil et d'informations en file d'attente avec vidéo du personnel du magasin.",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "75"
+   ]
   },
   {
    "id": 7,
    "client": "Decathlon Stade de France (93)",
    "image": "decathlon-stade-de-france",
    "description": "Maintenance d'un écran 100 pouces avec diffusion de vidéos en Motion Design",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "93"
+   ]
   },
   {
    "id": 8,
    "client": "Decathlon CNIT (92)",
    "image": "decathlon-cnit-3",
    "description": "Mise en place d'un concept d'affichage des tarifs et des périodes d'ouverture du rayon cordage",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "92"
+   ]
   },
   {
    "id": 10,
    "client": "Decathlon Poitiers (86)",
    "image": "decathlon-poitiers-2",
    "description": "Installation d'écrans 55 pouces connectés à des vélos Domyos pour démonstration de l'application KINOMAP",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "86"
+   ]
   },
   {
    "id": 11,
    "client": "Decathlon Sainte Geneviève-des-bois (91)",
    "image": "decathlon-sainte-genevieve-des-bois",
    "description": "Installation de bornes tactiles pour afficher la gestion des réservations de l'Atelier cycle",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "91"
+   ]
   },
   {
    "id": 12,
    "client": "Decathlon Paris La Madeleine (75)",
    "image": "decathlon-paris-la-madeleine-3",
    "description": "Intégration d'un écran 32 pouces tactile connecté à un vélo Domyos pour démonstration de l'application KINOMAP",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "75"
+   ]
   },
   {
    "id": 13,
    "client": "Géant Casino Marseille (13)",
    "image": "geant-casino-marseille",
    "description": "Installation d'un écran 75 pouces avec intégration d'un logiciel d'affichage dynamique au niveau de la parapharmacie",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "13"
+   ]
   },
   {
    "id": 14,
    "client": "Géant Casino Bourges (18)",
    "image": "geant-casino-bourges",
    "description": "Installation d'un écran 75 pouces avec intégration d'un logiciel d'affichage dynamique au niveau de la parapharmacie",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "18"
+   ]
   },
   {
    "id": 15,
    "client": "Géant Casino Fenouillet (31)",
    "image": "geant-casino-fenouillet",
    "description": "Installation d'un écran 75 pouces avec intégration d'un logiciel d'affichage dynamique au niveau de la parapharmacie",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "31"
+   ]
   },
   {
    "id": 16,
    "client": "Géant Casino Amiens (80)",
    "image": "geant-casino-amiens",
    "description": "Installation d'un écran 75 pouces avec intégration d'un logiciel d'affichage dynamique au niveau de la parapharmacie",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "80"
+   ]
   },
   {
    "id": 17,
    "client": "Géant Casino Villefranche-sur-Saône (69)",
    "image": "geant-casino-villefranche-sur-saone",
    "description": "Installation d'un écran 75 pouces avec intégration d'un logiciel d'affichage dynamique au niveau de la parapharmacie",
-   "category": "affichage-dynamique"
+   "category": "affichage-dynamique",
+   "depts": [
+    "69"
+   ]
   },
   {
    "id": 18,
    "client": "Collège Condorcet Paris (75)",
    "image": "college-condorcet-paris",
    "description": "Modernisation complète de 7 salles de classe avec installation de vidéoprojecteurs interactifs, tableaux blancs magnétiques et système audio haute-fidélité intégré.",
-   "category": "salle-classe"
+   "category": "salle-classe",
+   "depts": [
+    "75"
+   ]
   },
   {
    "id": 19,
    "client": "Lycée agricole Les Vaseix (87)",
    "image": "lycee-agricole-les-vaseix",
    "description": "Installation d'un écran numérique interactif 75 pouces avec caméra intégrée, hub de connexion et système audio pour une expérience d'enseignement moderne et immersive.",
-   "category": "salle-classe"
+   "category": "salle-classe",
+   "depts": [
+    "87"
+   ]
   },
   {
    "id": 20,
    "client": "BTP CFA - Saint-Brevin (44)",
    "image": "btp-cfa-loire-atlantique-saint-herblain",
    "description": "Installation d'un vidéoprojecteur haute résolution et d'un système audio professionnel pour offrir une expérience d'apprentissage optimale aux étudiants du secteur du BTP.",
-   "category": "salle-classe"
+   "category": "salle-classe",
+   "depts": [
+    "44"
+   ]
   },
   {
    "id": 21,
    "client": "Collège Albert Schweitzer - Neufchâtel-en-Bray (76)",
    "image": "college-albert-schweitzer-neufchatel-en-bray",
    "description": "Installation et configuration d'un écran numérique interactif sur support mobile pour une flexibilité d'enseignement optimale et une utilisation dans différentes salles de classe.",
-   "category": "salle-classe"
+   "category": "salle-classe",
+   "depts": [
+    "76"
+   ]
   },
   {
    "id": 22,
    "client": "IUT Draguignan (83)",
    "image": "iut-draguignan",
    "description": "Installation d'un écran Samsung Flip 75 pouces sur support mobile permettant l'affichage interactif, l'annotation et le partage de contenu pour des réunions collaboratives efficaces.",
-   "category": "salle-reunion"
+   "category": "salle-reunion",
+   "depts": [
+    "83"
+   ]
   },
   {
    "id": 23,
    "client": "SHELL France (92)",
    "image": "shell-france",
    "description": "Installation de 2 écrans 65 pouces avec système Barco CX-50 et système audio complet incluant des micros plafond et haut-parleurs pour des visioconférences haute qualité.",
-   "category": "salle-reunion"
+   "category": "salle-reunion",
+   "depts": [
+    "92"
+   ]
   },
   {
    "id": 29,
    "client": "Decathlon Paris La Madeleine (75)",
    "image": "decathlon-paris-la-madeleine-4",
    "description": "Installation et configuration d'une borne tactile de gestion des équipes",
-   "category": "salle-reunion"
+   "category": "salle-reunion",
+   "depts": [
+    "75"
+   ]
   },
   {
    "id": 30,
    "client": "Decathlon Brétigny-sur-Orge (91)",
    "image": "decathlon-bretigny-sur-orge-2",
    "description": "Installation de plusieurs salles de réunion avec écrans et système de diffusion sans fil Infobit",
-   "category": "salle-reunion"
+   "category": "salle-reunion",
+   "depts": [
+    "91"
+   ]
   },
   {
    "id": 31,
    "client": "Decathlon Châteauroux (36)",
    "image": "decathlon-chateauroux",
    "description": "Installation d'un écran 65 pouces et système de diffusion sans fil Infobit dans une salle de réunion",
-   "category": "salle-reunion"
+   "category": "salle-reunion",
+   "depts": [
+    "36"
+   ]
   }
  ],
  "clients": [

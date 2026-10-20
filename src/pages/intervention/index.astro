@@ -1,0 +1,70 @@
+---
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import Icon from '../../components/Icon.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { zones, elsewhere } from '../../data/zones';
+import data from '../../data/references.json';
+
+const count = (depts: string[]) => data.refs.filter((r) => (r.depts ?? []).some((d: string) => depts.includes(d))).length;
+const idf = zones.filter((z) => z.idf);
+const regions = zones.filter((z) => !z.idf);
+---
+<Base
+  title="Zones d’intervention en France"
+  description="HAPPLYZ Connect, intégrateur audiovisuel basé à Chatou, intervient à Paris, dans toute l’Île-de-France et en région : Lyon, PACA, Occitanie, Hauts-de-France…"
+  breadcrumbs={[{ label: 'Zones d’intervention', href: '/intervention' }]}
+>
+  <section class="page-head">
+    <div class="container">
+      <ol class="breadcrumb breadcrumb--dark"><li><a href="/">Accueil</a></li><li><span aria-current="page">Zones d’intervention</span></li></ol>
+      <span class="eyebrow">Zones d’intervention</span>
+      <h1>Basés à Chatou, nous intervenons partout en France.</h1>
+      <p class="lead">Notre équipe couvre Paris et toute l’Île-de-France au quotidien, et se déplace en région pour les projets de nos clients : écoles, entreprises, réseaux de magasins et établissements publics.</p>
+    </div>
+  </section>
+
+  {[{ title: 'Paris et Île-de-France', list: idf }, { title: 'En région', list: regions }].map((g) => (
+    <section class="section" style="padding-bottom:24px">
+      <div class="container">
+        <h2 class="zones-h2">{g.title}</h2>
+        <div class="grid grid-4 zones">
+          {g.list.map((z) => (
+            <a href={`/intervention/${z.slug}`} class="card card--link">
+              <div class="card__media"><Photo name={z.image.name} folder={z.image.folder} alt={z.image.alt} sizes="(max-width: 640px) 100vw, 300px" /></div>
+              <div class="card__body">
+                <h3>{z.name}</h3>
+                <p>{count(z.depts)} réalisation{count(z.depts) > 1 ? 's' : ''}</p>
+                <span class="zones-more">Voir la zone <Icon name="arrow" /></span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">Partout en France</span><h2>Nous sommes aussi intervenus à…</h2></div>
+        <p>Pour les réseaux de magasins et les clients multisites, nous organisons des déploiements et une maintenance sur tout le territoire, comme pour la quarantaine de magasins SNIPES que nous maintenons en France.</p>
+      </div>
+      <ul class="zones-else">
+        {elsewhere.map((e) => <li><Icon name="map" />{e.city} <span>({e.dept})</span></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand title="Un projet, où que vous soyez ?" label="Demander un devis" />
+</Base>
+
+<style>
+  .zones-h2 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); margin-bottom: 22px; }
+  .zones .card__body p { color: var(--muted); margin: 0; font-size: 0.92rem; }
+  .zones-more { display: inline-flex; align-items: center; gap: 6px; color: var(--link); font-weight: 700; font-size: 0.9rem; margin-top: auto; padding-top: 6px; }
+  .zones-more :global(svg) { width: 15px; height: 15px; }
+  .zones-else { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .zones-else li { display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: 999px; background: var(--bg-soft); border: 1px solid var(--border); font-size: 0.9rem; font-weight: 600; color: var(--navy); }
+  .zones-else span { color: var(--muted); font-weight: 500; }
+  .zones-else :global(svg) { width: 15px; height: 15px; color: var(--link); }
+</style>

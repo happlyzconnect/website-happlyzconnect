@@ -1,0 +1,177 @@
+---
+import Base from '../../layouts/Base.astro';
+import Photo from '../../components/Photo.astro';
+import Icon from '../../components/Icon.astro';
+import RefMedia from '../../components/RefMedia.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import ConseilCards from '../../components/ConseilCards.astro';
+import { zones, type Zone } from '../../data/zones';
+import { solutions, sectors, company } from '../../data/site';
+import data from '../../data/references.json';
+
+export function getStaticPaths() {
+  return zones.map((z) => ({ params: { slug: z.slug }, props: { z } }));
+}
+const { z } = Astro.props as { z: Zone };
+
+// Réalisations de la zone : une par client, celles avec photo d'abord.
+const seen = new Set<string>();
+const zoneRefs = data.refs
+  .filter((r) => (r.depts ?? []).some((d: string) => (z.refDepts ?? z.depts).includes(d)))
+  .sort((a, b) => Number(!!b.image) - Number(!!a.image))
+  .filter((r) => {
+    const key = r.client.replace(/\s*\(\d+\)$/, '');
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+const shown = zoneRefs.slice(0, 6);
+const total = data.refs.filter((r) => (r.depts ?? []).some((d: string) => z.depts.includes(d))).length;
+const others = zones.filter((o) => o.slug !== z.slug);
+const site = Astro.site!.toString().replace(/\/$/, '');
+const crumbs = [{ label: 'Zones d’intervention', href: '/intervention' }, { label: z.name, href: `/intervention/${z.slug}` }];
+const service = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: z.h1,
+  serviceType: 'Intégration audiovisuelle',
+  description: z.metaDescription,
+  provider: { '@id': `${site}/#organisation` },
+  areaServed: { '@type': 'AdministrativeArea', name: z.name },
+  url: `${site}/intervention/${z.slug}`,
+};
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: z.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Base title={z.metaTitle} description={z.metaDescription} breadcrumbs={crumbs} schema={[service, faqSchema]}>
+  <section class="page-head zone-head">
+    <div class="container zone-head__grid">
+      <div>
+        <ol class="breadcrumb breadcrumb--dark">
+          <li><a href="/">Accueil</a></li>
+          <li><a href="/intervention">Zones d’intervention</a></li>
+          <li><span aria-current="page">{z.name}</span></li>
+        </ol>
+        <span class="eyebrow">{z.idf ? 'Île-de-France' : 'En région'}</span>
+        <h1>{z.h1}</h1>
+        <p class="lead">{z.lead}</p>
+        <div class="btn-row" style="margin-top:22px">
+          <a href="/contact?demande=devis" class="btn btn--primary">Demander un devis <Icon name="arrow" /></a>
+          <a href={`tel:${company.phoneIntl}`} class="btn btn--outline"><Icon name="phone" /> {company.phone}</a>
+        </div>
+      </div>
+      <div class="zone-head__photo"><Photo name={z.image.name} folder={z.image.folder} alt={z.image.alt} widths={[600, 900]} sizes="(max-width: 900px) 100vw, 520px" loading="eager" fetchpriority="high" /></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container zone-intro">
+      <div class="zone-intro__text">
+        {z.intro.map((p) => <p>{p}</p>)}
+      </div>
+      <aside class="zone-facts">
+        <p class="zone-facts__title">En bref</p>
+        <ul>
+          <li><Icon name="map" /><span>Siège à <strong>Chatou (78)</strong>{z.idf ? ', au cœur de l’Ouest parisien' : ', déplacements planifiés en région'}</span></li>
+          <li><Icon name="star" /><span><strong>{total} réalisation{total > 1 ? 's' : ''}</strong> dans cette zone</span></li>
+          <li><Icon name="cog" /><span>Étude, installation et <strong>maintenance</strong></span></li>
+          <li><Icon name="headset" /><span>Assistance <strong>à distance</strong> et sur site</span></li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head reveal"><div><span class="eyebrow">Notre approche</span><h2>Ce que nous apportons dans cette zone.</h2></div></div>
+      <div class="grid grid-3">
+        {z.points.map((p) => (
+          <div class="card card--plain reveal"><Icon name={p.icon} class="card__icon" /><h3>{p.title}</h3><p>{p.text}</p></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {shown.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Nos réalisations</span><h2>{z.refTitle ?? 'Ils nous ont fait confiance dans la zone.'}</h2></div>
+          <p><a href="/references" class="zone-link">Toutes nos références <Icon name="arrow" /></a></p>
+        </div>
+        <div class={`grid ${shown.length >= 3 ? 'grid-3' : 'grid-2'}`}>
+          {shown.map((r) => (
+            <article class="card reveal">
+              <RefMedia image={r.image} client={r.client} category={r.category} />
+              <div class="card__body"><h3 class="zone-ref">{r.client}</h3><p>{r.description}</p></div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head reveal"><div><span class="eyebrow">Nos solutions</span><h2>Tous vos projets audiovisuels, {z.idf ? 'près de chez vous' : 'jusque dans votre région'}.</h2></div>
+        <p>Pour les entreprises ({sectors[0].title}), les établissements scolaires ({sectors[1].title}) et les magasins ({sectors[2].title}).</p>
+      </div>
+      <ul class="zone-sol">
+        {solutions.map((s) => (
+          <li><a href={`/solutions/${s.slug}`} class="zone-sol__item reveal"><Photo name={s.photo} alt="" widths={[400]} sizes="96px" /><span>{s.title}</span><Icon name="arrow" /></a></li>
+        ))}
+      </ul>
+      <p class="zone-cities"><strong>Communes et secteurs desservis :</strong> {z.cities.join(', ')}{z.idf ? ' et toute l’Île-de-France.' : ' et l’ensemble de la région.'}</p>
+    </div>
+  </section>
+
+  <Faq items={z.faq} title={`Questions fréquentes : ${z.name}`} />
+
+  <ConseilCards soft />
+
+  <section class="section section--tight">
+    <div class="container">
+      <span class="eyebrow">Zones d’intervention</span>
+      <h2 class="zone-h2">Nous intervenons aussi…</h2>
+      <ul class="zone-chips">
+        {others.map((o) => <li><a href={`/intervention/${o.slug}`}><Icon name="map" />{o.name}</a></li>)}
+        <li><a href="/intervention"><Icon name="arrow" />Partout en France</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand title={`Un projet audiovisuel ${z.idf ? 'en Île-de-France' : 'en région'} ?`} label="Demander un devis" />
+</Base>
+
+<style>
+  .zone-head__grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: center; }
+  .zone-head h1 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); margin: 6px 0 14px; }
+  .zone-head__photo { border-radius: var(--radius); overflow: hidden; aspect-ratio: 16 / 10; box-shadow: var(--shadow); }
+  .zone-head__photo :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .zone-intro { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 56px; align-items: start; }
+  .zone-intro__text p { font-size: 1.08rem; line-height: 1.75; color: #334260; margin: 0 0 1em; }
+  .zone-facts { border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; background: var(--bg-soft); }
+  .zone-facts__title { font-weight: 750; margin: 0 0 12px; color: var(--navy); }
+  .zone-facts ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+  .zone-facts li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.95rem; color: #334260; }
+  .zone-facts :global(svg) { width: 20px; height: 20px; color: var(--link); flex: none; margin-top: 2px; }
+  .zone-ref { font-size: 1rem; }
+  .card__body p { color: var(--muted); margin: 0; font-size: 0.95rem; }
+  .zone-link { display: inline-flex; align-items: center; gap: 6px; color: var(--link); font-weight: 700; }
+  .zone-link :global(svg) { width: 16px; height: 16px; }
+  .zone-sol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+  .zone-sol__item { display: flex; align-items: center; gap: 14px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 10px 16px 10px 10px; font-weight: 700; color: var(--navy); transition: box-shadow 0.2s; }
+  .zone-sol__item:hover { box-shadow: var(--shadow); }
+  .zone-sol__item :global(img) { width: 80px; height: 56px; object-fit: cover; border-radius: 8px; flex: none; }
+  .zone-sol__item span { flex: 1; }
+  .zone-sol__item > :global(svg) { width: 18px; height: 18px; color: var(--link); flex: none; }
+  .zone-cities { margin: 28px 0 0; color: var(--muted); font-size: 0.95rem; }
+  .zone-h2 { margin: 6px 0 20px; font-size: clamp(1.4rem, 2.4vw, 1.8rem); }
+  .zone-chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .zone-chips a { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: 999px; border: 1px solid var(--border); font-weight: 600; font-size: 0.92rem; color: var(--navy); background: #fff; }
+  .zone-chips a:hover { border-color: var(--link); color: var(--link); }
+  .zone-chips :global(svg) { width: 15px; height: 15px; color: var(--link); }
+  @media (max-width: 900px) {
+    .zone-head__grid, .zone-intro { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  }
+</style>
