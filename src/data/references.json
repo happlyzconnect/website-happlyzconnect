@@ -234,6 +234,46 @@
  ],
  "clients": [
   {
+   "name": "IPSA",
+   "logo": "ipsa",
+   "url": "https://www.ipsa.fr/"
+  },
+  {
+   "name": "SNIPES",
+   "logo": "snipes",
+   "url": "https://www.snipes.com/fr-fr"
+  },
+  {
+   "name": "P.O.S. The Instore Experience",
+   "logo": "pos-experience",
+   "url": null
+  },
+  {
+   "name": "Maisons de famille",
+   "logo": "maisons-de-famille",
+   "url": "https://www.maisonsdefamille.com/"
+  },
+  {
+   "name": "CNR",
+   "logo": "cnr",
+   "url": "https://www.cnr.tm.fr/"
+  },
+  {
+   "name": "AP-HP",
+   "logo": "ap-hp",
+   "url": "https://www.aphp.fr/"
+  },
+  {
+   "name": "Winter Mushroom",
+   "logo": "winter-mushroom",
+   "url": null
+  },
+  {
+   "name": "Ministère de l'Intérieur",
+   "logo": "ministere-interieur",
+   "url": "https://www.interieur.gouv.fr/"
+  },
+  {
    "name": "Decathlon",
    "logo": "decathlon",
    "url": "https://www.decathlon.fr/"
