@@ -1,0 +1,101 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import IssueCards from '../../components/IssueCards.astro';
+import PhotoCards from '../../components/PhotoCards.astro';
+import BuildRun from '../../components/BuildRun.astro';
+import RefCards from '../../components/RefCards.astro';
+import Faq from '../../components/Faq.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import SignageBand from '../../components/SignageBand.astro';
+import Photo from '../../components/Photo.astro';
+import Icon from '../../components/Icon.astro';
+import { solutions, type Solution } from '../../data/site';
+
+export function getStaticPaths() {
+  return solutions.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+const { s } = Astro.props as { s: Solution };
+const crumbs = [{ label: 'Nos solutions', href: `/solutions/${solutions[0].slug}` }, { label: s.title, href: `/solutions/${s.slug}` }];
+const others = solutions.filter((o) => o.slug !== s.slug);
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: s.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+};
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: s.title,
+  description: s.metaDescription,
+  provider: { '@id': 'https://www.happlyzconnect.com/#organisation' },
+  areaServed: 'France',
+};
+const showsTool = s.slug === 'salles-de-reunion-visioconference' || s.slug === 'ecrans-tactiles-interactifs';
+---
+<Base title={s.metaTitle} description={s.metaDescription} breadcrumbs={crumbs} schema={[serviceSchema, faqSchema]}>
+  <Hero
+    photo={s.photo}
+    photoAlt={s.title}
+    breadcrumbs={crumbs}
+    title={s.heroTitle}
+    text={s.heroText}
+    primary={{ label: 'Demander un devis', href: '/contact?demande=devis' }}
+    secondary={{ label: s.cta, href: '#equipements' }}
+  />
+
+  <IssueCards title={s.issuesTitle} text={s.issuesText} items={s.issues} />
+
+  <div id="equipements">
+    <PhotoCards title={s.equipmentTitle} text={s.equipmentText} items={s.equipment} />
+  </div>
+
+  {s.spaces && <PhotoCards eyebrow="Des espaces pour tous vos usages" title={s.spacesTitle!} items={s.spaces} soft={false} />}
+
+  <BuildRun eyebrow="Un accompagnement de bout en bout" title="De l’étude à la maintenance, un seul interlocuteur." build={s.build} run={s.run} soft={!s.spaces} />
+
+  {showsTool && (
+    <section class="section section--tight">
+      <div class="container">
+        <a href="/outils/configurateur-salle" class="tool-band reveal">
+          <div>
+            <span class="eyebrow">Outil en ligne</span>
+            <h2>Configurez votre salle en quelques clics.</h2>
+            <p>Composez l’équipement de votre salle sur une vue à l’échelle : écrans, barre de visioconférence, partage sans fil, son… et demandez un devis pour votre configuration.</p>
+          </div>
+          <div class="tool-band__photo"><Photo name="salle-reunion-vitree" alt="" widths={[400]} sizes="220px" /></div>
+          <span class="btn btn--primary btn--sm">Accéder au configurateur de salle <Icon name="arrow" /></span>
+        </a>
+      </div>
+    </section>
+  )}
+
+  {s.slug === 'affichage-dynamique' && <SignageBand />}
+
+  <RefCards ids={s.refIds} title="Ils nous ont fait confiance." soft />
+
+  <Faq items={s.faq} />
+
+  <section class="section section--soft section--tight">
+    <div class="container">
+      <span class="eyebrow">Nos autres expertises</span>
+      <ul class="others">
+        {others.map((o) => <li><a href={`/solutions/${o.slug}`}><Icon name={o.icon} />{o.title}</a></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand eyebrow="Un projet ?" title={`${s.cta} ?`} text="Parlons de votre projet et trouvons ensemble la solution la plus adaptée à vos besoins." label={s.cta} />
+</Base>
+
+<style>
+  .tool-band { display: grid; grid-template-columns: 1fr 220px auto; gap: 32px; align-items: center; padding: 28px 32px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-soft); }
+  .tool-band h2 { font-size: 1.5rem; margin-bottom: 8px; }
+  .tool-band p { margin: 0; color: var(--muted); }
+  .tool-band__photo :global(img) { border-radius: 10px; aspect-ratio: 16/10; object-fit: cover; }
+  @media (max-width: 900px) { .tool-band { grid-template-columns: 1fr; } .tool-band__photo { display: none; } .tool-band .btn { justify-self: start; } }
+  .others { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 12px; }
+  .others a { display: inline-flex; align-items: center; gap: 10px; padding: 12px 18px; background: #fff; border: 1px solid var(--border); border-radius: 999px; font-weight: 600; font-size: 0.92rem; }
+  .others a:hover { border-color: var(--link); color: var(--link); }
+  .others :global(svg) { width: 20px; height: 20px; color: var(--link); }
+</style>

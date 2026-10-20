@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+import CtaBand from '../components/CtaBand.astro';
+import data from '../data/references.json';
+
+const filters = [
+  { id: 'all', label: 'Toutes', n: data.refs.length },
+  { id: 'salle-reunion', label: 'Salles de réunion', n: data.refs.filter((r) => r.category === 'salle-reunion').length },
+  { id: 'affichage-dynamique', label: 'Affichage dynamique', n: data.refs.filter((r) => r.category === 'affichage-dynamique').length },
+  { id: 'salle-classe', label: 'Éducation', n: data.refs.filter((r) => r.category === 'salle-classe').length },
+];
+const order = ['salle-reunion', 'affichage-dynamique', 'salle-classe'];
+const refs = [...data.refs].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));
+const catLabel: Record<string, string> = { 'salle-reunion': 'Salle de réunion', 'affichage-dynamique': 'Affichage dynamique', 'salle-classe': 'Éducation' };
+---
+<Base
+  title="Nos références — Projets audiovisuels réalisés"
+  description="Découvrez les projets audiovisuels réalisés par HAPPLYZ Connect : salles de réunion (Shell, Chiesi, Decathlon), affichage dynamique (Decathlon, Géant Casino), équipement d'établissements scolaires."
+  breadcrumbs={[{ label: 'Références', href: '/references' }]}
+>
+  <section class="page-head">
+    <div class="container">
+      <ol class="breadcrumb breadcrumb--dark"><li><a href="/">Accueil</a></li><li><span aria-current="page">Références</span></li></ol>
+      <h1>Nos références</h1>
+      <p class="lead">Salles de réunion, affichage dynamique, établissements scolaires : une sélection de projets que nous avons conçus, installés et maintenus.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:40px">
+    <div class="container">
+      <div class="filters" role="group" aria-label="Filtrer les références">
+        {filters.map((f, i) => <button type="button" class={`filter ${i === 0 ? 'is-on' : ''}`} data-filter={f.id} aria-pressed={i === 0 ? 'true' : 'false'}>{f.label} <span>{f.n}</span></button>)}
+      </div>
+      <div class="grid grid-3 refs">
+        {refs.map((r) => (
+          <article class="card ref" data-cat={r.category}>
+            <div class="card__media"><Photo name={r.image} folder="refs" alt={`Réalisation HAPPLYZ Connect — ${r.client}`} /></div>
+            <div class="card__body">
+              <span class="ref__cat">{catLabel[r.category]}</span>
+              <h2 class="ref__client">{r.client}</h2>
+              <p>{r.description}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ClientLogos title="Ils nous font confiance." />
+
+  <section class="section section--soft section--tight">
+    <div class="container">
+      <div class="section-head"><div><span class="eyebrow">Nos partenaires</span><h2>Des constructeurs et distributeurs de référence.</h2></div>
+        <p>Nous travaillons avec les principaux constructeurs du marché pour sélectionner l’équipement le plus adapté à chaque projet.</p></div>
+      <ul class="partners">
+        {data.partners.map((p) => <li title={p.name}><Photo name={p.logo} folder="partners" alt={p.name} widths={[240]} sizes="130px" format="png" /></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <CtaBand title="Votre projet sera notre prochaine référence." label="Demander un devis" />
+</Base>
+
+<style>
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 28px; }
+  .filter { font: inherit; font-size: 0.92rem; font-weight: 600; padding: 10px 18px; border-radius: 999px; border: 1px solid #cfdbe6; background: #fff; color: var(--navy); cursor: pointer; }
+  .filter span { color: var(--muted); font-weight: 500; margin-left: 4px; }
+  .filter.is-on { background: var(--navy); border-color: var(--navy); color: #fff; }
+  .filter.is-on span { color: rgba(255, 255, 255, 0.7); }
+  .ref[hidden] { display: none; }
+  .ref__cat { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--link); }
+  .ref__client { font-size: 1.05rem; }
+  .partners { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(7, 1fr); gap: 18px; }
+  .partners li { background: #fff; border-radius: 10px; height: 76px; display: grid; place-items: center; padding: 12px; border: 1px solid var(--border); }
+  .partners :global(img) { max-height: 44px; max-width: 110px; width: auto; object-fit: contain; }
+  @media (max-width: 900px) { .partners { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 560px) { .partners { grid-template-columns: repeat(3, 1fr); } }
+</style>
+
+<script>
+  const btns = document.querySelectorAll<HTMLButtonElement>('.filter');
+  const cards = document.querySelectorAll<HTMLElement>('.ref');
+  const apply = (f: string) => {
+    btns.forEach((b) => { const on = b.dataset.filter === f; b.classList.toggle('is-on', on); b.setAttribute('aria-pressed', String(on)); });
+    cards.forEach((c) => { c.hidden = f !== 'all' && c.dataset.cat !== f; });
+  };
+  btns.forEach((b) => b.addEventListener('click', () => { apply(b.dataset.filter!); history.replaceState(null, '', b.dataset.filter === 'all' ? location.pathname : `?filtre=${b.dataset.filter}`); }));
+  const initial = new URLSearchParams(location.search).get('filtre');
+  if (initial) apply(initial);
+</script>

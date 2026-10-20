@@ -1,0 +1,123 @@
+---
+import Base from '../layouts/Base.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const usages = [
+  { photo: 'hall-ecran', icon: 'building', title: 'Corporate', text: 'Accueillez, informez et valorisez votre image auprès de vos collaborateurs et visiteurs.' },
+  { photo: 'tactile-iut', icon: 'graduation', title: 'Éducation', text: 'Informez les élèves, les parents et le personnel de votre établissement en temps réel.' },
+  { photo: 'totem-casino', icon: 'store', title: 'Retail', text: 'Animez vos magasins et vos vitrines avec des contenus impactants et toujours à jour.' },
+];
+const steps = [
+  { icon: 'monitor', title: 'Un logiciel intuitif', text: 'Créez et planifiez vos contenus (images, vidéos, messages, playlists) depuis une interface en ligne, sécurisée et hébergée en France.' },
+  { icon: 'box', title: 'Un player compact et fiable', text: 'Un boîtier discret à faible consommation, qui se connecte à vos écrans et diffuse vos contenus en toute fiabilité.' },
+  { icon: 'build', title: 'Une installation clé en main', text: 'Nous assurons l’installation, la configuration et la mise en service sur l’ensemble de vos sites.' },
+];
+const perks = [
+  { icon: 'shield', title: 'Hébergé en France', text: 'Vos données sont stockées en France, avec un haut niveau de sécurité.' },
+  { icon: 'leaf', title: 'Faible consommation', text: 'Un player compact et économe en énergie.' },
+  { icon: 'cog', title: 'Clé en main', text: 'Fourniture, installation, configuration et support inclus.' },
+  { icon: 'headset', title: 'Un support réactif', text: 'Une équipe à votre écoute pour vous accompagner au quotidien.' },
+];
+---
+<Base
+  title="HAPPLYZ Signage — Solution d’affichage dynamique hébergée en France"
+  description="HAPPLYZ Signage : logiciel d’affichage dynamique hébergé en France, player compact basse consommation, installation et support inclus. Pour les entreprises, établissements scolaires et magasins."
+  breadcrumbs={[{ label: 'HAPPLYZ Signage', href: '/happlyz-signage' }]}
+>
+  <section class="hero hero--signage">
+    <div class="hero__bg"><Photo name="vitrine-mode" alt="Écrans d'affichage dynamique en vitrine de magasin" widths={[800, 1400]} sizes="100vw" loading="eager" fetchpriority="high" /></div>
+    <div class="container" style="position:relative">
+      <div class="hero__inner">
+        <ol class="breadcrumb"><li><a href="/">Accueil</a></li><li><span aria-current="page">HAPPLYZ Signage</span></li></ol>
+        <h1>HAPPLYZ <span class="orange">Signage</span></h1>
+        <p class="hero__sub">Votre solution d’affichage dynamique, simple, fiable et clé en main.</p>
+        <p class="hero__text">Diffusez vos contenus sur un ou plusieurs écrans, dans tous vos sites, depuis une plateforme simple et intuitive, hébergée en France. Une solution complète avec player, installation et support inclus.</p>
+        <div class="btn-row">
+          <a href="#demo" class="btn btn--orange">Demander une démonstration <Icon name="arrow" /></a>
+          <a href="#usages" class="btn btn--ghost">Voir les usages</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="usages">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow eyebrow--orange">Pour tous vos sites</span><h2>Des usages adaptés à chaque secteur.</h2></div>
+        <p>Une solution d’affichage dynamique flexible, pour informer, communiquer et valoriser vos espaces, quel que soit votre secteur d’activité.</p>
+      </div>
+      <div class="grid grid-3">
+        {usages.map((u) => (
+          <div class="card reveal">
+            <div class="card__media"><Photo name={u.photo} alt={`Affichage dynamique — ${u.title}`} /></div>
+            <div class="card__body">
+              <h3 class="usage-title"><Icon name={u.icon} />{u.title}</h3>
+              <p>{u.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head reveal"><div><span class="eyebrow eyebrow--orange">Un fonctionnement simple</span><h2>De la création à l’affichage, en 3 étapes.</h2></div></div>
+      <ol class="grid grid-3 sg-steps">
+        {steps.map((st, i) => (
+          <li class="card card--plain reveal">
+            <span class="sg-num">{i + 1}</span>
+            <Icon name={st.icon} class="card__icon sg-icon" />
+            <h3>{st.title}</h3>
+            <p>{st.text}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal"><div><span class="eyebrow eyebrow--orange">Les avantages HAPPLYZ Signage</span><h2>Une solution fiable et sans contrainte.</h2></div></div>
+      <div class="grid grid-4">
+        {perks.map((p) => (
+          <div class="perk reveal"><Icon name={p.icon} class="sg-icon perk__icon" /><div><h3>{p.title}</h3><p>{p.text}</p></div></div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section demo" id="demo">
+    <div class="container demo__inner">
+      <div class="reveal">
+        <span class="eyebrow eyebrow--orange">Découvrez HAPPLYZ Signage</span>
+        <h2>Demandez une démonstration personnalisée.</h2>
+        <p class="lead">Échangeons sur vos besoins et découvrez concrètement comment HAPPLYZ Signage peut s’intégrer dans vos espaces.</p>
+      </div>
+      <div class="card demo__form reveal">
+        <ContactForm variant="signage" />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero--signage .orange { color: var(--orange); }
+  .usage-title { display: flex; align-items: center; gap: 10px; font-size: 1.25rem; }
+  .usage-title :global(svg) { width: 30px; height: 30px; color: var(--orange); }
+  :global(.sg-icon) { color: var(--orange) !important; }
+  .sg-steps { list-style: none; padding: 0; margin: 0; }
+  .sg-steps li { position: relative; }
+  .sg-num { position: absolute; top: 22px; right: 22px; width: 34px; height: 34px; border-radius: 50%; background: var(--orange); color: #fff; font-weight: 800; display: grid; place-items: center; }
+  .perk { display: flex; gap: 14px; }
+  .perk h3 { margin-bottom: 6px; }
+  .perk p { color: var(--muted); font-size: 0.92rem; margin: 0; }
+  :global(.perk__icon) { width: 36px; height: 36px; flex: none; }
+  .demo { background: var(--orange-soft); }
+  .demo__inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 48px; align-items: center; }
+  .demo h2 { margin-bottom: 14px; }
+  .demo__form { padding: 28px; }
+  @media (max-width: 900px) { .demo__inner { grid-template-columns: 1fr; } }
+</style>

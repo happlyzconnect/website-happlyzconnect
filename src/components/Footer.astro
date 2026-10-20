@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo-navy.png';
+import Icon from './Icon.astro';
+import { company, solutions, sectors } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <a href="/" aria-label="HAPPLYZ Connect — accueil"><Image src={logo} alt="HAPPLYZ Connect" width={200} densities={[1, 2]} format="png" /></a>
+        <p class="site-footer__script">We connect,<span>you grow.</span></p>
+        <p class="site-footer__desc">Intégrateur audiovisuel professionnel : conception, installation et maintenance de vos équipements.</p>
+      </div>
+      <div>
+        <h2 class="site-footer__title">Nos solutions</h2>
+        <ul>{solutions.map((s) => <li><a href={`/solutions/${s.slug}`}>{s.menuTitle}</a></li>)}</ul>
+      </div>
+      <div>
+        <h2 class="site-footer__title">Secteurs</h2>
+        <ul>{sectors.map((s) => <li><a href={`/secteurs/${s.slug}`}>{s.title}</a></li>)}</ul>
+        <h2 class="site-footer__title">Outils</h2>
+        <ul>
+          <li><a href="/outils/configurateur-salle">Configurateur de salle</a></li>
+          <li><a href="/outils/convertisseur-taille-ecran">Convertisseur de taille d’écran</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="site-footer__title">Contact</h2>
+        <ul class="site-footer__contact">
+          <li><Icon name="map" /><span>{company.street}<br />{company.postalCode} {company.city}</span></li>
+          <li><Icon name="phone" /><a href={`tel:${company.phoneIntl}`}>{company.phone}</a></li>
+          <li><Icon name="mail" /><a href={`mailto:${company.email}`}>{company.email}</a></li>
+          <li><Icon name="linkedin" /><a href={company.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+        <a href="/happlyz-signage" class="site-footer__signage">HAPPLYZ Signage <Icon name="arrow" /></a>
+      </div>
+    </div>
+    <div class="site-footer__bottom">
+      <p>© {year} {company.legalName}</p>
+      <ul>
+        <li><a href="/services">Nos services</a></li>
+        <li><a href="/references">Références</a></li>
+        <li><a href="/mentions-legales">Mentions légales</a></li>
+        <li><a href="/conditions-generales">CGV</a></li>
+        <li><a href="/politique-de-confidentialite">Politique de confidentialité</a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer { background: #fff; border-top: 1px solid var(--border); padding: 56px 0 24px; font-size: 0.9rem; }
+  .site-footer__top { display: grid; grid-template-columns: 1.3fr 1fr 1fr 1.1fr; gap: 40px; }
+  .site-footer ul { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 8px; }
+  .site-footer a:hover { color: var(--link); }
+  .site-footer__title { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin: 0 0 14px; font-weight: 700; }
+  .site-footer__brand img { width: 190px; }
+  .site-footer__script { font-family: var(--script); font-size: 1.7rem; line-height: 1; margin: 18px 0 14px; transform: rotate(-4deg); transform-origin: left; }
+  .site-footer__script span { display: block; color: var(--link); padding-left: 22px; }
+  .site-footer__desc { color: var(--muted); max-width: 280px; }
+  .site-footer__contact li { display: flex; gap: 10px; align-items: flex-start; }
+  .site-footer__contact :global(svg) { width: 18px; height: 18px; flex: none; margin-top: 2px; color: var(--link); }
+  .site-footer__signage { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; color: #c98500; }
+  .site-footer__signage :global(svg) { width: 16px; height: 16px; }
+  .site-footer__bottom { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 0.82rem; }
+  .site-footer__bottom p { margin: 0; }
+  .site-footer__bottom ul { display: flex; flex-wrap: wrap; gap: 6px 18px; margin: 0; }
+  @media (max-width: 900px) { .site-footer__top { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .site-footer__top { grid-template-columns: 1fr; gap: 28px; } }
+</style>

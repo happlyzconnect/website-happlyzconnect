@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const build = [
+  { icon: 'eye', title: 'Étude et audit', text: 'Visite sur site, analyse de vos usages, relevé des contraintes (murs, réseau, électricité, acoustique).' },
+  { icon: 'ruler', title: 'Conception', text: 'Choix des équipements, dimensionnement des écrans, plans d’implantation, proposition chiffrée.' },
+  { icon: 'box', title: 'Fourniture', text: 'Approvisionnement auprès des constructeurs et distributeurs professionnels, sans intermédiaire inutile.' },
+  { icon: 'build', title: 'Installation et mise en service', text: 'Fixation, câblage, configuration, tests et recette avec vous.' },
+  { icon: 'users', title: 'Formation', text: 'Prise en main par les utilisateurs et documentation pour vos équipes techniques.' },
+];
+const run = [
+  { icon: 'shield', title: 'Maintenance préventive', text: 'Visites programmées, mises à jour, vérifications, pour éviter les pannes avant qu’elles n’arrivent.' },
+  { icon: 'cog', title: 'Maintenance corrective', text: 'Diagnostic à distance puis intervention sur site si nécessaire.' },
+  { icon: 'headset', title: 'Assistance aux utilisateurs', text: 'Un interlocuteur joignable pour vos questions du quotidien.' },
+  { icon: 'refresh', title: 'Évolutions', text: 'Ajout de salles, remplacement d’équipements, extension de votre parc d’écrans.' },
+];
+---
+<Base
+  title="Nos services : BUILD et RUN — De l’étude à la maintenance"
+  description="HAPPLYZ Connect vous accompagne sur toute la durée de vie de vos équipements audiovisuels : étude, conception, fourniture, installation (BUILD), puis maintenance, support et évolutions (RUN)."
+  breadcrumbs={[{ label: 'Nos services', href: '/services' }]}
+>
+  <Hero
+    photo="installateurs"
+    photoAlt="Techniciens HAPPLYZ Connect installant un écran"
+    breadcrumbs={[{ label: 'Nos services', href: '/services' }]}
+    title="Nos services"
+    sub="Un interlocuteur unique, de l’étude à la maintenance."
+    text="Nous ne nous contentons pas de livrer du matériel : nous concevons, installons et maintenons vos équipements audiovisuels, pour qu’ils fonctionnent dans la durée."
+    primary={{ label: 'Demander un devis', href: '/contact?demande=devis' }}
+    secondary={{ label: 'Découvrir RUN', href: '#run' }}
+  />
+
+  <section class="section" id="build">
+    <div class="container svc">
+      <div class="svc__intro reveal">
+        <Icon name="cog" class="svc__big" />
+        <span class="eyebrow">BUILD</span>
+        <h2>Concevoir et installer.</h2>
+        <p class="lead">Un projet audiovisuel réussi se joue avant l’installation : bien comprendre les usages, bien dimensionner, bien choisir.</p>
+        <div class="svc__photo"><Photo name="installateurs" alt="Installation d'un écran mural" widths={[600, 900]} sizes="(max-width: 900px) 100vw, 420px" /></div>
+      </div>
+      <ol class="svc__steps">
+        {build.map((b, i) => (
+          <li class="reveal"><span class="svc__n">{i + 1}</span><div><h3><Icon name={b.icon} />{b.title}</h3><p>{b.text}</p></div></li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section--soft" id="run">
+    <div class="container svc">
+      <div class="svc__intro reveal">
+        <Icon name="run" class="svc__big" />
+        <span class="eyebrow">RUN</span>
+        <h2>Maintenir et faire évoluer.</h2>
+        <p class="lead">Des équipements qui fonctionnent le lundi matin, des utilisateurs accompagnés, un parc qui évolue avec vos besoins.</p>
+        <div class="svc__photo"><Photo name="salle-ecrans-doubles" alt="Salle de réunion maintenue par HAPPLYZ Connect" widths={[600, 900]} sizes="(max-width: 900px) 100vw, 420px" /></div>
+      </div>
+      <ul class="svc__steps svc__steps--run">
+        {run.map((b) => (
+          <li class="reveal"><span class="svc__n"><Icon name="check-plain" /></span><div><h3><Icon name={b.icon} />{b.title}</h3><p>{b.text}</p></div></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal"><div><span class="eyebrow">Partout en France</span><h2>Des interventions sur site comme à distance.</h2></div>
+        <p>Basés en Île-de-France, nous intervenons sur tout le territoire : de nombreux projets ont été réalisés à Marseille, Blois, Poitiers, Bourges, Amiens ou Saint-Herblain.</p>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title="Un projet à lancer ou un parc à maintenir ?" label="Demander un devis" />
+</Base>
+
+<style>
+  .svc { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: start; }
+  :global(.svc__big) { width: 48px; height: 48px; color: var(--link); margin-bottom: 14px; }
+  .svc__intro h2 { margin-bottom: 14px; }
+  .svc__photo { margin-top: 24px; }
+  .svc__photo :global(img) { border-radius: var(--radius); aspect-ratio: 4/3; object-fit: cover; width: 100%; }
+  .svc__steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; }
+  .svc__steps li { display: flex; gap: 18px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); }
+  .svc__n { flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--blue); color: #fff; font-weight: 800; display: grid; place-items: center; }
+  .svc__n :global(svg) { width: 18px; height: 18px; }
+  .svc__steps h3 { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .svc__steps h3 :global(svg) { width: 20px; height: 20px; color: var(--link); }
+  .svc__steps p { margin: 0; color: var(--muted); font-size: 0.95rem; }
+  @media (max-width: 900px) { .svc { grid-template-columns: 1fr; gap: 28px; } }
+</style>

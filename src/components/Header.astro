@@ -1,0 +1,123 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/logo-navy.png';
+import Icon from './Icon.astro';
+import { nav } from '../data/site';
+
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (item: (typeof nav)[number]) => {
+  if (item.href === '/') return path === '/';
+  if (item.children) return item.children.some((c) => path.startsWith(c.href));
+  return path.startsWith(item.href);
+};
+---
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__logo" aria-label="HAPPLYZ Connect — accueil">
+      <Image src={logo} alt="HAPPLYZ Connect" width={220} densities={[1, 2]} loading="eager" format="png" />
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Navigation principale">
+      <ul class="main-nav__list">
+        {nav.map((item) => (
+          <li class={`main-nav__item ${item.children ? 'has-children' : ''} ${isActive(item) ? 'is-active' : ''}`}>
+            {item.children ? (
+              <>
+                <button type="button" class="main-nav__link main-nav__toggle" aria-expanded="false">
+                  {item.label}
+                  <Icon name="chevron" class="main-nav__chev" />
+                </button>
+                <ul class="main-nav__sub">
+                  {item.children.map((c) => (
+                    <li><a href={c.href} class={path.startsWith(c.href) ? 'is-current' : ''}>{c.label}</a></li>
+                  ))}
+                </ul>
+              </>
+            ) : (
+              <a href={item.href} class="main-nav__link" aria-current={isActive(item) ? 'page' : undefined}>{item.label}</a>
+            )}
+          </li>
+        ))}
+      </ul>
+      <a href="/contact?demande=devis" class="btn btn--primary btn--sm main-nav__cta-mobile">Demander un devis <Icon name="arrow" /></a>
+    </nav>
+
+    <a href="/contact?demande=devis" class="btn btn--primary btn--sm site-header__cta">Demander un devis <Icon name="arrow" /></a>
+    <button type="button" class="burger" aria-controls="main-nav" aria-expanded="false" aria-label="Ouvrir le menu">
+      <Icon name="menu" class="burger__open" />
+      <Icon name="close" class="burger__close" />
+    </button>
+  </div>
+</header>
+
+<style>
+  .site-header { position: sticky; top: 0; z-index: 50; background: rgba(255, 255, 255, 0.97); backdrop-filter: saturate(1.4) blur(8px); border-bottom: 1px solid var(--border); }
+  .site-header__inner { display: flex; align-items: center; gap: 20px; height: 76px; }
+  .site-header__logo { flex: none; }
+  .site-header__logo img { width: 200px; height: auto; }
+  .main-nav { margin-left: auto; }
+  .main-nav__list { list-style: none; margin: 0; padding: 0; display: flex; gap: 4px; align-items: center; }
+  .main-nav__item { position: relative; }
+  .main-nav__link { white-space: nowrap; display: inline-flex; align-items: center; gap: 4px; padding: 10px 11px; font-size: 0.9rem; font-weight: 600; color: var(--navy); background: none; border: 0; cursor: pointer; font-family: inherit; position: relative; }
+  .main-nav__link::after { content: ''; position: absolute; left: 11px; right: 11px; bottom: 2px; height: 2px; background: var(--cyan); transform: scaleX(0); transition: transform 0.2s; }
+  .main-nav__item:hover > .main-nav__link::after, .is-active > .main-nav__link::after { transform: scaleX(1); }
+  :global(.main-nav__chev) { width: 15px; height: 15px; transition: transform 0.2s; }
+  .main-nav__sub { list-style: none; margin: 0; padding: 8px; position: absolute; top: 100%; left: 0; min-width: 270px; background: #fff; border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); opacity: 0; visibility: hidden; transform: translateY(6px); transition: all 0.18s; }
+  .main-nav__sub a { display: block; padding: 10px 12px; border-radius: 8px; font-size: 0.9rem; color: var(--navy); }
+  .main-nav__sub a:hover, .main-nav__sub a.is-current { background: var(--bg-soft); color: var(--link); }
+  @media (hover: hover) and (min-width: 1101px) {
+    .has-children:hover .main-nav__sub, .has-children:focus-within .main-nav__sub { opacity: 1; visibility: visible; transform: none; }
+    .has-children:hover :global(.main-nav__chev) { transform: rotate(180deg); }
+  }
+  .has-children.is-open .main-nav__sub { opacity: 1; visibility: visible; transform: none; }
+  .site-header__cta { flex: none; }
+  .burger { display: none; margin-left: auto; background: none; border: 0; padding: 8px; color: var(--navy); cursor: pointer; }
+  .burger :global(svg) { width: 28px; height: 28px; }
+  .burger :global(.burger__close) { display: none; }
+  .main-nav__cta-mobile { display: none; }
+
+  @media (max-width: 1260px) and (min-width: 1101px) { .main-nav__item:first-child { display: none; } .site-header__logo img { width: 180px; } }
+  @media (max-width: 1100px) {
+    .site-header__inner { height: 68px; }
+    .site-header__logo img { width: 170px; }
+    .site-header__cta { display: none; }
+    .burger { display: block; }
+    .main-nav { position: fixed; inset: 68px 0 0 0; background: #fff; padding: 16px 16px 32px; overflow-y: auto; display: none; margin: 0; }
+    :global(.nav-open) .main-nav { display: block; }
+    :global(.nav-open) .burger :global(.burger__open) { display: none; }
+    :global(.nav-open) .burger :global(.burger__close) { display: block; }
+    .main-nav__list { flex-direction: column; align-items: stretch; gap: 0; }
+    .main-nav__item { border-bottom: 1px solid var(--border); }
+    .main-nav__link { width: 100%; justify-content: space-between; padding: 16px 4px; font-size: 1.05rem; }
+    .main-nav__link::after { display: none; }
+    .main-nav__sub { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 0; padding: 0 0 12px; display: none; min-width: 0; }
+    .has-children.is-open .main-nav__sub { display: block; }
+    .has-children.is-open :global(.main-nav__chev) { transform: rotate(180deg); }
+    .main-nav__cta-mobile { display: inline-flex; margin-top: 24px; }
+  }
+</style>
+
+<script>
+  const root = document.documentElement;
+  const burger = document.querySelector<HTMLButtonElement>('.burger');
+  burger?.addEventListener('click', () => {
+    const open = root.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+  document.querySelectorAll<HTMLButtonElement>('.main-nav__toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const li = btn.parentElement!;
+      const open = !li.classList.contains('is-open');
+      document.querySelectorAll('.has-children.is-open').forEach((o) => { if (o !== li) { o.classList.remove('is-open'); o.querySelector('button')?.setAttribute('aria-expanded', 'false'); } });
+      li.classList.toggle('is-open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+  document.addEventListener('click', (e) => {
+    if (window.innerWidth > 1100 && !(e.target as HTMLElement).closest('.has-children')) {
+      document.querySelectorAll('.has-children.is-open').forEach((o) => o.classList.remove('is-open'));
+    }
+  });
+</script>

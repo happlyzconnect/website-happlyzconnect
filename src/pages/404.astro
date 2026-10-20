@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+---
+<Base title="Page introuvable" description="Cette page n'existe pas ou a été déplacée." noindex>
+  <section class="section">
+    <div class="container" style="max-width:720px;text-align:center">
+      <span class="eyebrow">Erreur 404</span>
+      <h1 style="margin-bottom:16px">Cette page est introuvable.</h1>
+      <p class="lead">Elle a peut-être été déplacée lors de la refonte du site. Voici quelques points de départ :</p>
+      <div class="btn-row" style="justify-content:center;margin-top:28px">
+        <a href="/" class="btn btn--primary">Retour à l’accueil <Icon name="arrow" /></a>
+        <a href="/references" class="btn btn--outline">Nos références</a>
+        <a href="/contact" class="btn btn--outline">Nous contacter</a>
+      </div>
+    </div>
+  </section>
+</Base>

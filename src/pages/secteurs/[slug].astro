@@ -1,0 +1,64 @@
+---
+import Base from '../../layouts/Base.astro';
+import Hero from '../../components/Hero.astro';
+import IssueCards from '../../components/IssueCards.astro';
+import PhotoCards from '../../components/PhotoCards.astro';
+import BuildRun from '../../components/BuildRun.astro';
+import RefCards from '../../components/RefCards.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import SignageBand from '../../components/SignageBand.astro';
+import Icon from '../../components/Icon.astro';
+import { sectors, type Sector } from '../../data/site';
+
+export function getStaticPaths() {
+  return sectors.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+const { s } = Astro.props as { s: Sector };
+const crumbs = [{ label: 'Secteurs', href: `/secteurs/${sectors[0].slug}` }, { label: s.title, href: `/secteurs/${s.slug}` }];
+---
+<Base title={s.metaTitle} description={s.metaDescription} breadcrumbs={crumbs}>
+  <Hero
+    photo={s.photo}
+    photoAlt={`Équipement audiovisuel — secteur ${s.title}`}
+    breadcrumbs={crumbs}
+    title={s.title}
+    sub={s.heroTitle}
+    text={s.heroText}
+    primary={{ label: s.cta, href: '/contact?demande=devis' }}
+    secondary={{ label: 'Voir nos réalisations', href: '#realisations' }}
+  />
+
+  <IssueCards title={s.issuesTitle} text={s.issuesText} items={s.issues} />
+
+  <PhotoCards title={s.solutionsTitle} items={s.solutions} />
+
+  {s.slug === 'retail' && (
+    <section class="section">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><span class="eyebrow">Une gestion simplifiée de vos contenus</span><h2>De la création à l’affichage, en toute simplicité.</h2></div>
+        </div>
+        <ol class="steps">
+          <li class="card card--plain reveal"><Icon name="monitor" class="card__icon" /><h3>1. Contenus créés</h3><p>Visuels, vidéos et messages, planifiés depuis une interface simple.</p></li>
+          <li class="card card--plain reveal"><Icon name="cloud" class="card__icon" /><h3>2. Diffusés à distance</h3><p>Les contenus sont envoyés en toute sécurité vers vos écrans.</p></li>
+          <li class="card card--plain reveal"><Icon name="store" class="card__icon" /><h3>3. Affichés en magasin</h3><p>Vos écrans se mettent à jour automatiquement, dans un ou plusieurs magasins.</p></li>
+        </ol>
+      </div>
+    </section>
+  )}
+
+  {s.slug === 'retail' && <SignageBand />}
+
+  <BuildRun eyebrow="Un accompagnement complet" title={s.accompTitle} build={s.build} run={s.run} soft={s.slug !== 'retail'} />
+
+  <div id="realisations">
+    <RefCards ids={s.refIds} title={s.refTitle} soft={s.slug === 'retail'} />
+  </div>
+
+  <CtaBand eyebrow="Un projet ?" title={`${s.cta}.`} label={s.cta} photo={s.photo} />
+</Base>
+
+<style>
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; counter-reset: s; }
+  @media (max-width: 900px) { .steps { grid-template-columns: 1fr; } }
+</style>

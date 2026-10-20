@@ -1,0 +1,44 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+interface Props { eyebrow?: string; title: string; text?: string; build: string[]; run: string[]; soft?: boolean }
+const { eyebrow = 'Notre accompagnement', title, text, build, run, soft = false } = Astro.props;
+---
+<section class={`section ${soft ? 'section--soft' : ''}`}>
+  <div class="container">
+    <div class="section-head reveal">
+      <div><span class="eyebrow">{eyebrow}</span><h2>{title}</h2></div>
+      {text && <p>{text}</p>}
+    </div>
+    <div class="br grid grid-2">
+      <article class="br__card card reveal">
+        <div class="br__content">
+          <div class="br__head"><Icon name="cog" class="br__icon" /><div><h3>BUILD</h3><p>Concevoir et installer</p></div></div>
+          <ul class="checklist">{build.map((b) => <li><Icon name="check" />{b}</li>)}</ul>
+          <a href="/services#build" class="btn btn--blue btn--sm">En savoir plus sur BUILD <Icon name="arrow" /></a>
+        </div>
+        <div class="br__photo"><Photo name="installateurs" alt="Techniciens HAPPLYZ Connect installant un écran mural" widths={[400, 700]} sizes="(max-width: 900px) 100vw, 300px" /></div>
+      </article>
+      <article class="br__card card reveal">
+        <div class="br__content">
+          <div class="br__head"><Icon name="run" class="br__icon" /><div><h3>RUN</h3><p>Maintenir et faire évoluer</p></div></div>
+          <ul class="checklist">{run.map((b) => <li><Icon name="check" />{b}</li>)}</ul>
+          <a href="/services#run" class="btn btn--blue btn--sm">En savoir plus sur RUN <Icon name="arrow" /></a>
+        </div>
+        <div class="br__photo"><Photo name="salle-ecrans-doubles" alt="Salle de réunion équipée et maintenue par HAPPLYZ Connect" widths={[400, 700]} sizes="(max-width: 900px) 100vw, 300px" /></div>
+      </article>
+    </div>
+  </div>
+</section>
+<style>
+  .br__card { flex-direction: row; background: linear-gradient(120deg, #fff 0%, #fff 55%, var(--bg-soft) 100%); }
+  .br__content { padding: 30px; flex: 1.25; display: flex; flex-direction: column; }
+  .br__content .btn { align-self: flex-start; margin-top: auto; }
+  .br__photo { flex: 1; min-height: 100%; }
+  .br__photo :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .br__head { display: flex; gap: 14px; align-items: center; margin-bottom: 22px; }
+  .br__head h3 { font-size: 1.5rem; }
+  .br__head p { margin: 0; color: var(--muted); }
+  :global(.br__icon) { width: 42px; height: 42px; color: var(--link); flex: none; }
+  @media (max-width: 1100px) { .br__photo { display: none; } }
+</style>

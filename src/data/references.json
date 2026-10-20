@@ -1,0 +1,380 @@
+{
+ "refs": [
+  {
+   "id": 24,
+   "client": "CHIESI - Bois-Colombes",
+   "image": "chiesi-bois-colombes",
+   "description": "Intégration de systèmes BARCO ClickShare CX-50 dans 5 salles de réunion avec interface video, caméra et audio (micros plafond et haut-parleurs)",
+   "category": "salle-reunion"
+  },
+  {
+   "id": 25,
+   "client": "SHELL France - Nanterre",
+   "image": "shell-france-nanterre",
+   "description": "Installation d'un écran 98 pouces avec système Barco ClickShare CX-50, caméra et système audio (micros / haut-parleurs)",
+   "category": "salle-reunion"
+  },
+  {
+   "id": 1,
+   "client": "Decathlon Herblay",
+   "image": "decathlon-herblay",
+   "description": "Installation de 3 écrans 86 pouces pour l'affichage dynamique en magasin, avec diffusion et création de contenus en Motion Design pour promouvoir l'application Decathlon.",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 26,
+   "client": "CHIESI - Blois",
+   "image": "chiesi-blois",
+   "description": "Intégration de systèmes Barco ClickShare dans plusieurs salles de réunion avec interface vidéo, caméra, et audio (micros plafond et haut-parleurs)",
+   "category": "salle-reunion"
+  },
+  {
+   "id": 27,
+   "client": "Decathlon Paris La Madeleine",
+   "image": "decathlon-paris-la-madeleine",
+   "description": "Installation d'écrans 75 pouces avec système de projection sans fil BenQ InstaShow",
+   "category": "salle-reunion"
+  },
+  {
+   "id": 28,
+   "client": "Decathlon CNIT",
+   "image": "decathlon-cnit",
+   "description": "Installation d'écrans dans plusieurs salles de réunion sur support mural ou support mobile",
+   "category": "salle-reunion"
+  },
+  {
+   "id": 2,
+   "client": "Decathlon CNIT",
+   "image": "decathlon-cnit-2",
+   "description": "Installation de 2 x 2 écrans 75 pouces pour affichage dynamique piloté avec logiciel et adaptation de contenus vidéos, en vitrine donnant sur le centre commercial Westfield CNIT La Défense.",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 3,
+   "client": "Decathlon Poitiers",
+   "image": "decathlon-poitiers",
+   "description": "Installation d'un écran 75 pouces à l'entrée du magasin avec adaptation du contenu vidéo pour accueillir la clientèle",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 4,
+   "client": "Decathlon Brétigny-sur-Orge",
+   "image": "decathlon-bretigny-sur-orge",
+   "description": "Suspension d'écrans 65 pouces et création de vidéos en Motion Design pour affichage des tarifs de l'Atelier cycle.",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 5,
+   "client": "Decathlon Vélizy",
+   "image": "decathlon-velizy",
+   "description": "Installation d'un bandeau de 2 écrans 55 pouces pour l'affichage des tarifs de l'Atelier cycle et création du visuel en Motion Design.",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 6,
+   "client": "Decathlon Paris La Madeleine",
+   "image": "decathlon-paris-la-madeleine-2",
+   "description": "Création d'un concept d'écrans d'accueil et d'informations en file d'attente avec vidéo du personnel du magasin.",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 7,
+   "client": "Decathlon Stade de France",
+   "image": "decathlon-stade-de-france",
+   "description": "Maintenance d'un écran 100 pouces avec diffusion de vidéos en Motion Design",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 8,
+   "client": "Decathlon CNIT",
+   "image": "decathlon-cnit-3",
+   "description": "Mise en place d'un concept d'affichage des tarifs et des périodes d'ouverture du rayon cordage",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 9,
+   "client": "Decathlon Lyon Part-Dieu",
+   "image": "decathlon-lyon-part-dieu",
+   "description": "Projet de conception d'un mur vidéo de 8 x 4 écrans",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 10,
+   "client": "Decathlon Poitiers",
+   "image": "decathlon-poitiers-2",
+   "description": "Installation d'écrans 55 pouces connectés à des vélos Domyos pour démonstration de l'application KINOMAP",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 11,
+   "client": "Decathlon Sainte Geneviève-des-bois",
+   "image": "decathlon-sainte-genevieve-des-bois",
+   "description": "Installation de bornes tactiles pour afficher la gestion des réservations de l'Atelier cycle",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 12,
+   "client": "Decathlon Paris La Madeleine",
+   "image": "decathlon-paris-la-madeleine-3",
+   "description": "Intégration d'un écran 32 pouces tactile connecté à un vélo Domyos pour démonstration de l'application KINOMAP",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 13,
+   "client": "Géant Casino Marseille",
+   "image": "geant-casino-marseille",
+   "description": "Installation d'un écran 75 pouces avec intégration d'un logiciel d'affichage dynamique au niveau de la parapharmacie",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 14,
+   "client": "Géant Casino Bourges",
+   "image": "geant-casino-bourges",
+   "description": "Installation d'un écran 75 pouces avec intégration d'un logiciel d'affichage dynamique au niveau de la parapharmacie",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 15,
+   "client": "Géant Casino Fenouillet",
+   "image": "geant-casino-fenouillet",
+   "description": "Installation d'un écran 75 pouces avec intégration d'un logiciel d'affichage dynamique au niveau de la parapharmacie",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 16,
+   "client": "Géant Casino Amiens",
+   "image": "geant-casino-amiens",
+   "description": "Installation d'un écran 75 pouces avec intégration d'un logiciel d'affichage dynamique au niveau de la parapharmacie",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 17,
+   "client": "Géant Casino Villefranche-sur-Saône",
+   "image": "geant-casino-villefranche-sur-saone",
+   "description": "Installation d'un écran 75 pouces avec intégration d'un logiciel d'affichage dynamique au niveau de la parapharmacie",
+   "category": "affichage-dynamique"
+  },
+  {
+   "id": 18,
+   "client": "Collège Condorcet Paris",
+   "image": "college-condorcet-paris",
+   "description": "Modernisation complète de 7 salles de classe avec installation de vidéoprojecteurs interactifs, tableaux blancs magnétiques et système audio haute-fidélité intégré.",
+   "category": "salle-classe"
+  },
+  {
+   "id": 19,
+   "client": "Lycée agricole Les Vaseix",
+   "image": "lycee-agricole-les-vaseix",
+   "description": "Installation d'un écran numérique interactif 75 pouces avec caméra intégrée, hub de connexion et système audio pour une expérience d'enseignement moderne et immersive.",
+   "category": "salle-classe"
+  },
+  {
+   "id": 20,
+   "client": "BTP CFA Loire Atlantique - Saint Herblain",
+   "image": "btp-cfa-loire-atlantique-saint-herblain",
+   "description": "Installation d'un vidéoprojecteur haute résolution et d'un système audio professionnel pour offrir une expérience d'apprentissage optimale aux étudiants du secteur du BTP.",
+   "category": "salle-classe"
+  },
+  {
+   "id": 21,
+   "client": "Collège Albert Schweitzer - Neufchâtel-en-Bray",
+   "image": "college-albert-schweitzer-neufchatel-en-bray",
+   "description": "Installation et configuration d'un écran numérique interactif sur support mobile pour une flexibilité d'enseignement optimale et une utilisation dans différentes salles de classe.",
+   "category": "salle-classe"
+  },
+  {
+   "id": 22,
+   "client": "IUT Draguignan",
+   "image": "iut-draguignan",
+   "description": "Installation d'un écran Samsung Flip 75 pouces sur support mobile permettant l'affichage interactif, l'annotation et le partage de contenu pour des réunions collaboratives efficaces.",
+   "category": "salle-reunion"
+  },
+  {
+   "id": 23,
+   "client": "SHELL France",
+   "image": "shell-france",
+   "description": "Installation de 2 écrans 65 pouces avec système Barco CX-50 et système audio complet incluant des micros plafond et haut-parleurs pour des visioconférences haute qualité.",
+   "category": "salle-reunion"
+  },
+  {
+   "id": 29,
+   "client": "Decathlon Paris La Madeleine",
+   "image": "decathlon-paris-la-madeleine-4",
+   "description": "Installation et configuration d'une borne tactile de gestion des équipes",
+   "category": "salle-reunion"
+  },
+  {
+   "id": 30,
+   "client": "Decathlon Brétigny-sur-Orge",
+   "image": "decathlon-bretigny-sur-orge-2",
+   "description": "Installation de plusieurs salles de réunion avec écrans et système de diffusion sans fil Infobit",
+   "category": "salle-reunion"
+  },
+  {
+   "id": 31,
+   "client": "Decathlon Châteauroux",
+   "image": "decathlon-chateauroux",
+   "description": "Installation d'un écran 65 pouces et système de diffusion sans fil Infobit dans une salle de réunion",
+   "category": "salle-reunion"
+  }
+ ],
+ "clients": [
+  {
+   "name": "Decathlon",
+   "logo": "decathlon",
+   "url": "https://www.decathlon.fr/"
+  },
+  {
+   "name": "Géant Casino",
+   "logo": "geant-casino",
+   "url": "https://petitcasino.casino.fr/fr"
+  },
+  {
+   "name": "Comexposium",
+   "logo": "comexposium",
+   "url": "https://www.comexposium.com/"
+  },
+  {
+   "name": "RX",
+   "logo": "rx",
+   "url": "https://rxglobal.fr/fr"
+  },
+  {
+   "name": "MSA",
+   "logo": "msa",
+   "url": "https://www.msa.fr/lfp"
+  },
+  {
+   "name": "ADVEO",
+   "logo": "adveo",
+   "url": "https://www.adveo.com/"
+  },
+  {
+   "name": "Ministère de l'éducation nationale",
+   "logo": "ministere-de-l-education-nationale",
+   "url": "https://www.education.gouv.fr/"
+  },
+  {
+   "name": "Ministère des armées",
+   "logo": "ministere-des-armees",
+   "url": "https://www.defense.gouv.fr/"
+  },
+  {
+   "name": "CHIESI",
+   "logo": "chiesi",
+   "url": "https://www.chiesi.fr/"
+  },
+  {
+   "name": "LDLC Pro",
+   "logo": "ldlc-pro",
+   "url": "https://www.ldlc.pro/"
+  },
+  {
+   "name": "SHELL",
+   "logo": "shell",
+   "url": "https://www.shell.fr/"
+  },
+  {
+   "name": "Parashop",
+   "logo": "parashop",
+   "url": "https://www.parashop.com/"
+  }
+ ],
+ "partners": [
+  {
+   "name": "Samsung",
+   "logo": "samsung",
+   "url": "https://www.samsung.com/fr/business/"
+  },
+  {
+   "name": "LG",
+   "logo": "lg",
+   "url": "https://www.lg.com/fr/business/"
+  },
+  {
+   "name": "IIYAMA",
+   "logo": "iiyama",
+   "url": "https://iiyama.com/fr_fr/"
+  },
+  {
+   "name": "BARCO",
+   "logo": "barco",
+   "url": "https://www.barco.com/fr/"
+  },
+  {
+   "name": "YEALINK",
+   "logo": "yealink",
+   "url": "https://www.yealink.com/fr/"
+  },
+  {
+   "name": "LOGITECH",
+   "logo": "logitech",
+   "url": "https://www.logitech.com/fr-fr/business/"
+  },
+  {
+   "name": "AVER",
+   "logo": "aver",
+   "url": "https://www.avereurope.com/fr/"
+  },
+  {
+   "name": "POLY",
+   "logo": "poly",
+   "url": "https://www.poly.com/fr/fr"
+  },
+  {
+   "name": "NUREVA",
+   "logo": "nureva",
+   "url": "https://www.nureva.com/"
+  },
+  {
+   "name": "KIMEX",
+   "logo": "kimex",
+   "url": "https://www.kimex.fr/"
+  },
+  {
+   "name": "NEWLINE",
+   "logo": "newline",
+   "url": "https://www.newline-interactive.com/"
+  },
+  {
+   "name": "FVS",
+   "logo": "fvs",
+   "url": "https://www.fvs.fr/"
+  },
+  {
+   "name": "OSF",
+   "logo": "osf",
+   "url": "https://osf-av.fr/index.html/"
+  },
+  {
+   "name": "EET",
+   "logo": "eet",
+   "url": "https://www.eetgroup.com/"
+  },
+  {
+   "name": "SIDEV",
+   "logo": "sidev",
+   "url": "https://www.sidev.fr/"
+  },
+  {
+   "name": "ONE DIRECT",
+   "logo": "one-direct",
+   "url": "https://www.onedirect.fr/"
+  },
+  {
+   "name": "WINTER MUSHROOM",
+   "logo": "winter-mushroom",
+   "url": "https://www.winter-mushroom.com/fr/"
+  },
+  {
+   "name": "Magic Info",
+   "logo": "magic-info",
+   "url": "https://www.samsung.com/fr/business/display-solutions/magicinfo/"
+  },
+  {
+   "name": "EMITY",
+   "logo": "emity",
+   "url": "https://www.emity.io/"
+  }
+ ]
+}

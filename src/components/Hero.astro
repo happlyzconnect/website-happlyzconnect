@@ -1,0 +1,45 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+interface Props {
+  photo: string;
+  photoAlt: string;
+  title: string;
+  accent?: string;
+  eyebrow?: string;
+  sub?: string;
+  text?: string;
+  breadcrumbs?: { label: string; href: string }[];
+  primary?: { label: string; href: string; orange?: boolean };
+  secondary?: { label: string; href: string };
+  home?: boolean;
+}
+const { photo, photoAlt, title, accent, eyebrow, sub, text, breadcrumbs, primary, secondary, home } = Astro.props;
+---
+<section class={`hero ${home ? 'hero--home' : ''}`}>
+  <div class="hero__bg">
+    <Photo name={photo} alt={photoAlt} widths={[800, 1400, 2000]} sizes="100vw" loading="eager" fetchpriority="high" />
+  </div>
+  <div class="container" style="position:relative">
+    <div class="hero__inner">
+      {breadcrumbs && (
+        <ol class="breadcrumb">
+          <li><a href="/">Accueil</a></li>
+          {breadcrumbs.map((b, i) => <li>{i === breadcrumbs.length - 1 ? <span aria-current="page">{b.label}</span> : <a href={b.href}>{b.label}</a>}</li>)}
+        </ol>
+      )}
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+      <h1>{title}{accent && <><br /><span class="accent">{accent}</span></>}</h1>
+      {sub && <p class="hero__sub">{sub}</p>}
+      {text && <p class="hero__text">{text}</p>}
+      <slot />
+      {(primary || secondary) && (
+        <div class="btn-row">
+          {primary && <a href={primary.href} class={`btn ${primary.orange ? 'btn--orange' : 'btn--primary'}`}>{primary.label} <Icon name="arrow" /></a>}
+          {secondary && <a href={secondary.href} class="btn btn--ghost">{secondary.label}</a>}
+        </div>
+      )}
+    </div>
+    {home && <p class="hero__script" aria-hidden="true">We connect,<span>you grow.</span></p>}
+  </div>
+</section>

@@ -1,0 +1,392 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+const crumbs = [{ label: 'Outils', href: '/outils/configurateur-salle' }, { label: 'Configurateur de salle', href: '/outils/configurateur-salle' }];
+const mainSizes = [55, 65, 75, 86, 98];
+const secondSizes = [43, 50, 55, 65, 75];
+---
+<Base
+  title="Configurateur de salle de réunion — écrans à l’échelle"
+  description="Composez votre salle de réunion en quelques clics : taille et orientation des écrans, second écran, barre de visioconférence, partage sans fil, sonorisation, vidéoprojection. Vue du mur à l’échelle et demande de devis."
+  breadcrumbs={crumbs}
+>
+  <section class="cfg-head">
+    <div class="container cfg-head__inner">
+      <div>
+        <ol class="breadcrumb"><li><a href="/">Accueil</a></li><li>Outils</li><li><span aria-current="page">Configurateur de salle</span></li></ol>
+        <h1>Configurateur de salle</h1>
+        <p class="hero__sub" style="margin:0">Composez votre salle en quelques clics.</p>
+      </div>
+      <ul class="cfg-head__perks">
+        <li><Icon name="ruler" /><span>Visualisez votre configuration à l’échelle</span></li>
+        <li><Icon name="monitor" /><span>Des équipements adaptés à vos besoins</span></li>
+        <li><Icon name="file" /><span>Recevez un devis pour cette configuration</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:28px">
+    <div class="container cfg" id="cfg">
+      <!-- Panneau de choix -->
+      <form class="card cfg__panel" onsubmit="return false" aria-label="Choix des équipements">
+        <div class="cfg__block">
+          <h2 class="cfg__title"><span>1</span>Écran principal</h2>
+          <p class="cfg__label">Taille (pouces)</p>
+          <div class="seg" data-name="mainSize">{mainSizes.map((s) => <button type="button" data-v={s} class={s === 75 ? 'is-on' : ''}>{s}"</button>)}</div>
+          <p class="cfg__label">Orientation</p>
+          <div class="seg seg--2" data-name="mainOrient"><button type="button" data-v="landscape" class="is-on">Paysage</button><button type="button" data-v="portrait">Portrait</button></div>
+        </div>
+
+        <div class="cfg__block">
+          <h2 class="cfg__title"><span>2</span>Second écran <label class="switch"><input type="checkbox" data-name="second" /><i></i><span class="sr-only">Ajouter un second écran</span></label></h2>
+          <div class="cfg__sub" data-show="second">
+            <p class="cfg__label">Taille (pouces)</p>
+            <div class="seg" data-name="secondSize">{secondSizes.map((s) => <button type="button" data-v={s} class={s === 55 ? 'is-on' : ''}>{s}"</button>)}</div>
+            <p class="cfg__label">Orientation</p>
+            <div class="seg seg--2" data-name="secondOrient"><button type="button" data-v="landscape" class="is-on">Paysage</button><button type="button" data-v="portrait">Portrait</button></div>
+          </div>
+        </div>
+
+        <div class="cfg__block">
+          <h2 class="cfg__title"><span>3</span>Barre de visioconférence <label class="switch"><input type="checkbox" data-name="visio" checked /><i></i><span class="sr-only">Ajouter une barre de visioconférence</span></label></h2>
+          <div class="cfg__sub" data-show="visio">
+            <select data-name="visioPos" class="cfg__select" aria-label="Position de la barre">
+              <option value="top">Au-dessus de l’écran</option>
+              <option value="bottom">Sous l’écran</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="cfg__block">
+          <h2 class="cfg__title"><span>4</span>Partage sans fil <label class="switch"><input type="checkbox" data-name="share" checked /><i></i><span class="sr-only">Ajouter un système de partage sans fil</span></label></h2>
+          <p class="cfg__hint">Un bouton pour afficher l’écran d’un ordinateur, sans câble.</p>
+        </div>
+
+        <div class="cfg__block">
+          <h2 class="cfg__title"><span>5</span>Sonorisation <label class="switch"><input type="checkbox" data-name="audio" /><i></i><span class="sr-only">Ajouter la sonorisation</span></label></h2>
+          <p class="cfg__hint">Enceintes murales et micros, pour les salles moyennes et grandes.</p>
+        </div>
+
+        <div class="cfg__block">
+          <h2 class="cfg__title"><span>6</span>Vidéoprojecteur et toile <label class="switch"><input type="checkbox" data-name="projector" /><i></i><span class="sr-only">Ajouter un vidéoprojecteur</span></label></h2>
+          <div class="cfg__sub" data-show="projector">
+            <p class="cfg__label">Diagonale de la toile</p>
+            <div class="seg" data-name="screenSize">{[100, 120, 150].map((s) => <button type="button" data-v={s} class={s === 120 ? 'is-on' : ''}>{s}"</button>)}</div>
+            <p class="cfg__hint">La toile remplace l’écran principal sur le mur.</p>
+          </div>
+        </div>
+      </form>
+
+      <!-- Vue -->
+      <div class="cfg__main">
+        <div class="cfg__bar">
+          <div class="seg seg--2 cfg__views" data-name="view"><button type="button" data-v="front" class="is-on">Vue de face</button><button type="button" data-v="top">Vue de dessus</button></div>
+          <div class="cfg__dims">
+            <span>Dimensions du mur</span>
+            <label>Largeur <input type="number" data-name="wallW" value="500" min="200" max="2000" step="10" /> cm</label>
+            <label>Hauteur <input type="number" data-name="wallH" value="280" min="220" max="600" step="10" /> cm</label>
+          </div>
+        </div>
+        <div class="card cfg__stage">
+          <svg id="stage" viewBox="0 0 900 470" role="img" aria-label="Mur de la salle vu de face, équipements à l'échelle"></svg>
+          <p class="cfg__drag"><Icon name="info" /> Faites glisser les écrans pour les positionner sur le mur.</p>
+        </div>
+        <div class="cfg__tips card card--plain">
+          <h2 class="h3"><Icon name="lightbulb" /> Conseils d’implantation</h2>
+          <ul class="checklist" id="tips"></ul>
+        </div>
+      </div>
+
+      <!-- Récapitulatif -->
+      <aside class="cfg__summary">
+        <div class="card cfg__recap">
+          <h2>Votre configuration</h2>
+          <ul id="recap"></ul>
+          <a href="/contact" id="quote" class="btn btn--primary">Recevoir un devis pour cette configuration <Icon name="arrow" /></a>
+          <button type="button" id="copy" class="btn btn--outline btn--sm">Copier le récapitulatif</button>
+        </div>
+        <p class="cfg__disclaimer"><Icon name="info" /> Les équipements sont représentés de façon générique. Nos experts vous proposent les modèles adaptés et ajustent la configuration selon vos contraintes techniques.</p>
+      </aside>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .cfg-head { background: var(--navy); color: #fff; padding: 36px 0; }
+  .cfg-head__inner { display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap; }
+  .cfg-head h1 { margin-bottom: 6px; }
+  .cfg-head__perks { list-style: none; margin: 0; padding: 0; display: flex; gap: 28px; }
+  .cfg-head__perks li { display: flex; gap: 12px; align-items: center; max-width: 190px; font-size: 0.92rem; line-height: 1.35; }
+  .cfg-head__perks :global(svg) { width: 34px; height: 34px; flex: none; color: var(--cyan); }
+  @media (max-width: 1100px) { .cfg-head__perks { display: none; } }
+
+  .cfg { display: grid; grid-template-columns: 300px 1fr 280px; gap: 22px; align-items: start; }
+  @media (max-width: 1250px) { .cfg { grid-template-columns: 290px 1fr; } .cfg__summary { grid-column: 1 / -1; } }
+  @media (max-width: 860px) { .cfg { grid-template-columns: 1fr; } }
+
+  .cfg__panel { padding: 6px 20px; }
+  .cfg__block { padding: 18px 0; border-bottom: 1px solid var(--border); }
+  .cfg__block:last-child { border-bottom: 0; }
+  .cfg__title { display: flex; align-items: center; gap: 10px; font-size: 1rem; }
+  .cfg__title > span { width: 26px; height: 26px; border-radius: 50%; background: var(--blue); color: #fff; font-size: 0.8rem; display: grid; place-items: center; flex: none; }
+  .cfg__label { font-size: 0.82rem; color: var(--muted); margin: 14px 0 8px; }
+  .cfg__hint { font-size: 0.82rem; color: var(--muted); margin: 8px 0 0; }
+  .cfg__sub[hidden] { display: none; }
+  .cfg__select { margin-top: 12px; width: 100%; padding: 10px 12px; border: 1px solid #cfdbe6; border-radius: 10px; font: inherit; font-size: 0.9rem; }
+  .seg { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+  .seg--2 { grid-template-columns: 1fr 1fr; }
+  .seg[data-name='screenSize'] { grid-template-columns: repeat(3, 1fr); }
+  .seg button { font: inherit; font-size: 0.85rem; padding: 9px 4px; border: 1px solid #cfdbe6; border-radius: 8px; background: #fff; cursor: pointer; color: var(--navy); }
+  .seg button.is-on { border-color: var(--link); background: #e8f5fb; font-weight: 700; }
+  .switch { margin-left: auto; position: relative; display: inline-block; width: 42px; height: 24px; flex: none; }
+  .switch input { opacity: 0; width: 0; height: 0; }
+  .switch i { position: absolute; inset: 0; background: #cfdbe6; border-radius: 999px; transition: 0.2s; cursor: pointer; }
+  .switch i::after { content: ''; position: absolute; width: 18px; height: 18px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: 0.2s; }
+  .switch input:checked + i { background: var(--cyan); }
+  .switch input:checked + i::after { transform: translateX(18px); }
+  .switch input:focus-visible + i { outline: 3px solid var(--cyan); outline-offset: 2px; }
+
+  .cfg__bar { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 12px; }
+  .cfg__views { width: 280px; }
+  .cfg__views button { border-radius: 999px; }
+  .cfg__views button.is-on { background: var(--cyan); border-color: var(--cyan); }
+  .cfg__dims { display: flex; gap: 10px; align-items: center; font-size: 0.82rem; color: var(--muted); flex-wrap: wrap; }
+  .cfg__dims input { width: 72px; padding: 7px 8px; border: 1px solid #cfdbe6; border-radius: 8px; font: inherit; font-size: 0.85rem; }
+  .cfg__stage { padding: 10px; }
+  .cfg__stage svg { width: 100%; height: auto; touch-action: none; user-select: none; }
+  .cfg__drag { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--muted); margin: 6px 6px 0; }
+  .cfg__drag :global(svg) { width: 15px; height: 15px; }
+  .cfg__tips { margin-top: 16px; }
+  .cfg__tips .h3 { display: flex; gap: 8px; align-items: center; font-size: 1.05rem; }
+  .cfg__tips .h3 :global(svg) { width: 22px; height: 22px; color: var(--link); }
+  .cfg__tips .checklist { margin: 0; }
+
+  .cfg__recap { padding: 22px; display: grid; gap: 14px; }
+  .cfg__recap h2 { font-size: 1.25rem; }
+  #recap { list-style: none; padding: 0; margin: 0; display: grid; }
+  #recap :global(li) { display: flex; justify-content: space-between; gap: 10px; padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+  #recap :global(li span) { color: var(--muted); text-align: right; }
+  #recap :global(li.off) { opacity: 0.5; }
+  .cfg__recap .btn { justify-content: center; white-space: normal; text-align: center; line-height: 1.3; }
+  .cfg__disclaimer { display: flex; gap: 8px; font-size: 0.8rem; color: var(--muted); margin: 14px 4px 0; }
+  .cfg__disclaimer :global(svg) { width: 16px; height: 16px; flex: none; margin-top: 2px; }
+  .h3 { font-size: 1.1rem; }
+</style>
+
+<script>
+  type Orient = 'landscape' | 'portrait';
+  const S = {
+    mainSize: 75, mainOrient: 'landscape' as Orient,
+    second: false, secondSize: 55, secondOrient: 'landscape' as Orient,
+    visio: true, visioPos: 'top', share: true, audio: false,
+    projector: false, screenSize: 120, view: 'front',
+    wallW: 500, wallH: 280,
+    mainX: null as number | null, secondX: null as number | null, // position du centre, en cm depuis la gauche
+  };
+  const BOTTOM = 95; // bas des écrans, en cm du sol
+  const PERSON = 175;
+  const root = document.getElementById('cfg')!;
+  const svg = document.getElementById('stage') as unknown as SVGSVGElement;
+  const tipsEl = document.getElementById('tips')!;
+  const recapEl = document.getElementById('recap')!;
+
+  const dims = (inch: number, o: Orient, r = 16 / 9) => {
+    const d = inch * 2.54, w = d * r / Math.hypot(r, 1), h = d / Math.hypot(r, 1);
+    return o === 'portrait' ? { w: h, h: w } : { w, h };
+  };
+  const cm = (n: number) => n.toLocaleString('fr-FR', { maximumFractionDigits: 1, minimumFractionDigits: 1 }) + ' cm';
+  const m = (n: number) => (n / 100).toLocaleString('fr-FR', { maximumFractionDigits: 1, minimumFractionDigits: 1 }) + ' m';
+
+  // Liaison des contrôles
+  root.querySelectorAll<HTMLElement>('.seg').forEach((seg) => {
+    seg.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest('button'); if (!b) return;
+      seg.querySelectorAll('button').forEach((x) => x.classList.toggle('is-on', x === b));
+      const k = seg.dataset.name as keyof typeof S; const v = b.dataset.v!;
+      (S as any)[k] = isNaN(Number(v)) ? v : Number(v);
+      draw();
+    });
+  });
+  root.querySelectorAll<HTMLInputElement>('input[type=checkbox][data-name]').forEach((cb) => cb.addEventListener('change', () => { (S as any)[cb.dataset.name!] = cb.checked; draw(); }));
+  root.querySelectorAll<HTMLInputElement>('input[type=number][data-name]').forEach((inp) => inp.addEventListener('change', () => {
+    const v = Math.min(Number(inp.max), Math.max(Number(inp.min), Number(inp.value) || Number(inp.min)));
+    inp.value = String(v); (S as any)[inp.dataset.name!] = v; S.mainX = S.secondX = null; draw();
+  }));
+  root.querySelector<HTMLSelectElement>('select[data-name=visioPos]')!.addEventListener('change', (e) => { S.visioPos = (e.target as HTMLSelectElement).value; draw(); });
+
+  function layout() {
+    const main = S.projector ? dims(S.screenSize, 'landscape') : dims(S.mainSize, S.mainOrient);
+    const second = S.second ? dims(S.secondSize, S.secondOrient) : null;
+    const gap = 40;
+    const total = main.w + (second ? gap + second.w : 0);
+    const start = (S.wallW - total) / 2;
+    let mainX = S.mainX ?? start + main.w / 2;
+    let secondX = second ? (S.secondX ?? start + main.w + gap + second.w / 2) : 0;
+    const clamp = (x: number, w: number) => Math.min(S.wallW - w / 2, Math.max(w / 2, x));
+    mainX = clamp(mainX, main.w); if (second) secondX = clamp(secondX, second.w);
+    const mainBottom = S.projector ? Math.max(BOTTOM, S.wallH - 30 - main.h) : BOTTOM;
+    return { main, second, mainX, secondX, mainBottom };
+  }
+
+  function draw() {
+    root.querySelectorAll<HTMLElement>('[data-show]').forEach((el) => (el.hidden = !(S as any)[el.dataset.show!]));
+    const L = layout();
+    if (S.view === 'front') drawFront(L); else drawTop(L);
+    tips(L); recap(L);
+  }
+
+  // Vue de face à l'échelle
+  function drawFront(L: ReturnType<typeof layout>) {
+    const VW = 900, VH = 470, pad = 40;
+    const k = Math.min((VW - pad * 2) / S.wallW, (VH - pad * 2) / S.wallH);
+    const ox = (VW - S.wallW * k) / 2, floor = VH - pad;
+    const X = (x: number) => ox + x * k, Y = (y: number) => floor - y * k;
+    let g = `<defs><linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2b7fb8"/><stop offset="1" stop-color="#14213d"/></linearGradient></defs>`;
+    g += `<rect x="${X(0)}" y="${Y(S.wallH)}" width="${S.wallW * k}" height="${S.wallH * k}" fill="#f6f8fb" stroke="#cfdbe6"/>`;
+    g += `<rect x="${X(0)}" y="${floor}" width="${S.wallW * k}" height="6" fill="#d9e2ec"/>`;
+    // Table
+    const tw = Math.min(S.wallW * 0.55, 360);
+    g += `<rect x="${X(S.wallW / 2 - tw / 2)}" y="${Y(75)}" width="${tw * k}" height="${4 * k + 3}" fill="#c8a77a" rx="2"/>`;
+    g += `<rect x="${X(S.wallW / 2 - tw / 2 + 20)}" y="${Y(75)}" width="${5 * k}" height="${75 * k}" fill="#b8b8b8"/><rect x="${X(S.wallW / 2 + tw / 2 - 25)}" y="${Y(75)}" width="${5 * k}" height="${75 * k}" fill="#b8b8b8"/>`;
+    // Silhouette
+    const px = 25, ph = PERSON * k, sx = X(px);
+    g += `<g fill="#aab6c6"><circle cx="${sx + ph * 0.13}" cy="${floor - ph + ph * 0.065}" r="${ph * 0.065}"/><rect x="${sx + ph * 0.05}" y="${floor - ph * 0.86}" width="${ph * 0.16}" height="${ph * 0.42}" rx="${ph * 0.04}"/><rect x="${sx + ph * 0.06}" y="${floor - ph * 0.46}" width="${ph * 0.065}" height="${ph * 0.46}"/><rect x="${sx + ph * 0.135}" y="${floor - ph * 0.46}" width="${ph * 0.065}" height="${ph * 0.46}"/></g>`;
+    g += dimV(sx - 8, floor, floor - ph, '1,75 m');
+    // Écran / toile principal
+    const mw = L.main.w, mh = L.main.h, mx = L.mainX - mw / 2, mb = L.mainBottom;
+    if (S.projector) {
+      g += `<rect x="${X(mx)}" y="${Y(mb + mh)}" width="${mw * k}" height="${mh * k}" fill="#fff" stroke="#9aa8bb" stroke-width="1.5"/>`;
+      g += `<rect x="${X(mx) - 4}" y="${Y(mb + mh) - 5}" width="${mw * k + 8}" height="6" rx="3" fill="#56667f"/>`;
+      g += `<text x="${X(L.mainX)}" y="${Y(mb + mh / 2)}" text-anchor="middle" font-size="${Math.max(14, mh * k / 5)}" font-weight="800" fill="#9aa8bb">${S.screenSize}"</text>`;
+    } else {
+      g += screen(X(mx), Y(mb + mh), mw * k, mh * k, S.mainSize, 'main');
+    }
+    g += dimH(X(mx), X(mx + mw), Y(mb + mh) - (S.visio && S.visioPos === 'top' && !S.projector ? 26 : 14), cm(mw));
+    g += dimV(X(mx + mw) + 10, Y(mb), Y(mb + mh), cm(mh), true);
+    // Barre de visio
+    if (S.visio) {
+      const bw = 90, bh = 9; const by = S.visioPos === 'top' || S.projector ? mb + mh + 4 : mb - 4 - bh;
+      g += `<rect x="${X(L.mainX - bw / 2)}" y="${Y(by + bh)}" width="${bw * k}" height="${bh * k}" rx="${3 * k}" fill="#1d232c"/><circle cx="${X(L.mainX)}" cy="${Y(by + bh / 2)}" r="${3 * k}" fill="#3a4b63"/>`;
+    }
+    // Second écran
+    if (L.second) {
+      const w2 = L.second.w, h2 = L.second.h, x2 = L.secondX - w2 / 2;
+      g += screen(X(x2), Y(BOTTOM + h2), w2 * k, h2 * k, S.secondSize, 'second');
+      g += dimH(X(x2), X(x2 + w2), Y(BOTTOM + h2) - 14, cm(w2));
+      g += dimV(X(x2 + w2) + 10, Y(BOTTOM), Y(BOTTOM + h2), cm(h2), true);
+    }
+    // Enceintes
+    if (S.audio) {
+      const left = Math.min(L.mainX - L.main.w / 2, L.second ? L.secondX - L.second.w / 2 : Infinity) - 45;
+      const right = Math.max(L.mainX + L.main.w / 2, L.second ? L.secondX + L.second.w / 2 : -Infinity) + 25;
+      [left, right].forEach((x) => { const cx = Math.min(S.wallW - 25, Math.max(5, x)); g += `<rect x="${X(cx)}" y="${Y(BOTTOM + 95)}" width="${20 * k}" height="${32 * k}" rx="${3 * k}" fill="#1d232c"/><circle cx="${X(cx + 10)}" cy="${Y(BOTTOM + 72)}" r="${6 * k}" fill="#3a4b63"/>`; });
+    }
+    // Partage sans fil (base posée sur la table)
+    if (S.share) g += `<ellipse cx="${X(S.wallW / 2)}" cy="${Y(77)}" rx="${10 * k}" ry="${3 * k}" fill="#1d232c"/>`;
+    // Projecteur (au plafond)
+    if (S.projector) g += `<rect x="${X(L.mainX - 20)}" y="${Y(S.wallH - 8)}" width="${40 * k}" height="${14 * k}" rx="${3 * k}" fill="#e9edf2" stroke="#9aa8bb"/>`;
+    g += dimH(X(0), X(S.wallW), Y(S.wallH) - 14, `Mur : ${m(S.wallW)}`);
+    svg.innerHTML = g;
+    svg.dataset.k = String(k); svg.dataset.ox = String(ox);
+  }
+
+  function screen(x: number, y: number, w: number, h: number, size: number, id: string) {
+    return `<g class="drag" data-id="${id}" style="cursor:grab"><rect x="${x - 3}" y="${y - 3}" width="${w + 6}" height="${h + 6}" rx="3" fill="#1d232c"/><rect x="${x}" y="${y}" width="${w}" height="${h}" fill="url(#scr)"/><text x="${x + w / 2}" y="${y + h / 2 + Math.min(w, h) / 9}" text-anchor="middle" font-size="${Math.max(13, Math.min(w, h) / 3.2)}" font-weight="800" fill="#fff">${size}"</text></g>`;
+  }
+  function dimH(x1: number, x2: number, y: number, label: string) {
+    return `<g stroke="#56667f" stroke-width="1"><line x1="${x1}" y1="${y}" x2="${x2}" y2="${y}"/><line x1="${x1}" y1="${y - 4}" x2="${x1}" y2="${y + 4}"/><line x1="${x2}" y1="${y - 4}" x2="${x2}" y2="${y + 4}"/></g><text x="${(x1 + x2) / 2}" y="${y - 7}" text-anchor="middle" font-size="17" font-weight="700" fill="#14213d">${label}</text>`;
+  }
+  function dimV(x: number, y1: number, y2: number, label: string, right = false) {
+    const tx = right ? x + 14 : x - 10;
+    return `<g stroke="#56667f" stroke-width="1"><line x1="${x}" y1="${y1}" x2="${x}" y2="${y2}"/><line x1="${x - 4}" y1="${y1}" x2="${x + 4}" y2="${y1}"/><line x1="${x - 4}" y1="${y2}" x2="${x + 4}" y2="${y2}"/></g><text x="${tx}" y="${(y1 + y2) / 2}" font-size="17" font-weight="700" fill="#14213d" text-anchor="middle" transform="rotate(-90 ${tx} ${(y1 + y2) / 2})">${label}</text>`;
+  }
+
+  // Vue de dessus : table, distance de visionnage recommandée
+  function drawTop(L: ReturnType<typeof layout>) {
+    const VW = 900, VH = 470;
+    const depth = Math.max(500, maxDist(L) + 120);
+    const k = Math.min((VW - 80) / S.wallW, (VH - 60) / depth);
+    const ox = (VW - S.wallW * k) / 2, oy = 30;
+    const X = (x: number) => ox + x * k, Y = (y: number) => oy + y * k;
+    let g = `<rect x="${X(0)}" y="${Y(0)}" width="${S.wallW * k}" height="${depth * k}" fill="#f6f8fb" stroke="#cfdbe6"/>`;
+    g += `<rect x="${X(0)}" y="${Y(0) - 6}" width="${S.wallW * k}" height="6" fill="#9aa8bb"/>`;
+    const [dMin, dMax] = [L.main.h * 1.5, L.main.h * 6].map((v) => Math.round(v));
+    g += `<path d="M${X(L.mainX - L.main.w / 2)} ${Y(4)} L${X(Math.max(0, L.mainX - L.main.w / 2 - dMax * 0.45))} ${Y(dMax)} L${X(Math.min(S.wallW, L.mainX + L.main.w / 2 + dMax * 0.45))} ${Y(dMax)} L${X(L.mainX + L.main.w / 2)} ${Y(4)} Z" fill="#56c7e1" opacity="0.14"/>`;
+    g += `<rect x="${X(L.mainX - L.main.w / 2)}" y="${Y(0)}" width="${L.main.w * k}" height="${8 * k}" fill="#14213d"/>`;
+    if (L.second) g += `<rect x="${X(L.secondX - L.second.w / 2)}" y="${Y(0)}" width="${L.second.w * k}" height="${8 * k}" fill="#14213d"/>`;
+    const tw = Math.min(S.wallW * 0.45, 160), tl = Math.min(depth - dMin - 80, 420);
+    const ty = Math.max(dMin, 120);
+    g += `<rect x="${X(L.mainX - tw / 2)}" y="${Y(ty)}" width="${tw * k}" height="${tl * k}" rx="6" fill="#d8b98c"/>`;
+    const n = Math.max(1, Math.floor(tl / 75));
+    for (let i = 0; i < n; i++) { const cy = ty + 40 + i * 75; [L.mainX - tw / 2 - 30, L.mainX + tw / 2 + 5].forEach((cx) => (g += `<rect x="${X(cx)}" y="${Y(cy)}" width="${25 * k}" height="${25 * k}" rx="4" fill="#9aa8bb"/>`)); }
+    if (S.share) g += `<circle cx="${X(L.mainX)}" cy="${Y(ty + tl / 2)}" r="${8 * k}" fill="#1d232c"/>`;
+    g += `<g stroke="#14213d"><line x1="${X(S.wallW) - 20}" y1="${Y(dMin)}" x2="${X(S.wallW) - 20}" y2="${Y(dMax)}"/></g>`;
+    g += `<text x="${X(S.wallW) - 28}" y="${Y((dMin + dMax) / 2)}" font-size="17" font-weight="700" fill="#14213d" text-anchor="end">Distance conseillée : ${m(dMin)} – ${m(dMax)}</text>`;
+    g += `<text x="${X(L.mainX)}" y="${Y(0) - 12}" text-anchor="middle" font-size="12" fill="#56667f">Mur équipé</text>`;
+    svg.innerHTML = g;
+  }
+  const maxDist = (L: ReturnType<typeof layout>) => L.main.h * 6;
+
+  function tips(L: ReturnType<typeof layout>) {
+    const h = L.main.h;
+    const items = [
+      `Distance de visionnage conseillée : ${m(h * 1.5)} à ${m(h * 6)} (pour ${S.projector ? `une toile de ${S.screenSize}"` : `un écran de ${S.mainSize}"`}). Au-delà, le texte devient difficile à lire.`,
+      `Bas de l’écran à environ ${BOTTOM} cm du sol, pour une bonne visibilité au-dessus de la table.`,
+      `Prévoir une prise électrique et un accès réseau derrière chaque écran.`,
+    ];
+    if (S.visio) items.push('Placer la barre de visioconférence au plus près des yeux des participants à distance, centrée sur l’écran principal.');
+    if (S.second) items.push('Deux écrans : l’un pour les participants à distance, l’autre pour le contenu partagé.');
+    const totalW = L.main.w + (L.second ? 40 + L.second.w : 0);
+    if (totalW > S.wallW - 40) items.push('⚠ Les équipements dépassent presque la largeur du mur : réduisez une taille d’écran.');
+    if (BOTTOM + Math.max(L.main.h, L.second?.h ?? 0) + (S.visio ? 15 : 0) > S.wallH - 10) items.push('⚠ La hauteur sous plafond est juste : envisagez une taille inférieure ou l’orientation paysage.');
+    tipsEl.innerHTML = items.map((t) => `<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m8 12 3 3 5-6"/></svg>${t}</li>`).join('');
+  }
+
+  function lines(L: ReturnType<typeof layout>) {
+    const o = (x: Orient) => (x === 'portrait' ? 'portrait' : 'paysage');
+    return [
+      ['Écran principal', S.projector ? 'Remplacé par la toile' : `${S.mainSize}" ${o(S.mainOrient)} (${cm(L.main.w)} × ${cm(L.main.h)})`, !S.projector],
+      ['Second écran', S.second ? `${S.secondSize}" ${o(S.secondOrient)}` : 'Non', S.second],
+      ['Barre de visioconférence', S.visio ? (S.visioPos === 'top' ? 'Au-dessus de l’écran' : 'Sous l’écran') : 'Non', S.visio],
+      ['Partage sans fil', S.share ? 'Oui' : 'Non', S.share],
+      ['Sonorisation', S.audio ? 'Enceintes murales + micros' : 'Non', S.audio],
+      ['Vidéoprojecteur et toile', S.projector ? `Toile ${S.screenSize}"` : 'Non', S.projector],
+      ['Mur', `${m(S.wallW)} × ${m(S.wallH)}`, true],
+    ] as [string, string, boolean][];
+  }
+  function recap(L: ReturnType<typeof layout>) {
+    const ls = lines(L);
+    recapEl.innerHTML = ls.map(([k, v, on]) => `<li class="${on ? '' : 'off'}">${k}<span>${v}</span></li>`).join('');
+    const txt = ls.map(([k, v]) => `- ${k} : ${v}`).join('\n');
+    (document.getElementById('quote') as HTMLAnchorElement).href = `/contact?demande=devis&config=${encodeURIComponent(txt)}`;
+    (document.getElementById('copy') as HTMLButtonElement).onclick = async () => {
+      try { await navigator.clipboard.writeText(txt); (document.getElementById('copy') as HTMLButtonElement).textContent = 'Récapitulatif copié ✓'; } catch {}
+    };
+  }
+
+  // Glisser-déposer horizontal des écrans
+  let dragging: { id: string; startX: number; orig: number } | null = null;
+  const toWall = (clientX: number) => {
+    const r = svg.getBoundingClientRect(); const vx = ((clientX - r.left) / r.width) * 900;
+    return (vx - Number(svg.dataset.ox)) / Number(svg.dataset.k);
+  };
+  svg.addEventListener('pointerdown', (e) => {
+    const g = (e.target as Element).closest('.drag') as SVGGElement | null; if (!g || S.view !== 'front') return;
+    const L = layout(); const id = g.dataset.id!;
+    dragging = { id, startX: toWall(e.clientX), orig: id === 'main' ? L.mainX : L.secondX };
+    svg.setPointerCapture(e.pointerId);
+  });
+  svg.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const x = dragging.orig + toWall(e.clientX) - dragging.startX;
+    if (dragging.id === 'main') S.mainX = x; else S.secondX = x;
+    const L = layout(); if (dragging.id === 'main') S.mainX = L.mainX; else S.secondX = L.secondX;
+    draw();
+  });
+  ['pointerup', 'pointercancel'].forEach((ev) => svg.addEventListener(ev, () => (dragging = null)));
+
+  // Réinitialise les positions quand les tailles changent
+  root.querySelectorAll('.cfg__panel .seg, .cfg__panel input[type=checkbox]').forEach((el) => el.addEventListener(el.tagName === 'INPUT' ? 'change' : 'click', () => { S.mainX = S.secondX = null; draw(); }, true));
+
+  draw();
+</script>

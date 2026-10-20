@@ -1,0 +1,17 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+interface Props { eyebrow?: string; title: string; text?: string; label: string; href?: string; photo?: string }
+const { eyebrow = 'Un projet audiovisuel ?', title, text = 'Nos experts vous conseillent et vous accompagnent pour trouver la solution la plus adaptée à vos besoins.', label, href = '/contact?demande=devis', photo = 'salle-reunion-vitree' } = Astro.props;
+---
+<section class="cta-band">
+  <div class="cta-band__bg"><Photo name={photo} alt="" widths={[1400]} sizes="100vw" /></div>
+  <div class="container cta-band__inner">
+    <div>
+      <span class="eyebrow">{eyebrow}</span>
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+    <a href={href} class="btn btn--primary">{label} <Icon name="arrow" /></a>
+  </div>
+</section>

@@ -1,0 +1,27 @@
+---
+import Photo from './Photo.astro';
+import data from '../data/references.json';
+interface Props { title?: string; text?: string }
+const { title = 'Des entreprises et établissements qui nous font confiance.', text = 'Grands comptes, établissements scolaires, réseaux de magasins : ils nous ont confié leurs projets audiovisuels.' } = Astro.props;
+---
+<section class="section section--tight">
+  <div class="container">
+    <div class="section-head reveal">
+      <div><span class="eyebrow">Ils nous font confiance</span><h2>{title}</h2></div>
+      <p>{text}</p>
+    </div>
+    <ul class="logos reveal">
+      {data.clients.map((c) => (
+        <li title={c.name}><Photo name={c.logo} folder="logos" alt={c.name} widths={[240]} sizes="140px" format="png" /></li>
+      ))}
+    </ul>
+  </div>
+</section>
+<style>
+  .logos { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: 28px 36px; align-items: center; }
+  .logos li { display: flex; justify-content: center; align-items: center; height: 64px; }
+  .logos :global(img) { max-height: 64px; max-width: 140px; width: auto; object-fit: contain; filter: grayscale(1); opacity: 0.75; transition: all 0.2s; }
+  .logos li:hover :global(img) { filter: none; opacity: 1; }
+  @media (max-width: 900px) { .logos { grid-template-columns: repeat(4, 1fr); } }
+  @media (max-width: 560px) { .logos { grid-template-columns: repeat(3, 1fr); gap: 20px; } }
+</style>

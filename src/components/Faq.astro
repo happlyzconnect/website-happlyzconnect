@@ -1,0 +1,29 @@
+---
+import Icon from './Icon.astro';
+interface Props { items: { q: string; a: string }[]; title?: string }
+const { items, title = 'Questions fréquentes' } = Astro.props;
+---
+<section class="section">
+  <div class="container faq">
+    <div class="reveal"><span class="eyebrow">FAQ</span><h2>{title}</h2></div>
+    <div class="faq__list">
+      {items.map((it) => (
+        <details class="faq__item reveal">
+          <summary>{it.q}<Icon name="chevron" /></summary>
+          <p>{it.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .faq { display: grid; grid-template-columns: 1fr 2fr; gap: 40px; }
+  .faq__list { display: grid; gap: 12px; }
+  .faq__item { border: 1px solid var(--border); border-radius: var(--radius-sm); background: #fff; }
+  .faq__item summary { list-style: none; cursor: pointer; padding: 18px 20px; font-weight: 700; display: flex; justify-content: space-between; gap: 16px; align-items: center; }
+  .faq__item summary::-webkit-details-marker { display: none; }
+  .faq__item summary :global(svg) { width: 20px; height: 20px; flex: none; transition: transform 0.2s; color: var(--link); }
+  .faq__item[open] summary :global(svg) { transform: rotate(180deg); }
+  .faq__item p { padding: 0 20px 18px; margin: 0; color: var(--muted); }
+  @media (max-width: 900px) { .faq { grid-template-columns: 1fr; gap: 20px; } }
+</style>

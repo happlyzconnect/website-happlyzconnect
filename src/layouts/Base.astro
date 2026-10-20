@@ -1,0 +1,82 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { company } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  breadcrumbs?: { label: string; href: string }[];
+  ogImage?: string;
+  noindex?: boolean;
+  schema?: Record<string, unknown>[];
+}
+const { title, description, breadcrumbs, ogImage = '/og-image.png', noindex = false, schema = [] } = Astro.props;
+const site = Astro.site!.toString().replace(/\/$/, '');
+const canonical = site + (Astro.url.pathname.replace(/\/$/, '') || '/');
+const fullTitle = title.includes('HAPPLYZ') ? title : `${title} | HAPPLYZ Connect`;
+
+const org = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  '@id': `${site}/#organisation`,
+  name: company.name,
+  description: 'Intégrateur audiovisuel professionnel : salles de réunion, visioconférence, affichage dynamique, écrans tactiles, vidéoprojection et sonorisation.',
+  url: site,
+  logo: `${site}/icon.png`,
+  image: `${site}/og-image.png`,
+  telephone: '+33 1 85 39 01 67',
+  email: company.email,
+  address: { '@type': 'PostalAddress', streetAddress: company.street, postalCode: company.postalCode, addressLocality: company.city, addressRegion: 'Île-de-France', addressCountry: 'FR' },
+  areaServed: { '@type': 'Country', name: 'France' },
+  sameAs: [company.linkedin],
+  openingHours: 'Mo-Fr 09:00-18:00',
+};
+const crumbs = breadcrumbs && {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [{ label: 'Accueil', href: '/' }, ...breadcrumbs].map((b, i) => ({ '@type': 'ListItem', position: i + 1, name: b.label, item: site + (b.href === '/' ? '/' : b.href) })),
+};
+const jsonld = [org, ...(crumbs ? [crumbs] : []), ...schema];
+---
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex" />}
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/icon.png" />
+    <link rel="apple-touch-icon" href="/icon.png" />
+    <meta name="theme-color" content="#14213d" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:site_name" content="HAPPLYZ Connect" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={site + ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonld)} />
+    <script is:inline>document.documentElement.classList.add('js')</script>
+  </head>
+  <body>
+    <a href="#contenu" class="sr-only">Aller au contenu</a>
+    <Header />
+    <main id="contenu">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    </script>
+  </body>
+</html>

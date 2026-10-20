@@ -1,0 +1,154 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Photo from '../components/Photo.astro';
+import Icon from '../components/Icon.astro';
+import BuildRun from '../components/BuildRun.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+import SignageBand from '../components/SignageBand.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { solutions, sectors, stats } from '../data/site';
+---
+<Base
+  title="HAPPLYZ Connect — Intégrateur audiovisuel professionnel"
+  description="Intégrateur audiovisuel B2B en Île-de-France : salles de réunion, visioconférence, affichage dynamique, écrans tactiles, vidéoprojection et sonorisation. Conception, installation et maintenance."
+>
+  <Hero
+    home
+    photo="hero-salle-reunion"
+    photoAlt="Salle de réunion équipée d'écrans et de visioconférence"
+    eyebrow="Intégrateur audiovisuel B2B · Île-de-France"
+    title="L’audiovisuel professionnel, pensé pour fonctionner."
+    accent="Et durer."
+    text="Intégrateur audiovisuel, HAPPLYZ Connect conçoit, déploie et maintient vos équipements. Un partenaire unique pour des installations performantes, fiables et durables."
+    primary={{ label: 'Découvrir nos solutions', href: '#solutions' }}
+    secondary={{ label: 'Demander un devis', href: '/contact?demande=devis' }}
+  />
+
+  <section class="section" id="solutions">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">Nos solutions</span><h2>Des expertises audiovisuelles pour tous vos espaces.</h2></div>
+        <div>
+          <p>Nous vous accompagnons de l’étude à la maintenance sur l’ensemble de vos besoins audiovisuels, avec des solutions adaptées à vos usages et à vos environnements.</p>
+        </div>
+      </div>
+      <div class="grid grid-5">
+        {solutions.map((s) => (
+          <a href={`/solutions/${s.slug}`} class="card card--link reveal">
+            <div class="card__media"><Photo name={s.photo} alt={s.title} sizes="(max-width: 640px) 100vw, (max-width: 1100px) 33vw, 240px" /></div>
+            <div class="card__body">
+              <Icon name={s.icon} class="card__icon" />
+              <h3>{s.title}</h3>
+              <p>{s.short}</p>
+              <span class="link-arrow">En savoir plus <Icon name="arrow" /></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">Nos secteurs d’activité</span><h2>Des solutions adaptées à chaque environnement.</h2></div>
+        <p>Des entreprises aux établissements scolaires, en passant par les réseaux de magasins, nous déployons des solutions audiovisuelles sur mesure.</p>
+      </div>
+      <div class="grid grid-3">
+        {sectors.map((s) => (
+          <a href={`/secteurs/${s.slug}`} class="card card--link reveal">
+            <div class="card__media"><Photo name={s.photo} alt={`Secteur ${s.title}`} sizes="(max-width: 640px) 100vw, 400px" /></div>
+            <div class="card__body sector-card">
+              <Icon name={s.icon} class="sector-card__icon" />
+              <div>
+                <h3>{s.title}</h3>
+                <p>{s.short}</p>
+                <span class="link-arrow">Découvrir nos solutions {s.title} <Icon name="arrow" /></span>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <BuildRun
+    title="Un interlocuteur unique, de l’étude à la maintenance."
+    text="Nous vous accompagnons sur toute la durée de vie de votre projet, avec une offre complète en deux étapes complémentaires."
+    build={['Étude de vos besoins', 'Conception de la solution', 'Fourniture des équipements', 'Installation et mise en service', 'Formation de vos équipes']}
+    run={['Maintenance préventive et corrective', 'Assistance et support', 'Suivi et évolutions de vos installations', 'Interventions sur site ou à distance', 'Un fonctionnement fiable au quotidien']}
+  />
+
+  <ClientLogos />
+
+  <section class="stats" aria-label="Chiffres clés">
+    <div class="container stats__inner">
+      {stats.map((s) => (
+        <div class="stats__item">
+          <Icon name={s.icon} class="stats__icon" />
+          <div><strong>{s.value}</strong><span>{s.label}</span></div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head reveal">
+        <div><span class="eyebrow">Nos outils en ligne</span><h2>Des outils pratiques pour préparer vos projets.</h2></div>
+        <p>Composez votre salle en quelques clics ou convertissez simplement la taille d’un écran. Des outils gratuits, pensés pour vos projets.</p>
+      </div>
+      <div class="grid grid-2">
+        <a href="/outils/configurateur-salle" class="card card--link tool reveal">
+          <div class="tool__media"><Photo name="salle-reunion-vitree" alt="Salle de réunion à configurer" widths={[400, 700]} sizes="240px" /></div>
+          <div class="card__body">
+            <h3>Configurateur de salle</h3>
+            <p>Composez l’équipement de votre salle sur une vue du mur à l’échelle : écrans, rotation, second écran, barre de visioconférence, partage sans fil, son… et demandez un devis.</p>
+            <span class="btn btn--primary btn--sm">Accéder au configurateur <Icon name="arrow" /></span>
+          </div>
+        </a>
+        <a href="/outils/convertisseur-taille-ecran" class="card card--link tool reveal">
+          <div class="tool__media tool__media--calc" aria-hidden="true">
+            <div class="mini-screen"><span>75"</span></div>
+            <small class="mini-w">166,0 cm</small><small class="mini-h">93,4 cm</small>
+          </div>
+          <div class="card__body">
+            <h3>Convertisseur de taille d’écran</h3>
+            <p>Convertissez une diagonale en pouces en dimensions réelles en centimètres, pour vérifier l’encombrement d’un écran avant de choisir.</p>
+            <span class="btn btn--primary btn--sm">Accéder au convertisseur <Icon name="arrow" /></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <SignageBand />
+
+  <CtaBand title="Parlons-en dès maintenant." label="Demander un devis" />
+</Base>
+
+<style>
+  .sector-card { flex-direction: row; gap: 16px; align-items: flex-start; }
+  :global(.sector-card__icon) { width: 40px; height: 40px; flex: none; color: var(--link); }
+  .sector-card h3 { margin-bottom: 8px; font-size: 1.3rem; }
+  .sector-card p { margin-bottom: 12px; }
+  .stats { background: var(--navy); color: #fff; }
+  .stats__inner { display: grid; grid-template-columns: repeat(4, 1fr); padding-top: 36px; padding-bottom: 36px; }
+  .stats__item { display: flex; gap: 16px; align-items: center; padding: 8px 24px; }
+  .stats__item + .stats__item { border-left: 1px solid rgba(255, 255, 255, 0.15); }
+  .stats__item strong { display: block; font-size: 1.5rem; font-weight: 800; line-height: 1.2; }
+  .stats__item span { font-size: 0.85rem; color: rgba(255, 255, 255, 0.78); }
+  :global(.stats__icon) { width: 38px; height: 38px; color: var(--cyan); flex: none; }
+  @media (max-width: 900px) { .stats__inner { grid-template-columns: 1fr 1fr; gap: 20px 0; } .stats__item:nth-child(3) { border-left: 0; } }
+  @media (max-width: 560px) { .stats__inner { grid-template-columns: 1fr; } .stats__item + .stats__item { border-left: 0; border-top: 1px solid rgba(255,255,255,.15); padding-top: 18px; } }
+  .tool { flex-direction: row; }
+  .tool__media { flex: 0 0 38%; }
+  .tool__media :global(img) { width: 100%; height: 100%; object-fit: cover; }
+  .tool .btn { align-self: flex-start; margin-top: auto; }
+  .tool__media--calc { background: var(--bg-soft); position: relative; display: grid; place-items: center; min-height: 200px; }
+  .mini-screen { width: 62%; aspect-ratio: 16/9; border: 6px solid var(--navy); border-radius: 6px; display: grid; place-items: center; background: #fff; font-size: 2rem; font-weight: 800; }
+  .mini-w { position: absolute; top: 16%; font-size: 0.75rem; color: var(--muted); }
+  .mini-h { position: absolute; left: 4%; font-size: 0.75rem; color: var(--muted); transform: rotate(-90deg); }
+  @media (max-width: 640px) { .tool { flex-direction: column; } .tool__media { flex-basis: auto; aspect-ratio: 16/9; } }
+</style>

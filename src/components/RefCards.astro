@@ -1,0 +1,34 @@
+---
+// Projets réellement réalisés (repris de l'ancien site) — à la place de témoignages inventés.
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import data from '../data/references.json';
+interface Props { ids: number[]; eyebrow?: string; title: string; text?: string; soft?: boolean }
+const { ids, eyebrow = 'Nos réalisations', title, text, soft } = Astro.props;
+const refs = ids.map((id) => data.refs.find((r) => r.id === id)).filter(Boolean) as (typeof data.refs)[number][];
+---
+<section class={`section ${soft ? 'section--soft' : ''}`}>
+  <div class="container">
+    <div class="section-head reveal">
+      <div><span class="eyebrow">{eyebrow}</span><h2>{title}</h2></div>
+      <div>
+        {text && <p>{text}</p>}
+        <a href="/references" class="link-arrow">Voir toutes nos références <Icon name="arrow" /></a>
+      </div>
+    </div>
+    <div class={`grid ${refs.length >= 3 ? 'grid-3' : 'grid-2'}`}>
+      {refs.map((r) => (
+        <article class="card reveal">
+          <div class="card__media"><Photo name={r.image} folder="refs" alt={`Réalisation HAPPLYZ Connect — ${r.client}`} /></div>
+          <div class="card__body">
+            <span class="ref-client">{r.client}</span>
+            <p>{r.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .ref-client { font-weight: 700; font-size: 1rem; }
+</style>

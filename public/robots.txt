@@ -1,22 +1,4 @@
-
 User-agent: *
 Allow: /
-Allow: /nos-references
-Allow: /convertisseur-taille-ecran
-Allow: /solutions/affichage-dynamique
-Allow: /solutions/ecrans-interactifs
-Allow: /solutions/solutions-audiovisuelles
-Allow: /mentions-legales
-Allow: /conditions-generales
 
-# Explicitly disallow parameters that could create duplicate content
-Disallow: /*?*
-
-# Exception for the reference tabs which are valid content
-Allow: /nos-references?tab=*
-
-# Sitemap
-Sitemap: https://www.happlyzconnect.com/sitemap.xml
-
-# Optimisations pour les crawlers
-Crawl-delay: 10
+Sitemap: https://www.happlyzconnect.com/sitemap-index.xml

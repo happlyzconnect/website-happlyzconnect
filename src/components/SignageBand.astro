@@ -1,0 +1,31 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+---
+<section class="section section--tight">
+  <div class="container">
+    <a href="/happlyz-signage" class="sb reveal">
+      <div class="sb__brand" aria-hidden="true"><span>HAPPLYZ</span><strong>Signage</strong></div>
+      <div class="sb__text">
+        <h2>Notre solution d’affichage dynamique.</h2>
+        <p>Un logiciel simple et sécurisé, hébergé en France, avec un player compact, une installation et un support inclus. Pour tous les secteurs d’activité.</p>
+      </div>
+      <div class="sb__photo"><Photo name="totem-casino-2" alt="Écran d'affichage dynamique en magasin" widths={[400, 700]} sizes="320px" /></div>
+      <span class="btn btn--orange btn--sm sb__btn">Découvrir HAPPLYZ Signage <Icon name="arrow" /></span>
+    </a>
+  </div>
+</section>
+<style>
+  .sb { display: grid; grid-template-columns: auto 1fr 260px auto; align-items: center; gap: 28px; background: var(--orange-soft); border: 1.5px solid #f6c86a; border-radius: var(--radius); padding: 0 28px; overflow: hidden; min-height: 150px; transition: box-shadow 0.2s; }
+  .sb:hover { box-shadow: var(--shadow); }
+  .sb__brand { line-height: 1; padding: 24px 0; }
+  .sb__brand span { display: block; font-weight: 800; font-size: 1.6rem; letter-spacing: 0.01em; color: var(--navy); }
+  .sb__brand strong { display: block; font-weight: 800; font-size: 1.9rem; color: var(--orange); }
+  .sb__text h2 { font-size: 1.1rem; margin-bottom: 6px; }
+  .sb__text p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+  .sb__photo { align-self: stretch; position: relative; min-height: 150px; }
+  .sb__photo :global(img) { position: absolute; inset: 0; height: 100%; width: 100%; object-fit: cover; }
+  .sb:hover :global(.btn svg) { transform: translateX(3px); }
+  @media (max-width: 1100px) { .sb { grid-template-columns: auto 1fr; padding: 24px; } .sb__photo { display: none; } .sb__btn { grid-column: 1 / -1; justify-self: start; } }
+  @media (max-width: 560px) { .sb { grid-template-columns: 1fr; } }
+</style>

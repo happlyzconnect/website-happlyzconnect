@@ -1,0 +1,160 @@
+---
+import Base from '../../layouts/Base.astro';
+import Icon from '../../components/Icon.astro';
+const sizes = [32, 43, 50, 55, 65, 75, 86, 98];
+const crumbs = [{ label: 'Outils', href: '/outils/configurateur-salle' }, { label: 'Convertisseur de taille d’écran', href: '/outils/convertisseur-taille-ecran' }];
+const faq = [
+  { q: 'Combien mesure un écran de 75 pouces ?', a: 'Un écran 75 pouces au format 16:9 mesure environ 166 cm de large et 93 cm de haut (dalle seule, hors cadre), pour une diagonale de 190,5 cm.' },
+  { q: 'Combien de centimètres fait un pouce ?', a: 'Un pouce vaut exactement 2,54 cm. La taille d’un écran correspond à la longueur de sa diagonale.' },
+  { q: 'Quelle taille d’écran pour une salle de réunion ?', a: 'Une règle courante : la distance du dernier participant à l’écran ne devrait pas dépasser environ 4 à 6 fois la hauteur de l’image. Le configurateur de salle vous aide à visualiser ce point.' },
+];
+const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Base
+  title="Convertisseur de taille d’écran : pouces en centimètres"
+  description="Convertissez la diagonale d’un écran en pouces en largeur, hauteur et diagonale en centimètres. Formats 16:9, 16:10, 21:9, 4:3, orientation portrait et mur d’images."
+  breadcrumbs={crumbs}
+  schema={[faqSchema]}
+>
+  <section class="page-head">
+    <div class="container">
+      <ol class="breadcrumb breadcrumb--dark"><li><a href="/">Accueil</a></li><li>Outils</li><li><span aria-current="page">Convertisseur de taille d’écran</span></li></ol>
+      <h1>Convertisseur de taille d’écran</h1>
+      <p class="lead">Saisissez une diagonale en pouces : obtenez instantanément la largeur, la hauteur et la diagonale en centimètres.</p>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:40px">
+    <div class="container conv">
+      <form class="card conv__panel" id="conv" onsubmit="return false">
+        <div class="field">
+          <label for="inches">Diagonale (pouces)</label>
+          <input id="inches" type="number" inputmode="decimal" min="1" max="500" step="0.1" value="75" />
+        </div>
+        <div class="choice-row conv__quick" aria-label="Tailles courantes">
+          {sizes.map((s) => <button type="button" class="chip" data-size={s}>{s}"</button>)}
+        </div>
+        <fieldset class="field" style="border:0;padding:0;margin:0">
+          <legend>Format</legend>
+          <div class="choice-row">
+            {[['16:9', '16:9 (standard)'], ['16:10', '16:10'], ['21:9', '21:9 (ultra-large)'], ['4:3', '4:3']].map(([v, l], i) => (
+              <label class="choice"><input type="radio" name="ratio" value={v} checked={i === 0} /><span>{l}</span></label>
+            ))}
+          </div>
+        </fieldset>
+        <fieldset class="field" style="border:0;padding:0;margin:0">
+          <legend>Orientation</legend>
+          <div class="choice-row">
+            <label class="choice"><input type="radio" name="orient" value="landscape" checked /><span>Paysage</span></label>
+            <label class="choice"><input type="radio" name="orient" value="portrait" /><span>Portrait</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="field" style="border:0;padding:0;margin:0">
+          <legend>Mur d’images (écrans juxtaposés)</legend>
+          <div class="wall">
+            <label>Colonnes <input id="cols" type="number" min="1" max="8" value="1" /></label>
+            <span>×</span>
+            <label>Lignes <input id="rows" type="number" min="1" max="8" value="1" /></label>
+          </div>
+        </fieldset>
+      </form>
+
+      <div class="conv__result">
+        <div class="results" aria-live="polite">
+          <div class="result"><span>Largeur</span><strong id="r-w">—</strong></div>
+          <div class="result"><span>Hauteur</span><strong id="r-h">—</strong></div>
+          <div class="result"><span>Diagonale</span><strong id="r-d">—</strong></div>
+          <div class="result"><span>Surface</span><strong id="r-s">—</strong></div>
+        </div>
+        <div class="card conv__viz">
+          <svg id="viz" viewBox="0 0 600 340" role="img" aria-label="Représentation de l'écran à l'échelle d'une personne"></svg>
+          <p class="conv__note">Dimensions de la surface d’affichage, hors cadre. Silhouette de 1,75 m pour l’échelle.</p>
+        </div>
+        <a href="/outils/configurateur-salle" class="link-arrow">Visualiser l’écran dans une salle avec le configurateur <Icon name="arrow" /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container faqs">
+      <h2>Questions fréquentes</h2>
+      {faq.map((f) => <div class="card card--plain"><h3>{f.q}</h3><p>{f.a}</p></div>)}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .conv { display: grid; grid-template-columns: 1fr 1.5fr; gap: 28px; align-items: start; }
+  .conv__panel { padding: 26px; display: grid; gap: 20px; }
+  .chip { font: inherit; font-size: 0.88rem; padding: 8px 12px; border-radius: 8px; border: 1px solid #cfdbe6; background: #fff; cursor: pointer; }
+  .chip.is-on { border-color: var(--link); background: #e8f5fb; font-weight: 700; }
+  .wall { display: flex; align-items: center; gap: 12px; }
+  .wall label { display: grid; gap: 4px; font-size: 0.85rem; color: var(--muted); }
+  .wall input { width: 90px; padding: 10px 12px; border: 1px solid #cfdbe6; border-radius: 10px; font: inherit; }
+  .results { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 16px; }
+  .result { background: var(--navy); color: #fff; border-radius: var(--radius-sm); padding: 14px 16px; }
+  .result span { display: block; font-size: 0.78rem; opacity: 0.75; text-transform: uppercase; letter-spacing: 0.06em; }
+  .result strong { font-size: 1.25rem; }
+  .conv__viz { padding: 18px; margin-bottom: 16px; }
+  .conv__viz svg { width: 100%; height: auto; }
+  .conv__note { font-size: 0.8rem; color: var(--muted); margin: 8px 0 0; }
+  .faqs { display: grid; gap: 16px; max-width: 900px; }
+  @media (max-width: 900px) { .conv { grid-template-columns: 1fr; } .results { grid-template-columns: 1fr 1fr; } }
+</style>
+
+<script>
+  const $ = <T extends HTMLElement>(s: string) => document.querySelector(s) as T;
+  const inches = $<HTMLInputElement>('#inches');
+  const cols = $<HTMLInputElement>('#cols');
+  const rows = $<HTMLInputElement>('#rows');
+  const svg = $<HTMLElement>('#viz') as unknown as SVGSVGElement;
+  const fmt = (n: number) => n.toLocaleString('fr-FR', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' cm';
+  const ratios: Record<string, [number, number]> = { '16:9': [16, 9], '16:10': [16, 10], '21:9': [21, 9], '4:3': [4, 3] };
+
+  function render() {
+    const d = parseFloat(inches.value);
+    const ratio = (document.querySelector('input[name=ratio]:checked') as HTMLInputElement).value;
+    const portrait = (document.querySelector('input[name=orient]:checked') as HTMLInputElement).value === 'portrait';
+    const c = Math.min(8, Math.max(1, parseInt(cols.value) || 1));
+    const r = Math.min(8, Math.max(1, parseInt(rows.value) || 1));
+    document.querySelectorAll<HTMLButtonElement>('.chip').forEach((b) => b.classList.toggle('is-on', parseFloat(b.dataset.size!) === d));
+    if (!d || d <= 0) { ['#r-w', '#r-h', '#r-d', '#r-s'].forEach((id) => ($(id).textContent = '—')); svg.innerHTML = ''; return; }
+    const [a, b] = ratios[ratio];
+    const diagCm = d * 2.54;
+    let w = diagCm * a / Math.hypot(a, b), h = diagCm * b / Math.hypot(a, b);
+    if (portrait) [w, h] = [h, w];
+    const W = w * c, H = h * r;
+    $('#r-w').textContent = fmt(W);
+    $('#r-h').textContent = fmt(H);
+    $('#r-d').textContent = fmt(Math.hypot(W, H));
+    $('#r-s').textContent = ((W * H) / 10000).toLocaleString('fr-FR', { maximumFractionDigits: 2 }) + ' m²';
+
+    // Dessin à l'échelle : écran posé sur un mur, bas d'image à 90 cm, silhouette 175 cm
+    const person = 175, floorY = 320, bottom = 90;
+    const totalH = Math.max(person, bottom + H) + 30;
+    const totalW = W + 160;
+    const k = Math.min(560 / totalW, 300 / totalH);
+    const x0 = 20 + 110 * k, yTop = floorY - (bottom + H) * k;
+    let screens = '';
+    for (let i = 0; i < c; i++) for (let j = 0; j < r; j++)
+      screens += `<rect x="${x0 + i * w * k}" y="${yTop + j * h * k}" width="${w * k}" height="${h * k}" fill="#1f6fa3" stroke="#14213d" stroke-width="2"/>`;
+    const px = 20, ph = person * k;
+    svg.innerHTML = `
+      <line x1="0" y1="${floorY}" x2="600" y2="${floorY}" stroke="#cfdbe6" stroke-width="2"/>
+      ${screens}
+      <line x1="${x0}" y1="${yTop - 12}" x2="${x0 + W * k}" y2="${yTop - 12}" stroke="#56667f"/>
+      <text x="${x0 + W * k / 2}" y="${yTop - 18}" text-anchor="middle" font-size="13" fill="#14213d" font-weight="700">${fmt(W)}</text>
+      <line x1="${x0 + W * k + 12}" y1="${yTop}" x2="${x0 + W * k + 12}" y2="${yTop + H * k}" stroke="#56667f"/>
+      <text x="${x0 + W * k + 18}" y="${yTop + H * k / 2}" font-size="13" fill="#14213d" font-weight="700">${fmt(H)}</text>
+      <g fill="#9aa8bb">
+        <circle cx="${px + ph * 0.13}" cy="${floorY - ph + ph * 0.065}" r="${ph * 0.065}"/>
+        <rect x="${px + ph * 0.05}" y="${floorY - ph * 0.86}" width="${ph * 0.16}" height="${ph * 0.42}" rx="${ph * 0.04}"/>
+        <rect x="${px + ph * 0.06}" y="${floorY - ph * 0.46}" width="${ph * 0.065}" height="${ph * 0.46}" rx="${ph * 0.02}"/>
+        <rect x="${px + ph * 0.135}" y="${floorY - ph * 0.46}" width="${ph * 0.065}" height="${ph * 0.46}" rx="${ph * 0.02}"/>
+      </g>
+      <text x="${px}" y="${floorY + 16}" font-size="11" fill="#56667f">1,75 m</text>`;
+  }
+  document.querySelectorAll<HTMLButtonElement>('.chip').forEach((b) => b.addEventListener('click', () => { inches.value = b.dataset.size!; render(); }));
+  document.getElementById('conv')!.addEventListener('input', render);
+  render();
+</script>

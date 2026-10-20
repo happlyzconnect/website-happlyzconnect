@@ -1,0 +1,31 @@
+---
+import Photo from './Photo.astro';
+import Icon from './Icon.astro';
+import type { PhotoCard } from '../data/site';
+interface Props { eyebrow?: string; title: string; text?: string; items: PhotoCard[]; soft?: boolean; linkLabel?: string }
+const { eyebrow = 'Nos solutions', title, text, items, soft = true, linkLabel = 'En savoir plus' } = Astro.props;
+const cols = items.length >= 5 ? 'grid-5' : items.length === 4 ? 'grid-4' : 'grid-3';
+---
+<section class={`section ${soft ? 'section--soft' : ''}`}>
+  <div class="container">
+    <div class="section-head reveal">
+      <div><span class="eyebrow">{eyebrow}</span><h2>{title}</h2></div>
+      {text && <p>{text}</p>}
+    </div>
+    <div class={`grid ${cols}`}>
+      {items.map((it) => {
+        const inner = (
+          <>
+            <div class="card__media"><Photo name={it.photo} alt={it.title} sizes="(max-width: 640px) 100vw, 300px" /></div>
+            <div class="card__body">
+              <h3>{it.title}</h3>
+              <p>{it.text}</p>
+              {it.href && <span class="link-arrow">{linkLabel} <Icon name="arrow" /></span>}
+            </div>
+          </>
+        );
+        return it.href ? <a href={it.href} class="card card--link reveal">{inner}</a> : <div class="card reveal">{inner}</div>;
+      })}
+    </div>
+  </div>
+</section>
