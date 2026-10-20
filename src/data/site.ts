@@ -385,8 +385,8 @@ export const sectors: Sector[] = [
 ];
 
 export const stats = [
-  { icon: 'check', value: '250+', label: 'installations réalisées' },
-  { icon: 'users', value: '40+', label: 'clients accompagnés' },
+  { icon: 'check', value: '1000+', label: 'équipements installés' },
+  { icon: 'users', value: '50+', label: 'clients accompagnés' },
   { icon: 'map', value: 'France', label: 'interventions sur tout le territoire' },
   { icon: 'cog', value: 'BUILD + RUN', label: 'de l’étude à la maintenance' },
 ];
