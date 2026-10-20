@@ -10,7 +10,7 @@ const count = (depts: string[]) => data.refs.filter((r) => (r.depts ?? []).some(
 const idf = zones.filter((z) => z.idf);
 const regions = zones.filter((z) => !z.idf);
 ---
-<Base
+<Base ogPhoto="mediatheque-bobigny" ogFolder="refs"
   title="Zones d’intervention en France"
   description="HAPPLYZ Connect, intégrateur audiovisuel basé à Chatou, intervient à Paris, dans toute l’Île-de-France et en région : Lyon, PACA, Occitanie, Hauts-de-France…"
   breadcrumbs={[{ label: 'Zones d’intervention', href: '/intervention' }]}

@@ -16,7 +16,7 @@ const list = {
   itemListElement: articles.map((a, i) => ({ '@type': 'ListItem', position: i + 1, url: `${site}/conseils/${a.id}`, name: a.data.title })),
 };
 ---
-<Base
+<Base ogPhoto="salle-ecrans-doubles"
   title="Conseils et guides audiovisuels"
   description="Guides pratiques pour vos projets audiovisuels : taille d’écran, salle de visioconférence, écran interactif ou vidéoprojecteur, affichage dynamique, sonorisation."
   breadcrumbs={[{ label: 'Conseils', href: '/conseils' }]}

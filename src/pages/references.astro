@@ -16,7 +16,7 @@ const order = ['salle-reunion', 'affichage-dynamique', 'salle-classe'];
 const refs = [...data.refs].sort((a, b) => order.indexOf(a.category) - order.indexOf(b.category));
 const catLabel: Record<string, string> = { 'salle-reunion': 'Salle de réunion', 'affichage-dynamique': 'Affichage dynamique', 'salle-classe': 'Éducation' };
 ---
-<Base
+<Base ogPhoto="salle-ecrans-doubles"
   title="Nos références audiovisuelles"
   description="Plus de 60 projets audiovisuels : salles de réunion (AP-HP, Shell, CNR), affichage dynamique (SNIPES, Decathlon), lycées, collèges, écoles."
   breadcrumbs={[{ label: 'Références', href: '/references' }]}

@@ -43,7 +43,7 @@ const service = {
 };
 const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: z.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
 ---
-<Base title={z.metaTitle} description={z.metaDescription} breadcrumbs={crumbs} schema={[service, faqSchema]}>
+<Base title={z.metaTitle} description={z.metaDescription} breadcrumbs={crumbs} ogPhoto={z.image.name} ogFolder={z.image.folder} schema={[service, faqSchema]}>
   <section class="page-head zone-head">
     <div class="container zone-head__grid">
       <div>

@@ -34,7 +34,7 @@ const serviceSchema = {
 };
 const showsTool = s.slug === 'salles-de-reunion-visioconference' || s.slug === 'ecrans-tactiles-interactifs';
 ---
-<Base title={s.metaTitle} description={s.metaDescription} breadcrumbs={crumbs} schema={[serviceSchema, faqSchema]}>
+<Base title={s.metaTitle} description={s.metaDescription} breadcrumbs={crumbs} ogPhoto={s.photo} schema={[serviceSchema, faqSchema]}>
   <Hero
     photo={s.photo}
     photoAlt={s.title}

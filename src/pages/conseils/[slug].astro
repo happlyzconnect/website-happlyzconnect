@@ -47,7 +47,7 @@ const faqSchema = a.faq.length
   ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: a.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }]
   : [];
 ---
-<Base title={a.metaTitle} description={a.description} breadcrumbs={crumbs} schema={[article, ...faqSchema]}>
+<Base title={a.metaTitle} description={a.description} breadcrumbs={crumbs} ogPhoto={a.image} ogType="article" schema={[article, ...faqSchema]}>
   <section class="page-head art-head">
     <div class="container">
       <ol class="breadcrumb breadcrumb--dark">

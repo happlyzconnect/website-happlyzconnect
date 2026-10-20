@@ -16,7 +16,7 @@ export function getStaticPaths() {
 const { s } = Astro.props as { s: Sector };
 const crumbs = [{ label: 'Secteurs', href: `/secteurs/${sectors[0].slug}` }, { label: s.title, href: `/secteurs/${s.slug}` }];
 ---
-<Base title={s.metaTitle} description={s.metaDescription} breadcrumbs={crumbs}>
+<Base title={s.metaTitle} description={s.metaDescription} breadcrumbs={crumbs} ogPhoto={s.photo}>
   <Hero
     photo={s.photo}
     photoAlt={`Équipement audiovisuel — secteur ${s.title}`}
