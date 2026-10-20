@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import Photo from '../components/Photo.astro';
 import Icon from '../components/Icon.astro';
 import RefMedia from '../components/RefMedia.astro';
+import ZoneLink from '../components/ZoneLink.astro';
 import Faq from '../components/Faq.astro';
 import CtaBand from '../components/CtaBand.astro';
 import ConseilCards from '../components/ConseilCards.astro';
@@ -134,7 +135,7 @@ const faqSchema = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEn
         {featured.map((r) => (
           <article class="card reveal">
             <RefMedia image={r.image} client={r.client} category={r.category} />
-            <div class="card__body"><h3 class="mp-ref">{r.client}</h3><p>{r.description}</p></div>
+            <div class="card__body"><h3 class="mp-ref">{r.client}</h3><p>{r.description}</p><ZoneLink depts={r.depts} /></div>
           </article>
         ))}
       </div>

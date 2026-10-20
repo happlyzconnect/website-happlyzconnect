@@ -8,6 +8,8 @@ import RefCards from '../../components/RefCards.astro';
 import CtaBand from '../../components/CtaBand.astro';
 import SignageBand from '../../components/SignageBand.astro';
 import Icon from '../../components/Icon.astro';
+import ConseilCards from '../../components/ConseilCards.astro';
+import ZoneChips from '../../components/ZoneChips.astro';
 import { sectors, type Sector } from '../../data/site';
 
 export function getStaticPaths() {
@@ -66,6 +68,10 @@ const crumbs = [{ label: 'Secteurs', href: `/secteurs/${sectors[0].slug}` }, { l
   <div id="realisations">
     <RefCards ids={s.refIds} title={s.refTitle} soft={s.slug === 'retail'} />
   </div>
+
+  <ConseilCards solution={({ corporate: 'salles-de-reunion-visioconference', education: 'ecrans-tactiles-interactifs', retail: 'affichage-dynamique' } as Record<string, string>)[s.slug]} soft={s.slug !== 'retail'} />
+
+  <ZoneChips />
 
   <CtaBand eyebrow="Un projet ?" title={`${s.cta}.`} label={s.cta} photo={s.photo} />
 </Base>

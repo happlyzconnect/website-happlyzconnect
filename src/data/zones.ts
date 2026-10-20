@@ -262,3 +262,9 @@ export const elsewhere: { city: string; dept: string }[] = [
   { city: 'Hoerdt', dept: '67' },
   { city: 'Nivelles', dept: 'Belgique' },
 ];
+
+// Zone d'intervention correspondant aux départements d'une référence (pour les liens internes).
+export function zoneFor(depts: string[] | undefined): Zone | undefined {
+  if (!depts?.length || depts.length > 1) return undefined;
+  return zones.find((z) => z.depts.some((d) => depts.includes(d)));
+}

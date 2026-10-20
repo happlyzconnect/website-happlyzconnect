@@ -1,6 +1,7 @@
 ---
 // Projets réellement réalisés (repris de l'ancien site) — à la place de témoignages inventés.
 import RefMedia from './RefMedia.astro';
+import ZoneLink from './ZoneLink.astro';
 import Photo from './Photo.astro';
 import Icon from './Icon.astro';
 import data from '../data/references.json';
@@ -24,6 +25,7 @@ const refs = ids.map((id) => data.refs.find((r) => r.id === id)).filter(Boolean)
           <div class="card__body">
             <span class="ref-client">{r.client}</span>
             <p>{r.description}</p>
+            <ZoneLink depts={r.depts} />
           </div>
         </article>
       ))}

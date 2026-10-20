@@ -1,0 +1,23 @@
+---
+// Petit lien « Zone : Paris → » sous une référence, vers la page de la zone d'intervention.
+import Icon from './Icon.astro';
+import { zoneFor } from '../data/zones';
+interface Props { depts?: string[] }
+const z = zoneFor(Astro.props.depts);
+const label: Record<string, string> = {
+  paris: 'à Paris',
+  'hauts-de-seine': 'dans les Hauts-de-Seine',
+  yvelines: 'dans les Yvelines',
+  'ile-de-france': 'en Île-de-France',
+  lyon: 'à Lyon et en Rhône-Alpes',
+  'provence-alpes-cote-d-azur': 'en Provence-Alpes-Côte d’Azur',
+  occitanie: 'en Occitanie',
+  'hauts-de-france': 'dans les Hauts-de-France',
+};
+---
+{z && <a href={`/intervention/${z.slug}`} class="zone-link-mini"><Icon name="map" />Intégrateur audiovisuel {label[z.slug] ?? z.name}<Icon name="arrow" /></a>}
+<style>
+  .zone-link-mini { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 10px; font-size: 0.85rem; font-weight: 600; color: var(--link); }
+  .zone-link-mini :global(svg) { width: 14px; height: 14px; flex: none; }
+  .zone-link-mini:hover { text-decoration: underline; }
+</style>

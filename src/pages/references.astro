@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import ZoneLink from '../components/ZoneLink.astro';
 import RefMedia from '../components/RefMedia.astro';
 import Photo from '../components/Photo.astro';
 import ClientLogos from '../components/ClientLogos.astro';
@@ -42,6 +43,7 @@ const catLabel: Record<string, string> = { 'salle-reunion': 'Salle de réunion',
               <span class="ref__cat">{catLabel[r.category]}</span>
               <h3 class="ref__client">{r.client}</h3>
               <p>{r.description}</p>
+              <ZoneLink depts={r.depts} />
             </div>
           </article>
         ))}

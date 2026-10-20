@@ -1,0 +1,30 @@
+---
+// Bandeau « Zones d'intervention » : liens vers chaque page zone.
+import Icon from './Icon.astro';
+import { zones } from '../data/zones';
+interface Props { title?: string; soft?: boolean }
+const { title = 'Nous intervenons près de chez vous.', soft = false } = Astro.props;
+---
+<section class={`section section--tight ${soft ? 'section--soft' : ''}`}>
+  <div class="container zc reveal">
+    <div>
+      <span class="eyebrow">Zones d’intervention</span>
+      <h2 class="zc__title">{title}</h2>
+      <p class="zc__text">Basés à Chatou, nous intervenons au quotidien à Paris et en Île-de-France, et en région pour vos projets.</p>
+    </div>
+    <ul class="zc__list">
+      {zones.map((z) => <li><a href={`/intervention/${z.slug}`}><Icon name="map" />{z.name}</a></li>)}
+      <li><a href="/intervention"><Icon name="arrow" />Toutes les zones</a></li>
+    </ul>
+  </div>
+</section>
+<style>
+  .zc { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 32px; align-items: center; }
+  .zc__title { font-size: clamp(1.35rem, 2.3vw, 1.8rem); margin: 6px 0 10px; }
+  .zc__text { margin: 0; color: var(--muted); }
+  .zc__list { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+  .zc__list a { display: inline-flex; align-items: center; gap: 6px; padding: 9px 15px; border-radius: 999px; border: 1px solid var(--border); background: #fff; font-weight: 600; font-size: 0.9rem; color: var(--navy); }
+  .zc__list a:hover { border-color: var(--link); color: var(--link); }
+  .zc__list :global(svg) { width: 15px; height: 15px; color: var(--link); }
+  @media (max-width: 900px) { .zc { grid-template-columns: minmax(0, 1fr); gap: 20px; } }
+</style>

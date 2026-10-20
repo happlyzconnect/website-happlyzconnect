@@ -11,6 +11,7 @@ import SignageBand from '../../components/SignageBand.astro';
 import Photo from '../../components/Photo.astro';
 import Icon from '../../components/Icon.astro';
 import ConseilCards from '../../components/ConseilCards.astro';
+import ZoneChips from '../../components/ZoneChips.astro';
 import { solutions, type Solution } from '../../data/site';
 
 export function getStaticPaths() {
@@ -78,6 +79,8 @@ const showsTool = s.slug === 'salles-de-reunion-visioconference' || s.slug === '
   <Faq items={s.faq} />
 
   <ConseilCards solution={s.slug} />
+
+  <ZoneChips />
 
   <section class="section section--soft section--tight">
     <div class="container">
