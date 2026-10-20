@@ -423,6 +423,11 @@
  ],
  "clients": [
   {
+   "name": "Action Logement",
+   "logo": "action-logement",
+   "url": null
+  },
+  {
    "name": "ADVEO",
    "logo": "adveo",
    "url": "https://www.adveo.com/"
