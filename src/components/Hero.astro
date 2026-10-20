@@ -7,6 +7,7 @@ interface Props {
   title: string;
   accent?: string;
   eyebrow?: string;
+  kicker?: string; // texte court affiché au-dessus du titre, à l'intérieur du H1 (SEO)
   sub?: string;
   text?: string;
   breadcrumbs?: { label: string; href: string }[];
@@ -14,7 +15,7 @@ interface Props {
   secondary?: { label: string; href: string };
   home?: boolean;
 }
-const { photo, photoAlt, title, accent, eyebrow, sub, text, breadcrumbs, primary, secondary, home } = Astro.props;
+const { photo, photoAlt, title, accent, eyebrow, kicker, sub, text, breadcrumbs, primary, secondary, home } = Astro.props;
 ---
 <section class={`hero ${home ? 'hero--home' : ''}`}>
   <div class="hero__bg">
@@ -29,7 +30,7 @@ const { photo, photoAlt, title, accent, eyebrow, sub, text, breadcrumbs, primary
         </ol>
       )}
       {eyebrow && <span class="eyebrow">{eyebrow}</span>}
-      <h1>{title}{accent && <><br /><span class="accent">{accent}</span></>}</h1>
+      <h1>{kicker && <span class="eyebrow hero__kicker">{kicker}</span>}{title}{accent && <><br /><span class="accent">{accent}</span></>}</h1>
       {sub && <p class="hero__sub">{sub}</p>}
       {text && <p class="hero__text">{text}</p>}
       <slot />

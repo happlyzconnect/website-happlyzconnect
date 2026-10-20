@@ -262,6 +262,7 @@ export type Sector = {
   short: string;
   metaTitle: string;
   metaDescription: string;
+  kicker: string;
   heroTitle: string;
   heroText: string;
   cta: string;
@@ -288,6 +289,7 @@ export const sectors: Sector[] = [
     metaTitle: 'Audiovisuel pour les entreprises',
     metaDescription:
       "Intégrateur audiovisuel pour les entreprises : salles de réunion, visio, affichage d'accueil, sonorisation, écrans collaboratifs. Installation et maintenance.",
+    kicker: 'Audiovisuel pour les entreprises',
     heroTitle: 'Des espaces de travail connectés, pour des équipes plus performantes.',
     heroText:
       'Nous accompagnons les entreprises dans la conception, l’installation et la maintenance de leurs équipements audiovisuels, pour des environnements de travail modernes, efficaces et valorisants.',
@@ -322,6 +324,7 @@ export const sectors: Sector[] = [
     metaTitle: 'Audiovisuel pour lycées, collèges et CFA',
     metaDescription:
       'Équipement audiovisuel des écoles, lycées, collèges et CFA : écrans interactifs, vidéoprojecteurs, sonorisation. Installation pendant les vacances scolaires.',
+    kicker: 'Audiovisuel pour les écoles, lycées et CFA',
     heroTitle: 'Des environnements d’apprentissage modernes, simples et durables.',
     heroText:
       'Nous accompagnons les établissements scolaires dans l’équipement de leurs salles de classe, amphithéâtres et espaces de vie, avec des solutions fiables, faciles à utiliser et adaptées aux usages pédagogiques.',
@@ -357,6 +360,7 @@ export const sectors: Sector[] = [
     metaTitle: 'Affichage dynamique pour magasins',
     metaDescription:
       'Affichage dynamique pour magasins et réseaux : écrans vitrine, murs d’images, totems, sonorisation. Installation et maintenance partout en France.',
+    kicker: 'Affichage dynamique pour les magasins',
     heroTitle: 'Des expériences en magasin plus attractives et plus performantes.',
     heroText:
       'Nous accompagnons les magasins et les réseaux de points de vente dans le déploiement de solutions audiovisuelles pour informer, séduire et engager leurs clients, avec des équipements fiables et simples à piloter.',
