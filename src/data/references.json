@@ -36,6 +36,13 @@
    "description": "Fourniture et installation de 53 téléviseurs 32 pouces sur supports muraux, configurés en mode hôtel dans les chambres de l'établissement."
   },
   {
+   "id": 40,
+   "client": "Médiathèque Elsa Triolet — Bobigny",
+   "image": "mediatheque-bobigny",
+   "category": "affichage-dynamique",
+   "description": "Remplacement d'un mur d'images 2x2 (4 écrans ViewSonic 55\") au Musée numérique : pose, chaînage des écrans, raccordement du PC de diffusion et de la sonorisation existante, câblage entièrement masqué."
+  },
+  {
    "id": 39,
    "client": "Polytech Nice Sophia — Biot",
    "image": "polytech-nice",
@@ -145,13 +152,6 @@
    "client": "Decathlon CNIT",
    "image": "decathlon-cnit-3",
    "description": "Mise en place d'un concept d'affichage des tarifs et des périodes d'ouverture du rayon cordage",
-   "category": "affichage-dynamique"
-  },
-  {
-   "id": 9,
-   "client": "Decathlon Lyon Part-Dieu",
-   "image": "decathlon-lyon-part-dieu",
-   "description": "Projet de conception d'un mur vidéo de 8 x 4 écrans",
    "category": "affichage-dynamique"
   },
   {
@@ -379,6 +379,11 @@
    "name": "SNIPES",
    "logo": "snipes",
    "url": "https://www.snipes.com/fr-fr"
+  },
+  {
+   "name": "Université de Toulon",
+   "logo": "universite-de-toulon",
+   "url": "https://www.univ-tln.fr/"
   },
   {
    "name": "Winter Mushroom",
