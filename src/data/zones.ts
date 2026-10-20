@@ -260,4 +260,5 @@ export const elsewhere: { city: string; dept: string }[] = [
   { city: 'Bordeaux', dept: '33' },
   { city: 'Hagetmau', dept: '40' },
   { city: 'Hoerdt', dept: '67' },
+  { city: 'Nivelles', dept: 'Belgique' },
 ];

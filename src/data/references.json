@@ -135,13 +135,11 @@
   },
   {
    "id": 47,
-   "client": "Unisson - Paris (75)",
-   "image": "unisson-paris",
+   "client": "Unisson - Nivelles (Belgique)",
+   "image": "unisson-nivelles",
    "category": "affichage-dynamique",
-   "description": "Écran iiyama 55\" en mode portrait dans la vitrine d'un centre auditif, avec diffusion de vidéos en boucle.",
-   "depts": [
-    "75"
-   ]
+   "description": "Équipement complet d'un centre auditif : écran 55\" mural à l'accueil, écran incurvé 49\" au poste d'audioprothésiste, trois PC, imprimante, scanner et réseau.",
+   "depts": []
   },
   {
    "id": 48,
