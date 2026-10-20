@@ -1,6 +1,20 @@
 {
  "refs": [
   {
+   "id": 33,
+   "client": "IPSA — Campus de Lyon",
+   "image": "ipsa-lyon",
+   "category": "salle-classe",
+   "description": "Installation et mise en service de 14 vidéoprojecteurs courte focale dans les salles de cours du campus lyonnais de l'école d'ingénieurs."
+  },
+  {
+   "id": 32,
+   "client": "SNIPES — réseau de magasins",
+   "image": "snipes-reseau",
+   "category": "affichage-dynamique",
+   "description": "Maintenance préventive 2026 des écrans et dispositifs LED de nombreux magasins SNIPES en France (Lille, Bordeaux, Marseille, Montpellier, Rouen, Cergy, Rosny-sous-Bois…) et remplacement d'écrans 98 pouces."
+  },
+  {
    "id": 24,
    "client": "CHIESI - Bois-Colombes",
    "image": "chiesi-bois-colombes",
