@@ -80,7 +80,7 @@ export const solutions: Solution[] = [
     equipmentTitle: 'Des équipements adaptés à vos usages.',
     equipmentText: 'Nous sélectionnons et intégrons des solutions fiables et simples à utiliser, pour une expérience de réunion fluide et naturelle.',
     equipment: [
-      { photo: 'salle-ecrans-doubles', title: 'Écrans', text: 'Écrans simples ou doubles, dimensionnés pour la salle et la distance de visionnage.' },
+      { photo: 'ecran-mural', title: 'Écrans', text: 'Écrans simples ou doubles, dimensionnés pour la salle et la distance de visionnage.' },
       { photo: 'salle-visio-portable', title: 'Barres de visioconférence', text: 'Caméra, micros et haut-parleurs intégrés, compatibles avec vos outils de visio.' },
       { photo: 'salle-enceintes', title: 'Micros et sonorisation', text: 'Micros plafond ou de table et haut-parleurs, pour des échanges clairs et naturels.' },
       { photo: 'salle-chiesi', title: 'Partage sans fil', text: 'Un bouton pour afficher son écran, depuis n’importe quel ordinateur de vos collaborateurs.' },
@@ -205,7 +205,7 @@ export const solutions: Solution[] = [
     equipment: [
       { photo: 'ipsa-lyon-videoprojecteur', title: 'Projecteurs courte focale', text: 'Fixés au mur, sans ombre portée sur l’image.' },
       { photo: 'classe-projection', title: 'Projection interactive', text: 'Pour écrire directement sur l’image projetée.' },
-      { photo: 'classe-tbi', title: 'Toiles et tableaux', text: 'Toiles tendues, motorisées ou tableaux blancs de projection.' },
+      { photo: 'classe-videoprojecteur', title: 'Toiles et tableaux', text: 'Toiles tendues, motorisées ou tableaux blancs de projection.' },
       { photo: 'hero-salle-reunion', title: 'Grandes salles', text: 'Haute luminosité pour amphithéâtres et salles polyvalentes.' },
     ],
     build: ['Relevé de la salle et calcul de projection', 'Choix du projecteur et de la surface', 'Installation, câblage et réglages', 'Intégration audio', 'Prise en main par les utilisateurs'],
@@ -242,7 +242,7 @@ export const solutions: Solution[] = [
     equipment: [
       { photo: 'salle-enceintes', title: 'Salles de réunion', text: 'Micros plafond ou de table et haut-parleurs pour la visioconférence.' },
       { photo: 'magasin-ecrans', title: 'Sonorisation d’ambiance', text: 'Musique et annonces en magasin, en zones séparées.' },
-      { photo: 'classe-projection', title: 'Salles de classe', text: 'Amplification de la voix et du son des contenus.' },
+      { photo: 'classe-videoprojecteur', title: 'Salles de classe', text: 'Amplification de la voix et du son des contenus.' },
       { photo: 'hall-ecran', title: 'Alertes et messages', text: 'Diffusion de messages d’alerte dans les établissements.' },
     ],
     build: ['Étude acoustique des espaces', 'Choix et implantation des équipements', 'Installation, câblage et réglages', 'Programmation des zones et des messages', 'Prise en main'],
