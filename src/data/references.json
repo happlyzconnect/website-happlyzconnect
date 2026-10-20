@@ -276,39 +276,9 @@
  ],
  "clients": [
   {
-   "name": "IPSA",
-   "logo": "ipsa",
-   "url": "https://www.ipsa.fr/"
-  },
-  {
-   "name": "SNIPES",
-   "logo": "snipes",
-   "url": "https://www.snipes.com/fr-fr"
-  },
-  {
-   "name": "P.O.S. The Instore Experience",
-   "logo": "pos-experience",
-   "url": null
-  },
-  {
-   "name": "Maisons de famille",
-   "logo": "maisons-de-famille",
-   "url": "https://www.maisonsdefamille.com/"
-  },
-  {
-   "name": "Polytech Nice Sophia",
-   "logo": "polytech",
-   "url": "https://polytech.univ-cotedazur.fr/"
-  },
-  {
-   "name": "NHCO Nutrition",
-   "logo": "nhco",
-   "url": "https://www.nhco-nutrition.com/"
-  },
-  {
-   "name": "CNR",
-   "logo": "cnr",
-   "url": "https://www.cnr.tm.fr/"
+   "name": "ADVEO",
+   "logo": "adveo",
+   "url": "https://www.adveo.com/"
   },
   {
    "name": "AP-HP",
@@ -316,14 +286,19 @@
    "url": "https://www.aphp.fr/"
   },
   {
-   "name": "Winter Mushroom",
-   "logo": "winter-mushroom",
-   "url": null
+   "name": "CHIESI",
+   "logo": "chiesi",
+   "url": "https://www.chiesi.fr/"
   },
   {
-   "name": "Ministère de l'Intérieur",
-   "logo": "ministere-interieur",
-   "url": "https://www.interieur.gouv.fr/"
+   "name": "CNR",
+   "logo": "cnr",
+   "url": "https://www.cnr.tm.fr/"
+  },
+  {
+   "name": "Comexposium",
+   "logo": "comexposium",
+   "url": "https://www.comexposium.com/"
   },
   {
    "name": "Decathlon",
@@ -336,39 +311,9 @@
    "url": "https://petitcasino.casino.fr/fr"
   },
   {
-   "name": "Comexposium",
-   "logo": "comexposium",
-   "url": "https://www.comexposium.com/"
-  },
-  {
-   "name": "RX",
-   "logo": "rx",
-   "url": "https://rxglobal.fr/fr"
-  },
-  {
-   "name": "MSA",
-   "logo": "msa",
-   "url": "https://www.msa.fr/lfp"
-  },
-  {
-   "name": "ADVEO",
-   "logo": "adveo",
-   "url": "https://www.adveo.com/"
-  },
-  {
-   "name": "Ministère de l'éducation nationale",
-   "logo": "ministere-de-l-education-nationale",
-   "url": "https://www.education.gouv.fr/"
-  },
-  {
-   "name": "Ministère des armées",
-   "logo": "ministere-des-armees",
-   "url": "https://www.defense.gouv.fr/"
-  },
-  {
-   "name": "CHIESI",
-   "logo": "chiesi",
-   "url": "https://www.chiesi.fr/"
+   "name": "IPSA",
+   "logo": "ipsa",
+   "url": "https://www.ipsa.fr/"
   },
   {
    "name": "LDLC Pro",
@@ -376,14 +321,69 @@
    "url": "https://www.ldlc.pro/"
   },
   {
-   "name": "SHELL",
-   "logo": "shell",
-   "url": "https://www.shell.fr/"
+   "name": "Maisons de famille",
+   "logo": "maisons-de-famille",
+   "url": "https://www.maisonsdefamille.com/"
+  },
+  {
+   "name": "Ministère de l'éducation nationale",
+   "logo": "ministere-de-l-education-nationale",
+   "url": "https://www.education.gouv.fr/"
+  },
+  {
+   "name": "Ministère de l'Intérieur",
+   "logo": "ministere-interieur",
+   "url": "https://www.interieur.gouv.fr/"
+  },
+  {
+   "name": "Ministère des armées",
+   "logo": "ministere-des-armees",
+   "url": "https://www.defense.gouv.fr/"
+  },
+  {
+   "name": "MSA",
+   "logo": "msa",
+   "url": "https://www.msa.fr/lfp"
+  },
+  {
+   "name": "NHCO Nutrition",
+   "logo": "nhco",
+   "url": "https://www.nhco-nutrition.com/"
+  },
+  {
+   "name": "P.O.S. The Instore Experience",
+   "logo": "pos-experience",
+   "url": null
   },
   {
    "name": "Parashop",
    "logo": "parashop",
    "url": "https://www.parashop.com/"
+  },
+  {
+   "name": "Polytech Nice Sophia",
+   "logo": "polytech",
+   "url": "https://polytech.univ-cotedazur.fr/"
+  },
+  {
+   "name": "RX",
+   "logo": "rx",
+   "url": "https://rxglobal.fr/fr"
+  },
+  {
+   "name": "SHELL",
+   "logo": "shell",
+   "url": "https://www.shell.fr/"
+  },
+  {
+   "name": "SNIPES",
+   "logo": "snipes",
+   "url": "https://www.snipes.com/fr-fr"
+  },
+  {
+   "name": "Winter Mushroom",
+   "logo": "winter-mushroom",
+   "url": null
   }
  ],
  "partners": [
