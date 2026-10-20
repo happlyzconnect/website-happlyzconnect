@@ -1,5 +1,6 @@
 ---
 // Projets réellement réalisés (repris de l'ancien site) — à la place de témoignages inventés.
+import RefMedia from './RefMedia.astro';
 import Photo from './Photo.astro';
 import Icon from './Icon.astro';
 import data from '../data/references.json';
@@ -19,7 +20,7 @@ const refs = ids.map((id) => data.refs.find((r) => r.id === id)).filter(Boolean)
     <div class={`grid ${refs.length >= 3 ? 'grid-3' : 'grid-2'}`}>
       {refs.map((r) => (
         <article class="card reveal">
-          <div class="card__media"><Photo name={r.image} folder="refs" alt={`Réalisation HAPPLYZ Connect — ${r.client}`} /></div>
+          <RefMedia image={r.image} client={r.client} category={r.category} />
           <div class="card__body">
             <span class="ref-client">{r.client}</span>
             <p>{r.description}</p>

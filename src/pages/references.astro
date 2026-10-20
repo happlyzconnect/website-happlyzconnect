@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import RefMedia from '../components/RefMedia.astro';
 import Photo from '../components/Photo.astro';
 import ClientLogos from '../components/ClientLogos.astro';
 import CtaBand from '../components/CtaBand.astro';
@@ -36,7 +37,7 @@ const catLabel: Record<string, string> = { 'salle-reunion': 'Salle de réunion',
       <div class="grid grid-3 refs">
         {refs.map((r) => (
           <article class="card ref" data-cat={r.category}>
-            <div class="card__media"><Photo name={r.image} folder="refs" alt={`Réalisation HAPPLYZ Connect — ${r.client}`} /></div>
+            <RefMedia image={r.image} client={r.client} category={r.category} />
             <div class="card__body">
               <span class="ref__cat">{catLabel[r.category]}</span>
               <h2 class="ref__client">{r.client}</h2>

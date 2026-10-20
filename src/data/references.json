@@ -1,6 +1,48 @@
 {
  "refs": [
   {
+   "id": 34,
+   "client": "AP-HP — Hôpitaux Lariboisière, Saint-Louis et Pitié-Salpêtrière",
+   "image": "aphp-lariboisiere",
+   "category": "salle-reunion",
+   "description": "Équipement de salles de réunion et de visioconférence (écrans interactifs de 55 à 86 pouces sur support mural ou mobile, caméras et barres de visioconférence) et installation d'écrans d'information dans les services, avec câblage réseau."
+  },
+  {
+   "id": 35,
+   "client": "CNR — Villeneuve-lès-Avignon",
+   "image": "cnr",
+   "category": "salle-reunion",
+   "description": "Salle de visioconférence : écran interactif 86 pouces avec PC intégré, système de partage sans fil ClickShare CX-30, caméra PTZ et barre audio Nureva, complétés par trois écrans supplémentaires."
+  },
+  {
+   "id": 36,
+   "client": "IPSA — Campus d'Ivry-sur-Seine",
+   "image": null,
+   "category": "salle-classe",
+   "description": "Installation de vidéoprojecteurs dans 9 salles de cours, dont 2 en double projection, et sonorisation de 2 salles, avec procès-verbaux de réception."
+  },
+  {
+   "id": 37,
+   "client": "NHCO (groupe Chiesi) — Nice",
+   "image": null,
+   "category": "salle-reunion",
+   "description": "Modernisation de la salle Matisse et d'un bureau : retrait de l'ancien système de contrôle et installation de systèmes de partage sans fil ClickShare CX-30 Gen2."
+  },
+  {
+   "id": 38,
+   "client": "Maisons de famille — Lézignan-Corbières",
+   "image": "maisons-de-famille",
+   "category": "affichage-dynamique",
+   "description": "Fourniture et installation de 53 téléviseurs 32 pouces sur supports muraux, configurés en mode hôtel dans les chambres de l'établissement."
+  },
+  {
+   "id": 39,
+   "client": "Polytech Nice Sophia — Biot",
+   "image": "polytech-nice",
+   "category": "salle-classe",
+   "description": "Installation d'un écran 98 pouces avec système de présentation sans fil ClickShare CX-20."
+  },
+  {
    "id": 33,
    "client": "IPSA — Campus de Lyon",
    "image": "ipsa-lyon",
@@ -12,7 +54,7 @@
    "client": "SNIPES — réseau de magasins",
    "image": "snipes-reseau",
    "category": "affichage-dynamique",
-   "description": "Maintenance préventive 2026 des écrans et dispositifs LED de nombreux magasins SNIPES en France (Lille, Bordeaux, Marseille, Montpellier, Rouen, Cergy, Rosny-sous-Bois…) et remplacement d'écrans 98 pouces."
+   "description": "Maintenance des écrans et dispositifs LED des 40 magasins SNIPES en France, soit l'ensemble du réseau, et remplacement d'écrans 98 pouces."
   },
   {
    "id": 24,
@@ -184,7 +226,7 @@
   },
   {
    "id": 20,
-   "client": "BTP CFA Loire Atlantique - Saint Herblain",
+   "client": "BTP CFA — Saint-Brevin",
    "image": "btp-cfa-loire-atlantique-saint-herblain",
    "description": "Installation d'un vidéoprojecteur haute résolution et d'un système audio professionnel pour offrir une expérience d'apprentissage optimale aux étudiants du secteur du BTP.",
    "category": "salle-classe"

@@ -94,7 +94,7 @@ export const solutions: Solution[] = [
     ],
     build: ['Analyse de vos besoins et de vos usages', 'Conception de la solution adaptée', 'Fourniture des équipements', 'Installation, câblage et mise en service', 'Formation de vos équipes'],
     run: ['Maintenance préventive et corrective', 'Assistance et support aux utilisateurs', 'Suivi et évolutions de vos installations', 'Interventions sur site ou à distance'],
-    refIds: [24, 25, 23],
+    refIds: [34, 35, 24],
     faq: [
       { q: 'Vos salles sont-elles compatibles avec Teams, Zoom ou Google Meet ?', a: 'Oui. Nous choisissons des équipements certifiés pour les outils que vous utilisez, et nous les configurons pour un démarrage en un clic.' },
       { q: 'Pouvez-vous équiper plusieurs sites ?', a: 'Oui. Nous standardisons l’équipement de vos salles pour que l’expérience soit identique partout, et nous intervenons dans toute la France.' },
@@ -210,7 +210,7 @@ export const solutions: Solution[] = [
     ],
     build: ['Relevé de la salle et calcul de projection', 'Choix du projecteur et de la surface', 'Installation, câblage et réglages', 'Intégration audio', 'Prise en main par les utilisateurs'],
     run: ['Maintenance préventive', 'Remplacement de pièces', 'Assistance aux utilisateurs', 'Évolution vers l’écran interactif'],
-    refIds: [33, 18, 20],
+    refIds: [33, 36, 20],
     faq: [
       { q: 'Vidéoprojecteur ou écran : que choisir ?', a: 'L’écran offre une meilleure image en salle éclairée ; le vidéoprojecteur permet une image beaucoup plus grande pour un budget maîtrisé. Nous vous conseillons selon la salle.' },
     ],
@@ -310,7 +310,7 @@ export const sectors: Sector[] = [
     run: ['Maintenance préventive et corrective', 'Assistance et support utilisateurs', 'Suivi et évolutions de vos installations', 'Interventions sur site ou à distance'],
     accompTitle: 'Un interlocuteur unique, du projet à la maintenance.',
     refCategory: 'salle-reunion',
-    refIds: [25, 24, 26],
+    refIds: [34, 35, 25],
     refTitle: 'Ils nous ont confié leurs salles de réunion.',
   },
   {
@@ -345,7 +345,7 @@ export const sectors: Sector[] = [
     run: ['Maintenance préventive et corrective', 'Assistance et support aux utilisateurs', 'Suivi et évolutions de vos installations', 'Interventions pendant et hors période scolaire'],
     accompTitle: 'Un accompagnement adapté au calendrier scolaire.',
     refCategory: 'salle-classe',
-    refIds: [33, 18, 19],
+    refIds: [33, 39, 18],
     refTitle: 'Ils nous ont confié l’équipement de leurs salles.',
   },
   {
