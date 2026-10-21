@@ -30,8 +30,10 @@ const serviceSchema = {
   '@type': 'Service',
   name: s.title,
   description: s.metaDescription,
+  serviceType: s.title,
+  url: `https://www.happlyzconnect.com/solutions/${s.slug}`,
   provider: { '@id': 'https://www.happlyzconnect.com/#organisation' },
-  areaServed: 'France',
+  areaServed: [{ '@type': 'City', name: 'Paris' }, { '@type': 'AdministrativeArea', name: 'Île-de-France' }, { '@type': 'Country', name: 'France' }],
 };
 const showsTool = s.slug === 'salles-de-reunion-visioconference' || s.slug === 'ecrans-tactiles-interactifs';
 ---

@@ -21,7 +21,16 @@ const perks = [
   { icon: 'headset', title: 'Un support réactif', text: 'Une équipe à votre écoute pour vous accompagner au quotidien.' },
 ];
 ---
-<Base ogPhoto="vitrine-decathlon"
+<Base ogPhoto="vitrine-decathlon" schema={[{
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'HAPPLYZ Signage',
+  serviceType: 'Affichage dynamique',
+  description: 'Solution d’affichage dynamique hébergée en France : logiciel de gestion des contenus, player compact, installation et support.',
+  url: 'https://www.happlyzconnect.com/happlyz-signage',
+  provider: { '@id': 'https://www.happlyzconnect.com/#organisation' },
+  areaServed: { '@type': 'Country', name: 'France' },
+}]}
   title="HAPPLYZ Signage : affichage dynamique hébergé en France"
   description="Logiciel d’affichage dynamique hébergé en France, player compact basse consommation, installation et support inclus. Pour entreprises, écoles et magasins."
   breadcrumbs={[{ label: 'HAPPLYZ Signage', href: '/happlyz-signage' }]}

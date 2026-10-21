@@ -4,6 +4,9 @@ https://www.happlyz-connect.com/*  https://www.happlyzconnect.com/:splat  301!
 http://happlyz-connect.com/*  https://www.happlyzconnect.com/:splat  301!
 http://www.happlyz-connect.com/*  https://www.happlyzconnect.com/:splat  301!
 
+# /sitemap.xml : sert l'index du sitemap généré par Astro (réécriture, code 200)
+/sitemap.xml /sitemap-index.xml 200
+
 /nos-references /references 301!
 /convertisseur-taille-ecran /outils/convertisseur-taille-ecran 301!
 /solutions/affichage-dynamique/magasins /secteurs/retail 301!

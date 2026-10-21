@@ -18,7 +18,17 @@ export function getStaticPaths() {
 const { s } = Astro.props as { s: Sector };
 const crumbs = [{ label: 'Secteurs', href: `/secteurs/${sectors[0].slug}` }, { label: s.title, href: `/secteurs/${s.slug}` }];
 ---
-<Base title={s.metaTitle} description={s.metaDescription} breadcrumbs={crumbs} ogPhoto={s.photo}>
+<Base title={s.metaTitle} description={s.metaDescription} breadcrumbs={crumbs} ogPhoto={s.photo} schema={[{
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: s.metaTitle,
+  serviceType: 'Intégration audiovisuelle',
+  description: s.metaDescription,
+  url: `https://www.happlyzconnect.com/secteurs/${s.slug}`,
+  provider: { '@id': 'https://www.happlyzconnect.com/#organisation' },
+  areaServed: [{ '@type': 'AdministrativeArea', name: 'Île-de-France' }, { '@type': 'Country', name: 'France' }],
+  audience: { '@type': 'Audience', audienceType: s.kicker },
+}]}>
   <Hero
     photo={s.photo}
     photoAlt={`Équipement audiovisuel — secteur ${s.title}`}

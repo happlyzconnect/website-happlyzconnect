@@ -1,3 +1,19 @@
+# Robots des moteurs de recherche : exploration autorisée
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Recherche ChatGPT (ChatGPT Search) : exploration autorisée
+User-agent: OAI-SearchBot
+Allow: /
+
+# Entraînement des modèles d'OpenAI : non autorisé
+User-agent: GPTBot
+Disallow: /
+
+# Tous les autres robots
 User-agent: *
 Allow: /
 
