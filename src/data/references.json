@@ -61,6 +61,26 @@
    ]
   },
   {
+   "id": 64,
+   "client": "Centre médical AMS - Maisons-Laffitte (78)",
+   "image": "centre-medical-ams-maisons-laffitte",
+   "category": "affichage-dynamique",
+   "depts": [
+    "78"
+   ],
+   "description": "Équipement complet d'un centre médical : écrans 50\" muraux à l'accueil et dans trois cabinets, raccordés aux postes de consultation, PC d'accueil et de radiologie, baie réseau avec switch et NAS."
+  },
+  {
+   "id": 65,
+   "client": "Transicio - Ecquevilly (78)",
+   "image": null,
+   "category": "salle-reunion",
+   "depts": [
+    "78"
+   ],
+   "description": "Salle de réunion : remplacement d'un écran Samsung The Frame 75\" et de son module, installation d'une barre de visioconférence Yealink A30 sous l'écran."
+  },
+  {
    "id": 63,
    "client": "Préfecture de Police - Laboratoire central (75)",
    "image": "prefecture-police-lcpp",

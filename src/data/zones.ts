@@ -89,19 +89,17 @@ export const zones: Zone[] = [
       'Intégrateur audiovisuel basé à Chatou (78) : salles de réunion, visioconférence, écrans interactifs, affichage dynamique et maintenance dans les Yvelines.',
     lead: 'Notre siège est à Chatou : pour les entreprises, collectivités et établissements scolaires des Yvelines, nous sommes l’intégrateur audiovisuel de proximité.',
     depts: ['78'],
-    refDepts: ['78', '92', '95'],
-    refTitle: 'Nos réalisations dans l’Ouest parisien.',
     image: { name: 'salle-reunion-vitree', folder: 'photos', alt: 'Salle de réunion vitrée équipée d’un écran de visioconférence' },
     intro: [
       'HAPPLYZ Connect est installée à Chatou, dans la boucle de la Seine. Les entreprises et établissements des Yvelines bénéficient donc d’un interlocuteur tout proche : visite technique rapide, installation par notre équipe et maintenance de proximité.',
-      'Nous équipons les salles de réunion des PME et des sièges régionaux, les établissements scolaires et les espaces d’accueil, comme le magasin Decathlon de Vélizy. Pour les sites de l’Ouest parisien, la proximité facilite aussi les petites interventions : ajout d’un écran, déplacement d’une salle, remplacement d’un équipement.',
+      'Dans le département, nous avons notamment équipé un centre médical à Maisons-Laffitte (écrans muraux à l’accueil et dans les cabinets, informatique et réseau), la salle de réunion de Transicio à Ecquevilly (écran 75 pouces et barre de visioconférence) et les écrans de l’atelier cycle du magasin Decathlon de Vélizy. Pour les sites de l’Ouest parisien, la proximité facilite aussi les petites interventions : ajout d’un écran, déplacement d’une salle, remplacement d’un équipement.',
     ],
     points: [
       { icon: 'map', title: 'Siège à Chatou', text: 'Une équipe sur place pour les visites techniques, les installations et les dépannages dans tout le département.' },
       { icon: 'users', title: 'PME et collectivités', text: 'Des projets à taille humaine : une salle de réunion, un écran d’accueil, l’équipement d’une école.' },
       { icon: 'headset', title: 'Suivi dans la durée', text: 'Maintenance préventive et assistance, avec un interlocuteur qui connaît vos installations.' },
     ],
-    cities: ['Chatou', 'Le Vésinet', 'Croissy-sur-Seine', 'Saint-Germain-en-Laye', 'Le Pecq', 'Versailles', 'Vélizy-Villacoublay', 'Saint-Quentin-en-Yvelines', 'Poissy', 'Sartrouville', 'Houilles', 'Mantes-la-Jolie'],
+    cities: ['Chatou', 'Le Vésinet', 'Croissy-sur-Seine', 'Maisons-Laffitte', 'Saint-Germain-en-Laye', 'Le Pecq', 'Ecquevilly', 'Versailles', 'Vélizy-Villacoublay', 'Saint-Quentin-en-Yvelines', 'Poissy', 'Sartrouville', 'Houilles', 'Mantes-la-Jolie'],
     faq: [
       { q: 'Où êtes-vous situés ?', a: 'Notre siège est au 5 rue Charles Despeaux à Chatou. Nous intervenons dans tout le département des Yvelines et dans l’ensemble de l’Île-de-France.' },
       { q: 'Faites-vous des petites interventions ?', a: 'Oui : installation d’un écran, d’une barre de visioconférence, remplacement d’un vidéoprojecteur. Aucun projet n’est trop petit pour être bien fait.' },

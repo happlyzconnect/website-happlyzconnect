@@ -1,3 +1,9 @@
+# Ancien domaine avec tiret -> domaine principal (redirection permanente)
+https://happlyz-connect.com/*  https://www.happlyzconnect.com/:splat  301!
+https://www.happlyz-connect.com/*  https://www.happlyzconnect.com/:splat  301!
+http://happlyz-connect.com/*  https://www.happlyzconnect.com/:splat  301!
+http://www.happlyz-connect.com/*  https://www.happlyzconnect.com/:splat  301!
+
 /nos-references /references 301!
 /convertisseur-taille-ecran /outils/convertisseur-taille-ecran 301!
 /solutions/affichage-dynamique/magasins /secteurs/retail 301!
